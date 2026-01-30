@@ -1,65 +1,563 @@
-import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import {
+  FileText,
+  Check,
+  X,
+  ArrowRight,
+  Code2,
+  Camera,
+  Store,
+  UploadIcon,
+  BrainCogIcon,
+  CombineIcon,
+  FileCode2Icon,
+  ServerOffIcon,
+  ActivityIcon,
+} from "lucide-react";
+import { DataPreview } from "@/components/data-preview";
+import { Faqs } from "@/components/faqs";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-background font-mono">
+      {/* Navigation */}
+      <nav className="border-b border-border">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-3">
+              <FileText className="h-4 w-4" />
+              <span className="text-sm tracking-tight">FISCALIO</span>
+            </div>
+            <div className="hidden md:flex items-center gap-12 text-xs tracking-wider text-muted-foreground">
+              <a href="#proceso" className="hover:text-foreground">
+                [01] PROCESO
+              </a>
+              <a href="#ventajas" className="hover:text-foreground">
+                [02] VENTAJAS
+              </a>
+              <a href="#comparacion" className="hover:text-foreground">
+                [03] COMPARAR
+              </a>
+              <a href="#faq" className="hover:text-foreground">
+                [04] FAQ
+              </a>
+            </div>
+            <Button size="sm" className="text-xs tracking-wider h-8">
+              COMPRAR — $599
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="border-b border-border">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[85vh]">
+            {/* Left Column */}
+            <div className="lg:col-span-7 flex flex-col justify-center py-20 lg:py-32 lg:pr-20 border-r border-border">
+              <div className="space-y-12">
+                <div className="space-y-6">
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 uppercase"
+                  >
+                    50 accesos con precio fundador
+                  </Badge>
+
+                  <h1 className="text-3xl md:text-4xl lg:text-6xl font-normal tracking-tight leading-[1.15]">
+                    Fiscalio
+                    <br />
+                    <span className="text-muted-foreground">
+                      Control fiscal para RESICO
+                    </span>
+                  </h1>
+                </div>
+
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-md tracking-wide">
+                  Clasifica tus CFDI automáticamente y mantén tu información
+                  fiscal ordenada, sin hojas de cálculo, sin copiar números a
+                  mano y sin subir tus datos a la nube.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    size="lg"
+                    className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
+                  >
+                    Reservar descuento fundador
+                    <ArrowRight className="h-3.5 w-3.5 ml-3" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-xs tracking-[0.15em] h-12 px-8 rounded-none bg-transparent uppercase"
+                  >
+                    Ver demo
+                  </Button>
+                </div>
+                <p className="text-xs uppercase text-muted-foreground">
+                  Lanzamiento Q2 2026. Te unes gratis. Pagas solo si decides
+                  comprar.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column - Data Preview */}
+            <DataPreview />
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Pain Section */}
+      <section className="bg-foreground text-background">
+        <div className="container mx-auto px-6 lg:px-12 py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+            <div className="lg:col-span-4">
+              <span className="text-[10px] tracking-[0.3em] text-background/50">
+                [00] CONTEXTO
+              </span>
+              <h2 className="text-2xl lg:text-3xl font-normal tracking-tight mt-6 leading-tight">
+                No lo has resuelto porque no podías hacerlo solo
+              </h2>
+            </div>
+            <div className="lg:col-span-8 space-y-8">
+              <p className="text-sm text-background/70 leading-relaxed tracking-wide">
+                Has intentado organizarte. Creaste carpetas. Descargaste XMLs.
+                Prometiste{" "}
+                <span className="mx-2 px-2 py-0.5 bg-background/10 text-background">
+                  "este mes sí lo organizo."
+                </span>{" "}
+                Pero llega la declaración y ahí estás: abriendo 47 PDFs a las
+                11pm, copiando números a mano.
+              </p>
+              <h3 className="text-sm leading-relaxed tracking-wide">
+                <strong className="px-2 py-0.5 bg-background/10 text-background font-normal">
+                  El problema no es el esfuerzo. Es la falta de un sistema.
+                </strong>{" "}
+              </h3>
+              <p className="text-sm text-background/70 leading-relaxed tracking-wide">
+                Necesitas un sistema externo que clasifique por ti. Algo que vea
+                "Gasolina" y sepa automáticamente que es un gasto con IVA
+                acreditable. Sin ese sistema, seguirás haciendo lo mismo:
+                posponer hasta que ya no puedas.
+              </p>
+              <Separator className="bg-background/20" />
+              <p className="text-lg font-normal tracking-tight text-background">
+                Y todavía no sabes si ese gasto de marzo te baja el IVA o no.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="proceso" className="border-b border-border">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Section Header */}
+          <div className="py-16 lg:py-20 border-b border-border">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+                  [01] PROCESO
+                </span>
+              </div>
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                  El Motor de Clasificación Automática
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          {/* Steps */}
+          {[
+            {
+              num: "01",
+              title: "Arrastras tus facturas",
+              description:
+                "El motor lee RFC, conceptos, montos. Todo parseado en segundos.",
+              icon: UploadIcon,
+            },
+            {
+              num: "02",
+              title: "Clasificador predictivo",
+              description:
+                "Compara contra patrones de cuentas de ingresos o egresos. 'Internet' → Gastos operativos. Sugiere la cuenta contable correcta.",
+              icon: CombineIcon,
+            },
+            {
+              num: "03",
+              title: "Memoria Adaptativa",
+              description:
+                "Con el uso continuo, el sistema reducirá drásticamente las correcciones manuales.",
+              icon: BrainCogIcon,
+            },
+          ].map((step) => (
+            <div
+              key={step.num}
+              className="py-12 lg:py-16 border-b border-border last:border-b-0"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="lg:col-span-1">
+                  <span className="text-3xl lg:text-4xl text-muted-foreground/30">
+                    {step.num}
+                  </span>
+                </div>
+                <div className="lg:col-span-3">
+                  <div className="p-3 border border-border w-fit">
+                    <step.icon className="h-5 w-5" />
+                  </div>
+                </div>
+                <div className="lg:col-span-4">
+                  <h3 className="text-lg font-normal tracking-tight">
+                    {step.title}
+                  </h3>
+                </div>
+                <div className="lg:col-span-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section id="ventajas" className="border-b border-border">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Section Header */}
+          <div className="py-16 lg:py-20 border-b border-border">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+                  [02] VENTAJAS
+                </span>
+              </div>
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                  Por qué funciona en {new Date().getFullYear()}
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            {[
+              {
+                icon: FileCode2Icon,
+                title: "El SAT estandarizó XMLs en 2022",
+                stat: "$0/mes",
+                description:
+                  "Todos los CFDIs usan el mismo formato. Eso hace posible la clasificación automática. No funcionaba antes. Funciona ahora.",
+              },
+              {
+                icon: ActivityIcon,
+                title: "Patrones específicos",
+                stat: "RESICO",
+                description:
+                  "El sistema se adapta a tu uso. Eventualmente sabrá que 'Google Ads' es publicidad, o que 'Telmex' es servicios de Internet",
+              },
+              {
+                icon: ServerOffIcon,
+                title: "Local-Only",
+                stat: "0 servidores",
+                description:
+                  "Tus datos nunca saldrán de tu computadora. Cero posibilidad de auditoría por 'subir XMLs a servidor X'. Cumples sin exponer información.",
+              },
+            ].map((benefit, index) => (
+              <div
+                key={benefit.title}
+                className={`py-12 lg:py-20 ${index < 2 ? "lg:border-r border-border" : ""} ${index > 0 ? "lg:pl-12" : ""} ${index < 2 ? "lg:pr-12" : ""}`}
+              >
+                <div className="space-y-8">
+                  <div className="flex items-start justify-between">
+                    <div className="p-3 border border-border">
+                      <benefit.icon className="h-5 w-5" />
+                    </div>
+                    <span className="text-2xl lg:text-3xl text-muted-foreground/50">
+                      {benefit.stat}
+                    </span>
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-normal tracking-tight">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section id="comparacion" className="border-b border-border">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Section Header */}
+          <div className="py-16 lg:py-20 border-b border-border">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+                  [03] COMPARACIÓN
+                </span>
+              </div>
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                  Apps en la nube vs. Fiscalio
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          {/* Comparison Table Header */}
+          <div className="grid grid-cols-12 gap-4 py-6 border-b border-border text-[10px] tracking-[0.2em] text-muted-foreground">
+            <div className="col-span-4">CONCEPTO</div>
+            <div className="col-span-4">APPS_NUBE</div>
+            <div className="col-span-4">FISCALIO</div>
+          </div>
+
+          {/* Comparison Rows */}
+          {[
+            {
+              label: "Costo mensual",
+              cloud: "$300-800 MXN",
+              local: "$0",
+              highlight: true,
+            },
+            {
+              label: "Costo anual",
+              cloud: "$3,600-9,600 MXN",
+              local: "$0",
+              highlight: true,
+            },
+            {
+              label: "Costo a 3 años",
+              cloud: "$10,800-28,800 MXN",
+              local: "$599 MXN",
+              highlight: true,
+            },
+            {
+              label: "Ubicación de datos",
+              cloud: "Servidores externos",
+              local: "Tu computadora",
+            },
+            {
+              label: "Funciona sin internet",
+              cloud: "NO",
+              local: "SÍ",
+              isBoolean: true,
+            },
+            { label: "El precio aumenta", cloud: "Cada año", local: "Nunca" },
+            { label: "Dueño del software", cloud: "La empresa", local: "Tú" },
+            { label: "Código fuente", cloud: "Oculto", local: "Incluido" },
+          ].map((row) => (
+            <div
+              key={row.label}
+              className="grid grid-cols-12 gap-4 py-6 border-b border-border items-center text-sm"
+            >
+              <div className="col-span-4 text-muted-foreground">
+                {row.label}
+              </div>
+              <div className="col-span-4">
+                {row.isBoolean ? (
+                  <X className="h-4 w-4 text-muted-foreground/50" />
+                ) : (
+                  <span className="text-muted-foreground">{row.cloud}</span>
+                )}
+              </div>
+              <div className="col-span-4">
+                {row.isBoolean ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <span className={row.highlight ? "text-foreground" : ""}>
+                    {row.local}
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+
+          {/* Summary */}
+          <div className="py-12 lg:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+                  AHORRO_ESTIMADO
+                </span>
+              </div>
+              <div className="lg:col-span-8">
+                <div className="text-3xl lg:text-4xl tracking-tight">
+                  $10,000+ MXN
+                  <span className="text-muted-foreground ml-4 text-lg">
+                    en 3 años
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* User Profiles */}
+      <section className="bg-foreground text-background">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Section Header */}
+          <div className="py-16 lg:py-20 border-b border-background/20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] tracking-[0.3em] text-background/50">
+                  USUARIOS
+                </span>
+              </div>
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                  Quién usa Fiscalio
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          {/* Profiles */}
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            {[
+              {
+                icon: Code2,
+                title: "Freelancer/Developer",
+                subtitle:
+                  "Freelancer con pocos ingresos, pero cero margen de error",
+                description:
+                  "Emites 5-20 facturas al mes. Necesitas orden para declaraciones mensuales pero no quieres pagar por funciones empresariales.",
+              },
+              {
+                icon: Camera,
+                title: "Diseñador/Consultor Creativo",
+                subtitle: "Gastos mezclados entre trabajo y uso personal",
+                description:
+                  "Ingresos variables por plataformas. Mezclas gastos personales y de negocio. Necesitas clasificar rápido para tus declaraciones.",
+              },
+              {
+                icon: Store,
+                title: "Negocio familiar en RESICO",
+                subtitle: "Muchos proveedores, poco control",
+                description:
+                  "Muchas facturas de proveedores. Poca experiencia con software contable. Necesitas algo simple que funcione.",
+              },
+            ].map((persona, index) => (
+              <div
+                key={persona.title}
+                className={`py-12 lg:py-20 ${index < 2 ? "lg:border-r border-background/20" : ""} ${index > 0 ? "lg:pl-12" : ""} ${index < 2 ? "lg:pr-12" : ""}`}
+              >
+                <div className="space-y-8">
+                  <div className="p-3 border border-background/20 w-fit">
+                    <persona.icon className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-normal tracking-tight">
+                      {persona.title}
+                    </h3>
+                    <p className="text-[10px] tracking-[0.2em] text-background/50">
+                      {persona.subtitle.toUpperCase()}
+                    </p>
+                  </div>
+                  <p className="text-sm text-background/70 leading-relaxed tracking-wide">
+                    {persona.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="border-b border-border">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Section Header */}
+          <div className="py-16 lg:py-20 border-b border-border">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+                  [04] FAQ
+                </span>
+              </div>
+              <div className="lg:col-span-8">
+                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                  Preguntas frecuentes
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <Faqs />
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 lg:py-40">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end">
+            <div className="lg:col-span-8 space-y-8">
+              <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+                CONCLUSIÓN
+              </span>
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-normal tracking-tight leading-tight">
+                Asegura tu lugar como{" "}
+                <span className="text-muted-foreground">usuario fundador</span>
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed tracking-wide max-w-lg">
+                Fiscalio lanza en Q2 2026. Los primeros 50 usuarios tendrán
+                acceso anticipado y precio fundador de $419. Después del
+                lanzamiento, el precio será $599. Unirte a la lista es gratis.
+                Solo pagas si decides comprar cuando el producto esté listo.
+              </p>
+            </div>
+            <div className="lg:col-span-4 space-y-6">
+              <Button
+                size="lg"
+                className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase"
+              >
+                Reservar mi descuento fundador
+                <ArrowRight className="h-3.5 w-3.5 ml-3" />
+              </Button>
+              <p className="text-[10px] text-muted-foreground tracking-wide text-center">
+                Sin pago ahora. Sin compromisos. Recibes la guía RESICO gratuita
+                al unirte.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border">
+        <div className="container mx-auto px-6 lg:px-12 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-4">
+              <div className="flex items-center gap-3">
+                <FileText className="h-4 w-4" />
+                <span className="text-[10px] tracking-tight">FISCALIO</span>
+                <span className="text-[10px] tracking-tight text-muted-foreground">
+                  © {new Date().getFullYear()} TODOS LOS DERECHOS RESERVADOS
+                </span>
+              </div>
+            </div>
+            <div className="lg:col-span-8 text-right">
+              <span className="text-[10px] tracking-tight text-muted-foreground uppercase">
+                Fiscalio no sustituye a un contador. Te ayuda a tener tu
+                información fiscal en orden.
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
