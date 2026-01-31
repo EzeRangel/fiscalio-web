@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fiscalio",
+  title: "Fiscalio | Tu asistente fiscal inteligente",
   description: "Tu asistente fiscal inteligente",
 };
 

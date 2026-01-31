@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { DataPreview } from "@/components/data-preview";
 import { Faqs } from "@/components/faqs";
+import Image from "next/image";
 
 export default function LandingPage() {
   return (
@@ -27,7 +28,12 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <FileText className="h-4 w-4" />
+              <Image
+                src="/logo.png"
+                width={20}
+                height={20}
+                alt="Logotipo de Fiscalio"
+              />
               <span className="text-sm tracking-tight">FISCALIO</span>
             </div>
             <div className="hidden md:flex items-center gap-12 text-xs tracking-wider text-muted-foreground">
@@ -542,7 +548,12 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3">
-                <FileText className="h-4 w-4" />
+                <Image
+                  src="/logo.png"
+                  width={16}
+                  height={16}
+                  alt="Logotipo de Fiscalio"
+                />
                 <span className="text-[10px] tracking-tight">FISCALIO</span>
                 <span className="text-[10px] tracking-tight text-muted-foreground">
                   © {new Date().getFullYear()} TODOS LOS DERECHOS RESERVADOS
