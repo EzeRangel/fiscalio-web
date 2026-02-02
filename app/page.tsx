@@ -19,10 +19,17 @@ import {
 import { DataPreview } from "@/components/data-preview";
 import { Faqs } from "@/components/faqs";
 import Image from "next/image";
+import { WaitlistDialog } from "@/components/waitlist-dialog";
+import Link from "next/link";
+import { Suspense } from "react";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background font-mono">
+      <Suspense>
+        <WaitlistDialog />
+      </Suspense>
+
       {/* Navigation */}
       <nav className="border-b border-border">
         <div className="container mx-auto px-6 lg:px-12">
@@ -50,9 +57,11 @@ export default function LandingPage() {
                 [04] FAQ
               </a>
             </div>
-            <Button size="sm" className="text-xs tracking-wider h-8">
-              COMPRAR — $599
-            </Button>
+            <Link href="?dialog=open">
+              <Button size="sm" className="text-xs tracking-wider h-8">
+                RESERVAR
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -88,13 +97,15 @@ export default function LandingPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
-                  >
-                    Reservar descuento fundador
-                    <ArrowRight className="h-3.5 w-3.5 ml-3" />
-                  </Button>
+                  <Link href="?dialog=open">
+                    <Button
+                      size="lg"
+                      className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
+                    >
+                      Reservar descuento fundador
+                      <ArrowRight className="h-3.5 w-3.5 ml-3" />
+                    </Button>
+                  </Link>
                   <Button
                     variant="outline"
                     size="lg"
@@ -526,13 +537,15 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="lg:col-span-4 space-y-6">
-              <Button
-                size="lg"
-                className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase"
-              >
-                Reservar mi descuento fundador
-                <ArrowRight className="h-3.5 w-3.5 ml-3" />
-              </Button>
+              <Link href="?dialog=open" scroll={false}>
+                <Button
+                  size="lg"
+                  className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase"
+                >
+                  Reservar mi descuento fundador
+                  <ArrowRight className="h-3.5 w-3.5 ml-3" />
+                </Button>
+              </Link>
               <p className="text-[10px] text-muted-foreground tracking-wide text-center">
                 Sin pago ahora. Sin compromisos. Recibes la guía RESICO gratuita
                 al unirte.
@@ -541,34 +554,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border">
-        <div className="container mx-auto px-6 lg:px-12 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-4">
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/logo.png"
-                  width={16}
-                  height={16}
-                  alt="Logotipo de Fiscalio"
-                />
-                <span className="text-[10px] tracking-tight">FISCALIO</span>
-                <span className="text-[10px] tracking-tight text-muted-foreground">
-                  © {new Date().getFullYear()} TODOS LOS DERECHOS RESERVADOS
-                </span>
-              </div>
-            </div>
-            <div className="lg:col-span-8 text-right">
-              <span className="text-[10px] tracking-tight text-muted-foreground uppercase">
-                Fiscalio no sustituye a un contador. Te ayuda a tener tu
-                información fiscal en orden.
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
