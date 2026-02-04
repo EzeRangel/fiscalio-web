@@ -1,8 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { FormEventHandler, useState, useTransition } from "react";
 import { ArrowRightIcon } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  redirect,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import {
   Dialog,
   DialogContent,
@@ -12,28 +17,35 @@ import {
 } from "./ui/dialog";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { signupWaitlist } from "@/actions/signupWaitlist";
 
 export function WaitlistDialog() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const query = searchParams.get("dialog");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    const form = e.currentTarget;
+    const formElements = form.elements as typeof form.elements & {
+      email: { value: string };
+    };
 
-    // Store email in localStorage for thank you page
-    localStorage.setItem("waitlist_email", email);
+    startTransition(async () => {
+      const response = await signupWaitlist({
+        email: formElements.email.value,
+      });
 
-    // Redirect to thank you page
-    router.push("/signup/thank-you");
+      if (response?.error || !response.record) {
+        console.log(response);
+      } else {
+        redirect(`/signup/thank-you?id=${response.record}`);
+      }
+    });
   };
 
   const open = !!query && query === "open";
@@ -72,11 +84,10 @@ export function WaitlistDialog() {
               EMAIL_ADDRESS
             </label>
             <Input
+              name="email"
               id="email"
               type="email"
               placeholder="tu@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               required
               className="h-12 rounded-none border-2 font-mono text-sm"
             />
@@ -84,10 +95,10 @@ export function WaitlistDialog() {
           <Button
             type="submit"
             className="w-full h-12 text-xs tracking-[0.15em] rounded-none font-mono uppercase"
-            disabled={isSubmitting}
+            disabled={isPending}
           >
-            {isSubmitting ? "Procesando..." : "Unirme a la lista"}
-            {!isSubmitting && <ArrowRightIcon className="h-3.5 w-3.5 ml-3" />}
+            {isPending ? "Procesando..." : "Unirme a la lista"}
+            {!isPending && <ArrowRightIcon className="h-3.5 w-3.5 ml-3" />}
           </Button>
           <p className="text-[10px] text-muted-foreground text-center tracking-wide font-mono">
             Recibirás un email de confirmación y acceso a la guía RESICO
