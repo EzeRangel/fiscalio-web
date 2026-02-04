@@ -18,6 +18,7 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { signupWaitlist } from "@/actions/signupWaitlist";
+import { toast } from "sonner";
 
 export function WaitlistDialog() {
   const router = useRouter();
@@ -41,7 +42,13 @@ export function WaitlistDialog() {
       });
 
       if (response?.error || !response.record) {
-        console.log(response);
+        const errorMessage =
+          response.error ??
+          "El servicio de la waitlist no pudo guardar tu email.";
+
+        toast.error("Ocurrió un error", {
+          description: errorMessage,
+        });
       } else {
         redirect(`/signup/thank-you?id=${response.record}`);
       }
