@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Updated theme with editorial aesthetic - warm neutrals and refined typography */
+/* Updated theme with editorial aesthetic - warm neutrals with refined accent colors */
 :root {
   --background: oklch(0.985 0.005 85);
   --foreground: oklch(0.15 0.01 75);
@@ -24,6 +24,12 @@
   --border: oklch(0.9 0.008 85);
   --input: oklch(0.9 0.008 85);
   --ring: oklch(0.6 0.02 75);
+
+  /* Accent colors for visual punch */
+  --accent-amber: oklch(0.65 0.15 65);
+  --accent-amber-muted: oklch(0.88 0.08 65);
+  --accent-rust: oklch(0.55 0.12 35);
+
   --chart-1: oklch(0.55 0.18 145);
   --chart-2: oklch(0.6 0.2 220);
   --chart-3: oklch(0.65 0.16 270);
@@ -78,8 +84,12 @@
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-display: var(--font-display), "DM Sans", system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-amber-muted: var(--accent-amber-muted);
+  --color-accent-rust: var(--accent-rust);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);

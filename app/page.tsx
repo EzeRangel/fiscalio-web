@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
-  FileText,
   Check,
   X,
   ArrowRight,
@@ -72,28 +71,27 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[85vh]">
             {/* Left Column */}
             <div className="lg:col-span-7 flex flex-col justify-center py-20 lg:py-32 lg:pr-20 border-r border-border">
-              <div className="space-y-12">
+              <div className="space-y-10">
                 <div className="space-y-6">
                   <Badge
                     variant="outline"
-                    className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 uppercase"
+                    className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 border-accent-amber/30 text-accent-rust uppercase"
                   >
                     50 accesos con precio fundador
                   </Badge>
-
-                  <h1 className="text-3xl md:text-4xl lg:text-6xl font-normal tracking-tight leading-[1.15]">
-                    Fiscalio
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium tracking-tight leading-[1.15]">
+                    Organiza tus facturas
                     <br />
                     <span className="text-muted-foreground">
-                      Control fiscal para RESICO
+                      sin pagar mensualidades
                     </span>
                   </h1>
                 </div>
 
                 <p className="text-sm text-muted-foreground leading-relaxed max-w-md tracking-wide">
                   Clasifica tus CFDI automáticamente y mantén tu información
-                  fiscal ordenada, sin hojas de cálculo, sin copiar números a
-                  mano y sin subir tus datos a la nube.
+                  fiscal en RESICO ordenada, sin hojas de cálculo, sin copiar
+                  números a mano y sin subir tus datos a la nube.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -135,7 +133,7 @@ export default function LandingPage() {
               <span className="text-[10px] tracking-[0.3em] text-background/50">
                 [00] CONTEXTO
               </span>
-              <h2 className="text-2xl lg:text-3xl font-normal tracking-tight mt-6 leading-tight">
+              <h2 className="font-display text-2xl lg:text-3xl font-medium tracking-tight mt-6 leading-tight">
                 No lo has resuelto porque no podías hacerlo solo
               </h2>
             </div>
@@ -181,7 +179,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                <h2 className="font-display font-medium text-2xl lg:text-3xl tracking-tight">
                   El Motor de Clasificación Automática
                 </h2>
               </div>
@@ -228,7 +226,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-4">
-                  <h3 className="text-lg font-normal tracking-tight">
+                  <h3 className="text-lg tracking-tight font-display font-medium">
                     {step.title}
                   </h3>
                 </div>
@@ -255,7 +253,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                <h2 className="text-2xl lg:text-3xl font-medium tracking-tight font-display">
                   Por qué funciona en {new Date().getFullYear()}
                 </h2>
               </div>
@@ -268,7 +266,7 @@ export default function LandingPage() {
               {
                 icon: FileCode2Icon,
                 title: "El SAT estandarizó XMLs en 2022",
-                stat: "$0/mes",
+                stat: "XML",
                 description:
                   "Todos los CFDIs usan el mismo formato. Eso hace posible la clasificación automática. No funcionaba antes. Funciona ahora.",
               },
@@ -301,7 +299,7 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-lg font-normal tracking-tight">
+                    <h3 className="text-lg font-medium tracking-tight font-display">
                       {benefit.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
@@ -327,7 +325,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                <h2 className="text-2xl lg:text-3xl font-medium tracking-tight font-display">
                   Apps en la nube vs. Fiscalio
                 </h2>
               </div>
@@ -394,7 +392,11 @@ export default function LandingPage() {
                 {row.isBoolean ? (
                   <Check className="h-4 w-4" />
                 ) : (
-                  <span className={row.highlight ? "text-foreground" : ""}>
+                  <span
+                    className={
+                      row.highlight ? "text-accent-rust font-medium" : ""
+                    }
+                  >
                     {row.local}
                   </span>
                 )}
@@ -411,7 +413,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="lg:col-span-8">
-                <div className="text-3xl lg:text-4xl tracking-tight">
+                <div className="text-3xl lg:text-4xl tracking-tight font-display text-accent-rust font-semibold">
                   $10,000+ MXN
                   <span className="text-muted-foreground ml-4 text-lg">
                     en 3 años
@@ -435,7 +437,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                <h2 className="text-2xl lg:text-3xl font-medium tracking-tight font-display">
                   Quién usa Fiscalio
                 </h2>
               </div>
@@ -477,7 +479,7 @@ export default function LandingPage() {
                     <persona.icon className="h-5 w-5" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-lg font-normal tracking-tight">
+                    <h3 className="text-lg font-medium font-display tracking-tight">
                       {persona.title}
                     </h3>
                     <p className="text-[10px] tracking-[0.2em] text-background/50">
@@ -506,7 +508,7 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-2xl lg:text-3xl font-normal tracking-tight">
+                <h2 className="text-2xl lg:text-3xl font-medium font-display tracking-tight">
                   Preguntas frecuentes
                 </h2>
               </div>
@@ -525,15 +527,20 @@ export default function LandingPage() {
               <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
                 CONCLUSIÓN
               </span>
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-normal tracking-tight leading-tight">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-medium font-display tracking-tight leading-tight">
                 Asegura tu lugar como{" "}
-                <span className="text-muted-foreground">usuario fundador</span>
+                <span className="text-muted-foreground block">
+                  usuario fundador
+                </span>
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed tracking-wide max-w-lg">
                 Fiscalio lanza en Q2 2026. Los primeros 50 usuarios tendrán
-                acceso anticipado y precio fundador de $419. Después del
-                lanzamiento, el precio será $599. Unirte a la lista es gratis.
-                Solo pagas si decides comprar cuando el producto esté listo.
+                acceso anticipado y precio fundador de{" "}
+                <span className="text-accent-rust font-medium">$419 MXN</span>.
+                Después del lanzamiento, el precio será{" "}
+                <span className="text-accent-rust font-medium">$599 MXN</span>.
+                Unirte a la lista es gratis. Solo pagas si decides comprar
+                cuando el producto esté listo.
               </p>
             </div>
             <div className="lg:col-span-4 space-y-6">

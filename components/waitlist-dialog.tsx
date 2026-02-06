@@ -74,12 +74,13 @@ export function WaitlistDialog() {
     >
       <DialogContent className="sm:max-w-md rounded-none border-2">
         <DialogHeader className="space-y-4">
-          <DialogTitle className="text-2xl font-normal tracking-tight font-mono">
+          <DialogTitle className="text-2xl font-medium tracking-tight font-display">
             Únete a la lista de espera
           </DialogTitle>
-          <DialogDescription className="text-sm text-muted-foreground leading-relaxed tracking-wide font-mono">
+          <DialogDescription className="text-sm text-muted-foreground leading-relaxed tracking-wide font-display">
             Regístrate para recibir acceso anticipado a Fiscalio y asegurar el
-            precio fundador disponible para los primeros 50 usuarios.
+            precio fundador disponible para los primeros{" "}
+            <span className="text-accent-rust">50 usuarios</span>.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-6 pt-4">

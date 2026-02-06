@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "¿Qué recibo al unirme?",
     answer:
-      "Guía PDF 'Deducciones RESICO que el SAT no te cuenta'. Updates cada 2 semanas con progreso real. Link prioritario de compra 2 semanas antes del lanzamiento",
+      "Una 'Guía práctica para RESICO 2026' en PDF. Updates cada 2 semanas con progreso real. Link prioritario de compra 2 semanas antes del lanzamiento",
   },
   {
     question: "¿Cuándo lanza exactamente?",
@@ -59,7 +59,7 @@ export function Faqs() {
                 </span>
               </div>
               <div className="col-span-10">
-                <span className="text-sm">{faq.question}</span>
+                <span className="text-sm font-medium">{faq.question}</span>
                 {openFaq === index && (
                   <p className="text-sm text-muted-foreground leading-relaxed tracking-wide mt-6 pr-8">
                     {faq.answer}

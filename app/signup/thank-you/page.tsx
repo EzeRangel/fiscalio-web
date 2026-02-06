@@ -68,19 +68,19 @@ export default function ThankYouPage() {
           <div className="max-w-3xl mx-auto">
             {/* Success Message */}
             <div className="text-center space-y-8 pb-16">
-              <div className="inline-flex items-center justify-center w-16 h-16 border-2 border-foreground">
+              <div className="inline-flex items-center justify-center w-16 h-16 border-2 border-accent-rust text-accent-rust">
                 <Check className="h-8 w-8" />
               </div>
 
               <div className="space-y-4">
                 <Badge
                   variant="outline"
-                  className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1"
+                  className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 text-accent-rust border-accent-amber-muted"
                 >
                   CONFIRMACIÓN_RECIBIDA
                 </Badge>
 
-                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-normal tracking-tight leading-tight">
+                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium font-display tracking-tight leading-tight">
                   Listo. Ya tienes tu acceso fundador reservado.
                 </h1>
 
@@ -101,7 +101,7 @@ export default function ThankYouPage() {
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
                   [01] PRÓXIMOS_PASOS
                 </span>
-                <h2 className="text-2xl font-normal tracking-tight">
+                <h2 className="text-2xl font-medium font-display tracking-tight">
                   Qué sigue ahora
                 </h2>
               </div>
@@ -137,7 +137,7 @@ export default function ThankYouPage() {
                       </span>
                     </div>
                     <div className="col-span-10 space-y-2">
-                      <h3 className="text-base font-normal tracking-tight">
+                      <h3 className="text-base font-medium font-display tracking-tight">
                         {step.title}
                       </h3>
                       <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
@@ -157,24 +157,26 @@ export default function ThankYouPage() {
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
                   [02] DESCARGA_GRATUITA
                 </span>
-                <h2 className="text-2xl font-normal tracking-tight">
-                  Guía práctica para RESICO
+                <h2 className="text-2xl font-medium font-display tracking-tight">
+                  Guía práctica para RESICO 2026
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
                   Mientras esperas el lanzamiento, descarga nuestra guía
                   gratuita sobre el régimen RESICO. Está pensada para{" "}
-                  <strong>personas físicas y pequeños negocios</strong> que
-                  quieren cumplir sin complicarse.
+                  <strong className="text-accent-rust">
+                    personas físicas y pequeños negocios
+                  </strong>{" "}
+                  que quieren cumplir sin complicarse.
                 </p>
               </div>
 
-              <div className="bg-muted/30 border-2 border-border p-8 lg:p-12 space-y-8">
+              <div className="bg-muted/30 border-2 border-accent-amber/20 p-8 lg:p-12 space-y-8">
                 <div className="flex items-start gap-6">
-                  <div className="p-4 border-2 border-border bg-background">
-                    <FileText className="h-8 w-8" />
+                  <div className="p-4 border-2 border-accent-amber/20 bg-background">
+                    <FileText className="h-8 w-8 text-accent-rust" />
                   </div>
                   <div className="space-y-2 flex-1">
-                    <h3 className="text-lg font-normal tracking-tight">
+                    <h3 className="text-lg font-display font-medium tracking-tight">
                       Guía RESICO 2026
                     </h3>
                     <p className="text-xs text-muted-foreground tracking-wide">
@@ -183,9 +185,9 @@ export default function ThankYouPage() {
                     <div className="pt-4 space-y-3">
                       {[
                         "Requisitos para tributar en RESICO",
-                        "Deducciones permitidas y limitaciones",
-                        "Cálculo práctico de impuestos",
-                        "Errores comunes que pueden costarte multas",
+                        "Cómo evitar errores que te cuestan dinero",
+                        "Cómo llevar control sin ser contador",
+                        "Prepárate para el lanzamiento de Fiscalio",
                       ].map((item) => (
                         <div
                           key={item}
