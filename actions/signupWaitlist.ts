@@ -1,9 +1,11 @@
 "use server";
 
 import airtable from "airtable";
+import { Resend } from "resend";
 import { redirect } from "next/navigation";
 import { AIRTABLE_ACCESS_TOKEN, AIRTABLE_BASE } from "@/lib/constants";
 import { delay } from "@/lib/utils";
+import { EmailTemplate } from "@/components/email-thankyou";
 
 function configureAirtable() {
   try {
@@ -21,6 +23,8 @@ function configureAirtable() {
     return null;
   }
 }
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface SignupWaitlistRequest {
   email: string;
@@ -58,6 +62,19 @@ export async function signupWaitlist(params: SignupWaitlistRequest) {
   });
 
   const record = await recordCreation;
+
+  (async () => {
+    try {
+      const { data, error } = await resend.emails.send({
+        from: "Fiscalio <onboarding@resend.dev>",
+        to: ["chekelinho@gmail.com"],
+        subject: "Confirmación: ya estás en la lista de espera de Fiscalio",
+        react: EmailTemplate({ email: params.email, recordId: record }),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  })();
 
   return { record };
 }
