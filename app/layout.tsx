@@ -21,8 +21,18 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Fiscalio | Tu asistente fiscal inteligente",
-  description: "Tu asistente fiscal inteligente",
+  title:
+    "Fiscalio | Control fiscal RESICO para freelancers y pequeños negocios",
+  description:
+    "Fiscalio es una herramienta para freelancers y pequeños negocios en México que usan RESICO. Organiza tus CFDI, controla IVA e ingresos y evita errores fiscales antes de declarar.",
+  openGraph: {
+    title: "Fiscalio | Control fiscal claro para RESICO",
+    description:
+      "Organiza tus CFDI, controla tu IVA y mantén tus ingresos RESICO bajo control. Diseñado para freelancers y pequeños negocios en México.",
+    type: "website",
+    locale: "es_MX",
+  },
+  robots: "index, follow",
 };
 
 export default function RootLayout({

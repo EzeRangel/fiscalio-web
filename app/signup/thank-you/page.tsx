@@ -14,14 +14,6 @@ function ThankYouContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  useEffect(() => {
-    // Retrieve email from localStorage
-    const storedEmail = localStorage.getItem("waitlist_email");
-    if (storedEmail) {
-      setEmail(storedEmail);
-    }
-  }, []);
-
   const handleDownloadGuide = () => {
     if (!id) {
       alert("No se encontró el ID de registro para la descarga.");

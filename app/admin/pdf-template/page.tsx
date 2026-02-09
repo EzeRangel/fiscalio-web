@@ -1,10 +1,19 @@
 import Image from "next/image";
 import { DM_Sans } from "next/font/google";
+import { Metadata } from "next";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
+
+export const metadata: Metadata = {
+  title:
+    "Fiscalio | Control fiscal RESICO para freelancers y pequeños negocios",
+  description:
+    "Fiscalio es una herramienta para freelancers y pequeños negocios en México que usan RESICO. Organiza tus CFDI, controla IVA e ingresos y evita errores fiscales antes de declarar.",
+  robots: "noindex, nofollow",
+};
 
 const PageWrapper = ({
   children,
