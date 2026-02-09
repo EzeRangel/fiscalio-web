@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FileText, Download, Check, ArrowLeft } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
-export default function ThankYouPage() {
+function ThankYouContent() {
   const [email, setEmail] = useState<string>("");
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
 
   useEffect(() => {
     // Retrieve email from localStorage
@@ -20,14 +23,14 @@ export default function ThankYouPage() {
   }, []);
 
   const handleDownloadGuide = () => {
+    if (!id) {
+      alert("No se encontró el ID de registro para la descarga.");
+      return;
+    }
+
     // In production, this would download an actual PDF
-    // For now, we'll simulate the download
-    const link = document.createElement("a");
-    link.href = "/guides/resico-tax-guide.pdf"; // Path to your PDF
-    link.download = "Guia-RESICO-Factura-Inteligente.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // For now, we'll use our new API route
+    window.location.href = `/api/download-pdf?id=${id}`;
   };
 
   return (
@@ -180,7 +183,7 @@ export default function ThankYouPage() {
                       Guía RESICO 2026
                     </h3>
                     <p className="text-xs text-muted-foreground tracking-wide">
-                      PDF • 24 páginas • Actualizado Enero 2026
+                      PDF • 12 páginas • Actualizado Febrero 2026
                     </p>
                     <div className="pt-4 space-y-3">
                       {[
@@ -234,5 +237,13 @@ export default function ThankYouPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense>
+      <ThankYouContent />
+    </Suspense>
   );
 }
