@@ -10,6 +10,7 @@ import {
   Section,
   Link,
 } from "@react-email/components";
+import { APP_URL } from "@/lib/constants";
 
 interface EmailTemplateProps {
   email: string;
@@ -164,7 +165,7 @@ const disclaimer = {
 };
 
 export function EmailTemplate({ email, recordId }: EmailTemplateProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const baseUrl = APP_URL;
   const downloadUrl = `${baseUrl}/api/download-pdf?id=${recordId}`;
 
   return (
