@@ -104,13 +104,13 @@ export default function LandingPage() {
                       <ArrowRight className="h-3.5 w-3.5 ml-3" />
                     </Button>
                   </Link>
-                  <Button
+                  {/* <Button
                     variant="outline"
                     size="lg"
                     className="text-xs tracking-[0.15em] h-12 px-8 rounded-none bg-transparent uppercase"
                   >
                     Ver demo
-                  </Button>
+                  </Button> */}
                 </div>
                 <p className="text-xs uppercase text-muted-foreground">
                   Lanzamiento Q2 2026. Te unes gratis. Pagas solo si decides
