@@ -1,8 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
-import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/sonner";
+import { PUBLIC_GA_ID } from "@/lib/constants";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +44,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {process.env.NODE_ENV === "production" ? (
+        <>
+          <GoogleAnalytics gaId={PUBLIC_GA_ID} />
+        </>
+      ) : null}
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} antialiased`}
       >

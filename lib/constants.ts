@@ -6,3 +6,5 @@ export const APP_URL =
 
 export const PRODUCTION_URL =
   process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL || "";
+
+export const PUBLIC_GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
