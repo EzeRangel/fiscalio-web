@@ -167,8 +167,8 @@ export default function PDFTemplate() {
           <HighlightBox title="LA_FÓRMULA_MÁGICA">
             <p className="text-xl tracking-tight font-bold">
               Ingresos Cobrados <span className="text-accent-amber">×</span>{" "}
-              Tasa Mínima de ISR <span className="text-accent-amber">=</span>{" "}
-              Impuesto a pagar
+              Tasa Aplicable de ISR <span className="text-accent-amber">=</span>{" "}
+              ISR a pagar
             </p>
           </HighlightBox>
 
