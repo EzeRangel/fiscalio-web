@@ -1,11 +1,36 @@
+import Link from "next/link";
+import { CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { CalendarIcon, UserIcon } from "lucide-react";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "¿Qué es RESICO y cuándo conviene? Guía para freelancers en México | Fiscalio",
+  description:
+    "Descubre qué es el Régimen Simplificado de Confianza (RESICO), cuándo conviene a freelancers y pequeños negocios en México, límites, tasas de ISR y errores comunes.",
+  keywords:
+    "RESICO freelancers, qué es RESICO, declarar impuestos RESICO, organizar facturas CFDI, ISR RESICO México, régimen simplificado de confianza persona física",
+  authors: [
+    {
+      name: "Fiscalio",
+      url: "https://www.fiscalio.app",
+    },
+  ],
+  openGraph: {
+    title: "¿Qué es RESICO y cuándo conviene? Guía para freelancers en México",
+    description:
+      "Guía clara y práctica sobre RESICO para freelancers y pequeños negocios. Aprende cuándo conviene, límites de ingresos y cómo declarar correctamente.",
+    type: "article",
+    locale: "es_MX",
+    siteName: "Fiscalio",
+  },
+  robots: "index, follow",
+};
 
 export default function BlogPage() {
   return (
