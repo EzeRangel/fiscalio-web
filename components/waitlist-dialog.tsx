@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEventHandler, useState, useTransition } from "react";
+import { FormEventHandler, useTransition } from "react";
 import { ArrowRightIcon } from "lucide-react";
 import {
   redirect,
@@ -19,6 +19,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { signupWaitlist } from "@/actions/signupWaitlist";
 import { toast } from "sonner";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export function WaitlistDialog() {
   const router = useRouter();
@@ -50,6 +51,7 @@ export function WaitlistDialog() {
           description: errorMessage,
         });
       } else {
+        sendGAEvent("event", "waitlist_signup", { value: response.record });
         redirect(`/signup/thank-you?id=${response.record}`);
       }
     });
