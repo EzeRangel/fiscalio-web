@@ -21,6 +21,7 @@ import Image from "next/image";
 import { WaitlistDialog } from "@/components/waitlist-dialog";
 import Link from "next/link";
 import { Suspense } from "react";
+import { Logo } from "@/components/logo";
 
 export default function LandingPage() {
   return (
@@ -33,15 +34,7 @@ export default function LandingPage() {
       <nav className="border-b border-border">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                width={20}
-                height={20}
-                alt="Logotipo de Fiscalio"
-              />
-              <span className="text-sm tracking-tight">FISCALIO</span>
-            </div>
+            <Logo />
             <div className="hidden md:flex items-center gap-12 text-xs tracking-wider text-muted-foreground">
               <a href="#proceso" className="hover:text-foreground">
                 [01] PROCESO

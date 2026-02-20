@@ -4,24 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { ArrowLeftIcon } from "lucide-react";
+import { Logo } from "./logo";
 
 export function Navigation() {
   return (
-    <nav className="border-b border-border">
+    <nav className="border-b border-border font-mono">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16">
-          <Link
-            href="/"
-            className="flex items-center gap-3 hover:opacity-70 transition-opacity"
-          >
-            <Image
-              src="/logo.png"
-              width={20}
-              height={20}
-              alt="Logotipo de Fiscalio"
-            />
-            <span className="text-sm font-medium tracking-tight">FISCALIO</span>
-          </Link>
+          <Logo />
           <Link href="/">
             <Button
               variant="ghost"
