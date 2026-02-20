@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
+import { APP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title:
@@ -30,6 +31,11 @@ export const metadata: Metadata = {
     siteName: "Fiscalio",
   },
   robots: "index, follow",
+  alternates: {
+    types: {
+      "text/markdown": `${APP_URL}/blog/que-es-resico-freelancers-mexico/llms.txt`,
+    },
+  },
 };
 
 export default function BlogPage() {
