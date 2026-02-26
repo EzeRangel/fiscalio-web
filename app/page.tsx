@@ -22,6 +22,7 @@ import { WaitlistDialog } from "@/components/waitlist-dialog";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Logo } from "@/components/logo";
+import Snapshot from "../public/snapshot.png";
 
 export default function LandingPage() {
   return (
@@ -60,60 +61,72 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="border-b border-border">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[85vh]">
-            {/* Left Column */}
-            <div className="lg:col-span-7 flex flex-col justify-center py-20 lg:py-32 lg:pr-20 border-r border-border">
-              <div className="space-y-10">
-                <div className="space-y-6">
-                  <Badge
-                    variant="outline"
-                    className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 border-accent-amber/30 text-accent-rust uppercase"
-                  >
-                    50 accesos con precio fundador
-                  </Badge>
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium tracking-tight leading-[1.15]">
-                    Organiza tus facturas
-                    <br />
-                    <span className="text-muted-foreground">
-                      sin pagar mensualidades
-                    </span>
-                  </h1>
-                </div>
+        <div className="container mx-auto">
+          {/* Hero Content - Centered */}
+          <div className="flex flex-col items-center text-center py-20 lg:py-32 px-6 lg:px-12 border-b border-border">
+            <div className="max-w-4xl space-y-12">
+              <div className="space-y-8">
+                <Badge
+                  variant="outline"
+                  className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 border-accent-amber/30 text-accent-rust uppercase"
+                >
+                  50 accesos con precio fundador
+                </Badge>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tight leading-[1.1]">
+                  Organiza tus facturas
+                  <br />
+                  <span className="text-muted-foreground">
+                    sin pagar mensualidades
+                  </span>
+                </h1>
+              </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-md tracking-wide">
-                  Clasifica tus CFDI automáticamente y mantén tu información
-                  fiscal en RESICO ordenada, sin hojas de cálculo, sin copiar
-                  números a mano y sin subir tus datos a la nube.
-                </p>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto tracking-wide">
+                Clasifica tus CFDI automáticamente y mantén tu información
+                fiscal en RESICO ordenada, sin hojas de cálculo, sin copiar
+                números a mano y sin subir tus datos a la nube.
+              </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="?dialog=open">
-                    <Button
-                      size="lg"
-                      className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
-                    >
-                      Reservar descuento fundador
-                      <ArrowRight className="h-3.5 w-3.5 ml-3" />
-                    </Button>
-                  </Link>
-                  {/* <Button
-                    variant="outline"
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="?dialog=open">
+                  <Button
                     size="lg"
-                    className="text-xs tracking-[0.15em] h-12 px-8 rounded-none bg-transparent uppercase"
+                    className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
                   >
-                    Ver demo
-                  </Button> */}
-                </div>
-                <p className="text-xs uppercase text-muted-foreground">
-                  Lanzamiento Q2 2026. Te unes gratis. Pagas solo si decides
-                  comprar.
-                </p>
+                    Reservar descuento fundador
+                    <ArrowRight className="h-3.5 w-3.5 ml-3" />
+                  </Button>
+                </Link>
+                {/* <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-xs tracking-[0.15em] h-12 px-8 rounded-none bg-transparent"
+                >
+                  VER DEMO
+                </Button> */}
               </div>
             </div>
+          </div>
 
-            {/* Right Column - Data Preview */}
-            <DataPreview />
+          <div className="relative w-full max-w-6xl mx-auto my-20">
+            {/* Browser Chrome */}
+            <div className="absolute -top-6 left-0 right-0 h-6 bg-gradient-to-b from-muted/30 to-transparent rounded-t-lg flex items-center px-3 gap-1.5 z-10">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+            </div>
+
+            {/* Screenshot Container */}
+            <div className="relative rounded-lg overflow-hidden border-2 border-border shadow-2xl">
+              <Image
+                src={Snapshot}
+                alt="Factura Inteligente - Vista de la aplicación mostrando listado de facturas organizadas por mes"
+                className="w-full h-auto"
+              />
+
+              {/* Subtle overlay gradient for depth */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-background/5 via-transparent to-background/5 pointer-events-none"></div>
+            </div>
           </div>
         </div>
       </section>
