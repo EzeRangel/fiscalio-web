@@ -68,7 +68,7 @@ export default function BlogPage() {
                   <div className="flex items-center gap-2 text-sm">
                     <CalendarIcon className="h-3.5 w-3.5 text-accent-rust" />
                     <time dateTime="2024-03-15" className="font-mono text-xs">
-                      12 FEB 2025
+                      12 FEB 2026
                     </time>
                   </div>
                 </div>
