@@ -165,6 +165,7 @@ const disclaimer = {
   color: "#a3a3a3",
   lineHeight: "16px",
   marginTop: "24px",
+  TextAlign: "center",
   textTransform: "uppercase" as const,
 };
 
@@ -201,11 +202,7 @@ export function EmailUpdateTemplate({
 
           {imageUrl && (
             <Section>
-              <Img
-                src={imageUrl}
-                alt={title}
-                style={mainImage}
-              />
+              <Img src={imageUrl} alt={title} style={mainImage} />
             </Section>
           )}
 
