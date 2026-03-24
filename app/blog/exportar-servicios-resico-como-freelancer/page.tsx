@@ -256,7 +256,11 @@ export default function BlogPage() {
                         <tr>
                           <td className="p-3">¿Genera saldo a favor?</td>
                           <td className="p-3">No</td>
-                          <td className="p-3 italic">SÍ</td>
+                          <td className="p-3 italic">
+                            <Link href="/blog/saldo-favor-resico" className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors">
+                              SÍ
+                            </Link>
+                          </td>
                         </tr>
                       </tbody>
                     </table>

@@ -205,10 +205,15 @@ export default function BlogPage() {
                       <strong className="block">
                         Declaración Anual: OPCIONAL
                       </strong>
-                      El proceso de ajuste anual que se realizaba en abril es
-                      opcional para personas físicas en RESICO. El pago que
-                      hiciste mes con mes se considera definitivo en la mayoría
-                      de los casos bajo esta nueva facilidad.
+                      <p>
+                        El proceso de ajuste anual que se realizaba en abril es
+                        opcional para personas físicas en RESICO. El pago que
+                        hiciste mes con mes se considera definitivo en la mayoría
+                        de los casos bajo esta nueva facilidad.
+                      </p>
+                      <p className="mt-4 text-sm bg-accent-amber/5 border border-accent-amber/20 p-4">
+                        <strong>Ojo:</strong> Si tienes un <Link href="/blog/saldo-favor-resico" className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors">saldo a favor en RESICO</Link>, presentar tu declaración anual (o mensual, según el caso) sigue siendo el camino para recuperar ese dinero. No presentarla cuando tienes saldo a favor es regalarle dinero al SAT.
+                      </p>
                     </li>
                   </ol>
                 </section>
