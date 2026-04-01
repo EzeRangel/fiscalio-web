@@ -46,8 +46,11 @@ export default function LandingPage() {
               <a href="#comparacion" className="hover:text-foreground">
                 [03] COMPARAR
               </a>
+              <Link href="/calculadora-resico" className="hover:text-foreground">
+                [04] CALCULAR
+              </Link>
               <a href="#faq" className="hover:text-foreground">
-                [04] FAQ
+                [05] FAQ
               </a>
             </div>
             <Link href="?dialog=open">
@@ -510,7 +513,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-4">
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
-                  [04] FAQ
+                  [05] FAQ
                 </span>
               </div>
               <div className="lg:col-span-8">
