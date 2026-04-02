@@ -104,16 +104,19 @@ export function WaitlistDialog() {
           </div>
           <Button
             type="submit"
-            className="w-full h-12 text-xs tracking-[0.15em] rounded-none font-mono uppercase"
+            className="w-full h-12 text-xs tracking-[0.2em] rounded-none font-bold uppercase"
             disabled={isPending}
           >
             {isPending ? "Procesando..." : "Unirme a la lista"}
             {!isPending && <ArrowRightIcon className="h-3.5 w-3.5 ml-3" />}
           </Button>
-          <p className="text-[10px] text-muted-foreground text-center tracking-wide font-mono">
-            Recibirás un email de confirmación y acceso a la guía RESICO
-            gratuita.
-          </p>
+
+          <div className="p-4 bg-zinc-50 dark:bg-zinc-900 border border-dashed border-zinc-200 dark:border-zinc-800">
+            <p className="text-[10px] text-muted-foreground leading-relaxed tracking-wide uppercase">
+              * Recibirás un email de confirmación y acceso a la guía RESICO
+              gratuita.
+            </p>
+          </div>
         </form>
       </DialogContent>
     </Dialog>
