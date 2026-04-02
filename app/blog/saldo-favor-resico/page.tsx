@@ -325,17 +325,17 @@ export default function BlogPage() {
                     OPTIMIZA TU FLUJO
                   </span>
                   <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight">
-                    ¿Cansado de organizar XMLs manualmente?
+                    ¿Necesitas ver números?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    Fiscalio automatiza la clasificación de tus facturas y te
-                    ayuda a tener claridad sobre tus impuestos. Todo,
-                    manteniendo tus datos privados y offline.
+                    Prueba la calculadora de impuestos para RESICO. Descubre
+                    cuánto entra en tu cuenta y lo que debes separar para el
+                    SAT.
                   </p>
                 </div>
-                <Link href="/">
+                <Link href="/calculadora-resico">
                   <Button className="text-xs tracking-[0.15em] h-12 px-8 rounded-none">
-                    PROBAR FISCALIO
+                    SIMULAR IMPUESTOS
                   </Button>
                 </Link>
               </div>
