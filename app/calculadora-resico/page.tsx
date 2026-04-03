@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { TaxCalculator } from "@/components/tax-calculator/tax-calculator";
-import { Check, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -9,6 +9,18 @@ export const metadata: Metadata = {
   title: "Calculadora de impuestos RESICO 2026 | Fiscalio",
   description:
     "Calcula tus impuestos de RESICO de forma rápida y sencilla. Descubre cuánto recibirás en tu cuenta y lo que debes separar para el SAT cada mes.",
+  openGraph: {
+    title: "Calculadora de impuestos RESICO 2026 | Fiscalio",
+    description: "Calcula tus impuestos de RESICO de forma rápida y sencilla.",
+    images: [
+      {
+        url: "/api/og?title=Calculadora%20de%0Aimpuestos%20RESICO&subtitle=&label=&v=3",
+        width: 1200,
+        height: 630,
+        alt: "Calculadora de impuestos RESICO 2026",
+      },
+    ],
+  },
 };
 
 export default function CalculatorPage() {
