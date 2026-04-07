@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://www.fiscalio.app/blog/calcular-isr-iva-resico",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://www.fiscalio.app/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
