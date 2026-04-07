@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "Calcula tus impuestos de RESICO de forma rápida y sencilla.",
     images: [
       {
-        url: "/api/og?title=Calculadora%20de%0Aimpuestos%20RESICO&subtitle=&label=&v=3",
+        url: "https://www.fiscalio.app/api/og?title=Calculadora%20de%0Aimpuestos%20RESICO&subtitle=&label=&v=3",
         width: 1200,
         height: 630,
         alt: "Calculadora de impuestos RESICO 2026",

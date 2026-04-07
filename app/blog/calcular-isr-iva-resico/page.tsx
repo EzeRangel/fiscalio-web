@@ -30,6 +30,14 @@ export const metadata: Metadata = {
     type: "article",
     locale: "es_MX",
     siteName: "Fiscalio",
+    images: [
+      {
+        url: "https://www.fiscalio.app/api/og?title=Gu%C3%ADa%20para%20calcular%20ISR%20e%20IVA%20en%20RESICO%20(y%20dejar%20de%20adivinar)&subtitle=&label=&v=0",
+        width: 1200,
+        height: 630,
+        alt: "Guía práctica para calcular ISR e IVA en RESICO",
+      },
+    ],
   },
   robots: "index, follow",
   alternates: {
