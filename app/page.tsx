@@ -15,7 +15,7 @@ import {
   ServerOffIcon,
   ActivityIcon,
 } from "lucide-react";
-import { DataPreview } from "@/components/data-preview";
+
 import { Faqs } from "@/components/faqs";
 import Image from "next/image";
 import { WaitlistDialog } from "@/components/waitlist-dialog";
@@ -23,6 +23,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { Logo } from "@/components/logo";
 import Snapshot from "../public/snapshot.png";
+import ArtBackground from "../public/on_the_bure_near_aylsham_norfolk_1951.16.174.jpg";
 
 export default function LandingPage() {
   return (
@@ -46,7 +47,10 @@ export default function LandingPage() {
               <a href="#comparacion" className="hover:text-foreground">
                 [03] COMPARAR
               </a>
-              <Link href="/calculadora-resico" className="hover:text-foreground">
+              <Link
+                href="/calculadora-resico"
+                className="hover:text-foreground"
+              >
                 [04] CALCULAR
               </Link>
               <a href="#faq" className="hover:text-foreground">
@@ -66,7 +70,7 @@ export default function LandingPage() {
       <section className="border-b border-border">
         <div className="container mx-auto">
           {/* Hero Content - Centered */}
-          <div className="flex flex-col items-center text-center py-20 lg:py-32 px-6 lg:px-12 border-b border-border">
+          <div className="flex flex-col items-center text-center py-20 lg:py-32 px-6 lg:px-12">
             <div className="max-w-4xl space-y-12">
               <div className="space-y-8">
                 <Badge
@@ -111,24 +115,26 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="relative w-full max-w-6xl mx-auto my-20">
-            {/* Browser Chrome */}
-            <div className="absolute -top-6 left-0 right-0 h-6 bg-gradient-to-b from-muted/30 to-transparent rounded-t-lg flex items-center px-3 gap-1.5 z-10">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-            </div>
+          <div className="relative mb-20">
+            <Image
+              src={ArtBackground}
+              width={1181}
+              height={900}
+              className="mx-auto"
+              alt="On the Bure, near Aylsham, Norfolk - Attributed to James Bulwer"
+            />
+            <div className="absolute top-1/2 left-1/2 max-w-2xl w-full md:max-w-5xl transform -translate-x-1/2 -translate-y-1/2 shadow-2xl">
+              <div className="relative rounded-lg overflow-hidden border-2 border-border">
+                <Image
+                  src={Snapshot}
+                  width={1470}
+                  height={800}
+                  alt="Factura Inteligente - Vista de la aplicación mostrando listado de facturas organizadas por mes"
+                  className="w-full h-auto"
+                />
 
-            {/* Screenshot Container */}
-            <div className="relative rounded-lg overflow-hidden border-2 border-border shadow-2xl">
-              <Image
-                src={Snapshot}
-                alt="Factura Inteligente - Vista de la aplicación mostrando listado de facturas organizadas por mes"
-                className="w-full h-auto"
-              />
-
-              {/* Subtle overlay gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-background/5 via-transparent to-background/5 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/5 via-transparent to-background/5 pointer-events-none"></div>
+              </div>
             </div>
           </div>
         </div>
