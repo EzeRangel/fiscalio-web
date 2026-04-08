@@ -77,9 +77,9 @@ export function TaxCalculator() {
         <div className="flex-1 pl-16 pr-12 py-12 space-y-12">
           {/* Main Title */}
           <div className="border-b-2 border-black dark:border-white pb-6">
-            <h1 className="text-2xl font-bold tracking-tighter uppercase">
+            <h2 className="text-2xl font-bold tracking-tighter uppercase">
               Informe de Proyección Fiscal
-            </h1>
+            </h2>
             <p className="text-xs text-muted-foreground mt-2">
               Simulación de ingresos y obligaciones tributarias mensuales
             </p>
@@ -119,7 +119,7 @@ export function TaxCalculator() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase text-muted-foreground tracking-widest">
+                    <label htmlFor="base-imponible" className="text-[10px] uppercase text-muted-foreground tracking-widest">
                       Base Imponible (Subtotal)
                     </label>
                     <div className="relative border-b-2 border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white transition-colors">
@@ -127,6 +127,7 @@ export function TaxCalculator() {
                         $
                       </span>
                       <Input
+                        id="base-imponible"
                         type="number"
                         value={amount}
                         step={100}
@@ -139,14 +140,14 @@ export function TaxCalculator() {
 
                   {tipoIngreso === "NACIONAL" && (
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase text-muted-foreground tracking-widest">
+                      <label htmlFor="tipo-cliente" className="text-[10px] uppercase text-muted-foreground tracking-widest">
                         Clasificación de Cliente
                       </label>
                       <Select
                         value={tipoCliente}
                         onValueChange={(v) => setTipoCliente(v as TipoCliente)}
                       >
-                        <SelectTrigger className="rounded-none border-x-0 border-t-0 border-b-2 border-zinc-200 dark:border-zinc-800 text-xs tracking-wide w-full">
+                        <SelectTrigger id="tipo-cliente" className="rounded-none border-x-0 border-t-0 border-b-2 border-zinc-200 dark:border-zinc-800 text-xs tracking-wide w-full">
                           <SelectValue placeholder="Seleccionar..." />
                         </SelectTrigger>
                         <SelectContent className="rounded-none font-mono">

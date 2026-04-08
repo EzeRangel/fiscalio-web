@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       {process.env.NODE_ENV === "production" ? (
         <>
           <GoogleAnalytics gaId={PUBLIC_GA_ID} />
