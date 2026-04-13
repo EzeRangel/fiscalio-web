@@ -403,6 +403,13 @@ export default function BlogPage() {
                     <li>Clasifica tus gastos automáticamente.</li>
                     <li>Te da tu "Neto Real" en tiempo real.</li>
                   </ol>
+
+                  <p className="text-foreground/90 py-2">
+                    En RESICO, tu mejor inversión no es un contador que te ayude
+                    a "deducir", sino una herramienta que te ayude a{" "}
+                    <strong>no cometer errores</strong> y a mantener tu flujo
+                    bajo control.
+                  </p>
                 </section>
 
                 <section className="space-y-4 pt-12">
@@ -439,16 +446,6 @@ export default function BlogPage() {
                       </Link>
                     </div>
                   </div>
-                </section>
-
-                <section className="space-y-4 pt-8">
-                  <p className="text-foreground/90 italic border-l-2 border-border pl-6 py-2">
-                    <strong>Insight clave:</strong> En RESICO, tu mejor
-                    inversión no es un contador que te ayude a "deducir", sino
-                    una herramienta que te ayude a{" "}
-                    <strong>no cometer errores</strong> y a mantener tu flujo
-                    bajo control.
-                  </p>
                 </section>
               </div>
             </div>

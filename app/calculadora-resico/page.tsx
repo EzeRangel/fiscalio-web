@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Calculadora de impuestos RESICO 2026 | Fiscalio",
+  title: "Calculadora RESICO de impuestos 2026 | Fiscalio",
   description:
     "Calcula tus impuestos de RESICO de forma rápida y sencilla. Descubre cuánto recibirás en tu cuenta y lo que debes separar para el SAT cada mes.",
   openGraph: {
@@ -36,9 +36,9 @@ export default function CalculatorPage() {
               [01] HERRAMIENTA
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tight leading-[1.1]">
-              Calculadora de impuestos <br />
+              Calculadora RESICO de impuestos <br />
               <span className="text-muted-foreground text-3xl md:text-4xl lg:text-5xl">
-                RESICO para Personas Físicas
+                para Personas Físicas
               </span>
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl tracking-wide">
@@ -82,27 +82,33 @@ export default function CalculatorPage() {
                   Esta herramienta ha sido desarrollada con un enfoque
                   &quot;freelance-first&quot; para resolver la duda más común al
                   recibir un pago: &quot;¿Cuánto de esto es realmente
-                  mío?&quot;. Al utilizar nuestra <strong>calculadora RESICO</strong>,
-                  obtendrás un desglose detallado de los tres pilares fiscales en
-                  México:
+                  mío?&quot;. Al utilizar nuestra{" "}
+                  <strong>calculadora RESICO</strong>, obtendrás un desglose
+                  detallado de los tres pilares fiscales en México:
                 </p>
                 <ul className="space-y-4 text-sm text-background/70 leading-relaxed">
                   <li>
-                    <strong className="text-background">ISR (Impuesto Sobre la Renta):</strong> El beneficio
-                    principal de este régimen. Calculamos tu impuesto basado en
-                    las tasas preferenciales que van desde el 1.00% (hasta
-                    $25,000 MXN) hasta el 2.5% (hasta $3.5 millones anuales).
+                    <strong className="text-background">
+                      ISR (Impuesto Sobre la Renta):
+                    </strong>{" "}
+                    El beneficio principal de este régimen. Calculamos tu
+                    impuesto basado en las tasas preferenciales que van desde el
+                    1.00% (hasta $25,000 MXN) hasta el 2.5% (hasta $3.5 millones
+                    anuales).
                   </li>
                   <li>
-                    <strong className="text-background">IVA (Impuesto al Valor Agregado):</strong> Crucial para el
-                    flujo de caja. La calculadora determina el 16% de IVA
-                    trasladado en operaciones nacionales o el 0% para
+                    <strong className="text-background">
+                      IVA (Impuesto al Valor Agregado):
+                    </strong>{" "}
+                    Crucial para el flujo de caja. La calculadora determina el
+                    16% de IVA trasladado en operaciones nacionales o el 0% para
                     exportación de servicios.
                   </li>
                   <li>
-                    <strong className="text-background">Retenciones:</strong> Si facturas a una Persona Moral
-                    (empresa), desglosamos automáticamente el 1.25% de ISR y
-                    las dos terceras partes del IVA cobrado.
+                    <strong className="text-background">Retenciones:</strong> Si
+                    facturas a una Persona Moral (empresa), desglosamos
+                    automáticamente el 1.25% de ISR y las dos terceras partes
+                    del IVA cobrado.
                   </li>
                 </ul>
               </div>
@@ -112,20 +118,20 @@ export default function CalculatorPage() {
                   Cómo funciona el proceso de calcular ISR e IVA en RESICO
                 </h3>
                 <p className="text-sm text-background/70 leading-relaxed tracking-wide">
-                  Para <strong>calcular ISR RESICO</strong> de manera efectiva, el
-                  algoritmo de Fiscalio aplica la tabla mensual acumulada vigente
-                  del SAT. A diferencia del régimen de Actividad Profesional
-                  tradicional, en RESICO la simplicidad es la norma: pagas sobre
-                  lo facturado y cobrado (base flujo de efectivo).
+                  Para <strong>calcular ISR RESICO</strong> de manera efectiva,
+                  el algoritmo de Fiscalio aplica la tabla mensual acumulada
+                  vigente del SAT. A diferencia del régimen de Actividad
+                  Empresarial tradicional, en RESICO la simplicidad es la norma:
+                  pagas sobre lo facturado y cobrado (base flujo de efectivo).
                 </p>
                 <p className="text-sm text-background/70 leading-relaxed tracking-wide">
                   Al momento de <strong>calcular IVA RESICO</strong>, la lógica
                   cambia. El IVA es un impuesto indirecto; tú solo eres un
                   recaudador para el SAT. La calculadora te ayuda a visualizar
                   ese &quot;dinero ajeno&quot; que debes separar. Un error común
-                  es gastar el IVA recibido, lo que genera problemas de liquidez.
-                  Nuestra herramienta previene esto al darte una cifra neta real
-                  de disponibilidad.
+                  es gastar el IVA recibido, lo que genera problemas de
+                  liquidez. Nuestra herramienta previene esto al darte una cifra
+                  neta real de disponibilidad.
                 </p>
               </div>
 
@@ -162,10 +168,11 @@ export default function CalculatorPage() {
                   </div>
                 </div>
                 <p className="text-sm text-background/70 leading-relaxed tracking-wide">
-                  A través de este ejemplo, la <strong>calculadora RESICO</strong> te
-                  permite ver que, aunque el total depositado es mayor a tu
-                  subtotal, tu ingreso real disponible es menor una vez que
-                  consideras el IVA neto que debes pagar al SAT.
+                  A través de este ejemplo, la{" "}
+                  <strong>calculadora RESICO</strong> te permite ver que, aunque
+                  el total depositado es mayor a tu subtotal, tu ingreso real
+                  disponible es menor una vez que consideras el IVA neto que
+                  debes pagar al SAT.
                 </p>
               </div>
 
@@ -179,14 +186,18 @@ export default function CalculatorPage() {
                 </p>
                 <ul className="space-y-4 text-sm text-background/70 leading-relaxed">
                   <li>
-                    <strong className="text-background">IVA Acreditable:</strong> Esta herramienta no resta el
-                    IVA que tú pagas en tus gastos operativos. Ese IVA reduce
-                    el monto final a pagar al SAT.
+                    <strong className="text-background">
+                      IVA Acreditable:
+                    </strong>{" "}
+                    Esta herramienta no resta el IVA que tú pagas en tus gastos
+                    operativos. Ese IVA reduce el monto final a pagar al SAT.
                   </li>
                   <li>
-                    <strong className="text-background">Ingresos Mixtos:</strong> Si tienes ingresos por
-                    sueldos, intereses o plataformas tecnológicas, te sugerimos
-                    revisar nuestra guía sobre la{" "}
+                    <strong className="text-background">
+                      Ingresos Mixtos:
+                    </strong>{" "}
+                    Si tienes ingresos por sueldos, intereses o plataformas
+                    tecnológicas, te sugerimos revisar nuestra guía sobre la{" "}
                     <Link
                       href="/blog/declaracion-anual-resico-personas-fisicas"
                       className="underline decoration-primary underline-offset-4"
@@ -196,8 +207,8 @@ export default function CalculatorPage() {
                     .
                   </li>
                   <li>
-                    <strong className="text-background">Guías Técnicas:</strong> Para profundizar, consulta
-                    nuestra{" "}
+                    <strong className="text-background">Guías Técnicas:</strong>{" "}
+                    Para profundizar, consulta nuestra{" "}
                     <Link
                       href="/blog/calcular-isr-iva-resico"
                       className="underline decoration-primary underline-offset-4"
