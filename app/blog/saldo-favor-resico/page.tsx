@@ -199,6 +199,16 @@ export default function BlogPage() {
                           puedes "acreditar" contra lo que cobraste se convierte
                           en un saldo a favor que el SAT debe devolverte.
                         </p>
+                        <p className="text-sm pt-2">
+                          Puedes ver cómo afecta esto a tu flujo usando nuestra{" "}
+                          <Link
+                            href="/calculadora-resico"
+                            className="text-accent-rust underline font-bold"
+                          >
+                            calculadora de impuestos para exportación
+                          </Link>
+                          .
+                        </p>
                       </>
                     }
                   />

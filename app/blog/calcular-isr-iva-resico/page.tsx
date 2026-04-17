@@ -341,6 +341,15 @@ export default function BlogPage() {
                     <li>
                       <strong>Neto Real: $49,450</strong>
                     </li>
+                    <li className="pt-2">
+                      <Link
+                        href="/calculadora-resico"
+                        className="text-accent-rust underline font-bold inline-flex items-center gap-1 group"
+                      >
+                        Prueba con tus números reales
+                        <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </li>
                   </ul>
 
                   <p className="text-foreground/90">

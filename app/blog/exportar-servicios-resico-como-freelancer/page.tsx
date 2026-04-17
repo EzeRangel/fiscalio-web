@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarIcon, UserIcon } from "lucide-react";
+import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
@@ -257,7 +257,10 @@ export default function BlogPage() {
                           <td className="p-3">¿Genera saldo a favor?</td>
                           <td className="p-3">No</td>
                           <td className="p-3 italic">
-                            <Link href="/blog/saldo-favor-resico" className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors">
+                            <Link
+                              href="/blog/saldo-favor-resico"
+                              className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors"
+                            >
                               SÍ
                             </Link>
                           </td>
@@ -378,7 +381,15 @@ export default function BlogPage() {
                   <p className="text-foreground/90">
                     Si tu estructura de costos es baja y tu cliente está en el
                     extranjero, este esquema puede ser fiscalmente muy
-                    eficiente.
+                    eficiente. Puedes{" "}
+                    <Link
+                      href="/calculadora-resico"
+                      className="text-accent-rust underline font-bold"
+                    >
+                      usar nuestra calculadora RESICO
+                    </Link>{" "}
+                    para simular exactamente cuánto recibirás en tu cuenta tras
+                    impuestos y retenciones.
                   </p>
 
                   <p className="text-foreground/90">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarIcon, UserIcon } from "lucide-react";
+import { ArrowRight, CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
@@ -188,6 +188,16 @@ export default function BlogPage() {
                       <span className="text-accent-amber">=</span> ISR a pagar
                     </p>
                   </HighlightBox>
+
+                  <p className="text-foreground/90 text-center py-4">
+                    <Link
+                      href="/calculadora-resico"
+                      className="inline-flex items-center gap-2 text-accent-rust font-bold hover:underline"
+                    >
+                      ¿Quieres ver tus números reales? Prueba la calculadora
+                      RESICO <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </p>
                 </section>
 
                 <section className="space-y-4">

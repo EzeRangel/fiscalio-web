@@ -177,6 +177,15 @@ export default function BlogPage() {
                   <p className="text-foreground/90">
                     Si tienes tus números claros antes de entrar, el portal del
                     SAT solo es un lugar donde vas a confirmar lo que ya sabes.
+                    Una buena práctica es{" "}
+                    <Link
+                      href="/calculadora-resico"
+                      className="text-accent-rust underline font-bold"
+                    >
+                      usar un simulador de impuestos
+                    </Link>{" "}
+                    para validar que tus cálculos de ISR e IVA coincidan con lo
+                    que el SAT te mostrará pre-llenado.
                   </p>
                 </section>
 

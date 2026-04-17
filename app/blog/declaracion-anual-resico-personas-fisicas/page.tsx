@@ -140,7 +140,15 @@ export default function BlogPage() {
                   <p className="text-foreground/90">
                     Esta medida busca reducir la carga administrativa y fomentar
                     que más contribuyentes se sumen a este régimen que ya de por
-                    sí ofrece tasas de ISR muy bajas (entre 1% y 2.5%).
+                    sí ofrece tasas de ISR muy bajas (entre 1% y 2.5%). Sin
+                    embargo, la clave para aprovechar este beneficio es{" "}
+                    <Link
+                      href="/calculadora-resico"
+                      className="text-accent-rust underline font-bold"
+                    >
+                      calcular correctamente tus pagos mensuales
+                    </Link>{" "}
+                    para que al final del año no tengas discrepancias.
                   </p>
                 </section>
 
