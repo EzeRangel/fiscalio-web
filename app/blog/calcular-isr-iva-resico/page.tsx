@@ -11,7 +11,7 @@ import { APP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title:
-    "Cómo calcular ISR e IVA en RESICO 2026 | Guía para Freelancers Tech | Fiscalio",
+    "Cómo saber cuánto debes pagar de impuestos (ISR + IVA) | Guía para Freelancers Tech | Fiscalio",
   description:
     "Aprende a calcular tus impuestos en RESICO paso a paso. Entiende el IVA 0% para exportación de servicios y cómo optimizar tu flujo de caja como freelancer tech.",
   keywords:
@@ -107,8 +107,7 @@ export default function BlogPage() {
           <div className="lg:col-span-9 space-y-12">
             <div className="space-y-6">
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-semibold tracking-tight leading-[1.1]">
-                La guía definitiva para calcular ISR e IVA en RESICO (y dejar de
-                adivinar)
+                Cómo saber cuánto debes pagar de impuestos (ISR + IVA)
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans max-w-3xl">
                 Si eres un desarrollador, diseñador o freelancer tech en México

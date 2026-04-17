@@ -45,8 +45,7 @@ const posts = [
   {
     id: "05",
     slug: "calcular-isr-iva-resico",
-    title:
-      "La guía definitiva para calcular ISR e IVA en RESICO (y dejar de adivinar)",
+    title: "Cómo saber cuánto debes pagar de impuestos (ISR + IVA)",
     description:
       "Aprende a separar tu IVA, calcular tu ISR y entender tu ingreso real neto como freelancer tech en México.",
     date: "07 ABR 2026",
