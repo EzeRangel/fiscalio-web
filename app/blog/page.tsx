@@ -60,6 +60,15 @@ const posts = [
     date: "13 ABR 2026",
     category: "FISCALES",
   },
+  {
+    id: "07",
+    slug: "porque-sat-no-precarga-facturas",
+    title: "¿Por qué el SAT no precarga mis facturas? (Y qué significa realmente)",
+    description:
+      "Entiende las reglas que el SAT usa para interpretar tus XMLs y por qué a veces parece que faltan datos en tu declaración.",
+    date: "18 ABR 2026",
+    category: "FISCALES",
+  },
 ];
 
 export default function BlogIndex() {
