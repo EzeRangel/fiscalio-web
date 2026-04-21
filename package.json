@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@google/design.md": "^0.1.1",
     "@hookform/resolvers": "^3.10.0",
     "@next/third-parties": "^16.1.6",
     "@radix-ui/react-accordion": "1.2.2",
