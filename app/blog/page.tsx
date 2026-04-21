@@ -31,7 +31,7 @@ const posts = [
     description:
       "Analizamos la normativa vigente para que sepas exactamente qué obligaciones tienes y cuáles no antes de que termine abril.",
     date: "12 MAR 2026",
-    category: "FISCALES",
+    category: "DECLARACIÓN",
   },
   {
     id: "04",
@@ -58,16 +58,26 @@ const posts = [
     description:
       "Una guía para perderle el miedo al portal del SAT y entender qué está pasando con tu dinero cada mes.",
     date: "13 ABR 2026",
-    category: "FISCALES",
+    category: "DECLARACIÓN",
   },
   {
     id: "07",
     slug: "porque-sat-no-precarga-facturas",
-    title: "¿Por qué el SAT no precarga mis facturas? (Y qué significa realmente)",
+    title:
+      "¿Por qué el SAT no precarga mis facturas? (Y qué significa realmente)",
     description:
       "Entiende las reglas que el SAT usa para interpretar tus XMLs y por qué a veces parece que faltan datos en tu declaración.",
     date: "18 ABR 2026",
     category: "FISCALES",
+  },
+  {
+    id: "08",
+    slug: "cuando-presentar-declaracion-mensual-resico",
+    title: "Cuándo presentar tu declaración mensual en RESICO",
+    description:
+      "Entiende el calendario fiscal del SAT y por qué siempre declaras a mes vencido para evitar multas.",
+    date: "21 ABR 2026",
+    category: "DECLARACIÓN",
   },
 ];
 

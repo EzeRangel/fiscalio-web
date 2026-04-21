@@ -207,7 +207,7 @@ export default function BlogPage() {
                       Debes seguir presentando tus pagos provisionales mes con
                       mes antes del día 17. En estas declaraciones es donde se
                       calcula y paga el ISR sobre tus ingresos efectivamente
-                      cobrados.
+                      cobrados. Si tienes dudas sobre los plazos, consulta nuestra guía sobre <Link href="/blog/cuando-presentar-declaracion-mensual-resico" className="text-accent-rust underline font-medium">cuándo presentar tu declaración mensual en RESICO</Link>.
                     </li>
                     <li>
                       <strong className="block">
