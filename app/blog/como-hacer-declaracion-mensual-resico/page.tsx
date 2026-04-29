@@ -10,11 +10,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Cómo hacer declaración mensual RESICO 2026 | Guía paso a paso | Fiscalio",
+    "Cómo hacer declaración mensual RESICO SAT 2026 | Guía para Freelancers",
   description:
-    "Aprende a hacer tu declaración mensual en RESICO sin miedo. Entiende la diferencia entre ISR e IVA y cómo organizarte para el SAT.",
+    "Guía paso a paso sobre cómo hacer mi declaración mensual RESICO. Aprende a navegar el portal del SAT, entender la fecha límite y calcular ISR e IVA sin errores.",
   keywords:
-    "cómo hacer declaración mensual RESICO, declaración mensual SAT, ISR RESICO, IVA RESICO, impuestos freelancers México, guía fiscal RESICO",
+    "declaración mensual resico, hacer declaración mensual resico, declaración mensual resico sat, como hacer mi declaracion mensual resico, declaracion mensual resico fecha limite, declaracion mensual SAT",
   authors: [
     {
       name: "Fiscalio",
@@ -101,12 +101,13 @@ export default function BlogPage() {
           <div className="lg:col-span-9 space-y-12">
             <div className="space-y-6">
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-semibold tracking-tight leading-[1.1]">
-                Cómo hacer tu declaración mensual en RESICO
+                Cómo hacer mi declaración mensual RESICO en el SAT
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans max-w-3xl">
-                Admitámoslo: la primera vez que entras al portal del SAT para
-                hacer tu propia declaración, sientes una especie de "vértigo
-                digital".
+                Admitámoslo: la primera vez que buscas{" "}
+                <strong>cómo hacer mi declaración mensual RESICO</strong> y
+                entras al portal del SAT para hacer tu propia declaración,
+                sientes una especie de "vértigo digital".
               </p>
             </div>
 
@@ -245,12 +246,14 @@ export default function BlogPage() {
 
                 <section className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
-                    El recorrido por el portal: Un check-in de confianza
+                    El recorrido por el portal: Hacer declaración mensual RESICO
+                    paso a paso
                   </h2>
                   <p className="text-foreground/90">
-                    Cuando estés frente a la pantalla, el SAT intentará
-                    "ayudarte" precargando la información de tus facturas. Aquí
-                    es donde debes mantener la calma:
+                    Al momento de presentar tu{" "}
+                    <strong>declaración mensual en el SAT</strong>, el sistema
+                    intentará "ayudarte" precargando la información de tus
+                    facturas. Aquí es donde debes mantener la calma:
                   </p>
 
                   <HighlightBox title="PRO_TIPS">
@@ -276,15 +279,21 @@ export default function BlogPage() {
 
                 <section className="space-y-8 py-12 border-y border-border">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight text-foreground">
-                    Preguntas frecuentes sobre la declaración mensual RESICO
+                    Preguntas frecuentes: Declaración mensual RESICO y fechas
+                    límite
                   </h2>
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <h3 className="text-lg font-bold text-foreground">
-                        ¿Cuándo se presenta la declaración mensual?
+                        ¿Cuál es la fecha límite para la declaración mensual
+                        RESICO?
                       </h3>
                       <p className="text-foreground/90">
-                        Generalmente antes del día 17 del mes siguiente.
+                        La <strong>declaración mensual SAT</strong> para
+                        personas en RESICO generalmente se presenta antes del
+                        día 17 del mes siguiente al que vas a declarar. Por
+                        ejemplo, la de abril se presenta a más tardar el 17 de
+                        mayo.
                       </p>
                     </div>
                     <div className="space-y-2">
