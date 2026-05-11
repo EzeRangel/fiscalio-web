@@ -58,7 +58,7 @@ const posts = [
     description:
       "Una guía para perderle el miedo al portal del SAT y entender qué está pasando con tu dinero cada mes.",
     date: "13 ABR 2026",
-    category: "DECLARACIÓN",
+    category: "DECLARACIONES",
   },
   {
     id: "07",
@@ -77,7 +77,16 @@ const posts = [
     description:
       "Entiende el calendario fiscal del SAT y por qué siempre declaras a mes vencido para evitar multas.",
     date: "21 ABR 2026",
-    category: "DECLARACIÓN",
+    category: "DECLARACIONES",
+  },
+  {
+    id: "09",
+    slug: "que-hacer-si-presentaste-mal-tu-declaracion-sat",
+    title: "Qué hacer si presentaste mal tu declaración ante el SAT",
+    description:
+      "Aprende cuándo necesitas una declaración complementaria y cómo corregir errores en RESICO sin pánico.",
+    date: "11 MAY 2026",
+    category: "DECLARACIONES",
   },
 ];
 
