@@ -12,6 +12,14 @@
 
 ---
 
+## Cómo cobrar servicios al exterior
+
+- **Plataformas comunes**: Payoneer, Deel, Wise, dLocal.
+- **Flujo de rastro**: Cliente (Extranjero) → Plataforma (USD) → SPEI/STP (MXN) → Banco Mexicano.
+- **Requisito SAT**: El origen debe ser extranjero. Se debe conservar el invoice internacional y el estado de cuenta de la plataforma origen para vincular el depósito con el CFDI de exportación.
+
+---
+
 ## Flujo de Pago Internacional
 
 Cliente (USA)  
@@ -54,20 +62,26 @@ No aplica proporcionalidad por "uso parcial del tiempo" si el gasto es indispens
 
 ---
 
-## Configuración Correcta de CFDI 4.0
+## Configuración Correcta de CFDI 4.0 (Facturar a empresa extranjera)
 
-- RFC receptor: XEXX010101000
-- Residencia fiscal: USA
-- Tax ID (EIN): Obligatorio
-- Objeto del impuesto: 02 (Sí objeto de impuesto)
-- Clave de exportación: 02 (Definitiva)
-- IVA: Tasa 0%
+- **RFC receptor**: XEXX010101000 (Genérico extranjero)
+- **Residencia fiscal**: País del cliente (ej. USA)
+- **Tax ID (EIN)**: Obligatorio (Número de identificación fiscal del cliente)
+- **Objeto del impuesto**: 02 (Sí objeto de impuesto)
+- **Clave de exportación**: 02 (Definitiva)
+- **IVA**: Tasa 0%
 
-Errores comunes:
+### ¿Factura en pesos o dólares?
+- **Factura en USD**: Requiere incluir el tipo de cambio del día (Banxico).
+- **Factura en MXN**: Es totalmente válido y legal emitir la factura de exportación directamente en pesos mexicanos. Facilita la conciliación si el procesador de pagos ya realiza la conversión.
+
+---
+
+## Errores comunes:
 
 - Marcar operación como Exenta
 - Omitir Tax ID
-- No activar clave de exportación
+- No activar clave de exportación 02
 - No conservar evidencia bancaria internacional
 
 ---
@@ -145,4 +159,7 @@ IVA tasa 0 exportación servicios
 CFDI 4.0 extranjero  
 Acreditamiento IVA Art. 5  
 Saldo a favor IVA freelancer  
-Exportación servicios TI México
+Exportación servicios TI México  
+Como cobrar servicios al exterior  
+Facturar servicios a empresa extranjera  
+Factura de exportación en pesos

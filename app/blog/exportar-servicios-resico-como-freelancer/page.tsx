@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Guía práctica para freelancers IT en RESICO que exportan servicios a EE.UU. Aprende cómo aplicar IVA 0%, acreditar gastos y evitar errores en CFDI 4.0.",
   keywords:
-    "RESICO freelancers IT, IVA tasa 0 exportación servicios, facturar extranjero CFDI 4.0, saldo a favor IVA freelancer, declarar impuestos RESICO exportación",
+    "RESICO freelancers IT, IVA tasa 0 exportación servicios, facturar extranjero CFDI 4.0, saldo a favor IVA freelancer, declarar impuestos RESICO exportación, como cobrar servicios al exterior, facturar servicios a empresa extranjera, factura de exportación en pesos",
   authors: [
     {
       name: "Fiscalio",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cómo aplicar IVA 0% en RESICO si exportas servicios de TI",
     description:
-      "¿Freelancer IT en México trabajando para EE.UU.? Aprende cómo facturar con tasa 0%, acreditar IVA y evitar riesgos fiscales.",
+      "¿Freelancer IT en México trabajando para EE.UU.? Aprende cómo facturar con tasa 0%, cobrar al exterior y evitar riesgos fiscales.",
     type: "article",
     url: `${APP_URL}/blog/exportar-servicios-resico-como-freelancer`,
     locale: "es_MX",
@@ -121,26 +121,6 @@ export default function BlogPage() {
 
             <Separator />
 
-            {/* Featured Image */}
-            {/* <div className="relative aspect-[16/9] w-full border-2 border-accent-amber/20 bg-muted">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <div className="w-16 h-16 mx-auto border-2 border-accent-amber/30 flex items-center justify-center">
-                    <Image
-                      src="/placeholder.svg?height=400&width=800"
-                      alt="Featured image"
-                      width={800}
-                      height={400}
-                      className="object-cover w-full h-full opacity-0"
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground font-mono tracking-wide">
-                    IMAGEN_DESTACADA
-                  </p>
-                </div>
-              </div>
-            </div> */}
-
             <div className="prose prose-lg max-w-none">
               <div className="space-y-8 font-sans text-base md:text-lg leading-relaxed text-foreground">
                 <section className="space-y-4">
@@ -179,6 +159,31 @@ export default function BlogPage() {
                       </>
                     }
                   />
+                </section>
+
+                <section className="space-y-4">
+                  <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
+                    Cómo cobrar servicios al exterior
+                  </h2>
+
+                  <p className="text-foreground/90">
+                    Una de las dudas más frecuentes de los nuevos contractors es
+                    precisamente{" "}
+                    <strong>cómo cobrar servicios al exterior</strong> de forma
+                    legal y eficiente. La mayoría utiliza plataformas como
+                    Payoneer, Deel o Wise para recibir sus honorarios en dólares
+                    (USD).
+                  </p>
+
+                  <p className="text-foreground/90">
+                    Lo vital para el SAT no es la plataforma que uses, sino que
+                    el flujo demuestre que el origen del dinero es extranjero.
+                    Esto es lo que sostiene la aplicación de la Tasa 0% de IVA.
+                    Si el dinero llega a tu cuenta mexicana vía SPEI, debes
+                    conservar los comprobantes de la plataforma origen (invoice
+                    internacional y estado de cuenta) para vincular ese depósito
+                    con tu factura de exportación.
+                  </p>
                 </section>
 
                 <section className="space-y-4">
@@ -288,28 +293,80 @@ export default function BlogPage() {
 
                 <section className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
-                    Cómo facturar correctamente (CFDI 4.0)
+                    Cómo facturar servicios a empresa extranjera
                   </h2>
 
                   <p className="text-foreground/90">
-                    Esta configuración es clave para exportación de servicios:
+                    Al{" "}
+                    <strong>facturar servicios a una empresa extranjera</strong>
+                    , la configuración técnica del CFDI es el paso más crítico
+                    para evitar multas o que el SAT invalide tu Tasa 0%.
+                  </p>
+
+                  <p className="text-foreground/90">
+                    Esta es la configuración obligatoria para exportación de
+                    servicios:
                   </p>
 
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>RFC receptor: XEXX010101000</li>
-                    <li>Residencia fiscal: USA</li>
-                    <li>Tax ID (EIN): Obligatorio</li>
-                    <li>Objeto del impuesto: 02 (Sí objeto de impuesto)</li>
-                    <li>Exportación: 02 (Definitiva) IVA: Tasa 0%</li>
+                    <li>
+                      <strong>RFC receptor:</strong> XEXX010101000 (RFC genérico
+                      para extranjeros).
+                    </li>
+                    <li>
+                      <strong>Residencia fiscal:</strong> El país de tu cliente
+                      (ej. USA).
+                    </li>
+                    <li>
+                      <strong>Tax ID (EIN):</strong> Es el número de
+                      identificación fiscal de la empresa en su país.
+                    </li>
+                    <li>
+                      <strong>Objeto del impuesto:</strong> 02 (Sí objeto de
+                      impuesto).
+                    </li>
+                    <li>
+                      <strong>Clave de Exportación:</strong> 02 (Definitiva).
+                    </li>
+                    <li>
+                      <strong>Impuesto:</strong> IVA Tasa 0%.
+                    </li>
                   </ul>
 
-                  <p className="text-foreground/90">Errores comunes:</p>
+                  <h3 className="text-xl md:text-2xl font-display font-semibold tracking-tight mb-6 text-foreground">
+                    ¿Se puede hacer una factura de exportación en pesos?
+                  </h3>
+
+                  <p className="text-foreground/90">
+                    Esta es una duda recurrente y la respuesta es que{" "}
+                    <strong>sí</strong>. Tienes dos opciones principales:
+                  </p>
 
                   <ul className="space-y-2 list-disc list-inside">
-                    <li>Marcar operación como Exenta</li>
-                    <li>No incluir Tax ID</li>
-                    <li>No activar la clave de exportación</li>
-                    <li>No conservar evidencia bancaria internacional</li>
+                    <li>
+                      <strong>Facturar en USD:</strong> El sistema del SAT o tu
+                      proveedor te pedirá el tipo de cambio del día (publicado
+                      por Banxico).
+                    </li>
+                    <li>
+                      <strong>Facturar en MXN:</strong> Es totalmente válido
+                      emitir la factura directamente en pesos mexicanos. Esto
+                      facilita mucho la conciliación si tu procesador de pagos
+                      ya te entrega el dinero convertido a moneda nacional.
+                    </li>
+                  </ul>
+
+                  <p className="text-foreground/90">
+                    Errores comunes que debes evitar:
+                  </p>
+
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>
+                      Marcar operación como Exenta (pierdes el derecho a
+                      acreditar IVA).
+                    </li>
+                    <li>No incluir el Tax ID del receptor.</li>
+                    <li>No activar la clave de exportación 02.</li>
                   </ul>
                 </section>
 
