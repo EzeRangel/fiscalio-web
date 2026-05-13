@@ -217,6 +217,31 @@ Y mientras no las entiendas, siempre vas a sentir que algo está mal… incluso 
 
 ---
 
+## Dudas frecuentes sobre la información precargada
+
+### ¿Cuánto tiempo tarda en actualizar el SAT la información precargada?
+
+Por lo general, el sistema del SAT tarda entre **24 y 48 horas** en reflejar los cambios tras la emisión de una factura o complemento de pago. Sin embargo, en periodos de alta demanda (como cierres de mes o declaraciones anuales), este tiempo puede extenderse hasta 72 horas. Si acabas de emitir un CFDI y no lo ves, dale un margen de un par de días antes de preocuparte.
+
+### ¿Qué pasa si no me aparece una factura en el SAT?
+
+Si después de esperar el tiempo de sincronización sigue sin aparecer, verifica tres cosas:
+
+1.  Que la factura esté **vigente** (no cancelada).
+2.  Que el **RFC del emisor y receptor** sean correctos.
+3.  El **método de pago**: si es PPD y no has emitido el complemento de pago, el SAT no la precargará en el flujo de efectivo para IVA.
+
+### ¿Cómo corregir la información precargada del SAT?
+
+La información precargada no se puede editar directamente en los campos bloqueados del formulario. Para "corregirla", debes actuar sobre la fuente:
+
+*   **Si falta un ingreso**: Emite la factura faltante o el complemento de pago correspondiente.
+*   **Si hay un error en los montos**: Cancela el CFDI incorrecto y emítelo nuevamente con la relación "Sustitución de CFDI previos".
+
+Una vez hecha la corrección en los comprobantes, deberás esperar el tiempo de actualización (24-48h) para que los nuevos datos se reflejen en la declaración.
+
+---
+
 ## Qué puedes hacer a partir de ahora
 
 No necesitas volverte experto fiscal.

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
-import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Descubre por qué tus facturas no aparecen en tu declaración del SAT. Aprende las reglas de interpretación fiscal, la lógica de PUE vs PPD y cómo validar tu información.",
   keywords:
-    "SAT facturas no aparecen, precarga SAT, PPD vs PUE, declaración mensual SAT, errores facturación, validar CFDI, Fiscalio",
+    "SAT facturas no aparecen, precarga SAT, PPD vs PUE, declaración mensual SAT, errores facturación, validar CFDI, cuánto tiempo tarda en actualizar el SAT la información precargada, qué pasa si no me aparece una factura en el SAT, cómo corregir la información precargada del SAT, Fiscalio",
   authors: [
     {
       name: "Fiscalio",
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Fiscalio",
     images: [
       {
-        url: `${APP_URL}/api/og?title=C%C3%B3mo%20hacer%20tu%20declaraci%C3%B3n%20mensual%20en%20RESICO&subtitle=&label=&v=0`,
+        url: `${APP_URL}/api/og?title=%C2%BFPor%20qu%C3%A9%20el%20SAT%20no%20precarga%20mis%20facturas%3F%20&subtitle=&label=&v=0`,
         width: 1200,
         height: 630,
         alt: "¿Por qué el SAT no precarga mis facturas?",
@@ -137,14 +136,6 @@ export default function BlogPage() {
                       entendemos.
                     </strong>
                   </p>
-
-                  <HighlightBox title="NUESTRA_PROMESA">
-                    <p className="text-lg font-medium italic">
-                      "En este post te explico exactamente por qué pasa esto,
-                      para que dejes de adivinar y puedas detectarlo siempre por
-                      tu cuenta."
-                    </p>
-                  </HighlightBox>
                 </section>
 
                 <section className="space-y-4">
@@ -337,6 +328,78 @@ export default function BlogPage() {
                     </Link>{" "}
                     y cómo te beneficia.
                   </p>
+                </section>
+
+                <section className="space-y-4">
+                  <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
+                    Dudas frecuentes sobre la información precargada
+                  </h2>
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <h4 className="text-xl font-display font-semibold text-foreground">
+                        ¿Cuánto tiempo tarda en actualizar el SAT la información
+                        precargada?
+                      </h4>
+                      <p className="text-foreground/90">
+                        Por lo general, el sistema del SAT tarda entre{" "}
+                        <strong>24 y 48 horas</strong> en reflejar los cambios
+                        tras la emisión de una factura o complemento de pago.
+                        Sin embargo, en periodos de alta demanda (como cierres
+                        de mes o declaraciones anuales), este tiempo puede
+                        extenderse hasta 72 horas. Si acabas de emitir un CFDI y
+                        no lo ves, dale un margen de un par de días antes de
+                        preocuparte.
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="text-xl font-display font-semibold text-foreground">
+                        ¿Qué pasa si no me aparece una factura en el SAT?
+                      </h4>
+                      <p className="text-foreground/90">
+                        Si después de esperar el tiempo de sincronización sigue
+                        sin aparecer, verifica tres cosas:
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 text-foreground/90 ml-4">
+                        <li>Que la factura esté vigente (no cancelada).</li>
+                        <li>
+                          Que el RFC del emisor y receptor sean correctos.
+                        </li>
+                        <li>
+                          El método de pago: si es PPD y no has emitido el
+                          complemento de pago, el SAT no la precargará en el
+                          flujo de efectivo para IVA.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="text-xl font-display font-semibold text-foreground">
+                        ¿Cómo corregir la información precargada del SAT?
+                      </h4>
+                      <p className="text-foreground/90">
+                        La información precargada no se puede editar
+                        directamente en los campos bloqueados del formulario.
+                        Para "corregirla", debes actuar sobre la fuente:
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 text-foreground/90 ml-4">
+                        <li>
+                          <strong>Si falta un ingreso:</strong> Emite la factura
+                          faltante o el complemento de pago correspondiente.
+                        </li>
+                        <li>
+                          <strong>Si hay un error en los montos:</strong>{" "}
+                          Cancela el CFDI incorrecto y emítelo nuevamente con la
+                          relación "Sustitución de CFDI previos".
+                        </li>
+                      </ul>
+                      <p className="text-foreground/90">
+                        Una vez hecha la corrección en los comprobantes, deberás
+                        esperar el tiempo de actualización (24-48h) para que los
+                        nuevos datos se reflejen en la declaración.
+                      </p>
+                    </div>
+                  </div>
                 </section>
 
                 <section className="space-y-4">

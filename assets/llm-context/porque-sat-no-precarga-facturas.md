@@ -15,6 +15,12 @@
 2. **Desfase de tiempo**: Pagos recibidos en meses distintos al de la emisión de la factura.
 3. **Errores en CFDI**: RFC incorrecto, uso de CFDI equivocado o facturas canceladas/sustituidas.
 
+## Dudas Frecuentes (SEO)
+
+- **¿Cuánto tiempo tarda en actualizar el SAT la información precargada?**: Entre 24 y 48 horas (hasta 72h en periodos de alta demanda).
+- **¿Qué pasa si no me aparece una factura en el SAT?**: Verificar vigencia, RFCs y método de pago (PPD necesita complemento).
+- **¿Cómo corregir la información precargada del SAT?**: No se edita directamente; se debe corregir la fuente (emitir facturas faltantes o cancelar/sustituir CFDI con errores) y esperar la actualización.
+
 ## Insight de Fiscalio
 
 El problema no es la falta de facturas en el portal del SAT, sino la falta de herramientas para que el contribuyente pueda validar la lógica del SAT por su cuenta sin depender totalmente de un experto.
