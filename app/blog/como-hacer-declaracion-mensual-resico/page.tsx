@@ -9,12 +9,11 @@ import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Cómo hacer declaración mensual RESICO SAT 2026 | Guía para Freelancers",
+  title: "Cómo hacer declaración mensual RESICO SAT 2026",
   description:
-    "Guía paso a paso sobre cómo hacer mi declaración mensual RESICO. Aprende a navegar el portal del SAT, entender la fecha límite y calcular ISR e IVA sin errores.",
+    "¿Te preguntas cómo hacer tus declaraciones de RESICO tú mismo? Aprende paso a paso cómo navegar el portal del SAT, validar tus ingresos y presentar tu declaración mensual sin errores.",
   keywords:
-    "declaración mensual resico, hacer declaración mensual resico, declaración mensual resico sat, como hacer mi declaracion mensual resico, declaracion mensual resico fecha limite, declaracion mensual SAT",
+    "declaración mensual resico, como hacer declaracion mensual resico, resico declaracion mensual, guia declaracion sat resico, como hacer mis declaraciones de resico",
   authors: [
     {
       name: "Fiscalio",
@@ -104,10 +103,11 @@ export default function BlogPage() {
                 Cómo hacer mi declaración mensual RESICO en el SAT
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans max-w-3xl">
-                Admitámoslo: la primera vez que buscas{" "}
-                <strong>cómo hacer mi declaración mensual RESICO</strong> y
-                entras al portal del SAT para hacer tu propia declaración,
-                sientes una especie de "vértigo digital".
+                Si estás aquí, es porque probablemente decidiste tomar el
+                control y aprender{" "}
+                <strong>cómo hacer tu declaración mensual en RESICO</strong> por
+                tu cuenta. Es normal sentir dudas: el portal del SAT no siempre
+                es intuitivo y el miedo a equivocarse es real.
               </p>
             </div>
 
@@ -117,22 +117,13 @@ export default function BlogPage() {
               <div className="space-y-8 font-sans text-base md:text-lg leading-relaxed text-foreground">
                 <section className="space-y-4">
                   <p className="text-foreground/90">
-                    El proceso no es imposible, pero puede que haya miedo de
-                    darle clic al botón equivocado y que algo explote.
-                  </p>
-
-                  <p className="text-foreground/90 italic">
-                    "¿Estaré sumando bien las facturas?", "¿Por qué me sale
-                    tanto IVA si yo pensé que pagaba menos?", "¿Qué pasa si me
-                    equivoco?".
-                  </p>
-
-                  <p className="text-foreground/90">
-                    Si te has hecho estas preguntas, este post es para ti. Esta
-                    no es una guía paso a paso; vamos a caminar juntos por ese
-                    proceso para que entiendas{" "}
-                    <strong>qué está pasando realmente con tu dinero</strong>{" "}
-                    mientras llenas esos formularios.
+                    Muchos contribuyentes buscan{" "}
+                    <strong>"resico declaración mensual"</strong> esperando
+                    encontrar un manual que no use términos legales complicados.
+                    Esta guía es un acompañamiento, nuestra intención es que
+                    entiendas qué pasa con tu dinero y qué números revisar para
+                    que puedas cumplir con tu declaración mensual RESICO con
+                    total seguridad.
                   </p>
                 </section>
 
@@ -183,7 +174,7 @@ export default function BlogPage() {
                       href="/calculadora-resico"
                       className="text-accent-rust underline font-bold"
                     >
-                      usar un simulador de impuestos
+                      usar una calculadora de impuestos RESICO
                     </Link>{" "}
                     para validar que tus cálculos de ISR e IVA coincidan con lo
                     que el SAT te mostrará pre-llenado.
@@ -197,14 +188,14 @@ export default function BlogPage() {
                   <p className="text-foreground/90">
                     Al entrar a la sección de declaraciones mensuales, verás que
                     el SAT te pide llenar dos secciones por separado:{" "}
-                    <strong>ISR</strong> e <strong>IVA</strong>. Aquí es donde
-                    muchos se confunden, pero el modelo mental es muy sencillo:
+                    <strong>ISR</strong> e <strong>IVA</strong>. Esto puede
+                    causar confusión, pero el modelo mental es muy sencillo:
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     <div className="border border-border p-6 space-y-3">
                       <h3 className="font-display font-bold uppercase text-accent-rust tracking-tight">
-                        1. El ISR: Tu membresía
+                        1. El ISR
                       </h3>
                       <p className="text-sm text-foreground/80 leading-relaxed">
                         El ISR en RESICO es un porcentaje minúsculo (entre el 1%
@@ -223,7 +214,7 @@ export default function BlogPage() {
                     </div>
                     <div className="border border-border p-6 space-y-3 bg-accent-amber/5">
                       <h3 className="font-display font-bold uppercase text-accent-rust tracking-tight">
-                        2. El IVA: Recaudación
+                        2. El IVA
                       </h3>
                       <p className="text-sm text-foreground/80 leading-relaxed">
                         Tú solo eres un recaudador. El cliente te dio un 16%
@@ -244,10 +235,9 @@ export default function BlogPage() {
                   </div>
                 </section>
 
-                <section className="space-y-4">
+                <section className="space-y-6">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
-                    El recorrido por el portal: Hacer declaración mensual RESICO
-                    paso a paso
+                    Cómo hacer tu declaración mensual RESICO: El paso a paso
                   </h2>
                   <p className="text-foreground/90">
                     Al momento de presentar tu{" "}
@@ -317,12 +307,16 @@ export default function BlogPage() {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-lg font-bold text-foreground">
-                        ¿Necesito contador?
+                        ¿Realmente puedo hacer mis declaraciones de RESICO yo
+                        solo?
                       </h3>
                       <p className="text-foreground/90">
-                        No necesariamente para la operación mensual si tienes
-                        pocos movimientos, pero sí necesitas entender lo básico
-                        para no cometer errores.
+                        Totalmente. El régimen fue diseñado para simplificar la
+                        vida del contribuyente. Si eres organizado con tus
+                        facturas de ingresos y gastos,{" "}
+                        <strong>hacer tu propia declaración mensual</strong> es
+                        un proceso de 15 minutos. El secreto es no dejarlo para
+                        el último día y validar tus números antes de enviarlos.
                       </p>
                     </div>
                   </div>
