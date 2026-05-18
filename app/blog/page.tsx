@@ -88,6 +88,15 @@ const posts = [
     date: "11 MAY 2026",
     category: "DECLARACIONES",
   },
+  {
+    id: "10",
+    slug: "deducciones-resico-isr",
+    title: "¿Por qué sigues pidiendo facturas en RESICO?",
+    description:
+      "El mito de las deducciones: descubre por qué las facturas siguen siendo vitales para proteger tu IVA aunque no deduzcas ISR.",
+    date: "18 MAY 2026",
+    category: "ISR - IVA",
+  },
 ];
 
 export default function BlogIndex() {
