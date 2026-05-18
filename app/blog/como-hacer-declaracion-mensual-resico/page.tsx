@@ -222,7 +222,14 @@ export default function BlogPage() {
                       </p>
                       <p className="text-xs text-muted-foreground italic">
                         *A diferencia del ISR, aquí sí puedes usar tus gastos
-                        para bajar el monto.
+                        para bajar el monto (
+                        <Link
+                          href="/blog/deducciones-resico-isr"
+                          className="underline"
+                        >
+                          ver por qué
+                        </Link>
+                        ).
                       </p>
                       <Link
                         href="/blog/saldo-favor-resico"

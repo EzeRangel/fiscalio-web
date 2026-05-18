@@ -274,8 +274,14 @@ export default function BlogPage() {
                   <ul className="text-foreground/90 list-inside list-disc space-y-2">
                     <li>Emitir tus CFDI de ingresos por cada pago recibido.</li>
                     <li>
-                      Tener tus facturas de gastos (aunque no sean deducibles
-                      para ISR, sirven para acreditar el IVA).
+                      <Link
+                        href="/blog/deducciones-resico-isr"
+                        className="underline decoration-accent-rust/30 hover:decoration-accent-rust transition-all"
+                      >
+                        Tener tus facturas de gastos
+                      </Link>{" "}
+                      (aunque no sean deducibles para ISR, sirven para acreditar
+                      el IVA).
                     </li>
                     <li>Mantener tu buzón tributario activo.</li>
                     <li>Estar al corriente con tus declaraciones mensuales.</li>

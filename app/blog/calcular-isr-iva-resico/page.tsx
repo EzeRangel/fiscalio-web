@@ -383,7 +383,16 @@ export default function BlogPage() {
                     <li>
                       Retenciones de personas morales que complican el cálculo.
                     </li>
-                    <li>Olvidar qué IVA es acreditable y cuál no.</li>
+                    <li>
+                      Olvidar{" "}
+                      <Link
+                        href="/blog/deducciones-resico-isr"
+                        className="underline font-bold text-accent-rust"
+                      >
+                        qué IVA es acreditable
+                      </Link>{" "}
+                      y cuál no.
+                    </li>
                   </ul>
                 </section>
 
