@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRightIcon } from "lucide-react";
 
-const posts = [
+export const posts = [
   {
     id: "01",
     slug: "que-es-resico-freelancers-mexico",
@@ -22,6 +22,7 @@ const posts = [
       "Guía paso a paso para facturar correctamente a clientes en el extranjero y ahorrar el 16% de IVA legalmente.",
     date: "26 FEB 2026",
     category: "FISCALES",
+    cluster: "COMO_PIENSA_SAT",
   },
   {
     id: "03",
@@ -32,6 +33,7 @@ const posts = [
       "Analizamos la normativa vigente para que sepas exactamente qué obligaciones tienes y cuáles no antes de que termine abril.",
     date: "12 MAR 2026",
     category: "DECLARACIÓN",
+    cluster: "COMO_PIENSA_SAT",
   },
   {
     id: "04",
@@ -69,6 +71,7 @@ const posts = [
       "Entiende las reglas que el SAT usa para interpretar tus XMLs y por qué a veces parece que faltan datos en tu declaración.",
     date: "18 ABR 2026",
     category: "FISCALES",
+    cluster: "COMO_PIENSA_SAT",
   },
   {
     id: "08",
@@ -96,6 +99,7 @@ const posts = [
       "El mito de las deducciones: descubre por qué las facturas siguen siendo vitales para proteger tu IVA aunque no deduzcas ISR.",
     date: "18 MAY 2026",
     category: "ISR - IVA",
+    cluster: "COMO_PIENSA_SAT",
   },
   {
     id: "11",
@@ -105,6 +109,7 @@ const posts = [
       "Aprende a distinguir entre facturas PUE y PPD para evitar pagar impuestos por dinero que aún no has recibido.",
     date: "25 MAY 2026",
     category: "FACTURACIÓN",
+    cluster: "COMO_PIENSA_SAT",
   },
 ];
 
@@ -134,9 +139,57 @@ export default function BlogIndex() {
         </div>
       </section>
 
+      <section className="border-b border-border bg-accent-rust/[0.02]">
+        <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-20 space-y-12">
+          <div className="max-w-3xl space-y-4">
+            <Badge
+              variant="outline"
+              className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 border-accent-rust/30 text-accent-rust uppercase"
+            >
+              Temas Clave
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+              Cómo piensa el SAT
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Guías esenciales para comprender cómo la autoridad fiscal
+              interpreta tus datos y cómo optimizar tu situación en RESICO.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {posts
+              .filter((p) => p.cluster === "COMO_PIENSA_SAT")
+              .map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col justify-between p-6 bg-white border border-border hover:border-accent-rust transition-all hover:shadow-sm"
+                >
+                  <div className="space-y-4">
+                    <Badge
+                      variant="secondary"
+                      className="text-[9px] tracking-widest font-mono rounded-none bg-accent-rust/5 text-accent-rust border-none px-2 py-0.5"
+                    >
+                      LÓGICA FISCAL
+                    </Badge>
+                    <h4 className="text-sm font-display font-bold group-hover:text-accent-rust transition-colors leading-snug">
+                      {post.title}
+                    </h4>
+                  </div>
+                  <div className="mt-6 flex items-center text-[10px] font-bold tracking-widest text-accent-rust">
+                    LEER ARTÍCULO{" "}
+                    <ArrowRightIcon className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-b border-border">
         <div className="container mx-auto px-6 lg:px-12">
-          {posts.map((post) => (
+          {[...posts].reverse().map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
