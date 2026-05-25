@@ -181,8 +181,13 @@ export default function BlogPage() {
                       <p className="text-foreground/90">
                         Este es uno de los más comunes. Si emitiste una factura
                         con{" "}
-                        <strong>PPD (Pago en parcialidades o diferido)</strong>,
-                        el ingreso no necesariamente se considera en ese
+                        <Link
+                          href="/blog/pue-vs-ppd-diferencia-facturar-cobrar"
+                          className="text-accent-rust hover:underline font-bold"
+                        >
+                          PPD (Pago en parcialidades o diferido)
+                        </Link>
+                        , el ingreso no necesariamente se considera en ese
                         momento.
                       </p>
                       <p className="text-foreground/90">

@@ -97,6 +97,15 @@ const posts = [
     date: "18 MAY 2026",
     category: "ISR - IVA",
   },
+  {
+    id: "11",
+    slug: "pue-vs-ppd-diferencia-facturar-cobrar",
+    title: "PUE vs PPD: La diferencia real entre facturar y cobrar",
+    description:
+      "Aprende a distinguir entre facturas PUE y PPD para evitar pagar impuestos por dinero que aún no has recibido.",
+    date: "25 MAY 2026",
+    category: "FACTURACIÓN",
+  },
 ];
 
 export default function BlogIndex() {
