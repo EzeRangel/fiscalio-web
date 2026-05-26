@@ -53,9 +53,9 @@ export default function LandingPage() {
               >
                 [04] CALCULAR
               </Link>
-              <a href="#faq" className="hover:text-foreground">
-                [05] FAQ
-              </a>
+              <Link href="/blog" className="hover:text-foreground">
+                [05] BLOG
+              </Link>
             </div>
             <Link href="?dialog=open">
               <Button size="sm" className="text-xs tracking-wider h-8">
