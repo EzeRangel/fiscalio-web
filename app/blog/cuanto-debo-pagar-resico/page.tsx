@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
-import { APP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title:
@@ -58,7 +57,7 @@ export default function BlogPage() {
                   variant="outline"
                   className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 border-accent-amber/30 text-accent-rust"
                 >
-                  FISCALES
+                  IMPUESTOS
                 </Badge>
               </div>
 
@@ -70,7 +69,7 @@ export default function BlogPage() {
                   <div className="flex items-center gap-2 text-sm">
                     <CalendarIcon className="h-3.5 w-3.5 text-accent-rust" />
                     <time dateTime="2026-06-08" className="font-mono text-xs">
-                      08 JUN 2026
+                      06 JUN 2026
                     </time>
                   </div>
                 </div>
@@ -119,96 +118,185 @@ export default function BlogPage() {
                   calcular impuestos como si fueran un gasto al final del mes,
                   cuando deberían gestionarse desde el primer centavo.
                 </p>
-
+                <p className="text-foreground/90">
+                  En esta guía rápida vamos a dejar de lado los términos
+                  burocráticos y las leyes de tres párrafos. Vamos a construir
+                  un modelo mental para que sepas exactamente cómo dividir tus
+                  ingresos sin necesidad de estresarte cada mitad de mes.
+                </p>
                 <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
                   El Modelo de las 3 Bóvedas
                 </h2>
                 <p className="text-foreground/90">
-                  Imagina que cada vez que un cliente te paga, ese dinero se
-                  divide automáticamente en tres bóvedas:
+                  Para saber cuánto dinero tienes disponible para gastar,
+                  olvídate de las tasas progresivas por un segundo. Imagina que
+                  cada vez que un cliente te paga, ese dinero se divide
+                  automáticamente en tres bóvedas invisibles:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 text-foreground/90 ml-4">
                   <li>
-                    <strong>La Bóveda del IVA:</strong> Dinero que tú solo custodias.
+                    <strong>La Bóveda del IVA:</strong> Este dinero nunca ha
+                    sido tuyo. Tú solo eres un recaudador temporal. El cliente
+                    te lo da, tú lo guardas, y se lo entregas al SAT (a menos
+                    que lo bajes con el IVA de tus gastos indispensables).
                   </li>
                   <li>
-                    <strong>La Bóveda del ISR:</strong> Tu costo real por facturar.
+                    <strong>La Bóveda del ISR:</strong> Este es el porcentaje
+                    real que te cuesta estar en RESICO por el simple hecho de
+                    facturar. Va del 1% al 2.5% de tus ingresos brutos.
                   </li>
                   <li>
-                    <strong>Tu Bóveda de Neto Real:</strong> Lo único que puedes
-                    gastar.
+                    <strong>Tu Bóveda de Neto Real:</strong> Lo que queda
+                    después de limpiar las dos primeras bóvedas. Esto es lo
+                    único que puedes gastar en tu renta, despensa o salidas sin
+                    crearle una deuda futura al SAT.
                   </li>
                 </ol>
-
                 <BlockQuote
                   title="Nota Importante"
                   content={
                     <p className="text-lg font-medium">
-                      El SAT en RESICO te cobra por lo que <strong>cobraste</strong>,
-                      no por lo que facturaste. Si emitiste una factura en mayo
-                      pero el cliente te pagó en junio, eso pertenece a junio.
+                      El SAT en RESICO te cobra por lo que{" "}
+                      <strong>cobraste</strong>, no por lo que facturaste. Si
+                      emitiste una factura en mayo pero el cliente te pagó en
+                      junio, eso pertenece a junio.
                     </p>
                   }
                 />
-
                 <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
                   Tabla rápida: ¿Cuánto de impuestos pagaré?
                 </h2>
+                <p className="text-foreground/90">
+                  Para un freelancer que trabaja de forma independiente con
+                  clientes particulares (sin que le retengan impuestos de
+                  origen), así se desglosa un depósito en tu cuenta bancaria:
+                </p>
                 <div className="overflow-x-auto">
-                    <table className="min-w-full text-sm text-foreground/90">
-                        <thead>
-                            <tr className="border-b border-border">
-                                <th className="p-2">Si tu cliente deposita:</th>
-                                <th className="p-2">IVA (16%)</th>
-                                <th className="p-2">ISR (RESICO)</th>
-                                <th className="p-2">NETO REAL</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="border-b border-border">
-                                <td className="p-2">$11,600 MXN</td>
-                                <td className="p-2">$1,600</td>
-                                <td className="p-2">$100</td>
-                                <td className="p-2 font-bold">$9,900</td>
-                            </tr>
-                            <tr className="border-b border-border">
-                                <td className="p-2">$29,000 MXN</td>
-                                <td className="p-2">$4,000</td>
-                                <td className="p-2">$250</td>
-                                <td className="p-2 font-bold">$24,750</td>
-                            </tr>
-                            <tr className="border-b border-border">
-                                <td className="p-2">$58,000 MXN</td>
-                                <td className="p-2">$8,000</td>
-                                <td className="p-2">$550</td>
-                                <td className="p-2 font-bold">$49,450</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                  <table className="min-w-full text-sm text-foreground/90">
+                    <thead className="text-left">
+                      <tr className="border-b border-border">
+                        <th className="p-2">Si tu cliente deposita:</th>
+                        <th className="p-2">IVA (16%)</th>
+                        <th className="p-2">ISR (RESICO)</th>
+                        <th className="p-2">NETO REAL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-border">
+                        <td className="p-2">$11,600 MXN ($10k + IVA)</td>
+                        <td className="p-2">$1,600</td>
+                        <td className="p-2">$100</td>
+                        <td className="p-2 font-bold">$9,900</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="p-2">$29,000 MXN ($25k + IVA)</td>
+                        <td className="p-2">$4,000</td>
+                        <td className="p-2">$250</td>
+                        <td className="p-2 font-bold">$24,750</td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="p-2">$58,000 MXN ($50k + IVA)</td>
+                        <td className="p-2">$8,000</td>
+                        <td className="p-2">$550</td>
+                        <td className="p-2 font-bold">$49,450</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-
+                <BlockQuote
+                  title="Nota Importante"
+                  content={
+                    <p className="text-lg font-medium">
+                      El IVA de esta tabla se puede reducir significativamente
+                      si pides factura de tus gastos operativos (como tu
+                      internet o software), lo que aumentaría tu Neto Real al
+                      final del mes
+                    </p>
+                  }
+                />
                 <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
-                  La dura realidad: Impuestos como costo de supervivencia
+                  ¿Por qué el cálculo se vuelve confuso en la vida real?
                 </h2>
                 <p className="text-foreground/90">
-                    Pagar impuestos no es un acto heroico, es el costo de hacer negocios. Si tu actividad no puede sobrevivir pagando entre 1% y 2.5% de ISR, el problema no es el SAT, es tu modelo de negocio. Cumple, paga lo justo y enfócate en lo que genera dinero.
+                  La tabla de arriba funciona en un mundo ideal sin variables.
+                  Pero el ecosistema de un freelancer de tecnología o diseño
+                  suele ser más complejo debido a dos factores:
                 </p>
-
+                <ol className="list-decimal list-inside space-y-2 text-foreground/90 ml-4">
+                  <li>
+                    <strong>
+                      Clientes que son Empresas (Personas Morales) en México
+                    </strong>{" "}
+                    Si le facturas a una empresa mexicana, por ley ellos no te
+                    pagan el dinero completo. Te van a retener el 1.25% de ISR y
+                    las dos terceras partes del IVA.
+                    <ul className="list-disc list-inside pl-4">
+                      <li>
+                        Ese dinero no lo perdiste; la empresa ya se lo pagó al
+                        SAT en tu nombre. Tu obligación mensual disminuye porque
+                        esa parte ya está "abonada".
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>
+                      Clientes en el Extranjero (USA, Europa, etc.)
+                    </strong>{" "}
+                    Si exportas servicios de desarrollo, soporte o diseño,
+                    aplicas la tasa 0% de IVA.
+                    <ul className="list-disc list-inside pl-4">
+                      <li>
+                        Tu Bóveda del IVA se queda vacía (no le cobras impuesto
+                        a tu cliente extranjero), pero tu Bóveda de ISR sigue
+                        activa. Lo mejor de este escenario es que todo el IVA
+                        que tú pagues en tus gastos operativos en México se
+                        convierte en un saldo a favor que le puedes reclamar al
+                        SAT.
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
                 <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
-                  ¿Quieres tu cifra exacta?
+                  Deja de calcular tus impuestos en una hoja
                 </h2>
                 <p className="text-foreground/90">
-                    No sufras con cálculos manuales. Usa nuestra calculadora para ver tus tres bóvedas en tiempo real.
+                  Tener control fiscal significa tener visibilidad de tus flujos
+                  de dinero en tiempo real. Si estás mezclando retenciones,
+                  facturas a clientes extranjeros y gastos mensuales, hacer este
+                  cálculo de forma manual es la receta perfecta para cometer un
+                  error.
                 </p>
-                <Link
-                    href="/calculadora-resico"
-                    className="inline-block"
-                >
-                    <Button size="lg" className="rounded-none bg-accent-rust text-white px-8">
-                        Pruébala gratis y conoce tu Neto Real
-                    </Button>
-                </Link>
 
+                <div className="space-y-4 pt-12">
+                  <div className="bg-foreground text-background p-8 md:p-12 space-y-8 relative overflow-hidden">
+                    <div className="relative z-10 space-y-6">
+                      <Badge className="bg-accent-amber text-foreground rounded-none px-3 py-1 text-[10px] tracking-widest font-mono">
+                        HERRAMIENTA
+                      </Badge>
+                      <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">
+                        Calculadora RESICO
+                      </h2>
+                      <p className="text-background/80 max-w-2xl leading-relaxed">
+                        En Fiscalio diseñamos una calculadora para decirte, peso
+                        por peso, cómo se están llenando tus tres bóvedas en
+                        este preciso momento. Pruébala gratis y conoce tu Neto
+                        Real antes de que llegue el día 17
+                      </p>
+                      <Link
+                        href="/calculadora-resico"
+                        className="inline-block w-full md:w-auto"
+                      >
+                        <Button
+                          size="lg"
+                          className="w-full md:w-auto bg-background text-foreground hover:bg-background/90 rounded-none h-14 px-12 text-xs tracking-[0.2em] font-bold"
+                        >
+                          CALCULAR IMPUESTOS
+                          <ArrowRight className="ml-3 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

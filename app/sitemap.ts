@@ -81,6 +81,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://www.fiscalio.app/blog/cuanto-debo-pagar-resico",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://www.fiscalio.app/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",

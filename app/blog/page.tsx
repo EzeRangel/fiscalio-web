@@ -111,6 +111,15 @@ export const posts = [
     category: "FACTURACIÓN",
     cluster: "COMO_PIENSA_SAT",
   },
+  {
+    id: "12",
+    slug: "cuanto-debo-pagar-resico",
+    title: "¿Cuánto debo pagar realmente de impuestos en RESICO?",
+    description:
+      "Olvídate de las tablas del SAT por un segundo. Entiende cuánto dinero realmente te queda después de impuestos con este modelo mental simple.",
+    date: "06 JUN 2026",
+    category: "IMPUESTOS",
+  },
 ];
 
 export default function BlogIndex() {
