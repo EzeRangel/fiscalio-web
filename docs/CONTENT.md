@@ -1,7 +1,9 @@
-# Gemini CLI Configuration
+# Content Voice
 
-## Design System
-@DESIGN.MD
+## Domain & Language
+
+- Product is Spanish-first (`<html lang="es">`, `locale: "es_MX"`). Keep UI copy in Spanish unless explicitly asked.
+- Domain: Mexico **RESICO** tax (ISR + IVA) for freelancers. Rates in `lib/tax-constants.ts` must match SAT rules — change them only when the official table changes, and verify with the existing test cases before shipping.
 
 ## Writing and Structure Guidelines
 

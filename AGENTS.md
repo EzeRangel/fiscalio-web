@@ -23,24 +23,37 @@ Only four npm scripts exist. There is **no** test or typecheck script.
 | Lint                   | `npm run lint` (runs `eslint .`)                                       |
 | Type-check (manual)    | `npx tsc --noEmit` — there is no `typecheck` script, do not invent one |
 
-No CI workflows exist in `.github/`. Verification order when finishing a task: `lint` → `tsc --noEmit` → manual `build` if routes/SSR changed.
+- Node pinned to **v22.13.0** via `.nvmrc` (run `nvm use` before installing).
+- No CI workflows exist in `.github/`. Verification order when finishing a task: `lint` → `tsc --noEmit` → manual `build` if routes/SSR changed.
+
+## Design System
+
+Check `docs/DESIGN.md` for more information as needed.
+
+## Content
+
+Check `docs/CONTENT.md` for more information as needed.
 
 ## Layout
 
 - `app/` — App Router routes
-  - `app/page.tsx` landing, `app/calculadora-resico/` calculator, `app/blog/*` SEO posts, `app/signup/thank-you`, `app/admin/*` (see below), `app/api/og/route.tsx` (edge runtime, OG image)
-  - `app/admin/layout.tsx` sets `robots: noindex` for the whole `/admin` subtree — treat as internal
-- `actions/` — `"use server"` files: `sendTaxReport.ts` (Resend + tax-report email), `signupWaitlist.ts` (Airtable + Resend)
-- `lib/` — `tax-calculator.ts` (pure functions, `CalculoResult`), `tax-constants.ts` (SAT RESICO rates), `format-currency.ts`, `utils.ts` (`cn` shadcn helper + `delay`), `constants.ts` (env accessors)
-- `components/` — feature components, `components/ui/` (shadcn), `components/emails/` (React Email)
-- `hooks/use-count-up.ts` — animated counter
-- `conductor/` — implementation plan docs (e.g. `tax-calculator.md`)
+  - `app/page.tsx` landing.
+  - `app/calculadora-resico/` calculator.
+  - `app/signup/thank-you`, `app/api/og/route.tsx` (edge runtime, OG image), `app/api/download-pdf/route.ts` (Airtable-gated PDF download)
+  - `app/admin/*` Experiments and internal tools for rapid prototyping.
+    - `/admin/design-preview*`
+    - `/admin/email-preview`
+    - `/admin/linkedin-carousel`
+    - `/admin/og-generator`
+    - `/admin/pfd-template`
+  - `app/blog/<slug>/` SEO posts. These are **hand-written `page.tsx`** per folder, not generated from markdown. The `app/blog/[slug]/` dynamic segment exists _only_ to serve `llms.txt` from `assets/llm-context/<slug>.md`.
+- `actions/` — `"use server"` files `sendTaxReport.ts` (Resend + tax-report email), `signupWaitlist.ts` (Airtable + Resend)
+- `lib/` pure functions and utilities, helpers and accessors
+- `components/` — feature components, (React Email). Note the split: some email components live at the top level (`components/email-thankyou.tsx`, `components/email-update.tsx`) while others are in `components/emails/` — don't unify without a reason.
+- `assets/` — read at runtime via `fs.readFile(process.cwd(), "assets", ...)`. Files here must stay in the deploy bundle.
+- `hooks/` — React Hooks folder
+- `conductor/` — implementation plan and spec docs
 - `public/` — static assets including the hero image
-
-## Domain & Language
-
-- Product is Spanish-first (`<html lang="es">`, `locale: "es_MX"`). Keep UI copy in Spanish unless explicitly asked.
-- Domain: Mexico **RESICO** tax (ISR + IVA) for freelancers. Rates in `lib/tax-constants.ts` must match SAT rules — change them only when the official table changes, and verify with the existing test cases before shipping.
 
 ## Environment
 
@@ -51,6 +64,7 @@ Required env vars (read via `lib/constants.ts` and inline `process.env`):
 - `NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL`
 - `AIRTABLE_ACCESS_TOKEN`, `AIRTABLE_BASE` — Airtable base ID
 - `RESEND_API_KEY` — used by both server actions
+- `PORT` — dev server port (`.env.local` defaults to `3001`; Next's startup banner will still print 3000, trust `PORT`)
 
 `.env.local` is gitignored. Without these, server actions silently fail or no-op. `from` address for Resend is hardcoded to `Fiscalio <noresponder@fiscalio.app>` in `actions/`.
 
@@ -58,7 +72,6 @@ Required env vars (read via `lib/constants.ts` and inline `process.env`):
 
 - **Spanish copy only.** Don't translate UI strings to English.
 - **Fonts already wired in `app/layout.tsx`** — use `font-display` (DM Sans) for headings, default body font is Geist, apply `font-mono` (Geist Mono) for currency/percentages per `DESIGN.md`.
-- **Container:** `max-w-7xl` (1280px), `py-12` to `py-24` between major sections, corners stay at `rounded-md` (8px). Background is the warm neutral — never pure `#ffffff` for page bg.
 - **No comments in code** — keep new code clean of inline comments.
 - **Airtable `Waitlist` table** has fields `Email` and `Created at` (note the space). Don't rename the field.
 - **`signupWaitlist` throttles with `await delay(2)`** (2 s) before writing — keep it.
@@ -74,4 +87,8 @@ Required env vars (read via `lib/constants.ts` and inline `process.env`):
 2. `npx tsc --noEmit` (no script, run manually)
 3. If you touched routes, server actions, or fonts: `npm run build`
 4. If you touched `lib/tax-constants.ts` or `lib/tax-calculator.ts`: cross-check a hand-computed case against the public SAT tabla ISR RESICO mensual.
-5. If you touched `DESIGN.md` colors used by OG: update `app/api/og/route.tsx` to match.
+5. If you touched `docs/DESIGN.md` colors used by OG: update `app/api/og/route.tsx` to match.
+
+## State and Progress
+
+Longs tasks must have progress tracking. Check for `PROGRESS.md` to see more.
