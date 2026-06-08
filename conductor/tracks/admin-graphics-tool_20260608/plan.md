@@ -12,12 +12,10 @@ This plan outlines the phases for implementing the admin graphics designer tool 
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation and UI Layout' (Protocol in workflow.md) [03a6c1e]
 
 ## Phase 2: Graphic Templates & Custom Code Editor
-- [ ] Task: Implement pre-built visual templates
-  - [ ] Create a "Blog Cover" template showing titles, subtitles, and decorative brand elements
-  - [ ] Create a "Tax Diagram/Data Table" template using Geist Mono for numbers
-- [ ] Task: Implement live custom JSX/SVG editor
-  - [ ] Add a text area or simple code container for pasting custom React components or raw SVG markup
-  - [ ] Build dynamic rendering wrapper that parses and live-updates the canvas preview
+- [x] Task: Implement pre-built visual templates [N/A - Removed by user request]
+- [x] Task: Implement live custom JSX/SVG editor [74074ae]
+  - [x] Add a text area or simple code container for pasting custom React components or raw SVG markup
+  - [x] Build dynamic rendering wrapper that parses and live-updates the canvas preview
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Graphic Templates & Custom Code Editor' (Protocol in workflow.md)
 
 ## Phase 3: Export & Polishing
