@@ -20,6 +20,7 @@ Fiscalio is a web application designed to help Mexican freelancers and independe
    - Integrated signup widget writing leads to Airtable.
    - Automation of confirmation and transactional emails via Resend.
 4. **Admin Dashboard & Prototyping Tools:**
+   - Graphics Designer tool to preview, dimension, and export custom SVG/PNG diagrams.
    - Carousel generators for LinkedIn marketing.
    - Email template visualizers and design previews.
    - PDF templates for client reports and tax checklists.
