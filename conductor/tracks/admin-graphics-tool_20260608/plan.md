@@ -6,9 +6,9 @@ This plan outlines the phases for implementing the admin graphics designer tool 
 - [x] Task: Set up the routing and layout for `/admin/graphics-designer` [8d06f03]
   - [x] Create the folder `app/admin/graphics-designer/` and file `page.tsx`
   - [x] Implement the main page component with sidebar controllers and a central preview canvas
-- [ ] Task: Integrate design system standards and controls
-  - [ ] Build UI controllers for adjusting aspect ratio (1200x630, 800x800, 1080x1350)
-  - [ ] Add controls for key design system colors (Primary, Accent Amber, Accent Rust)
+- [x] Task: Integrate design system standards and controls [8d06f03]
+  - [x] Build UI controllers for adjusting aspect ratio (1200x630, 800x800, 1080x1350)
+  - [x] Add controls for key design system colors (Primary, Accent Amber, Accent Rust)
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation and UI Layout' (Protocol in workflow.md)
 
 ## Phase 2: Graphic Templates & Custom Code Editor
