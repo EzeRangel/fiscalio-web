@@ -44,6 +44,7 @@ Check `docs/CONTENT.md` for more information as needed.
     - `/admin/design-preview*`
     - `/admin/email-preview`
     - `/admin/linkedin-carousel`
+    - `/admin/graphics-designer`
     - `/admin/og-generator`
     - `/admin/pfd-template`
   - `app/blog/<slug>/` SEO posts. These are **hand-written `page.tsx`** per folder, not generated from markdown. The `app/blog/[slug]/` dynamic segment exists _only_ to serve `llms.txt` from `assets/llm-context/<slug>.md`.
