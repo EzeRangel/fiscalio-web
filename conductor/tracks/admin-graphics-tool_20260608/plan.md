@@ -19,10 +19,10 @@ This plan outlines the phases for implementing the admin graphics designer tool 
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Graphic Templates & Custom Code Editor' (Protocol in workflow.md) [da2453d]
 
 ## Phase 3: Export & Polishing
-- [ ] Task: Add Copy SVG and PNG download functionality
-  - [ ] Implement client-side SVG serialization to copy clean XML to the clipboard
-  - [ ] Add canvas rendering logic to support "Export PNG" downloads
-- [ ] Task: Add navigation and clean up admin workspace
-  - [ ] Add a link to the graphics designer in `/admin/layout.tsx` or key navigation lists
-  - [ ] Run linting and TypeScript compile checks (`npm run lint`, `npx tsc --noEmit`)
+- [x] Task: Add Copy SVG and PNG download functionality [74074ae]
+  - [x] Implement client-side SVG serialization to copy clean XML to the clipboard
+  - [x] Add canvas rendering logic to support "Export PNG" downloads
+- [x] Task: Add navigation and clean up admin workspace [f3728af]
+  - [x] Add a link to the graphics designer in `/admin/layout.tsx` or key navigation lists
+  - [x] Run linting and TypeScript compile checks (`npm run lint`, `npx tsc --noEmit`)
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Export & Polishing' (Protocol in workflow.md)
