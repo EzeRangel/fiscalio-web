@@ -73,7 +73,22 @@ export default function GraphicsDesignerPage() {
     }
 
     const { width, height } = getCanvasDimensions();
-    const svgString = new XMLSerializer().serializeToString(svgElement);
+    
+    // Clone and set absolute dimensions for high-res rendering
+    const svgClone = svgElement.cloneNode(true) as SVGSVGElement;
+    svgClone.setAttribute("width", width.toString());
+    svgClone.setAttribute("height", height.toString());
+    
+    // Ensure viewBox matches the original size or dimensions
+    if (!svgClone.getAttribute("viewBox")) {
+      const viewBoxWidth = svgElement.getAttribute("width") || width.toString();
+      const viewBoxHeight = svgElement.getAttribute("height") || height.toString();
+      const w = viewBoxWidth.replace("%", "");
+      const h = viewBoxHeight.replace("%", "");
+      svgClone.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    }
+
+    const svgString = new XMLSerializer().serializeToString(svgClone);
     const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
     const URL = window.URL || window.webkitURL || window;
     const blobURL = URL.createObjectURL(svgBlob);
