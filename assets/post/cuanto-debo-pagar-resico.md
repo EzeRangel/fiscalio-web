@@ -28,7 +28,7 @@ Regla de oro: El SAT en RESICO te cobra por lo que cobraste, no por lo que factu
 
 ---
 
-[INSERT INFOGRAPHIC: Un diagrama de flujo que muestra un pago de $50,000 MXN dividiéndose en IVA, ISR y Neto Real]
+![El Modelo de las 3 Bóvedas para RESICO](/tres-bovedas.webp)
 
 ---
 

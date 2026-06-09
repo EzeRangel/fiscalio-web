@@ -69,7 +69,7 @@ export default function BlogPage() {
                   <div className="flex items-center gap-2 text-sm">
                     <CalendarIcon className="h-3.5 w-3.5 text-accent-rust" />
                     <time dateTime="2026-06-08" className="font-mono text-xs">
-                      06 JUN 2026
+                      09 JUN 2026
                     </time>
                   </div>
                 </div>
@@ -163,6 +163,15 @@ export default function BlogPage() {
                     </p>
                   }
                 />
+
+                <div className="my-10 border border-border/50 rounded-lg overflow-hidden shadow-sm">
+                  <img
+                    src="/tres-bovedas.webp"
+                    alt="El Modelo de las 3 Bóvedas en RESICO"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+
                 <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
                   Tabla rápida: ¿Cuánto de impuestos pagaré?
                 </h2>
