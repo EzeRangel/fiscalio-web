@@ -2,11 +2,11 @@
 
 ## Phase 1: Create Reusable CTA Component
 
-- [ ] Task: Create the component file
-    - [ ] Create `components/calculator-cta.tsx`
-    - [ ] Define interface for props (`title`, `description`)
-    - [ ] Add dark-mode styling (`bg-foreground text-background`) and amber accent border
-    - [ ] Integrate button linking to `/calculadora-resico`
+- [x] Task: Create the component file (b093f44)
+    - [x] Create `components/calculator-cta.tsx`
+    - [x] Define interface for props (`title`, `description`)
+    - [x] Add dark-mode styling (`bg-foreground text-background`) and amber accent border
+    - [x] Integrate button linking to `/calculadora-resico`
 - [ ] Task: Verify the component styling
     - [ ] Import and preview the component in an admin page or verify rendering
     - [ ] Run `npm run lint` and `npx tsc --noEmit`
