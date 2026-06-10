@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -426,31 +427,10 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="border-t-2 border-accent-amber/20 pt-12 mt-16">
-              <div className="bg-muted/30 border-2 border-accent-amber/20 p-8 md:p-12 space-y-6">
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.3em] text-accent-rust font-mono">
-                    VALIDACIÓN_INTELIGENTE
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight">
-                    Toma el control de tu información fiscal
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    Fiscalio procesa tus XMLs y te muestra la misma lógica que
-                    usa el SAT, para que siempre sepas exactamente qué esperar
-                    en tu declaración.
-                  </p>
-                </div>
-                <Link href="/">
-                  <Button
-                    variant="outline"
-                    className="text-xs tracking-[0.15em] h-12 px-8 rounded-none border-accent-rust text-accent-rust hover:bg-accent-rust hover:text-white"
-                  >
-                    SABER MÁS
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <CalculatorCTA 
+              title="Toma el control de tu contabilidad"
+              description="Usa nuestra calculadora para prever tus declaraciones mensuales y adelantarte a la información del SAT."
+            />
           </div>
         </div>
       </article>

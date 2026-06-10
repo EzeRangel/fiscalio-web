@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -390,29 +391,10 @@ export default function ErrorDeclaracionPage() {
               </div>
             </div>
 
-            <div className="border-t-2 border-accent-amber/20 pt-12 mt-16">
-              <div className="bg-muted/30 border-2 border-accent-amber/20 p-8 md:p-12 space-y-6">
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.3em] text-accent-rust font-mono">
-                    CALCULADORA FISCAL
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight">
-                    Antes de presentar otra declaración, revisa tus números
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    Usa nuestra calculadora gratuita para estimar ISR, IVA y
-                    detectar posibles inconsistencias antes de enviar tu
-                    declaración al SAT. Claridad total antes de dar el siguiente
-                    paso.
-                  </p>
-                </div>
-                <Link href="/calculadora-resico">
-                  <Button className="text-xs tracking-[0.15em] h-12 px-8 rounded-none">
-                    PROBAR CALCULADORA
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <CalculatorCTA 
+              title="Corrige y simula tus declaraciones"
+              description="Determina los impuestos correctos de tus periodos anteriores con nuestra calculadora de RESICO."
+            />
           </div>
         </div>
       </article>
