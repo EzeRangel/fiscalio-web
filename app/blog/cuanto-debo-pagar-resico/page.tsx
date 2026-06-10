@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -277,34 +278,11 @@ export default function BlogPage() {
                 </p>
 
                 <div className="space-y-4 pt-12">
-                  <div className="bg-foreground text-background p-8 md:p-12 space-y-8 relative overflow-hidden">
-                    <div className="relative z-10 space-y-6">
-                      <Badge className="bg-accent-amber text-foreground rounded-none px-3 py-1 text-[10px] tracking-widest font-mono">
-                        HERRAMIENTA
-                      </Badge>
-                      <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">
-                        Calculadora RESICO
-                      </h2>
-                      <p className="text-background/80 max-w-2xl leading-relaxed">
-                        En Fiscalio diseñamos una calculadora para decirte, peso
-                        por peso, cómo se están llenando tus tres bóvedas en
-                        este preciso momento. Pruébala gratis y conoce tu Neto
-                        Real antes de que llegue el día 17
-                      </p>
-                      <Link
-                        href="/calculadora-resico"
-                        className="inline-block w-full md:w-auto"
-                      >
-                        <Button
-                          size="lg"
-                          className="w-full md:w-auto bg-background text-foreground hover:bg-background/90 rounded-none h-14 px-12 text-xs tracking-[0.2em] font-bold"
-                        >
-                          CALCULAR IMPUESTOS
-                          <ArrowRight className="ml-3 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
+
+                  <CalculatorCTA 
+                    title="¿Cuánto te queda de Neto Real?"
+                    description="Descubre exactamente cuánto pagarás de impuestos según tus ingresos mensuales y retenciones aplicables."
+                  />
                 </div>
               </div>
             </div>

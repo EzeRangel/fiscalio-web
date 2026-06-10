@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -359,28 +360,10 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="border-t-2 border-accent-amber/20 pt-12 mt-16">
-              <div className="bg-muted/30 border-2 border-accent-amber/20 p-8 md:p-12 space-y-6">
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.3em] text-accent-rust font-mono">
-                    ÚNETE A LA WAITLIST
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight">
-                    Claridad fiscal sin hojas sueltas
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    Estamos construyendo Fiscalio para que puedas ver tus CFDIs,
-                    tus ingresos y tus impuestos en un mismo lugar, sin tener
-                    que reconstruir todo cada mes.
-                  </p>
-                </div>
-                <Link href="/?dialog=open">
-                  <Button className="text-xs tracking-[0.15em] h-12 px-8 rounded-none">
-                    REGISTRARME
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <CalculatorCTA 
+              title="Calcula tus impuestos antes del día 17"
+              description="Conoce tu ISR a pagar y planifica tus finanzas antes de que llegue la fecha límite."
+            />
           </div>
         </div>
       </article>

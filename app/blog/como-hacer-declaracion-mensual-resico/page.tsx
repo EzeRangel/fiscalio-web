@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -364,42 +365,10 @@ export default function BlogPage() {
                     </p>
                   </div>
                 </section>
-
-                <section className="space-y-4 pt-12">
-                  <div className="bg-foreground text-background p-8 md:p-12 space-y-8 relative overflow-hidden">
-                    <div className="relative z-10 space-y-6">
-                      <Badge className="bg-accent-amber text-foreground rounded-none px-3 py-1 text-[10px] tracking-widest font-mono">
-                        ALPHA_LAUNCH
-                      </Badge>
-                      <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">
-                        Únete al Lanzamiento <br />
-                        <span className="text-background/60">
-                          (Descuento de Fundador)
-                        </span>
-                      </h2>
-                      <p className="text-background/80 max-w-2xl leading-relaxed">
-                        Estamos abriendo solo <strong>50 lugares</strong> para
-                        nuestra fase Alpha. Al unirte a la lista de espera, no
-                        solo tendrás acceso anticipado para automatizar tu
-                        contabilidad, sino que asegurarás un{" "}
-                        <strong>precio especial de fundador</strong> de por
-                        vida.
-                      </p>
-                      <Link
-                        href="/?dialog=open"
-                        className="inline-block w-full md:w-auto"
-                      >
-                        <Button
-                          size="lg"
-                          className="w-full md:w-auto bg-background text-foreground hover:bg-background/90 rounded-none h-14 px-12 text-xs tracking-[0.2em] font-bold"
-                        >
-                          UNIRME A LA LISTA DE ESPERA
-                          <ArrowRight className="ml-3 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </section>
+                <CalculatorCTA 
+                  title="Evita errores en tu declaración mensual"
+                  description="Nuestra calculadora te da los montos exactos de ISR e IVA para que declares ante el SAT con total tranquilidad."
+                />
               </div>
             </div>
           </div>

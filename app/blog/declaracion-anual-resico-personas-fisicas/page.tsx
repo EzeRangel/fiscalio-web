@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon, ExternalLinkIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -316,28 +317,10 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="border-t-2 border-accent-amber/20 pt-12 mt-16">
-              <div className="bg-muted/30 border-2 border-accent-amber/20 p-8 md:p-12 space-y-6">
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.3em] text-accent-rust font-mono">
-                    CONTROL MENSUAL SIN ESTRÉS
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-display font-semibold tracking-tight">
-                    Domina tus declaraciones mensuales
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    Ya no hay anual, pero las mensuales siguen ahí. Fiscalio te
-                    ayuda a procesar tus XMLs, clasificar tus ingresos y tener
-                    todo listo para cumplir con el SAT en minutos, no horas.
-                  </p>
-                </div>
-                <Link href="/">
-                  <Button className="text-xs tracking-[0.15em] h-12 px-8 rounded-none">
-                    PROBAR FISCALIO
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <CalculatorCTA 
+              title="Prepárate para la Declaración Anual"
+              description="Simula tus impuestos acumulados y prevé tus saldos anuales de ISR de forma fácil."
+            />
           </div>
         </div>
       </article>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
+import { CalculatorCTA } from "@/components/calculator-cta";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -346,37 +347,10 @@ export default function BlogPage() {
                   </p>
                 </section>
 
-                <section className="space-y-4 pt-12">
-                  <div className="bg-foreground text-background p-8 md:p-12 space-y-8 relative overflow-hidden">
-                    <div className="relative z-10 space-y-6">
-                      <Badge className="bg-accent-amber text-foreground rounded-none px-3 py-1 text-[10px] tracking-widest font-mono">
-                        HERRAMIENTA_GRATUITA
-                      </Badge>
-                      <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">
-                        Calcula tu ISR e IVA <br />
-                        <span className="text-background/60">en segundos</span>
-                      </h2>
-                      <p className="text-background/80 max-w-2xl leading-relaxed">
-                        No dejes que los impuestos te tomen por sorpresa. Usa
-                        nuestra calculadora gratuita diseñada específicamente
-                        para freelancers en RESICO y obtén claridad sobre tu
-                        flujo de caja hoy mismo.
-                      </p>
-                      <Link
-                        href="/calculadora-resico"
-                        className="inline-block w-full md:w-auto"
-                      >
-                        <Button
-                          size="lg"
-                          className="w-full md:w-auto bg-background text-foreground hover:bg-background/90 rounded-none h-14 px-12 text-xs tracking-[0.2em] font-bold"
-                        >
-                          USAR CALCULADORA RESICO
-                          <ArrowRight className="ml-3 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </section>
+                <CalculatorCTA 
+                  title="Monitorea tu flujo de caja en RESICO"
+                  description="Calcula tu tasa efectiva de ISR sin deducciones y mantén un control exacto de tus ingresos."
+                />
               </div>
             </div>
           </div>
