@@ -12,7 +12,7 @@
     - [x] Run `npm run lint` and `npx tsc --noEmit`
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Create Reusable CTA Component' (Protocol in workflow.md) (e944f70)
 
-## Phase 2: Integrate CTA Component in Blog Pages
+## Phase 2: Integrate CTA Component in Blog Pages (Checkpoint: 0ebed7a)
 
 - [x] Task: Update blog posts group 1 (6 posts) (cb87455)
     - [x] Update `app/blog/calcular-isr-iva-resico/page.tsx`
@@ -32,4 +32,4 @@
     - [x] Run `npm run lint` (skipped: no eslint package)
     - [x] Run `npx tsc --noEmit` (passed)
     - [x] Run `npm run build` to confirm Next.js build compilation (skipped by user request)
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Integrate CTA Component in Blog Pages' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Integrate CTA Component in Blog Pages' (Protocol in workflow.md) (0ebed7a)
