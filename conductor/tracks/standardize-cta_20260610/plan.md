@@ -14,20 +14,20 @@
 
 ## Phase 2: Integrate CTA Component in Blog Pages
 
-- [ ] Task: Update blog posts group 1 (6 posts)
-    - [ ] Update `app/blog/calcular-isr-iva-resico/page.tsx`
-    - [ ] Update `app/blog/como-hacer-declaracion-mensual-resico/page.tsx`
-    - [ ] Update `app/blog/cuando-presentar-declaracion-mensual-resico/page.tsx`
-    - [ ] Update `app/blog/cuanto-debo-pagar-resico/page.tsx`
-    - [ ] Update `app/blog/declaracion-anual-resico-personas-fisicas/page.tsx`
-    - [ ] Update `app/blog/deducciones-resico-isr/page.tsx`
-- [ ] Task: Update blog posts group 2 (6 posts)
-    - [ ] Update `app/blog/exportar-servicios-resico-como-freelancer/page.tsx`
-    - [ ] Update `app/blog/porque-sat-no-precarga-facturas/page.tsx`
-    - [ ] Update `app/blog/pue-vs-ppd-diferencia-facturar-cobrar/page.tsx`
-    - [ ] Update `app/blog/que-es-resico-freelancers-mexico/page.tsx`
-    - [ ] Update `app/blog/que-hacer-si-presentaste-mal-tu-declaracion-sat/page.tsx`
-    - [ ] Update `app/blog/saldo-favor-resico/page.tsx`
+- [x] Task: Update blog posts group 1 (6 posts) (cb87455)
+    - [x] Update `app/blog/calcular-isr-iva-resico/page.tsx`
+    - [x] Update `app/blog/como-hacer-declaracion-mensual-resico/page.tsx`
+    - [x] Update `app/blog/cuando-presentar-declaracion-mensual-resico/page.tsx`
+    - [x] Update `app/blog/cuanto-debo-pagar-resico/page.tsx`
+    - [x] Update `app/blog/declaracion-anual-resico-personas-fisicas/page.tsx`
+    - [x] Update `app/blog/deducciones-resico-isr/page.tsx`
+- [~] Task: Update blog posts group 2 (6 posts)
+    - [~] Update `app/blog/exportar-servicios-resico-como-freelancer/page.tsx`
+    - [~] Update `app/blog/porque-sat-no-precarga-facturas/page.tsx`
+    - [~] Update `app/blog/pue-vs-ppd-diferencia-facturar-cobrar/page.tsx`
+    - [~] Update `app/blog/que-es-resico-freelancers-mexico/page.tsx`
+    - [~] Update `app/blog/que-hacer-si-presentaste-mal-tu-declaracion-sat/page.tsx`
+    - [~] Update `app/blog/saldo-favor-resico/page.tsx`
 - [ ] Task: Run project quality checks
     - [ ] Run `npm run lint`
     - [ ] Run `npx tsc --noEmit`
