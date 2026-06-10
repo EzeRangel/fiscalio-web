@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { CalculatorCTA } from '@/components/calculator-cta';
 
 export default function DesignPreviewPage() {
   return (
@@ -154,6 +155,16 @@ export default function DesignPreviewPage() {
               <Badge variant="default">Status: Active</Badge>
               <Badge variant="outline">RESICO-PF</Badge>
             </div>
+          </div>
+        </div>
+
+        <div className="space-y-8">
+          <h3 className="text-lg font-display font-semibold">Calculator CTA</h3>
+          <div className="border border-dashed p-6 bg-muted/10">
+            <CalculatorCTA 
+              title="¿Quieres ver tus números reales? Simula tu ISR e IVA"
+              description="Usa nuestra herramienta para calcular tu neto real después de impuestos y retenciones de RESICO."
+            />
           </div>
         </div>
       </section>
