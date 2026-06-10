@@ -7,9 +7,9 @@
     - [x] Define interface for props (`title`, `description`)
     - [x] Add dark-mode styling (`bg-foreground text-background`) and amber accent border
     - [x] Integrate button linking to `/calculadora-resico`
-- [ ] Task: Verify the component styling
-    - [ ] Import and preview the component in an admin page or verify rendering
-    - [ ] Run `npm run lint` and `npx tsc --noEmit`
+- [x] Task: Verify the component styling (0db371e)
+    - [x] Import and preview the component in an admin page or verify rendering
+    - [x] Run `npm run lint` and `npx tsc --noEmit`
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Create Reusable CTA Component' (Protocol in workflow.md)
 
 ## Phase 2: Integrate CTA Component in Blog Pages
