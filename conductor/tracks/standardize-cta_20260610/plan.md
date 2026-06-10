@@ -1,6 +1,6 @@
 # Implementation Plan: Standardize bottom-of-post calculator CTA across all posts
 
-## Phase 1: Create Reusable CTA Component
+## Phase 1: Create Reusable CTA Component (Checkpoint: e944f70)
 
 - [x] Task: Create the component file (b093f44)
     - [x] Create `components/calculator-cta.tsx`
@@ -10,7 +10,7 @@
 - [x] Task: Verify the component styling (0db371e)
     - [x] Import and preview the component in an admin page or verify rendering
     - [x] Run `npm run lint` and `npx tsc --noEmit`
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Create Reusable CTA Component' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Create Reusable CTA Component' (Protocol in workflow.md) (e944f70)
 
 ## Phase 2: Integrate CTA Component in Blog Pages
 
