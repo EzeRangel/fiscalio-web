@@ -10,14 +10,7 @@ import {
 import { formatCurrency } from "@/lib/format-currency";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
+import { Switch } from "@/components/ui/switch";
 import { SendReportDialog } from "./send-report-dialog";
 import Nossr from "../nossr";
 
@@ -89,41 +82,18 @@ export function TaxCalculator() {
             {/* Input Side */}
             <div className="lg:col-span-5 space-y-8">
               <section className="space-y-6">
-                <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
-                  Parámetros de Entrada
+                <h3 className="font-display text-sm font-bold tracking-[0.2em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                  Parámetros
                 </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
+                  {/* Amount Input */}
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase text-muted-foreground tracking-widest">
-                      Jurisdicción de Ingreso
+                    <label htmlFor="base-imponible" className="font-display text-xs uppercase text-muted-foreground tracking-widest">
+                      ¿Cuánto te pagaron?
                     </label>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className={`flex-1 rounded-none text-[10px] uppercase tracking-widest ${tipoIngreso === "NACIONAL" ? "bg-black text-white dark:bg-white dark:text-black" : ""}`}
-                        onClick={() => setTipoIngreso("NACIONAL")}
-                      >
-                        Local [MX]
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className={`flex-1 rounded-none text-[10px] uppercase tracking-widest ${tipoIngreso === "EXTRANJERO" ? "bg-black text-white dark:bg-white dark:text-black" : ""}`}
-                        onClick={() => setTipoIngreso("EXTRANJERO")}
-                      >
-                        Global [EXPORT]
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="base-imponible" className="text-[10px] uppercase text-muted-foreground tracking-widest">
-                      Base Imponible (Subtotal)
-                    </label>
-                    <div className="relative border-b-2 border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white transition-colors">
-                      <span className="absolute left-0 top-1/2 -translate-y-1/2 text-sm">
+                    <div className="relative border-b border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white transition-colors py-1">
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-mono text-muted-foreground">
                         $
                       </span>
                       <Input
@@ -132,39 +102,53 @@ export function TaxCalculator() {
                         value={amount}
                         step={100}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="pl-6 border-none rounded-none focus-visible:ring-0 text-lg font-bold"
+                        className="pl-6 border-none rounded-none focus-visible:ring-0 text-2xl font-bold font-mono tracking-tight"
                         placeholder="0.00"
                       />
                     </div>
                   </div>
 
-                  {tipoIngreso === "NACIONAL" && (
-                    <div className="space-y-2">
-                      <label htmlFor="tipo-cliente" className="text-[10px] uppercase text-muted-foreground tracking-widest">
-                        Clasificación de Cliente
+                  {/* Mexican Client Switch */}
+                  <div className="flex items-center justify-between py-2 border-b border-zinc-100 dark:border-zinc-900">
+                    <div className="space-y-0.5">
+                      <label className="font-display text-xs uppercase tracking-widest font-semibold">
+                        ¿Tu cliente es mexicano?
                       </label>
-                      <Select
-                        value={tipoCliente}
-                        onValueChange={(v) => setTipoCliente(v as TipoCliente)}
-                      >
-                        <SelectTrigger id="tipo-cliente" className="rounded-none border-x-0 border-t-0 border-b-2 border-zinc-200 dark:border-zinc-800 text-xs tracking-wide w-full">
-                          <SelectValue placeholder="Seleccionar..." />
-                        </SelectTrigger>
-                        <SelectContent className="rounded-none font-mono">
-                          <SelectItem value="FISICA">
-                            P. FÍSICA [SIN RETENCIONES]
-                          </SelectItem>
-                          <SelectItem value="MORAL">
-                            P. MORAL [CON RETENCIONES]
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <p className="text-[10px] text-muted-foreground font-sans">
+                        Activa para facturas locales (MXN)
+                      </p>
+                    </div>
+                    <Switch
+                      checked={tipoIngreso === "NACIONAL"}
+                      onCheckedChange={(checked) => {
+                        setTipoIngreso(checked ? "NACIONAL" : "EXTRANJERO");
+                      }}
+                    />
+                  </div>
+
+                  {/* Company Client Switch */}
+                  {tipoIngreso === "NACIONAL" && (
+                    <div className="flex items-center justify-between py-2 border-b border-zinc-100 dark:border-zinc-900 animate-in fade-in duration-200">
+                      <div className="space-y-0.5">
+                        <label className="font-display text-xs uppercase tracking-widest font-semibold">
+                          ¿Tu cliente es una empresa?
+                        </label>
+                        <p className="text-[10px] text-muted-foreground font-sans">
+                          Aplica retención de ISR (1.25%) e IVA (10.6%)
+                        </p>
+                      </div>
+                      <Switch
+                        checked={tipoCliente === "MORAL"}
+                        onCheckedChange={(checked) => {
+                          setTipoCliente(checked ? "MORAL" : "FISICA");
+                        }}
+                      />
                     </div>
                   )}
                 </div>
               </section>
 
-              <div className="p-4 bg-zinc-50 dark:bg-zinc-900 border border-dashed border-zinc-300 dark:border-zinc-700 text-[10px] leading-relaxed text-muted-foreground uppercase tracking-wider">
+              <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-dashed border-zinc-200 dark:border-zinc-800 text-[10px] leading-relaxed text-muted-foreground uppercase tracking-wider rounded-md font-sans">
                 Nota: Los cálculos presentados en este reporte son de carácter
                 informativo. Basado en las tablas de ISR RESICO vigentes para el
                 ejercicio fiscal 2026.
