@@ -20,6 +20,7 @@ interface TaxReportEmailProps {
   tipoIngreso: TipoIngreso;
   tipoCliente: TipoCliente;
   date: string;
+  reportId: string;
 }
 
 const main = {
@@ -120,83 +121,89 @@ export function TaxReportEmail({
   tipoIngreso,
   tipoCliente,
   date,
+  reportId,
 }: TaxReportEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>Tu Informe de Proyección Fiscal - Fiscalio</Preview>
+      <Preview>Tu Proyección Fiscal - Fiscalio</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={metadata}>
             <Row>
-              <Column>DOCUMENTO: FIS_REPORT_{Math.random().toString(36).substring(7).toUpperCase()}</Column>
+              <Column>ID: {reportId}</Column>
               <Column style={{ textAlign: "right" as const }}>FECHA: {date}</Column>
             </Row>
           </Section>
 
           <Section style={header}>
-            <Text style={label}>FISCALIO // SISTEMA DE CONTROL</Text>
-            <Heading style={h1}>Informe de Proyección Fiscal</Heading>
+            <Text style={label}>FISCALIO // SIMULACIÓN</Text>
+            <Heading style={h1}>Proyección Fiscal RESICO</Heading>
           </Section>
 
           <Section>
             <Text style={sectionTitle}>Parámetros de Entrada</Text>
             <Row style={row}>
-              <Column style={label}>Jurisdicción</Column>
-              <Column style={value}>{tipoIngreso === "NACIONAL" ? "LOCAL [MX]" : "GLOBAL [EXPORT]"}</Column>
-            </Row>
-            <Row style={row}>
-              <Column style={label}>Tipo de Cliente</Column>
-              <Column style={value}>{tipoCliente === "FISICA" ? "P. FÍSICA" : "P. MORAL"}</Column>
-            </Row>
-            <Row style={row}>
-              <Column style={label}>Ingreso Bruto</Column>
+              <Column style={label}>¿Cuánto te pagaron?</Column>
               <Column style={value}>${formatCurrency(result.subtotal)}</Column>
             </Row>
+            <Row style={row}>
+              <Column style={label}>¿Cliente mexicano?</Column>
+              <Column style={value}>{tipoIngreso === "NACIONAL" ? "SÍ" : "NO"}</Column>
+            </Row>
+            {tipoIngreso === "NACIONAL" && (
+              <Row style={row}>
+                <Column style={label}>¿Cliente empresa?</Column>
+                <Column style={value}>{tipoCliente === "MORAL" ? "SÍ" : "NO"}</Column>
+              </Row>
+            )}
           </Section>
 
           <Section>
-            <Text style={sectionTitle}>Desglose de Impuestos</Text>
+            <Text style={sectionTitle}>Bóveda IVA (Impuesto Indirecto)</Text>
             <Row style={row}>
-              <Column style={label}>(+) IVA TRASLADADO [16%]</Column>
+              <Column style={label}>IVA que cobraste ({tipoIngreso === "NACIONAL" ? "16%" : "0%"})</Column>
               <Column style={value}>${formatCurrency(result.iva)}</Column>
             </Row>
-            {result.retencionISR > 0 && (
-              <Row style={row}>
-                <Column style={label}>(-) Retención ISR [1.25%]</Column>
-                <Column style={{ ...value, color: "#b34d3d" }}>-${formatCurrency(result.retencionISR)}</Column>
-              </Row>
-            )}
             {result.retencionIVA > 0 && (
               <Row style={row}>
-                <Column style={label}>(-) Retención IVA [10.6%]</Column>
+                <Column style={label}>(-) Retención de IVA (10.6%)</Column>
                 <Column style={{ ...value, color: "#b34d3d" }}>-${formatCurrency(result.retencionIVA)}</Column>
               </Row>
             )}
-            <Hr style={{ borderColor: "#e5e5e5", margin: "16px 0" }} />
             <Row style={row}>
-              <Column style={label}>Depósito en Banco</Column>
-              <Column style={value}>${formatCurrency(result.totalNeto)}</Column>
+              <Column style={{ ...label, fontWeight: "bold" }}>IVA neto a pagar al SAT</Column>
+              <Column style={{ ...value, fontWeight: "bold" }}>${formatCurrency(result.ivaNeto)}</Column>
             </Row>
           </Section>
 
           <Section>
-            <Text style={sectionTitle}>Liquidación SAT</Text>
+            <Text style={sectionTitle}>Bóveda ISR (Impuesto Directo)</Text>
             <Row style={row}>
-              <Column style={label}>ISR Mensual a Pagar</Column>
-              <Column style={{ ...value, color: result.isrNeto < 0 ? "#16a34a" : "#ea580c" }}>
-                {result.isrNeto < 0 ? "+" : "-"}${formatCurrency(Math.abs(result.isrNeto))}
+              <Column style={label}>ISR mensual (tasa {(result.tasaAplicada * 100).toFixed(2)}%)</Column>
+              <Column style={value}>${formatCurrency(result.isrBruto)}</Column>
+            </Row>
+            {result.retencionISR > 0 && (
+              <Row style={row}>
+                <Column style={label}>(-) Retención de ISR (1.25%)</Column>
+                <Column style={{ ...value, color: "#b34d3d" }}>-${formatCurrency(result.retencionISR)}</Column>
+              </Row>
+            )}
+            <Row style={row}>
+              <Column style={{ ...label, fontWeight: "bold" }}>{result.isrNeto < 0 ? "Saldo a favor" : "ISR neto a pagar"}</Column>
+              <Column style={{ ...value, fontWeight: "bold", color: result.isrNeto < 0 ? "#16a34a" : "#ea580c" }}>
+                {result.isrNeto < 0 ? "+" : ""}${formatCurrency(Math.abs(result.isrNeto))}
               </Column>
             </Row>
-            <Row style={row}>
-              <Column style={label}>IVA Mensual a Pagar</Column>
-              <Column style={{ ...value, color: "#ea580c" }}>-${formatCurrency(result.ivaNeto)}</Column>
-            </Row>
+          </Section>
 
-            <Section style={totalBox}>
-              <Text style={totalLabel}>Utilidad Real Disponible</Text>
-              <Text style={totalValue}>${formatCurrency(result.utilidadReal)}</Text>
-            </Section>
+          <Section style={totalBox}>
+            <Text style={totalLabel}>Tu Neto Real (Disponible)</Text>
+            <Text style={totalValue}>${formatCurrency(result.utilidadReal)}</Text>
+            <Hr style={{ borderColor: "rgba(255,255,255,0.2)", margin: "16px 0" }} />
+            <Text style={{ fontSize: "10px", margin: "0", opacity: 0.8 }}>
+              Depósito bancario estimado: ${formatCurrency(result.totalNeto)} {result.iva > 0 ? "(incluye IVA que no es tuyo)" : ""}
+            </Text>
           </Section>
 
           <Text style={footer}>

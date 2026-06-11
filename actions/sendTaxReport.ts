@@ -16,6 +16,7 @@ interface SendTaxReportRequest {
 
 export async function sendTaxReport(params: SendTaxReportRequest) {
   try {
+    const reportId = Math.random().toString(36).substring(7).toUpperCase();
     const { error } = await resend.emails.send({
       from: "Fiscalio <noresponder@fiscalio.app>",
       to: [params.email],
@@ -25,6 +26,7 @@ export async function sendTaxReport(params: SendTaxReportRequest) {
         tipoIngreso: params.tipoIngreso,
         tipoCliente: params.tipoCliente,
         date: params.date,
+        reportId,
       }),
     });
 
