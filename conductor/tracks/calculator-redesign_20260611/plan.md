@@ -21,12 +21,12 @@
     - [x] Update the styling of the "Enviar por correo" button.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Results Section Redesign ("3 Bóvedas")' (Protocol in workflow.md)
 
-## Phase 4: Dialog & Email Synchronization
+## Phase 4: Dialog & Email Synchronization [2dffe2b77eb07559ddd11cffca8a389cd4998e68]
 - [x] Task: Update labels in `components/tax-calculator/send-report-dialog.tsx` (f844de7a6df6d133deb8f40bea060c4fa58ac307)
     - [x] Change dialogue headers and email field labels to match simple "¿Cuánto te pagaron?" and "Neto Real" terms.
 - [x] Task: Update labels in `components/emails/tax-report-email.tsx` (f844de7a6df6d133deb8f40bea060c4fa58ac307)
     - [x] Refactor the email structure and text to match the simple naming and values.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Dialog & Email Synchronization' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Dialog & Email Synchronization' (Protocol in workflow.md)
 
 ## Phase 5: Quality Assurance & Build Verification
 - [ ] Task: Run quality checks
