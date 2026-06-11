@@ -1,8 +1,8 @@
 # Implementation Plan: Phase 1 - Calculator Redesign (Clarity + UX)
 
 ## Phase 1: Setup & Switch Component Scaffolding
-- [ ] Task: Create UI Switch component
-    - [ ] Create `components/ui/switch.tsx` using the `@radix-ui/react-switch` primitive and `cn` helper.
+- [x] Task: Create UI Switch component (2ef46747d744fa8563460543d72d0e91810526c2)
+    - [x] Create `components/ui/switch.tsx` using the `@radix-ui/react-switch` primitive and `cn` helper.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Setup & Switch Component Scaffolding' (Protocol in workflow.md)
 
 ## Phase 2: Input Section Redesign
