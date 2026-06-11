@@ -6,10 +6,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Setup & Switch Component Scaffolding' (Protocol in workflow.md)
 
 ## Phase 2: Input Section Redesign
-- [ ] Task: Update inputs in `components/tax-calculator/tax-calculator.tsx`
-    - [ ] Replace "Jurisdicción de Ingreso" buttons with a modern "¿Tu cliente es mexicano?" Switch component.
-    - [ ] Replace "Clasificación de Cliente" select dropdown with a "¿Tu cliente es una empresa?" Switch component (only visible when client is Mexican).
-    - [ ] Replace "Base Imponible (Subtotal)" input label with "¿Cuánto te pagaron?" and style the input box.
+- [x] Task: Update inputs in `components/tax-calculator/tax-calculator.tsx` (df761f3dad4a3d96470e88427db64b3daefe0da6)
+    - [x] Replace "Jurisdicción de Ingreso" buttons with a modern "¿Tu cliente es mexicano?" Switch component.
+    - [x] Replace "Clasificación de Cliente" select dropdown with a "¿Tu cliente es una empresa?" Switch component (only visible when client is Mexican).
+    - [x] Replace "Base Imponible (Subtotal)" input label with "¿Cuánto te pagaron?" and style the input box.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Input Section Redesign' (Protocol in workflow.md)
 
 ## Phase 3: Results Section Redesign ("3 Bóvedas")
