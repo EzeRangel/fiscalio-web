@@ -34,7 +34,7 @@ export function TaxCalculator() {
     .toUpperCase();
 
   return (
-    <div className="w-full max-w-4xl mx-auto font-mono">
+    <div className="w-full max-w-4xl mx-auto font-sans">
       <SendReportDialog
         open={isDialogOpen}
         onOpenChange={setIsDialogOpen}
@@ -44,41 +44,19 @@ export function TaxCalculator() {
         date={today}
       />
 
-      {/* Report Header / Metadata */}
-      <div className="flex justify-between items-end mb-8 px-2 text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
-        <div className="space-y-1">
-          <p>Documento: FIS_CALC_REV_04</p>
-          <p>Régimen: Régimen Simplificado de Confianza</p>
-        </div>
-        <div className="text-right space-y-1">
-          <p>Fecha de emisión: {today}</p>
-          <p>Estado: Borrador de Simulación</p>
-        </div>
-      </div>
-
-      <div className="relative bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 shadow-[20px_20px_0px_rgba(0,0,0,0.05)] dark:shadow-[20px_20px_0px_rgba(255,255,255,0.02)] min-h-[800px] flex flex-col">
-        {/* Hole Punch Effect */}
-        <div className="absolute left-4 top-0 bottom-0 flex flex-col justify-around py-12 pointer-events-none opacity-20 dark:opacity-10">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="w-4 h-4 rounded-full border border-zinc-400 bg-zinc-100"
-            />
-          ))}
-        </div>
-
-        <div className="flex-1 pl-16 pr-12 py-12 space-y-12">
+      <div className="relative bg-card dark:bg-zinc-950 border border-border rounded-lg shadow-sm min-h-[600px] flex flex-col">
+        <div className="flex-1 px-6 md:px-10 py-10 space-y-10">
           {/* Main Title */}
-          <div className="border-b-2 border-black dark:border-white pb-6">
-            <h2 className="text-2xl font-bold tracking-tighter uppercase">
-              Informe de Proyección Fiscal
+          <div className="border-b border-zinc-200 dark:border-zinc-800 pb-6">
+            <h2 className="font-display text-2xl font-semibold tracking-tight">
+              Simulador Fiscal RESICO
             </h2>
-            <p className="text-xs text-muted-foreground mt-2">
-              Simulación de ingresos y obligaciones tributarias mensuales
+            <p className="text-sm text-muted-foreground mt-1 font-sans">
+              Visualiza el desglose mensual de tus impuestos en tiempo real
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Input Side */}
             <div className="lg:col-span-5 space-y-8">
               <section className="space-y-6">
@@ -156,147 +134,141 @@ export function TaxCalculator() {
             </div>
 
             {/* Results Side */}
-            <div className="lg:col-span-7 flex flex-col">
-              <section className="flex-1 space-y-6">
-                <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
-                  Desglose de Operación
-                </h3>
+            <div className="lg:col-span-7 flex flex-col space-y-6">
+              <h3 className="font-display text-sm font-bold tracking-[0.2em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                Tus 3 Bóvedas
+              </h3>
 
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between py-1">
-                    <span className="text-muted-foreground">
-                      SUBTOTAL [HONORARIOS]
+              <div className="space-y-6">
+                {/* 1. Bóveda IVA */}
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
+                  <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                    <span className="font-display text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                      Bóveda IVA
                     </span>
-                    <span className="font-bold">
-                      ${formatCurrency(result.subtotal)}
+                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-teal-500/10 text-teal-700 dark:text-teal-300 px-2 py-0.5 rounded-sm">
+                      Impuesto Indirecto
                     </span>
                   </div>
 
-                  {result.iva > 0 && (
-                    <div className="flex justify-between py-1">
-                      <span className="text-muted-foreground">
-                        (+) IVA TRASLADADO [16%]
-                      </span>
-                      <span>${formatCurrency(result.iva)}</span>
+                  <div className="space-y-2 text-sm font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground font-sans">IVA que cobraste ({tipoIngreso === "NACIONAL" ? "16%" : "0%"})</span>
+                      <span className="font-semibold">${formatCurrency(result.iva)}</span>
                     </div>
-                  )}
-
-                  {(result.retencionISR > 0 || result.retencionIVA > 0) && (
-                    <div className="space-y-1 pt-2 border-t border-zinc-100 dark:border-zinc-900">
-                      {result.retencionISR > 0 && (
-                        <div className="flex justify-between text-xs py-1">
-                          <span className="text-muted-foreground">
-                            (-) RETENCIÓN ISR [1.25%]
-                          </span>
-                          <span className="text-accent-rust">
-                            -${formatCurrency(result.retencionISR)}
-                          </span>
-                        </div>
-                      )}
-                      {result.retencionIVA > 0 && (
-                        <div className="flex justify-between text-xs py-1">
-                          <span className="text-muted-foreground">
-                            (-) RETENCIÓN IVA [10.6%]
-                          </span>
-                          <span className="text-accent-rust">
-                            -${formatCurrency(result.retencionIVA)}
-                          </span>
-                        </div>
-                      )}
+                    {result.retencionIVA > 0 && (
+                      <div className="flex justify-between text-xs">
+                        <span className="text-muted-foreground font-sans">(-) Retención de IVA (10.6%)</span>
+                        <span className="text-accent-rust">-${formatCurrency(result.retencionIVA)}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between border-t border-dashed border-zinc-200 dark:border-zinc-800 pt-2 font-bold text-base">
+                      <span className="font-sans font-bold">IVA neto a pagar al SAT</span>
+                      <span>${formatCurrency(result.ivaNeto)}</span>
                     </div>
-                  )}
-
-                  <div className="flex justify-between py-4 border-y-2 border-black dark:border-white mt-4 font-bold text-lg">
-                    <span>DEPÓSITO BANCARIO</span>
-                    <span>${formatCurrency(result.totalNeto)}</span>
                   </div>
+
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
+                    {result.iva > 0
+                      ? "Este dinero no es tuyo. El SAT te lo presta para que lo recaudes. No lo gastes."
+                      : "Al exportar servicios al extranjero, tu tasa de IVA es del 0% y no tienes que recaudar este impuesto."}
+                  </p>
                 </div>
 
-                <div className="pt-8 space-y-6">
-                  <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
-                    Liquidación SAT Proyectada
-                  </h3>
+                {/* 2. Bóveda ISR */}
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
+                  <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                    <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                      Bóveda ISR
+                    </span>
+                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-amber-500/10 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-sm">
+                      Impuesto Directo
+                    </span>
+                  </div>
 
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-end">
-                      <div className="space-y-1">
-                        <p className="text-xs font-bold uppercase">
-                          ISR Mensual [PROPIO]
-                        </p>
-                        <p className="text-[10px] text-muted-foreground">
-                          TASA APLICADA:{" "}
-                          {(result.tasaAplicada * 100).toFixed(2)}%
-                        </p>
+                  <div className="space-y-2 text-sm font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground font-sans">ISR mensual</span>
+                      <span className="font-semibold">${formatCurrency(result.isrBruto)}</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-muted-foreground font-sans">Tasa aplicada</span>
+                      <span className="font-semibold">{(result.tasaAplicada * 100).toFixed(2)}%</span>
+                    </div>
+                    {result.retencionISR > 0 && (
+                      <div className="flex justify-between text-xs">
+                        <span className="text-muted-foreground font-sans">(-) Retención de ISR</span>
+                        <span className="text-accent-rust">-${formatCurrency(result.retencionISR)}</span>
                       </div>
-                      <span
-                        className={`text-lg font-bold ${result.isrNeto < 0 ? "text-green-600" : ""}`}
-                      >
-                        {result.isrNeto < 0 ? "+" : "-"}$
-                        {formatCurrency(Math.abs(result.isrNeto))}
+                    )}
+                    <div className="flex justify-between border-t border-dashed border-zinc-200 dark:border-zinc-800 pt-2 font-bold text-base">
+                      <span className="font-sans font-bold">{result.isrNeto < 0 ? "Saldo a favor" : "ISR neto a pagar"}</span>
+                      <span className={result.isrNeto < 0 ? "text-emerald-600 dark:text-emerald-400" : ""}>
+                        {result.isrNeto < 0 ? "+" : ""}${formatCurrency(Math.abs(result.isrNeto))}
                       </span>
                     </div>
+                  </div>
 
-                    <div className="flex justify-between items-end pb-4 border-b border-zinc-100 dark:border-zinc-900">
-                      <div className="space-y-1">
-                        <p className="text-xs font-bold uppercase">
-                          IVA Mensual [A PAGAR]
-                        </p>
-                        <p className="text-[10px] text-muted-foreground">
-                          IVA COBRADO - RETENCIONES
-                        </p>
-                      </div>
-                      <span className="text-lg font-bold">
-                        -${formatCurrency(result.ivaNeto)}
-                      </span>
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
+                    Esto es lo que pagas al SAT por facturar en RESICO. Tu tasa es del {(result.tasaAplicada * 100).toFixed(2)}% porque facturas hasta {
+                      result.subtotal <= 25000 ? "$25,000" :
+                      result.subtotal <= 50000 ? "$50,000" :
+                      result.subtotal <= 83333.33 ? "$83,333" :
+                      result.subtotal <= 208333.33 ? "$208,333" :
+                      "$3.5M"
+                    } MXN al mes.
+                  </p>
+                </div>
+
+                {/* 3. Tu Neto Real */}
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 space-y-4 bg-emerald-500/[0.03] dark:bg-emerald-500/[0.01]">
+                  <div className="flex justify-between items-center border-b border-emerald-100 dark:border-emerald-950 pb-2">
+                    <span className="font-display text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                      Tu Neto Real
+                    </span>
+                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-sm">
+                      Disponible
+                    </span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="text-4xl font-bold font-mono text-emerald-600 dark:text-emerald-400">
+                      ${formatCurrency(result.utilidadReal)}
                     </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-sans">
+                      Esto es lo que realmente te queda después de impuestos. Puedes gastarlo sin crear deudas futuras.
+                    </p>
+                  </div>
 
-                    <div className="bg-black text-white dark:bg-white dark:text-black p-6 space-y-2">
-                      <p className="text-[10px] uppercase tracking-[0.3em]">
-                        Utilidad Neta Real
+                  <div className="border-t border-emerald-100 dark:border-emerald-950 pt-3 text-xs text-muted-foreground font-mono">
+                    {result.iva > 0 ? (
+                      <p className="font-sans">
+                        Depósito bancario estimado: <span className="font-bold font-mono text-foreground">${formatCurrency(result.totalNeto)}</span> (incluye IVA que no es tuyo)
                       </p>
-                      <div className="flex justify-between items-baseline">
-                        <span className="text-3xl font-bold">
-                          ${formatCurrency(result.utilidadReal)}
-                        </span>
-                        <span className="text-xs opacity-70 uppercase tracking-widest">
-                          Capital Disponible
-                        </span>
-                      </div>
-                    </div>
+                    ) : (
+                      <p className="font-sans">
+                        Depósito bancario estimado: <span className="font-bold font-mono text-foreground">${formatCurrency(result.totalNeto)}</span>
+                      </p>
+                    )}
                   </div>
                 </div>
-              </section>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Footer / Auth Seal */}
-        <div className="border-t border-zinc-200 dark:border-zinc-800 p-8 flex justify-between items-center bg-zinc-50/50 dark:bg-zinc-900/50">
-          <div className="space-y-1">
-            <p className="text-[10px] font-bold uppercase tracking-widest">
-              Validado por Motor Fiscalio
-            </p>
-            <Nossr>
-              <p className="text-[8px] text-muted-foreground font-mono">
-                HASH: {Math.random().toString(36).substring(7).toUpperCase()}
-              </p>
-            </Nossr>
+        {/* Footer / Send report */}
+        <div className="border-t border-zinc-200 dark:border-zinc-800 p-6 flex justify-between items-center bg-zinc-50/50 dark:bg-zinc-900/50 rounded-b-lg font-sans">
+          <div className="text-xs text-muted-foreground">
+            Basado en la ley de ingresos de la federación 2026.
           </div>
-          <div className="flex items-center gap-4">
-            <Button
-              onClick={() => setIsDialogOpen(true)}
-              className="rounded-none uppercase text-[10px] tracking-widest h-10 px-8"
-            >
-              Enviar por correo
-            </Button>
-          </div>
+          <Button
+            onClick={() => setIsDialogOpen(true)}
+            className="rounded-md font-sans text-sm tracking-wide h-11 px-8 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm"
+          >
+            Enviar por correo
+          </Button>
         </div>
-      </div>
-
-      <div className="mt-8 text-center">
-        <p className="text-[10px] text-muted-foreground uppercase tracking-[0.4em]">
-          Fin del Reporte
-        </p>
       </div>
     </div>
   );
