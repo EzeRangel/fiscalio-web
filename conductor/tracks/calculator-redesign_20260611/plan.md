@@ -13,12 +13,12 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Input Section Redesign' (Protocol in workflow.md)
 
 ## Phase 3: Results Section Redesign ("3 Bóvedas")
-- [ ] Task: Redesign output container in `components/tax-calculator/tax-calculator.tsx`
-    - [ ] Remove old document-style headers, hole punch decorations, HASH footer, and "Fin del reporte" section.
-    - [ ] Build **Bóveda IVA** with dynamic subtitle (normal vs export message) and desgloses.
-    - [ ] Build **Bóveda ISR** with raw ISR, Retención, and Net ISR/Saldo a favor (Option A logic).
-    - [ ] Build **Tu Neto Real** hero display with conditional bank deposit note.
-    - [ ] Update the styling of the "Enviar por correo" button.
+- [x] Task: Redesign output container in `components/tax-calculator/tax-calculator.tsx` (5de6b8a2db7c57ac482e4ecbc682a93049d1fd9e)
+    - [x] Remove old document-style headers, hole punch decorations, HASH footer, and "Fin del reporte" section.
+    - [x] Build **Bóveda IVA** with dynamic subtitle (normal vs export message) and desgloses.
+    - [x] Build **Bóveda ISR** with raw ISR, Retención, and Net ISR/Saldo a favor (Option A logic).
+    - [x] Build **Tu Neto Real** hero display with conditional bank deposit note.
+    - [x] Update the styling of the "Enviar por correo" button.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Results Section Redesign ("3 Bóvedas")' (Protocol in workflow.md)
 
 ## Phase 4: Dialog & Email Synchronization
