@@ -22,10 +22,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Results Section Redesign ("3 Bóvedas")' (Protocol in workflow.md)
 
 ## Phase 4: Dialog & Email Synchronization
-- [ ] Task: Update labels in `components/tax-calculator/send-report-dialog.tsx`
-    - [ ] Change dialogue headers and email field labels to match simple "¿Cuánto te pagaron?" and "Neto Real" terms.
-- [ ] Task: Update labels in `components/emails/tax-report-email.tsx`
-    - [ ] Refactor the email structure and text to match the simple naming and values.
+- [x] Task: Update labels in `components/tax-calculator/send-report-dialog.tsx` (f844de7a6df6d133deb8f40bea060c4fa58ac307)
+    - [x] Change dialogue headers and email field labels to match simple "¿Cuánto te pagaron?" and "Neto Real" terms.
+- [x] Task: Update labels in `components/emails/tax-report-email.tsx` (f844de7a6df6d133deb8f40bea060c4fa58ac307)
+    - [x] Refactor the email structure and text to match the simple naming and values.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Dialog & Email Synchronization' (Protocol in workflow.md)
 
 ## Phase 5: Quality Assurance & Build Verification
