@@ -25,6 +25,24 @@ export function TaxCalculator() {
     return calculateTax(numAmount, tipoIngreso, tipoCliente);
   }, [amount, tipoIngreso, tipoCliente]);
 
+  const { ivaPercent, isrPercent, utilPercent } = useMemo(() => {
+    const totalCash = result.totalNeto || 1;
+    const ivaNet = Math.max(0, result.ivaNeto);
+    const isrNet = Math.max(0, result.isrNeto);
+    const utilReal = Math.max(0, result.utilidadReal);
+    
+    const totalCalculated = ivaNet + isrNet + utilReal;
+    if (totalCalculated === 0) {
+      return { ivaPercent: 0, isrPercent: 0, utilPercent: 100 };
+    }
+    
+    return {
+      ivaPercent: (ivaNet / totalCalculated) * 100,
+      isrPercent: (isrNet / totalCalculated) * 100,
+      utilPercent: (utilReal / totalCalculated) * 100,
+    };
+  }, [result]);
+
   const today = new Date()
     .toLocaleDateString("es-MX", {
       day: "2-digit",
@@ -66,12 +84,12 @@ export function TaxCalculator() {
 
                 <div className="space-y-6">
                   {/* Amount Input */}
-                  <div className="space-y-2">
-                    <label htmlFor="base-imponible" className="font-display text-xs uppercase text-muted-foreground tracking-widest">
+                  <div className="space-y-3">
+                    <label htmlFor="base-imponible" className="font-display text-xs uppercase text-muted-foreground tracking-widest font-semibold block">
                       ¿Cuánto te pagaron?
                     </label>
                     <div className="relative border-b border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white transition-colors py-1">
-                      <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-mono text-muted-foreground">
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 text-2xl font-mono text-muted-foreground">
                         $
                       </span>
                       <Input
@@ -80,9 +98,26 @@ export function TaxCalculator() {
                         value={amount}
                         step={100}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="pl-6 border-none rounded-none focus-visible:ring-0 text-2xl font-bold font-mono tracking-tight"
+                        className="pl-6 border-none rounded-none focus-visible:ring-0 text-3xl font-bold font-mono tracking-tight bg-transparent"
                         placeholder="0.00"
                       />
+                    </div>
+                    {/* Presets Row */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {[15000, 30000, 50000, 80000, 120000, 150000].map((preset) => (
+                        <button
+                          key={preset}
+                          type="button"
+                          onClick={() => setAmount(preset.toString())}
+                          className={`px-2.5 py-1 text-[10px] font-mono border transition-all rounded-none uppercase tracking-wider ${
+                            amount === preset.toString()
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-transparent text-muted-foreground border-zinc-200 dark:border-zinc-800 hover:border-black dark:hover:border-white"
+                          }`}
+                        >
+                          ${formatCurrency(preset)}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
@@ -135,13 +170,59 @@ export function TaxCalculator() {
 
             {/* Results Side */}
             <div className="lg:col-span-7 flex flex-col space-y-6">
-              <h3 className="font-display text-sm font-bold tracking-[0.2em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
-                Tus 3 Bóvedas
-              </h3>
+              <div className="space-y-4 pb-2">
+                <h3 className="font-display text-sm font-bold tracking-[0.2em] uppercase border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                  Tus 3 Bóvedas
+                </h3>
+                {/* Distribution Bar */}
+                <div className="bg-zinc-50/50 dark:bg-zinc-900/10 border border-zinc-200 dark:border-zinc-800 p-4 space-y-3 rounded-none">
+                  <div className="flex justify-between text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-mono">
+                    <span>Distribución del Depósito</span>
+                    <span className="text-foreground font-bold">${formatCurrency(result.totalNeto)} MXN</span>
+                  </div>
+                  <div className="h-4 w-full flex bg-zinc-200 dark:bg-zinc-800 overflow-hidden rounded-none">
+                    {ivaPercent > 0 && (
+                      <div 
+                        style={{ width: `${ivaPercent}%` }} 
+                        className="h-full bg-teal-500 dark:bg-teal-400 transition-all duration-300"
+                        title={`IVA a separar: ${ivaPercent.toFixed(1)}%`}
+                      />
+                    )}
+                    {isrPercent > 0 && (
+                      <div 
+                        style={{ width: `${isrPercent}%` }} 
+                        className="h-full bg-amber-500 dark:bg-amber-400 transition-all duration-300"
+                        title={`ISR a separar: ${isrPercent.toFixed(1)}%`}
+                      />
+                    )}
+                    {utilPercent > 0 && (
+                      <div 
+                        style={{ width: `${utilPercent}%` }} 
+                        className="h-full bg-emerald-500 dark:bg-emerald-400 transition-all duration-300"
+                        title={`Tu Neto Real: ${utilPercent.toFixed(1)}%`}
+                      />
+                    )}
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-[9px] font-mono tracking-wider uppercase pt-1">
+                    <div className="flex flex-col gap-0.5 border-l-2 border-teal-500 dark:border-teal-400 pl-2">
+                      <span className="text-muted-foreground text-[8px]">IVA ({ivaPercent.toFixed(0)}%)</span>
+                      <span className="font-bold text-foreground">${formatCurrency(result.ivaNeto)}</span>
+                    </div>
+                    <div className="flex flex-col gap-0.5 border-l-2 border-amber-500 dark:border-amber-400 pl-2">
+                      <span className="text-muted-foreground text-[8px]">ISR ({isrPercent.toFixed(0)}%)</span>
+                      <span className="font-bold text-foreground">${formatCurrency(result.isrNeto < 0 ? 0 : result.isrNeto)}</span>
+                    </div>
+                    <div className="flex flex-col gap-0.5 border-l-2 border-emerald-500 dark:border-emerald-400 pl-2">
+                      <span className="text-muted-foreground text-[8px]">Neto Real ({utilPercent.toFixed(0)}%)</span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">${formatCurrency(result.utilidadReal)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className="space-y-6">
                 {/* 1. Bóveda IVA */}
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-none p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
+                <div className="border border-zinc-200 dark:border-zinc-800 border-l-4 border-l-teal-500 rounded-none p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
                   <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-2">
                     <span className="font-display text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
                       Bóveda IVA
@@ -176,7 +257,7 @@ export function TaxCalculator() {
                 </div>
 
                 {/* 2. Bóveda ISR */}
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-none p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
+                <div className="border border-zinc-200 dark:border-zinc-800 border-l-4 border-l-amber-500 rounded-none p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
                   <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-2">
                     <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                       Bóveda ISR
@@ -221,7 +302,7 @@ export function TaxCalculator() {
                 </div>
 
                 {/* 3. Tu Neto Real */}
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-none p-5 space-y-4 bg-emerald-500/[0.03] dark:bg-emerald-500/[0.01]">
+                <div className="border border-zinc-200 dark:border-zinc-800 border-l-4 border-l-emerald-500 rounded-none p-5 space-y-4 bg-emerald-500/[0.03] dark:bg-emerald-500/[0.01]">
                   <div className="flex justify-between items-center border-b border-emerald-100 dark:border-emerald-950 pb-2">
                     <span className="font-display text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
                       Tu Neto Real
