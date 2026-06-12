@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { WaitlistDialog } from "@/components/waitlist-dialog";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Calculadora RESICO de impuestos 2026 | Fiscalio",
@@ -25,7 +27,10 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   return (
-    <main className="min-h-screen bg-background font-mono">
+    <main className="min-h-screen bg-background font-sans">
+      <Suspense>
+        <WaitlistDialog />
+      </Suspense>
       <Navigation />
 
       {/* Hero Section */}
@@ -229,7 +234,7 @@ export default function CalculatorPage() {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-8 space-y-8">
-              <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
+              <span className="text-[10px] tracking-[0.3em] text-muted-foreground font-mono">
                 MÁS ALLÁ DE LA SIMULACIÓN
               </span>
               <h2 className="text-3xl lg:text-4xl xl:text-5xl font-medium font-display tracking-tight leading-tight">
@@ -253,7 +258,7 @@ export default function CalculatorPage() {
               </div>
             </div>
             <div className="lg:col-span-4 space-y-6">
-              <Link href="/?dialog=open" scroll={true}>
+              <Link href="?dialog=open" scroll={false}>
                 <Button
                   size="lg"
                   className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase mb-1"

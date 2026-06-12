@@ -44,7 +44,7 @@ export function TaxCalculator() {
         date={today}
       />
 
-      <div className="relative bg-card dark:bg-zinc-950 border border-border rounded-lg shadow-sm min-h-[600px] flex flex-col">
+      <div className="relative bg-card dark:bg-zinc-950 border border-border rounded-none shadow-sm min-h-[600px] flex flex-col">
         <div className="flex-1 px-6 md:px-10 py-10 space-y-10">
           {/* Main Title */}
           <div className="border-b border-zinc-200 dark:border-zinc-800 pb-6">
@@ -126,7 +126,7 @@ export function TaxCalculator() {
                 </div>
               </section>
 
-              <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-dashed border-zinc-200 dark:border-zinc-800 text-[10px] leading-relaxed text-muted-foreground uppercase tracking-wider rounded-md font-sans">
+              <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-dashed border-zinc-200 dark:border-zinc-800 text-[10px] leading-relaxed text-muted-foreground uppercase tracking-wider rounded-none font-sans">
                 Nota: Los cálculos presentados en este reporte son de carácter
                 informativo. Basado en las tablas de ISR RESICO vigentes para el
                 ejercicio fiscal 2026.
@@ -141,12 +141,12 @@ export function TaxCalculator() {
 
               <div className="space-y-6">
                 {/* 1. Bóveda IVA */}
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-none p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
                   <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-2">
                     <span className="font-display text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
                       Bóveda IVA
                     </span>
-                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-teal-500/10 text-teal-700 dark:text-teal-300 px-2 py-0.5 rounded-sm">
+                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-teal-500/10 text-teal-700 dark:text-teal-300 px-2 py-0.5 rounded-none">
                       Impuesto Indirecto
                     </span>
                   </div>
@@ -176,12 +176,12 @@ export function TaxCalculator() {
                 </div>
 
                 {/* 2. Bóveda ISR */}
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-none p-5 space-y-4 bg-zinc-50/20 dark:bg-zinc-900/10">
                   <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-2">
                     <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                       Bóveda ISR
                     </span>
-                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-amber-500/10 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-sm">
+                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-amber-500/10 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-none">
                       Impuesto Directo
                     </span>
                   </div>
@@ -221,12 +221,12 @@ export function TaxCalculator() {
                 </div>
 
                 {/* 3. Tu Neto Real */}
-                <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 space-y-4 bg-emerald-500/[0.03] dark:bg-emerald-500/[0.01]">
+                <div className="border border-zinc-200 dark:border-zinc-800 rounded-none p-5 space-y-4 bg-emerald-500/[0.03] dark:bg-emerald-500/[0.01]">
                   <div className="flex justify-between items-center border-b border-emerald-100 dark:border-emerald-950 pb-2">
                     <span className="font-display text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
                       Tu Neto Real
                     </span>
-                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-sm">
+                    <span className="text-[10px] uppercase font-mono text-muted-foreground tracking-widest bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-none">
                       Disponible
                     </span>
                   </div>
@@ -258,13 +258,13 @@ export function TaxCalculator() {
         </div>
 
         {/* Footer / Send report */}
-        <div className="border-t border-zinc-200 dark:border-zinc-800 p-6 flex justify-between items-center bg-zinc-50/50 dark:bg-zinc-900/50 rounded-b-lg font-sans">
+        <div className="border-t border-zinc-200 dark:border-zinc-800 p-6 flex justify-between items-center bg-zinc-50/50 dark:bg-zinc-900/50 rounded-none font-sans">
           <div className="text-xs text-muted-foreground">
             Basado en la ley de ingresos de la federación 2026.
           </div>
           <Button
             onClick={() => setIsDialogOpen(true)}
-            className="rounded-md font-sans text-sm tracking-wide h-11 px-8 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm"
+            className="rounded-none font-sans text-xs uppercase tracking-[0.15em] h-11 px-8 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm"
           >
             Enviar por correo
           </Button>

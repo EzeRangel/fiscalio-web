@@ -37,7 +37,7 @@ typography:
     fontSize: 0.875rem
     fontWeight: 400
 rounded:
-  md: 8px
+  none: 0px
 spacing:
   base: 4px
   container: 1280px
@@ -110,7 +110,7 @@ Visual hierarchy is conveyed through tonal layers and subtle border shifts rathe
 
 The design system maintains consistent structural integrity through standardized corner treatments.
 
-- **Corner Radius:** All interactive elements, containers, and cards utilize a consistent `0.5rem` (8px) radius.
+- **Corner Radius:** All interactive elements, containers, and cards utilize a consistent `0px` (`rounded-none`) radius to maintain a sharp, architectural, and premium editorial aesthetic.
 - **Borders:** Thin, subtle borders (`oklch(0.9 0.008 85)`) are used to define boundaries without adding visual weight.
 
 ## Components
@@ -127,7 +127,7 @@ Style guidance for core component atoms.
 
 ### Inputs
 
-- **Style:** Minimal, rounded-md (8px), subtle `shadow-xs`.
+- **Style:** Minimal, sharp (`rounded-none`), subtle `shadow-xs`.
 - **States:** Focus triggers a visible border-ring transition.
 - **Dark Mode:** Uses `bg-input/30` for a semi-transparent textured look.
 
@@ -136,7 +136,7 @@ Style guidance for core component atoms.
 - Do use **DM Sans** for all major section headings.
 - Do use **Geist Mono** for all currency values and tax percentages.
 - Do maintain the "Warm Neutral" background; avoid pure `#ffffff` for page backgrounds.
-- Do keep border radii consistent at `0.5rem` (8px).
+- Do keep border radii consistent at `0px` (`rounded-none`).
 - Don't use heavy box shadows or gradients.
 - Don't use bright, saturated blues or greens (stick to the warm rust/amber/charcoal palette).
 - Don't crowd data; give tables and charts ample breathing room.
