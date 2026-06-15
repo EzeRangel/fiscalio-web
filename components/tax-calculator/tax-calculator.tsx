@@ -35,7 +35,6 @@ const EXPLANATIONS = {
 export function TaxCalculator() {
   const [rawInput, setRawInput] = useState<string>("");
 
-  const [amount, setAmount] = useState<string>("35000");
   const [tipoIngreso, setTipoIngreso] = useState<TipoIngreso>("NACIONAL");
   const [tipoCliente, setTipoCliente] = useState<TipoCliente>("FISICA");
   const [isDialogOpen, setIsDialogOpen] = useState(false);

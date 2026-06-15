@@ -9,10 +9,10 @@ export interface CalculoResult {
   retencionISR: number;
   retencionIVA: number;
   isrBruto: number;
-  isrNeto: number; 
-  ivaNeto: number; 
-  totalNeto: number; 
-  utilidadReal: number; 
+  isrNeto: number;
+  ivaNeto: number;
+  totalNeto: number;
+  utilidadReal: number;
   tasaAplicada: number;
 }
 
@@ -28,11 +28,20 @@ export function getTasaISR(subtotal: number): number {
 export function calculateTax(
   amount: number,
   tipoIngreso: TipoIngreso,
-  tipoCliente: TipoCliente
+  tipoCliente: TipoCliente,
 ): CalculoResult {
-  const ivaRate = tipoIngreso === "NACIONAL" ? TAX_CONSTANTS.IVA_NACIONAL : TAX_CONSTANTS.IVA_EXPORTACION;
-  const retISRRrate = (tipoIngreso === "NACIONAL" && tipoCliente === "MORAL") ? TAX_CONSTANTS.RETENCION_ISR_PM : 0;
-  const retIVARate = (tipoIngreso === "NACIONAL" && tipoCliente === "MORAL") ? TAX_CONSTANTS.RETENCION_IVA_PM : 0;
+  const ivaRate =
+    tipoIngreso === "NACIONAL"
+      ? TAX_CONSTANTS.IVA_NACIONAL
+      : TAX_CONSTANTS.IVA_EXPORTACION;
+  const retISRRrate =
+    tipoIngreso === "NACIONAL" && tipoCliente === "MORAL"
+      ? TAX_CONSTANTS.RETENCION_ISR_PM
+      : 0;
+  const retIVARate =
+    tipoIngreso === "NACIONAL" && tipoCliente === "MORAL"
+      ? TAX_CONSTANTS.RETENCION_IVA_PM
+      : 0;
 
   const subtotal = amount;
   const iva = subtotal * ivaRate;
@@ -43,7 +52,7 @@ export function calculateTax(
   const isrNeto = isrBruto - retencionISR;
   const ivaNeto = iva - retencionIVA;
   const totalNeto = subtotal + iva - retencionISR - retencionIVA;
-  const utilidadReal = subtotal - isrBruto;
+  const utilidadReal = subtotal - isrBruto - ivaNeto;
 
   return {
     subtotal: Math.round(subtotal * 100) / 100,
