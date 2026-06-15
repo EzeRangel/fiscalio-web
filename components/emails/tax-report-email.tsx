@@ -24,22 +24,24 @@ interface TaxReportEmailProps {
 }
 
 const main = {
-  backgroundColor: "#ffffff",
-  fontFamily: 'ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace',
+  backgroundColor: "#fcfaf6",
+  fontFamily:
+    'ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace',
   padding: "40px 0",
 };
 
 const container = {
+  backgroundColor: "#ffffff",
   margin: "0 auto",
   padding: "40px",
   width: "600px",
   maxWidth: "100%",
-  border: "1px solid #e5e5e5",
+  border: "1px solid #e5e2db",
 };
 
 const header = {
   marginBottom: "32px",
-  borderBottom: "2px solid #000000",
+  borderBottom: "2px solid #3a3a3a",
   paddingBottom: "16px",
 };
 
@@ -57,6 +59,7 @@ const h1 = {
   textTransform: "uppercase" as const,
   margin: "0",
   letterSpacing: "-0.02em",
+  color: "#3a3a3a",
 };
 
 const sectionTitle = {
@@ -69,6 +72,22 @@ const sectionTitle = {
   paddingBottom: "8px",
   marginBottom: "16px",
   marginTop: "32px",
+};
+
+const ivaBox = {
+  backgroundColor: "rgba(180, 83, 9, 0.04)",
+  border: "1px solid rgba(180, 83, 9, 0.15)",
+  padding: "20px",
+  marginTop: "16px",
+  marginBottom: "16px",
+};
+
+const isrBox = {
+  backgroundColor: "rgba(251, 191, 36, 0.04)",
+  border: "1px solid rgba(251, 191, 36, 0.15)",
+  padding: "20px",
+  marginTop: "16px",
+  marginBottom: "16px",
 };
 
 const row = {
@@ -85,13 +104,14 @@ const value = {
   fontSize: "14px",
   fontWeight: "bold",
   textAlign: "right" as const,
+  color: "#3a3a3a",
 };
 
 const totalBox = {
-  backgroundColor: "#000000",
+  backgroundColor: "#3a3a3a",
   padding: "24px",
-  marginTop: "24px",
-  color: "#ffffff",
+  marginTop: "32px",
+  color: "#fcfaf6",
 };
 
 const totalLabel = {
@@ -132,7 +152,9 @@ export function TaxReportEmail({
           <Section style={metadata}>
             <Row>
               <Column>ID: {reportId}</Column>
-              <Column style={{ textAlign: "right" as const }}>FECHA: {date}</Column>
+              <Column style={{ textAlign: "right" as const }}>
+                FECHA: {date}
+              </Column>
             </Row>
           </Section>
 
@@ -149,65 +171,125 @@ export function TaxReportEmail({
             </Row>
             <Row style={row}>
               <Column style={label}>¿Cliente mexicano?</Column>
-              <Column style={value}>{tipoIngreso === "NACIONAL" ? "SÍ" : "NO"}</Column>
+              <Column style={value}>
+                {tipoIngreso === "NACIONAL" ? "SÍ" : "NO"}
+              </Column>
             </Row>
             {tipoIngreso === "NACIONAL" && (
               <Row style={row}>
                 <Column style={label}>¿Cliente empresa?</Column>
-                <Column style={value}>{tipoCliente === "MORAL" ? "SÍ" : "NO"}</Column>
+                <Column style={value}>
+                  {tipoCliente === "MORAL" ? "SÍ" : "NO"}
+                </Column>
               </Row>
             )}
           </Section>
 
-          <Section>
-            <Text style={sectionTitle}>Bóveda IVA (Impuesto Indirecto)</Text>
+          <Section style={ivaBox}>
+            <Text
+              style={{
+                ...sectionTitle,
+                marginTop: 0,
+                borderBottom: "none",
+                paddingBottom: 0,
+                marginBottom: 12,
+                color: "#b45309",
+              }}
+            >
+              Bóveda IVA (Impuesto Indirecto)
+            </Text>
             <Row style={row}>
-              <Column style={label}>IVA que cobraste ({tipoIngreso === "NACIONAL" ? "16%" : "0%"})</Column>
+              <Column style={label}>
+                IVA que cobraste ({tipoIngreso === "NACIONAL" ? "16%" : "0%"})
+              </Column>
               <Column style={value}>${formatCurrency(result.iva)}</Column>
             </Row>
             {result.retencionIVA > 0 && (
               <Row style={row}>
                 <Column style={label}>(-) Retención de IVA (10.6%)</Column>
-                <Column style={{ ...value, color: "#b34d3d" }}>-${formatCurrency(result.retencionIVA)}</Column>
+                <Column style={{ ...value, color: "#ce2c31" }}>
+                  -${formatCurrency(result.retencionIVA)}
+                </Column>
               </Row>
             )}
+            <Hr
+              style={{ borderColor: "rgba(180, 83, 9, 0.15)", margin: "8px 0" }}
+            />
             <Row style={row}>
-              <Column style={{ ...label, fontWeight: "bold" }}>IVA neto a pagar al SAT</Column>
-              <Column style={{ ...value, fontWeight: "bold" }}>${formatCurrency(result.ivaNeto)}</Column>
+              <Column
+                style={{ ...label, fontWeight: "bold", color: "#b45309" }}
+              >
+                IVA neto a separar
+              </Column>
+              <Column
+                style={{ ...value, fontWeight: "bold", color: "#b45309" }}
+              >
+                ${formatCurrency(result.ivaNeto)}
+              </Column>
             </Row>
           </Section>
 
-          <Section>
-            <Text style={sectionTitle}>Bóveda ISR (Impuesto Directo)</Text>
+          <Section style={isrBox}>
+            <Text
+              style={{
+                ...sectionTitle,
+                marginTop: 0,
+                borderBottom: "none",
+                paddingBottom: 0,
+                marginBottom: 12,
+                color: "#d97706",
+              }}
+            >
+              Bóveda ISR (Impuesto Directo)
+            </Text>
             <Row style={row}>
-              <Column style={label}>ISR mensual (tasa {(result.tasaAplicada * 100).toFixed(2)}%)</Column>
+              <Column style={label}>
+                ISR mensual (tasa {(result.tasaAplicada * 100).toFixed(2)}%)
+              </Column>
               <Column style={value}>${formatCurrency(result.isrBruto)}</Column>
             </Row>
             {result.retencionISR > 0 && (
               <Row style={row}>
                 <Column style={label}>(-) Retención de ISR (1.25%)</Column>
-                <Column style={{ ...value, color: "#b34d3d" }}>-${formatCurrency(result.retencionISR)}</Column>
+                <Column style={{ ...value, color: "#ce2c31" }}>
+                  -${formatCurrency(result.retencionISR)}
+                </Column>
               </Row>
             )}
+            <Hr
+              style={{
+                borderColor: "rgba(251, 191, 36, 0.15)",
+                margin: "8px 0",
+              }}
+            />
             <Row style={row}>
-              <Column style={{ ...label, fontWeight: "bold" }}>{result.isrNeto < 0 ? "Saldo a favor" : "ISR neto a pagar"}</Column>
-              <Column style={{ ...value, fontWeight: "bold", color: result.isrNeto < 0 ? "#16a34a" : "#ea580c" }}>
-                {result.isrNeto < 0 ? "+" : ""}${formatCurrency(Math.abs(result.isrNeto))}
+              <Column
+                style={{ ...label, fontWeight: "bold", color: "#d97706" }}
+              >
+                {result.isrNeto < 0 ? "Saldo a favor" : "ISR neto a separar"}
+              </Column>
+              <Column
+                style={{
+                  ...value,
+                  fontWeight: "bold",
+                  color: result.isrNeto < 0 ? "#16a34a" : "#d97706",
+                }}
+              >
+                {result.isrNeto < 0 ? "+" : ""}$
+                {formatCurrency(Math.abs(result.isrNeto))}
               </Column>
             </Row>
           </Section>
 
           <Section style={totalBox}>
             <Text style={totalLabel}>Tu Neto Real (Disponible)</Text>
-            <Text style={totalValue}>${formatCurrency(result.utilidadReal)}</Text>
-            <Hr style={{ borderColor: "rgba(255,255,255,0.2)", margin: "16px 0" }} />
-            <Text style={{ fontSize: "10px", margin: "0", opacity: 0.8 }}>
-              Depósito bancario estimado: ${formatCurrency(result.totalNeto)} {result.iva > 0 ? "(incluye IVA que no es tuyo)" : ""}
+            <Text style={totalValue}>
+              ${formatCurrency(result.utilidadReal)}
             </Text>
           </Section>
 
           <Text style={footer}>
-            Fiscalio // Control fiscal claro para RESICO // Q2 2026
+            Fiscalio // Control fiscal claro para RESICO
           </Text>
         </Container>
       </Body>

@@ -52,7 +52,10 @@ export function calculateTax(
   const isrNeto = isrBruto - retencionISR;
   const ivaNeto = iva - retencionIVA;
   const totalNeto = subtotal + iva - retencionISR - retencionIVA;
-  const utilidadReal = subtotal - isrBruto - ivaNeto;
+  const utilidadReal =
+    retencionISR > 0
+      ? subtotal - iva - retencionISR
+      : subtotal - iva - isrBruto;
 
   return {
     subtotal: Math.round(subtotal * 100) / 100,
