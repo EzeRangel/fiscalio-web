@@ -9,12 +9,12 @@ import {
 } from "@/lib/tax-calculator";
 import { formatCurrency, formatPercent } from "@/lib/format-currency";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { SendReportDialog } from "./send-report-dialog";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { VaultCard } from "./vault-card";
+import { TAX_CONSTANTS } from "@/lib/tax-constants";
 
 const PRESET_AMOUNTS = [5_000, 10_000, 25_000, 50_000, 100_000];
 const EXPLANATIONS = {
@@ -82,7 +82,7 @@ export function TaxCalculator() {
   const ivaLabel =
     tipoIngreso === "NACIONAL"
       ? tipoCliente === "MORAL"
-        ? `16% - ${formatPercent(0.105)} retenido ($${formatCurrency(result.retencionIVA)})`
+        ? `16% - ${formatPercent(TAX_CONSTANTS.RETENCION_IVA_PM)} retenido ($${formatCurrency(result.retencionIVA)})`
         : "16% IVA total"
       : "No aplica (cliente extranjero)";
 
@@ -219,18 +219,30 @@ export function TaxCalculator() {
             )}
           </div>
 
-          {/* Active scenario label */}
-          <div className="px-6 py-3 bg-muted/50 border-b border-border">
-            <p className="text-xs font-sans text-muted-foreground">
-              Escenario:{" "}
-              <span className="text-foreground font-medium">
-                {tipoIngreso === "EXTRANJERO"
-                  ? "Exportación de servicios (sin IVA)"
-                  : tipoCliente === "MORAL"
-                    ? "Factura a persona moral · retención IVA + ISR"
-                    : "Factura a persona física mexicana · RESICO"}
-              </span>
-            </p>
+          {/* Active scenario label & Invoice calculation details */}
+          <div className="bg-muted/30 border-b border-border divide-y divide-border/50">
+            <div className="px-6 py-3 bg-muted/50 flex flex-wrap justify-between items-center gap-2">
+              <p className="text-xs font-sans text-muted-foreground">
+                Escenario:{" "}
+                <span className="text-foreground font-medium">
+                  {tipoIngreso === "EXTRANJERO"
+                    ? "Exportación de servicios (sin IVA)"
+                    : tipoCliente === "MORAL"
+                      ? "Factura a persona moral · retención IVA + ISR"
+                      : "Factura a persona física mexicana · RESICO"}
+                </span>
+              </p>
+              {result.subtotal > 0 && (
+                <div className="text-xs font-mono">
+                  <span className="text-muted-foreground">
+                    Depósito estimado:
+                  </span>{" "}
+                  <span className="font-bold text-foreground">
+                    ${formatCurrency(result.totalNeto)}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
 
           <AnimatePresence>
@@ -273,7 +285,7 @@ export function TaxCalculator() {
                   rate={
                     tipoIngreso === "NACIONAL"
                       ? tipoCliente === "MORAL"
-                        ? `${formatPercent(0.105)} retenido`
+                        ? `${formatPercent(TAX_CONSTANTS.RETENCION_IVA_PM)} retenido`
                         : "16% IVA"
                       : "0%"
                   }
@@ -338,7 +350,7 @@ export function TaxCalculator() {
                   className="bg-card border border-border p-5 mt-6"
                 >
                   <p className="text-xs font-sans font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-                    Distribución del cobro
+                    Distribución del depósito recibido
                   </p>
 
                   <div className="h-4 w-full flex bg-secondary overflow-hidden rounded-none">

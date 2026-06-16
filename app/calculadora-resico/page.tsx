@@ -123,20 +123,32 @@ export default function CalculatorPage() {
                   Cómo funciona el proceso de calcular ISR e IVA en RESICO
                 </h3>
                 <p className="text-sm text-background/70 leading-relaxed tracking-wide">
-                  Para <strong>calcular ISR RESICO</strong> de manera efectiva,
-                  el algoritmo de Fiscalio aplica la tabla mensual acumulada
+                  Para <strong>calcular el ISR</strong> de manera efectiva, el
+                  algoritmo de Fiscalio aplica la tabla mensual acumulada
                   vigente del SAT. A diferencia del régimen de Actividad
                   Empresarial tradicional, en RESICO la simplicidad es la norma:
                   pagas sobre lo facturado y cobrado (base flujo de efectivo).
                 </p>
                 <p className="text-sm text-background/70 leading-relaxed tracking-wide">
-                  Al momento de <strong>calcular IVA RESICO</strong>, la lógica
+                  Al momento de <strong>calcular el IVA</strong>, la lógica
                   cambia. El IVA es un impuesto indirecto; tú solo eres un
                   recaudador para el SAT. La calculadora te ayuda a visualizar
                   ese &quot;dinero ajeno&quot; que debes separar. Un error común
                   es gastar el IVA recibido, lo que genera problemas de
                   liquidez. Nuestra herramienta previene esto al darte una cifra
                   neta real de disponibilidad.
+                </p>
+                <p className="text-sm text-background/70 leading-relaxed tracking-wide">
+                  En Fiscalio nos interesa que las personas en RESICO realmente
+                  entiendan qué está pasando con su dinero. Por eso hemos
+                  escrito guías con modelos fáciles de entender,{" "}
+                  <Link
+                    href="/blog/cuanto-debo-pagar-resico"
+                    className="underline decoration-primary underline-offset-4"
+                  >
+                    revisa nuestro módelo de las tres bóvedas
+                  </Link>{" "}
+                  para saber realmente cuánto debes pagar de impuestos.
                 </p>
               </div>
 
