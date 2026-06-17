@@ -71,3 +71,12 @@ Before marking any task complete, verify:
 - [ ] Works correctly on mobile and desktop
 - [ ] No comments in code (clean of inline comments per `AGENTS.md`)
 - [ ] UI looks premium and follows the design system (`docs/DESIGN.md`)
+
+## Minor Tasks & Exemptions
+
+For minor tasks that do not impact system architecture or span multiple components (such as typos, simple layout/styling tweaks, or quick bug fixes), the Conductor track creation and checkpoint protocol can be bypassed.
+
+- **Bypass Rule:** Trivial changes can be committed directly to the repository without a Conductor track, plan, or verification protocol.
+- **Commit Organization:** Use structured commit prefixes (e.g., `fix(typo):`, `style:`, `chore:`) to clearly denote minor edits.
+- **Agent Guidelines:** When executing on behalf of a user, an AI agent is permitted to make minor edits directly without introducing plan/track files, ensuring rapid execution.
+

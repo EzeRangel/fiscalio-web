@@ -4,8 +4,14 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: Redesign the RESICO tax calculator using the 3 Bóvedas framework**
-*Link: [./tracks/calculator-redesign_20260611/](./tracks/calculator-redesign_20260611/)*
+## Active Tracks
+
+*No active tracks.*
+
+## Completed Tracks
+
+*No completed tracks (completed plans are archived in `conductor/archive/`).*
+
 
 
 

@@ -92,4 +92,4 @@ Required env vars (read via `lib/constants.ts` and inline `process.env`):
 
 ## State and Progress
 
-Longs tasks must have progress tracking. Check for `PROGRESS.md` to see more.
+All major project tasks, features, and roadmaps are tracked using the **Conductor** system. Check [tracks.md](file:///Users/ezerangel/Projects/Fiscalio/fiscalio-web/conductor/tracks.md) for a list of all historical and active tracks, and the respective track folders under `conductor/tracks/` for specifications and task-level implementation plans (`plan.md`).
