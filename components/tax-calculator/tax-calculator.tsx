@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import {
   calculateTax,
   TipoIngreso,
@@ -15,6 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { VaultCard } from "./vault-card";
 import { TAX_CONSTANTS } from "@/lib/tax-constants";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const PRESET_AMOUNTS = [5_000, 10_000, 25_000, 50_000, 100_000];
 const EXPLANATIONS = {
@@ -38,6 +39,21 @@ export function TaxCalculator() {
   const [tipoIngreso, setTipoIngreso] = useState<TipoIngreso>("NACIONAL");
   const [tipoCliente, setTipoCliente] = useState<TipoCliente>("FISICA");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  useEffect(() => {
+    const numAmount = parseFloat(rawInput.replace(/[^0-9.]/g, "")) || 0;
+    if (numAmount <= 0) return;
+
+    const timer = setTimeout(() => {
+      sendGAEvent("event", "calculator_used", {
+        tipo_ingreso: tipoIngreso,
+        tipo_cliente: tipoCliente,
+        has_amount: true,
+      });
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [rawInput, tipoIngreso, tipoCliente]);
 
   const result: CalculoResult = useMemo(() => {
     const numAmount = parseFloat(rawInput.replace(/[^0-9.]/g, "")) || 0;

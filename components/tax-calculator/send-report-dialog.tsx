@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useEffect, useRef, useTransition } from "react";
 import { ArrowRightIcon, MailIcon } from "lucide-react";
 import {
   Dialog,
@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { sendTaxReport } from "@/actions/sendTaxReport";
 import { toast } from "sonner";
 import { CalculoResult, TipoIngreso, TipoCliente } from "@/lib/tax-calculator";
+import { sendGAEvent } from "@next/third-parties/google";
 
 interface SendReportDialogProps {
   open: boolean;
@@ -34,6 +35,18 @@ export function SendReportDialog({
 }: SendReportDialogProps) {
   const [isPending, startTransition] = useTransition();
   const [email, setEmail] = useState("");
+  const hasTrackedRequest = useRef(false);
+
+  useEffect(() => {
+    if (open) {
+      if (!hasTrackedRequest.current) {
+        sendGAEvent("event", "tax_report_requested", {});
+        hasTrackedRequest.current = true;
+      }
+    } else {
+      hasTrackedRequest.current = false;
+    }
+  }, [open]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +65,10 @@ export function SendReportDialog({
           description: response.error,
         });
       } else {
+        sendGAEvent("event", "tax_report_sent", {
+          tipo_ingreso: tipoIngreso,
+          tipo_cliente: tipoCliente,
+        });
         toast.success("Informe enviado", {
           description: `Hemos enviado el reporte a ${email}. Revisa tu bandeja de entrada.`,
         });

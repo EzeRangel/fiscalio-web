@@ -270,7 +270,7 @@ export default function CalculatorPage() {
               </div>
             </div>
             <div className="lg:col-span-4 space-y-6">
-              <Link href="?dialog=open" scroll={false}>
+              <Link href="?dialog=open&source=calculator" scroll={false}>
                 <Button
                   size="lg"
                   className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase mb-1"

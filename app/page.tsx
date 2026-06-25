@@ -57,7 +57,7 @@ export default function LandingPage() {
                 [05] BLOG
               </Link>
             </div>
-            <Link href="?dialog=open">
+            <Link href="?dialog=open&source=nav">
               <Button size="sm" className="text-xs tracking-wider h-8">
                 RESERVAR
               </Button>
@@ -95,7 +95,7 @@ export default function LandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="?dialog=open">
+                <Link href="?dialog=open&source=hero">
                   <Button
                     size="lg"
                     className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
@@ -559,7 +559,7 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="lg:col-span-4 space-y-6">
-              <Link href="?dialog=open" scroll={false}>
+              <Link href="?dialog=open&source=footer" scroll={false}>
                 <Button
                   size="lg"
                   className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase"

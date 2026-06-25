@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEventHandler, useTransition } from "react";
+import { FormEventHandler, useEffect, useRef, useTransition } from "react";
 import { ArrowRightIcon } from "lucide-react";
 import {
   redirect,
@@ -28,6 +28,23 @@ export function WaitlistDialog() {
   const [isPending, startTransition] = useTransition();
 
   const query = searchParams.get("dialog");
+  const source = searchParams.get("source") || "direct";
+  const open = !!query && query === "open";
+  const hasTrackedOpen = useRef(false);
+
+  useEffect(() => {
+    if (open) {
+      if (!hasTrackedOpen.current) {
+        sendGAEvent("event", "waitlist_dialog_opened", {
+          trigger_location: source,
+          page_path: pathname,
+        });
+        hasTrackedOpen.current = true;
+      }
+    } else {
+      hasTrackedOpen.current = false;
+    }
+  }, [open, source, pathname]);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -51,13 +68,16 @@ export function WaitlistDialog() {
           description: errorMessage,
         });
       } else {
-        sendGAEvent("event", "waitlist_signup", { value: response.record });
+        sendGAEvent("event", "waitlist_signup", {
+          method: "email",
+          signup_source: source,
+          page_path: pathname,
+        });
         redirect(`/signup/thank-you?id=${response.record}`);
       }
     });
   };
 
-  const open = !!query && query === "open";
 
   return (
     <Dialog
@@ -69,6 +89,7 @@ export function WaitlistDialog() {
           params.set("dialog", "open");
         } else {
           params.delete("dialog");
+          params.delete("source");
         }
 
         router.push(`${pathname}?${params.toString()}`, { scroll: false });
