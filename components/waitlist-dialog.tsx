@@ -98,12 +98,10 @@ export function WaitlistDialog() {
       <DialogContent className="sm:max-w-md rounded-none border-2">
         <DialogHeader className="space-y-4">
           <DialogTitle className="text-2xl font-medium tracking-tight font-display">
-            Únete a la lista de espera
+            Únete a la beta privada
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground leading-relaxed tracking-wide font-display">
-            Regístrate para recibir acceso anticipado a Fiscalio y asegurar el
-            precio fundador disponible para los primeros{" "}
-            <span className="text-accent-rust">50 usuarios</span>.
+            Regístrate para recibir acceso anticipado a la beta privada de Fiscalio y asegurar tu precio fundador.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-6 pt-4">
@@ -128,7 +126,7 @@ export function WaitlistDialog() {
             className="w-full h-12 text-xs tracking-[0.2em] rounded-none font-bold uppercase"
             disabled={isPending}
           >
-            {isPending ? "Procesando..." : "Unirme a la lista"}
+            {isPending ? "Procesando..." : "Solicitar acceso a la beta"}
             {!isPending && <ArrowRightIcon className="h-3.5 w-3.5 ml-3" />}
           </Button>
 

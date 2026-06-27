@@ -171,7 +171,7 @@ export function EmailTemplate({ email, recordId }: EmailTemplateProps) {
   return (
     <Html>
       <Head />
-      <Preview>Ya estás en la waitlist de Fiscalio</Preview>
+      <Preview>Ya estás en la beta privada de Fiscalio</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={logoSection}>
@@ -181,11 +181,11 @@ export function EmailTemplate({ email, recordId }: EmailTemplateProps) {
           <Section>
             <Text style={badge}>Registro Confirmado</Text>
             <Heading style={h1}>
-              Ya tienes un lugar en la lista de espera.
+              Ya tienes un lugar reservado para la beta privada.
             </Heading>
             <Text style={introText}>
               Hola, tu registro ha sido exitoso. Hemos reservado tu lugar para
-              el lanzamiento de Fiscalio en Q2 2026.
+              la beta privada de Fiscalio. Te avisaremos pronto.
             </Text>
           </Section>
 
@@ -195,7 +195,7 @@ export function EmailTemplate({ email, recordId }: EmailTemplateProps) {
               <Text style={benefitTitle}>Acceso Prioritario</Text>
               <Text style={benefitDesc}>
                 Serás de los primeros en probar la herramienta y darnos feedback
-                antes del lanzamiento general.
+                durante la beta privada mientras construimos en público.
               </Text>
             </div>
             <div style={benefitBox}>

@@ -275,12 +275,12 @@ export default function CalculatorPage() {
                   size="lg"
                   className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase mb-1"
                 >
-                  Reservar mi descuento fundador
+                  Unirme a la beta privada
                   <ArrowRight className="h-3.5 w-3.5 ml-3" />
                 </Button>
               </Link>
               <p className="text-[10px] text-muted-foreground tracking-wide text-center uppercase">
-                Solo 50 lugares disponibles con precio especial
+                Cupo limitado con precio fundador disponible
               </p>
             </div>
           </div>

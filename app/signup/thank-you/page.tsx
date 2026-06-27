@@ -111,9 +111,9 @@ function ThankYouContent() {
                   },
                   {
                     num: "02",
-                    title: "Espera el lanzamiento",
+                    title: "Espera tu acceso a la beta",
                     description:
-                      "Te avisaremos cuando Fiscalio esté listo. Tendrás acceso prioritario al precio fundador de $419 MXN.",
+                      "Te avisaremos cuando tu acceso a la beta privada esté listo. Tendrás acceso prioritario al precio fundador de $419 MXN.",
                   },
                   {
                     num: "03",
@@ -156,7 +156,7 @@ function ThankYouContent() {
                   Guía práctica para RESICO 2026
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
-                  Mientras esperas el lanzamiento, descarga nuestra guía
+                  Mientras liberamos accesos a la beta, descarga nuestra guía
                   gratuita sobre el régimen RESICO. Está pensada para{" "}
                   <strong className="text-accent-rust">
                     personas físicas y pequeños negocios
@@ -182,7 +182,7 @@ function ThankYouContent() {
                         "Requisitos para tributar en RESICO",
                         "Cómo evitar errores que te cuestan dinero",
                         "Cómo llevar control sin ser contador",
-                        "Prepárate para el lanzamiento de Fiscalio",
+                        "Prepárate para la beta privada",
                       ].map((item) => (
                         <div
                           key={item}

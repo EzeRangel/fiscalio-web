@@ -77,7 +77,7 @@ export default function LandingPage() {
                   variant="outline"
                   className="text-[10px] tracking-[0.2em] font-mono rounded-none px-3 py-1 border-accent-amber/30 text-accent-rust uppercase"
                 >
-                  50 accesos con precio fundador
+                  ACCESO ANTICIPADO: BETA PRIVADA
                 </Badge>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tight leading-[1.1]">
                   Organiza tus facturas
@@ -100,7 +100,7 @@ export default function LandingPage() {
                     size="lg"
                     className="text-xs tracking-[0.15em] h-12 px-8 rounded-none uppercase"
                   >
-                    Reservar descuento fundador
+                    Unirme a la beta privada
                     <ArrowRight className="h-3.5 w-3.5 ml-3" />
                   </Button>
                 </Link>
@@ -543,19 +543,17 @@ export default function LandingPage() {
                 CONCLUSIÓN
               </span>
               <h2 className="text-3xl lg:text-4xl xl:text-5xl font-medium font-display tracking-tight leading-tight">
-                Asegura tu lugar como{" "}
+                Asegura tu lugar en la{" "}
                 <span className="text-muted-foreground block">
-                  usuario fundador
+                  beta privada
                 </span>
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed tracking-wide max-w-lg">
-                Fiscalio lanza en Q2 2026. Los primeros 50 usuarios tendrán
-                acceso anticipado y precio fundador de{" "}
-                <span className="text-accent-rust font-medium">$419 MXN</span>.
-                Después del lanzamiento, el precio será{" "}
+                Estamos construyendo Fiscalio en público. Únete a nuestra beta privada para obtener acceso anticipado y asegurar el precio fundador de{" "}
+                <span className="text-accent-rust font-medium">$419 MXN</span>
+                {" "}en lugar de{" "}
                 <span className="text-accent-rust font-medium">$599 MXN</span>.
-                Unirte a la lista es gratis. Solo pagas si decides comprar
-                cuando el producto esté listo.
+                Unirte a la lista es gratis. Solo pagas si decides comprar cuando el producto esté listo.
               </p>
             </div>
             <div className="lg:col-span-4 space-y-6">
@@ -564,7 +562,7 @@ export default function LandingPage() {
                   size="lg"
                   className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase"
                 >
-                  Reservar mi descuento fundador
+                  Unirme a la beta privada
                   <ArrowRight className="h-3.5 w-3.5 ml-3" />
                 </Button>
               </Link>

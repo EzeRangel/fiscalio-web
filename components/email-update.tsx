@@ -234,7 +234,7 @@ export function EmailUpdateTemplate({
             <Text style={signature}>Fiscalio</Text>
             <Text style={subSignature}>Control fiscal claro para RESICO</Text>
             <Text style={disclaimer}>
-              Recibes este correo porque estás en la lista de espera de
+              Recibes este correo porque estás en la beta privada de
               Fiscalio. Fiscalio no sustituye a un contador.
             </Text>
           </Section>

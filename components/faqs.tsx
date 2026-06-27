@@ -5,24 +5,24 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "¿Me cobran algo por unirme a la lista?",
+    question: "¿Me cobran algo por unirme a la beta?",
     answer:
-      "No. Lista de espera es gratis. Pagas solo cuando lance (si decides comprar).",
+      "No. Solicitar acceso a la beta es gratis. Pagas solo cuando el producto esté listo (si decides comprar).",
   },
   {
     question: "¿Está garantizado el descuento?",
     answer:
-      "Sí. Si estás en los primeros 50, tienes 48 horas para comprar a $419. Si no compras, el lugar pasa al siguiente en lista.",
+      "Sí. Tienes asegurado el precio fundador de $419 MXN por unirte a la beta. Tendrás 48 horas para comprar una vez que tu acceso esté listo.",
   },
   {
     question: "¿Qué recibo al unirme?",
     answer:
-      "Una 'Guía práctica para RESICO 2026' en PDF. Updates cada 2 semanas con progreso real. Link prioritario de compra 2 semanas antes del lanzamiento",
+      "Una 'Guía práctica para RESICO 2026' en PDF. Updates cada 2 semanas con progreso real. Link prioritario de compra 2 semanas antes del lanzamiento público.",
   },
   {
-    question: "¿Cuándo lanza exactamente?",
+    question: "¿Cuándo podré probar la beta?",
     answer:
-      "Q2 2026 (abril-junio). Recibirás email con fecha exacta 30 días antes. Updates cada 2 semanas hasta entonces.",
+      "Estamos liberando accesos progresivamente. Recibirás un email en cuanto tu cuenta esté lista. Updates cada 2 semanas hasta entonces.",
   },
   {
     question: "¿Qué pasa cuando salga la versión 2.0?",
@@ -35,9 +35,9 @@ const faqs = [
       "No. El precio bajo es posible porque no hay equipo de soporte. Incluye documentación completa y FAQ.",
   },
   {
-    question: "¿Por qué solo 50 lugares con descuento?",
+    question: "¿Por qué hay cupo limitado en la beta?",
     answer:
-      "Quiero feedback directo de usuarios fundadores. 50 es manejable para responder emails personalmente. Después de 50, precio sube a $599.",
+      "Quiero feedback directo durante la beta privada. Por eso estamos liberando accesos progresivamente con precio fundador. Al lanzamiento público, el precio subirá a $599.",
   },
 ];
 
