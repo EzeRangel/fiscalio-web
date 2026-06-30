@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { InlineLink } from "@/components/inline-link";
 import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { CalculatorCTA } from "@/components/calculator-cta";
@@ -263,12 +263,9 @@ export default function BlogPage() {
                           <td className="p-3">¿Genera saldo a favor?</td>
                           <td className="p-3">No</td>
                           <td className="p-3 italic">
-                            <Link
-                              href="/blog/saldo-favor-resico"
-                              className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors"
-                            >
+                            <InlineLink href="/blog/saldo-favor-resico">
                               SÍ
-                            </Link>
+                            </InlineLink>
                           </td>
                         </tr>
                       </tbody>
@@ -440,14 +437,10 @@ export default function BlogPage() {
                     Si tu estructura de costos es baja y tu cliente está en el
                     extranjero, este esquema puede ser fiscalmente muy
                     eficiente. Puedes{" "}
-                    <Link
-                      href="/calculadora-resico"
-                      className="text-accent-rust underline font-bold"
-                    >
-                      usar nuestra calculadora RESICO
-                    </Link>{" "}
-                    para simular exactamente cuánto recibirás en tu cuenta tras
-                    impuestos y retenciones.
+                    <InlineLink href="/calculadora-resico">
+                      simular tus ingresos con tasa 0% del IVA
+                    </InlineLink>{" "}
+                    usando nuestra calculadora RESICO para ver exactamente cuánto recibirás neto en tu cuenta bancaria.
                   </p>
 
                   <p className="text-foreground/90">
@@ -482,8 +475,9 @@ export default function BlogPage() {
             </div>
 
             <CalculatorCTA 
-              title="¿Exportas servicios al extranjero?"
-              description="Calcula el impacto del IVA a tasa 0% y las retenciones de plataformas extranjeras en tus ingresos reales."
+              title="Simula tus ingresos del extranjero"
+              description="Calcula el impacto del IVA a tasa 0% y entiende tus obligaciones reales al exportar servicios."
+              buttonText="Simular impacto del IVA 0%"
             />
           </div>
         </div>

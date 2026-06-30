@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InlineLink } from "@/components/inline-link";
 import { CalendarIcon, UserIcon, ExternalLinkIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { CalculatorCTA } from "@/components/calculator-cta";
@@ -143,13 +144,10 @@ export default function BlogPage() {
                     que más contribuyentes se sumen a este régimen que ya de por
                     sí ofrece tasas de ISR muy bajas (entre 1% y 2.5%). Sin
                     embargo, la clave para aprovechar este beneficio es{" "}
-                    <Link
-                      href="/calculadora-resico"
-                      className="text-accent-rust underline font-bold"
-                    >
+                    <InlineLink href="/calculadora-resico">
                       calcular correctamente tus pagos mensuales
-                    </Link>{" "}
-                    para que al final del año no tengas discrepancias.
+                    </InlineLink>{" "}
+                    para evitar discrepancias y multas con el SAT.
                   </p>
                 </section>
 
@@ -208,7 +206,7 @@ export default function BlogPage() {
                       Debes seguir presentando tus pagos provisionales mes con
                       mes antes del día 17. En estas declaraciones es donde se
                       calcula y paga el ISR sobre tus ingresos efectivamente
-                      cobrados. Si tienes dudas sobre los plazos, consulta nuestra guía sobre <Link href="/blog/cuando-presentar-declaracion-mensual-resico" className="text-accent-rust underline font-medium">cuándo presentar tu declaración mensual en RESICO</Link>.
+                      cobrados. Si tienes dudas sobre los plazos, consulta nuestra guía sobre <InlineLink href="/blog/cuando-presentar-declaracion-mensual-resico">cuándo presentar tu declaración mensual en RESICO</InlineLink>.
                     </li>
                     <li>
                       <strong className="block">
@@ -222,12 +220,9 @@ export default function BlogPage() {
                       </p>
                       <p className="mt-4 text-sm bg-accent-amber/5 border border-accent-amber/20 p-4">
                         <strong>Ojo:</strong> Si tienes un{" "}
-                        <Link
-                          href="/blog/saldo-favor-resico"
-                          className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors"
-                        >
+                        <InlineLink href="/blog/saldo-favor-resico">
                           saldo a favor en RESICO
-                        </Link>
+                        </InlineLink>
                         , presentar tu declaración anual (o mensual, según el
                         caso) sigue siendo el camino para recuperar ese dinero.
                         No presentarla cuando tienes saldo a favor es regalarle
@@ -275,12 +270,9 @@ export default function BlogPage() {
                   <ul className="text-foreground/90 list-inside list-disc space-y-2">
                     <li>Emitir tus CFDI de ingresos por cada pago recibido.</li>
                     <li>
-                      <Link
-                        href="/blog/deducciones-resico-isr"
-                        className="underline decoration-accent-rust/30 hover:decoration-accent-rust transition-all"
-                      >
+                      <InlineLink href="/blog/deducciones-resico-isr">
                         Tener tus facturas de gastos
-                      </Link>{" "}
+                      </InlineLink>{" "}
                       (aunque no sean deducibles para ISR, sirven para acreditar
                       el IVA).
                     </li>
@@ -304,22 +296,20 @@ export default function BlogPage() {
 
                   <p className="mt-4 text-sm bg-accent-amber/5 border border-accent-amber/20 p-4">
                     ¿Necesitas ayuda para calcular tus impuestos y estar listo
-                    para tus declaraciones mensuales? Prueba nuestra{" "}
-                    <Link
-                      href="/calculadora-resico"
-                      className="text-accent-rust underline underline-offset-4 decoration-accent-rust/30 hover:decoration-accent-rust transition-colors"
-                    >
-                      Calculadora de impuestos RESICO
-                    </Link>{" "}
-                    y entiende claramente a dónde va tu dinero.
+                  para tus declaraciones mensuales? Puedes simular tu situación con nuestra{" "}
+                  <InlineLink href="/calculadora-resico">
+                    Calculadora de impuestos RESICO
+                  </InlineLink>{" "}
+                  y ver exactamente tus saldos.
                   </p>
                 </section>
               </div>
             </div>
 
             <CalculatorCTA 
-              title="Prepárate para la Declaración Anual"
-              description="Simula tus impuestos acumulados y prevé tus saldos anuales de ISR de forma fácil."
+              title="Evita sorpresas en tu Declaración Anual"
+              description="Calcula tus ingresos acumulados y simula tu saldo anual de ISR para saber exactamente dónde estás parado."
+              buttonText="Simular mi saldo anual"
             />
           </div>
         </div>

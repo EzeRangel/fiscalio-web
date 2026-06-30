@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { InlineLink } from "@/components/inline-link";
 import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { CalculatorCTA } from "@/components/calculator-cta";
@@ -171,14 +171,10 @@ export default function BlogPage() {
                     Si tienes tus números claros antes de entrar, el portal del
                     SAT solo es un lugar donde vas a confirmar lo que ya sabes.
                     Una buena práctica es{" "}
-                    <Link
-                      href="/calculadora-resico"
-                      className="text-accent-rust underline font-bold"
-                    >
-                      usar una calculadora de impuestos RESICO
-                    </Link>{" "}
-                    para validar que tus cálculos de ISR e IVA coincidan con lo
-                    que el SAT te mostrará pre-llenado.
+                    <InlineLink href="/calculadora-resico">
+                      simular tu ISR e IVA con nuestra calculadora de impuestos RESICO
+                    </InlineLink>{" "}
+                    para validar que tus cálculos coincidan con lo que el SAT te mostrará pre-llenado.
                   </p>
                 </section>
 
@@ -205,13 +201,12 @@ export default function BlogPage() {
                       <p className="text-xs text-muted-foreground italic">
                         *Se siente como un fee justo por tener un negocio legal.
                       </p>
-                      <Link
+                      <InlineLink
                         href="/blog/calcular-isr-iva-resico"
-                        className="text-xs font-bold underline flex items-center gap-1 group"
+                        className="text-xs font-bold"
                       >
                         Aprende a calcularlo
-                        <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                      </InlineLink>
                     </div>
                     <div className="border border-border p-6 space-y-3 bg-accent-amber/5">
                       <h3 className="font-display font-bold uppercase text-accent-rust tracking-tight">
@@ -224,21 +219,19 @@ export default function BlogPage() {
                       <p className="text-xs text-muted-foreground italic">
                         *A diferencia del ISR, aquí sí puedes usar tus gastos
                         para bajar el monto (
-                        <Link
+                        <InlineLink
                           href="/blog/deducciones-resico-isr"
-                          className="underline"
                         >
                           ver por qué
-                        </Link>
+                        </InlineLink>
                         ).
                       </p>
-                      <Link
+                      <InlineLink
                         href="/blog/saldo-favor-resico"
-                        className="text-xs font-bold underline flex items-center gap-1 group"
+                        className="text-xs font-bold"
                       >
                         Ver saldos a favor
-                        <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                      </InlineLink>
                     </div>
                   </div>
                 </section>
@@ -337,12 +330,9 @@ export default function BlogPage() {
                   <p className="text-foreground/90">
                     Entendemos que "sentirse acompañado" es bueno, pero "tener
                     la certeza matemática" es mejor. Por eso construimos la{" "}
-                    <Link
-                      href="/calculadora-resico"
-                      className="underline font-bold text-accent-rust"
-                    >
+                    <InlineLink href="/calculadora-resico">
                       Calculadora RESICO de impuestos
-                    </Link>
+                    </InlineLink>
                     .
                   </p>
                   <p className="text-foreground/90">
@@ -366,8 +356,9 @@ export default function BlogPage() {
                   </div>
                 </section>
                 <CalculatorCTA 
-                  title="Evita errores en tu declaración mensual"
-                  description="Nuestra calculadora te da los montos exactos de ISR e IVA para que declares ante el SAT con total tranquilidad."
+                  title="Simplifica tu declaración mensual"
+                  description="Obtén los montos exactos de ISR e IVA a pagar en menos de un minuto con nuestra calculadora gratuita."
+                  buttonText="Hacer cálculo mensual gratis"
                 />
               </div>
             </div>

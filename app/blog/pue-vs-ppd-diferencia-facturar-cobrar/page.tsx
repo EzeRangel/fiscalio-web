@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { InlineLink } from "@/components/inline-link";
 import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { CalculatorCTA } from "@/components/calculator-cta";
@@ -286,12 +286,9 @@ export default function BlogPage() {
                   </p>
                   <p className="text-foreground/90">
                     Romper esta regla es la razón número uno por la cual las{" "}
-                    <Link
-                      href="/blog/porque-sat-no-precarga-facturas"
-                      className="underline font-bold text-accent-rust"
-                    >
+                    <InlineLink href="/blog/porque-sat-no-precarga-facturas">
                       declaraciones precargadas del SAT
-                    </Link>{" "}
+                    </InlineLink>{" "}
                     muestran números completamente diferentes a tus estados de
                     cuenta reales.
                   </p>
@@ -334,20 +331,18 @@ export default function BlogPage() {
                   </p>
                   <p className="text-foreground/90">
                     Si quieres empezar a proyectar tus impuestos hoy mismo,
-                    puedes usar nuestra{" "}
-                    <Link
-                      href="/calculadora-resico"
-                      className="underline font-bold text-accent-rust"
-                    >
+                    puedes simular tu flujo real con nuestra{" "}
+                    <InlineLink href="/calculadora-resico">
                       Calculadora RESICO
-                    </Link>{" "}
-                    para tener una visión clara de tu flujo de efectivo.
+                    </InlineLink>{" "}
+                    y ver cuánto pagarías de ISR e IVA.
                   </p>
                 </section>
 
                 <CalculatorCTA 
-                  title="Calcula solo sobre ingresos cobrados"
-                  description="Conoce tu ISR e IVA a pagar en base a tus facturas PUE efectivamente cobradas."
+                  title="Calcula tus impuestos sobre flujo real"
+                  description="Descubre tu ISR e IVA a pagar considerando solo tus facturas PUE y PPD efectivamente cobradas este mes."
+                  buttonText="Calcular impuestos sobre flujo"
                 />
               </div>
             </div>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { InlineLink } from "@/components/inline-link";
 import { CalendarIcon, UserIcon } from "lucide-react";
 import { BlockQuote } from "@/components/blockquote";
 import { CalculatorCTA } from "@/components/calculator-cta";
@@ -182,12 +182,9 @@ export default function BlogPage() {
                       <p className="text-foreground/90">
                         Este es uno de los más comunes. Si emitiste una factura
                         con{" "}
-                        <Link
-                          href="/blog/pue-vs-ppd-diferencia-facturar-cobrar"
-                          className="text-accent-rust hover:underline font-bold"
-                        >
+                        <InlineLink href="/blog/pue-vs-ppd-diferencia-facturar-cobrar">
                           PPD (Pago en parcialidades o diferido)
-                        </Link>
+                        </InlineLink>
                         , el ingreso no necesariamente se considera en ese
                         momento.
                       </p>
@@ -228,14 +225,11 @@ export default function BlogPage() {
                       <p className="text-foreground/90">
                         Por ejemplo, imagina que facturas en marzo pero te pagan
                         en abril. Para el SAT, ese ingreso puede ser de abril,
-                        no de marzo. Entender esta diferencia es vital cuando{" "}
-                        <Link
-                          href="/calculadora-resico"
-                          className="text-accent-rust hover:underline"
-                        >
-                          aprendes a calcular tu ISR e IVA
-                        </Link>{" "}
-                        correctamente. Por eso ves la factura en el portal, pero
+                        no de marzo. Entender esta diferencia es vital. Para facilitarte la vida, puedes usar nuestra{" "}
+                        <InlineLink href="/calculadora-resico">
+                          calculadora de impuestos RESICO
+                        </InlineLink>{" "}
+                        y simular tu ISR e IVA de forma automática. Por eso ves la factura en el portal, pero
                         no aparece en ese mes de la declaración.{" "}
                         <strong>
                           No es inconsistencia, es que el SAT usa otra lógica
@@ -261,12 +255,9 @@ export default function BlogPage() {
                         El SAT no te avisa siempre, simplemente no las considera
                         en su precarga. Por eso muchos freelancers se confunden
                         al momento de{" "}
-                        <Link
-                          href="/blog/como-hacer-declaracion-mensual-resico"
-                          className="text-accent-rust hover:underline"
-                        >
+                        <InlineLink href="/blog/como-hacer-declaracion-mensual-resico">
                           hacer su declaración mensual
-                        </Link>
+                        </InlineLink>
                         .
                       </p>
                     </div>
@@ -296,12 +287,9 @@ export default function BlogPage() {
                     en el mismo mes. Si no tienes esto claro, todo parece un
                     error del sistema. Si quieres profundizar en esto, revisa
                     nuestra guía sobre{" "}
-                    <Link
-                      href="/blog/calcular-isr-iva-resico"
-                      className="text-accent-rust hover:underline"
-                    >
+                    <InlineLink href="/blog/calcular-isr-iva-resico">
                       cómo saber cuánto debes pagar de impuestos
-                    </Link>
+                    </InlineLink>
                     .
                   </p>
                 </section>
@@ -324,14 +312,10 @@ export default function BlogPage() {
                     }
                   />
                   <p className="text-foreground/90">
-                    Esa falta de visibilidad es lo que genera dudas y miedo al
-                    declarar. Especialmente si apenas estás entendiendo{" "}
-                    <Link
-                      href="/blog/que-es-resico-freelancers-mexico"
-                      className="text-accent-rust hover:underline"
-                    >
+                    Esa falta de visibilidad es lo que genera dudas y miedo al declarar. Especialmente si apenas estás entendiendo{" "}
+                    <InlineLink href="/blog/que-es-resico-freelancers-mexico">
                       qué es el régimen RESICO
-                    </Link>{" "}
+                    </InlineLink>{" "}
                     y cómo te beneficia.
                   </p>
                 </section>
@@ -428,8 +412,9 @@ export default function BlogPage() {
             </div>
 
             <CalculatorCTA 
-              title="Toma el control de tu contabilidad"
-              description="Usa nuestra calculadora para prever tus declaraciones mensuales y adelantarte a la información del SAT."
+              title="No pelees con el portal del SAT"
+              description="Simula tus impuestos exactos y entiende la lógica detrás de tus CFDIs antes de tu próxima declaración."
+              buttonText="Calcular mis impuestos gratis"
             />
           </div>
         </div>
