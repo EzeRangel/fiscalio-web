@@ -83,10 +83,10 @@ export function SendReportDialog({
       <DialogContent className="sm:max-w-md rounded-none border border-border font-sans bg-card">
         <DialogHeader className="space-y-3">
           <DialogTitle className="text-xl font-semibold tracking-tight font-display text-foreground">
-            Enviar Simulación por Correo
+            Exportar Cálculo Mensual (PDF Gratis)
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground leading-relaxed tracking-wide font-sans">
-            Recibe una copia detallada de tus 3 Bóvedas de impuestos en tu bandeja de entrada.
+            Recibe el desglose detallado de tus 3 Bóvedas de impuestos y el calendario fiscal RESICO directamente en tu bandeja de entrada.
           </DialogDescription>
         </DialogHeader>
 
@@ -114,15 +114,13 @@ export function SendReportDialog({
             className="w-full h-11 text-xs tracking-[0.1em] rounded-none font-bold uppercase"
             disabled={isPending}
           >
-            {isPending ? "ENVIANDO..." : "RECIBIR SIMULACIÓN"}
+            {isPending ? "ENVIANDO..." : "ENVIAR PDF A MI CORREO"}
             {!isPending && <ArrowRightIcon className="h-3.5 w-3.5 ml-2" />}
           </Button>
 
           <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 border border-dashed border-zinc-200 dark:border-zinc-800 rounded-none font-sans">
             <p className="text-[10px] text-muted-foreground leading-relaxed tracking-wide uppercase">
-              * Al solicitar el informe, también te avisaremos cuando Fiscalio
-              esté disponible y recibirás contenido exclusivo para optimizar tu
-              RESICO.
+              * Al solicitar tu reporte, te suscribes de forma gratuita a nuestra lista de espera y boletín para recibir contenido y herramientas exclusivas de RESICO.
             </p>
           </div>
         </form>

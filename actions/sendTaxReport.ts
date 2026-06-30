@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { TaxReportEmail } from "@/components/emails/tax-report-email";
 import { CalculoResult, TipoIngreso, TipoCliente } from "@/lib/tax-calculator";
+import { saveToWaitlist } from "@/lib/airtable";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -16,11 +17,14 @@ interface SendTaxReportRequest {
 
 export async function sendTaxReport(params: SendTaxReportRequest) {
   try {
+    // Registrar el lead en la lista de espera unificada
+    await saveToWaitlist(params.email);
+
     const reportId = Math.random().toString(36).substring(7).toUpperCase();
     const { error } = await resend.emails.send({
-      from: "Fiscalio <noresponder@fiscalio.app>",
+      from: "Ezequiel de Fiscalio <ezequiel@fiscalio.app>",
       to: [params.email],
-      subject: "Tu Informe de Proyección Fiscal - Fiscalio",
+      subject: "Tu informe de la calculadora RESICO - Fiscalio",
       react: TaxReportEmail({
         result: params.result,
         tipoIngreso: params.tipoIngreso,
@@ -38,7 +42,7 @@ export async function sendTaxReport(params: SendTaxReportRequest) {
 
     return { success: true };
   } catch (error) {
-    console.error("Resend error:", error);
+    console.error("Resend/Airtable error:", error);
     return { error: "Ocurrió un error inesperado al enviar el correo." };
   }
 }

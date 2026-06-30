@@ -139,24 +139,24 @@ export function TaxCalculator() {
         className="bg-card border border-border"
       >
         {/* Main Title */}
-        <div className="border-b border-zinc-100 dark:border-zinc-800 p-6">
-          <h2 className="font-display text-2xl font-semibold tracking-tight">
+        <div className="border-b border-zinc-100 dark:border-zinc-800 p-4 md:p-6">
+          <h2 className="font-display text-xl md:text-2xl font-semibold tracking-tight">
             Simulador Fiscal RESICO
           </h2>
-          <p className="text-sm text-muted-foreground mt-1 font-sans">
+          <p className="text-xs md:text-sm text-muted-foreground mt-1 font-sans">
             Visualiza el desglose mensual de tus impuestos en tiempo real
           </p>
         </div>
 
         {/* Input section */}
-        <div className="p-6 border-b border-border">
-          <label className="block text-xs font-semibold uppercase tracking-widest text-muted-foreground font-sans mb-3">
+        <div className="p-4 md:p-6 border-b border-border">
+          <label className="block text-[10px] md:text-xs font-semibold uppercase tracking-widest text-muted-foreground font-sans mb-3">
             Monto del pago recibido (Bruto)
           </label>
 
           {/* Number input */}
-          <div className="relative flex items-center border border-border bg-background focus-within:border-foreground transition-colors duration-150 mb-4">
-            <span className="pl-4 text-muted-foreground font-mono text-lg font-medium select-none">
+          <div className="relative flex items-center border border-border bg-background focus-within:border-foreground transition-colors duration-150 mb-3 md:mb-4">
+            <span className="pl-3 md:pl-4 text-muted-foreground font-mono text-base md:text-lg font-medium select-none">
               $
             </span>
             <input
@@ -165,17 +165,17 @@ export function TaxCalculator() {
               value={rawInput}
               onChange={handleInput}
               placeholder="0.00"
-              className="flex-1 h-14 pl-2 pr-4 font-mono text-2xl font-semibold text-foreground bg-transparent outline-none placeholder:text-border"
+              className="flex-1 h-12 md:h-14 pl-2 pr-3 md:pr-4 font-mono text-xl md:text-2xl font-semibold text-foreground bg-transparent outline-none placeholder:text-border"
               aria-label="Monto bruto en pesos mexicanos"
             />
-            <span className="pr-4 text-xs font-sans text-muted-foreground font-medium">
+            <span className="pr-3 md:pr-4 text-xs font-sans text-muted-foreground font-medium">
               MXN
             </span>
           </div>
 
           {/* Preset buttons */}
           <div
-            className="flex flex-wrap gap-2"
+            className="flex flex-wrap gap-1.5 md:gap-2"
             role="group"
             aria-label="Montos preestablecidos"
           >
@@ -184,7 +184,7 @@ export function TaxCalculator() {
                 key={amount}
                 onClick={() => handlePreset(amount)}
                 className={cn(
-                  "h-9 px-3 text-sm font-mono font-medium border transition-colors duration-150 cursor-pointer",
+                  "h-8 md:h-9 px-2 md:px-3 text-xs md:text-sm font-mono font-medium border transition-colors duration-150 cursor-pointer",
                   rawInput === amount.toString()
                     ? "bg-foreground text-primary-foreground border-foreground"
                     : "bg-background text-muted-foreground border-border hover:border-foreground hover:text-foreground",
@@ -442,19 +442,27 @@ export function TaxCalculator() {
         </div>
 
         {/* Footer / Send report */}
-        <div className="dark:border-zinc-800 p-6 flex justify-between items-center bg-zinc-50/50 dark:bg-zinc-900/50 rounded-none font-sans">
-          <div className="text-xs text-muted-foreground">
+        <div className={cn(
+          "dark:border-zinc-800 p-4 md:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-between items-center bg-zinc-50/95 dark:bg-zinc-900/95 sm:bg-zinc-50/50 sm:dark:bg-zinc-900/50 rounded-none font-sans border-t border-border z-20 backdrop-blur-md sm:backdrop-blur-none",
+          result.subtotal > 0 ? "sticky bottom-0 sm:static" : "static"
+        )}>
+          <div className="hidden sm:block text-xs text-muted-foreground text-center sm:text-left leading-relaxed">
             Cálculo estimado mensual bajo régimen RESICO. Consulta a tu contador
             para precisión fiscal.
           </div>
           <Button
             onClick={() => setIsDialogOpen(true)}
-            className="rounded-none font-sans text-xs uppercase tracking-[0.15em] h-11 px-8 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm"
+            disabled={result.subtotal <= 0}
+            className="w-full sm:w-auto rounded-none font-sans text-xs uppercase tracking-[0.15em] h-11 px-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm flex-shrink-0 font-bold"
           >
-            Enviar por correo
+            <span className="sm:hidden">Exportar (PDF gratis)</span>
+            <span className="hidden sm:inline">Exportar cálculo mensual (PDF gratis)</span>
           </Button>
         </div>
       </motion.div>
+      <p className="text-[11px] text-muted-foreground text-center mt-4 px-4 leading-relaxed sm:hidden">
+        Cálculo estimado mensual bajo régimen RESICO. Consulta a tu contador para precisión fiscal.
+      </p>
     </div>
   );
 }
