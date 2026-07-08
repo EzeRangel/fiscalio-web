@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { APP_URL } from "@/lib/constants";
+import { ContextualPainCTA } from "@/components/contextual-pain-cta";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title:
@@ -368,6 +370,22 @@ export default function BlogPage() {
                   </ul>
                 </section>
 
+                <Suspense>
+                  <ContextualPainCTA
+                    variant="resource"
+                    title="Plantilla: Factura Extranjera Perfecta"
+                    description="Un error en el RFC o Tax ID te puede costar el IVA 0%. Copia nuestra plantilla exacta para facturar a clientes en el extranjero."
+                    buttonText="Descargar plantilla"
+                    source="blog_exportacion_servicios"
+                    items={[
+                      "RFC genérico internacional y configuración de Tax ID",
+                      "Claves de objeto de impuesto (02) y exportación (02)",
+                      "Campos para asegurar el IVA a Tasa 0% sin riesgo",
+                      "Checklist documental para transferencias SPEI/STP",
+                    ]}
+                  />
+                </Suspense>
+
                 <section className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
                     Riesgos que debes controlar
@@ -440,7 +458,8 @@ export default function BlogPage() {
                     <InlineLink href="/calculadora-resico">
                       simular tus ingresos con tasa 0% del IVA
                     </InlineLink>{" "}
-                    usando nuestra calculadora RESICO para ver exactamente cuánto recibirás neto en tu cuenta bancaria.
+                    usando nuestra calculadora RESICO para ver exactamente
+                    cuánto recibirás neto en tu cuenta bancaria.
                   </p>
 
                   <p className="text-foreground/90">
@@ -474,7 +493,7 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <CalculatorCTA 
+            <CalculatorCTA
               title="Simula tus ingresos del extranjero"
               description="Calcula el impacto del IVA a tasa 0% y entiende tus obligaciones reales al exportar servicios."
               buttonText="Simular impacto del IVA 0%"

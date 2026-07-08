@@ -35,18 +35,28 @@ export async function GET(req: NextRequest) {
 
   // Serve the file
   try {
+    const fileParam = searchParams.get("file");
+    const isTemplate = fileParam === "template";
+
+    const fileName = isTemplate
+      ? "plantilla-factura-extranjera.pdf"
+      : "guia-practica-resico.pdf";
+
+    const downloadName = isTemplate
+      ? "Plantilla-Factura-Extranjera-Fiscalio.pdf"
+      : "Guia-RESICO-Fiscalio-2026.pdf";
+
     const filePath = path.join(
       process.cwd(),
       "assets",
-      "guia-practica-resico.pdf",
+      fileName,
     );
     const fileBuffer = await fs.readFile(filePath);
 
     return new NextResponse(fileBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition":
-          "attachment; filename=Guia-RESICO-Fiscalio-2026.pdf",
+        "Content-Disposition": `attachment; filename=${downloadName}`,
       },
     });
   } catch (error) {

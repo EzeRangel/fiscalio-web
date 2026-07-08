@@ -67,7 +67,7 @@ const SectionHeader = ({
   <div
     className={`text-[10px] tracking-[0.3em] ${color} font-mono font-bold uppercase mb-3`}
   >
-    {number} // {title}
+    {number} {"//"} {title}
   </div>
 );
 

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { APP_URL } from "@/lib/constants";
+import { ContextualPainCTA } from "@/components/contextual-pain-cta";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title:
@@ -225,12 +227,14 @@ export default function BlogPage() {
                       <p className="text-foreground/90">
                         Por ejemplo, imagina que facturas en marzo pero te pagan
                         en abril. Para el SAT, ese ingreso puede ser de abril,
-                        no de marzo. Entender esta diferencia es vital. Para facilitarte la vida, puedes usar nuestra{" "}
+                        no de marzo. Entender esta diferencia es vital. Para
+                        facilitarte la vida, puedes usar nuestra{" "}
                         <InlineLink href="/calculadora-resico">
                           calculadora de impuestos RESICO
                         </InlineLink>{" "}
-                        y simular tu ISR e IVA de forma automática. Por eso ves la factura en el portal, pero
-                        no aparece en ese mes de la declaración.{" "}
+                        y simular tu ISR e IVA de forma automática. Por eso ves
+                        la factura en el portal, pero no aparece en ese mes de
+                        la declaración.{" "}
                         <strong>
                           No es inconsistencia, es que el SAT usa otra lógica
                           para medir el tiempo.
@@ -312,7 +316,8 @@ export default function BlogPage() {
                     }
                   />
                   <p className="text-foreground/90">
-                    Esa falta de visibilidad es lo que genera dudas y miedo al declarar. Especialmente si apenas estás entendiendo{" "}
+                    Esa falta de visibilidad es lo que genera dudas y miedo al
+                    declarar. Especialmente si apenas estás entendiendo{" "}
                     <InlineLink href="/blog/que-es-resico-freelancers-mexico">
                       qué es el régimen RESICO
                     </InlineLink>{" "}
@@ -392,6 +397,21 @@ export default function BlogPage() {
                   </div>
                 </section>
 
+                <Suspense>
+                  <ContextualPainCTA
+                    variant="checklist"
+                    title="¿Tu factura no aparece? Usa esta checklist rápida"
+                    description="Revisa si caíste en uno de los 3 'errores silenciosos' del SAT. Fiscalio audita tus XMLs automáticamente para que no declares con errores."
+                    buttonText="Obtener acceso a Fiscalio"
+                    source="blog_sat_no_precarga"
+                    items={[
+                      "¿La factura es PPD? (Requiere complemento de pago para contar)",
+                      "¿Fue emitida hace menos de 48 horas? (El SAT tarda en sincronizar)",
+                      "¿Tiene errores silenciosos en RFC o estatus cancelado?",
+                    ]}
+                  />
+                </Suspense>
+
                 <section className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
                     Qué puedes hacer a partir de ahora
@@ -411,7 +431,7 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <CalculatorCTA 
+            <CalculatorCTA
               title="No pelees con el portal del SAT"
               description="Simula tus impuestos exactos y entiende la lógica detrás de tus CFDIs antes de tu próxima declaración."
               buttonText="Calcular mis impuestos gratis"

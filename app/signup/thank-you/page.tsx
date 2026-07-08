@@ -13,6 +13,8 @@ function ThankYouContent() {
   const [email, setEmail] = useState<string>("");
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
+  const source = searchParams.get("source") || "";
+  const isExportSource = source === "blog_exportacion_servicios";
 
   const handleDownloadGuide = () => {
     if (!id) {
@@ -22,7 +24,9 @@ function ThankYouContent() {
 
     // In production, this would download an actual PDF
     // For now, we'll use our new API route
-    window.location.href = `/api/download-pdf?id=${id}`;
+    window.location.href = isExportSource
+      ? `/api/download-pdf?id=${id}&file=template`
+      : `/api/download-pdf?id=${id}`;
   };
 
   return (
@@ -150,18 +154,15 @@ function ThankYouContent() {
             <div className="space-y-12 py-12">
               <div className="space-y-4">
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground">
-                  [02] DESCARGA_GRATUITA
+                  {isExportSource ? "[02] DESCARGA_DE_PLANTILLA" : "[02] DESCARGA_GRATUITA"}
                 </span>
                 <h2 className="text-2xl font-medium font-display tracking-tight">
-                  Guía práctica para RESICO 2026
+                  {isExportSource ? "Plantilla de Factura Extranjera Perfecta" : "Guía práctica para RESICO 2026"}
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed tracking-wide">
-                  Mientras liberamos accesos a la beta, descarga nuestra guía
-                  gratuita sobre el régimen RESICO. Está pensada para{" "}
-                  <strong className="text-accent-rust">
-                    personas físicas y pequeños negocios
-                  </strong>{" "}
-                  que quieren cumplir sin complicarse.
+                  {isExportSource
+                    ? "Descarga tu plantilla CFDI 4.0 lista para facturar al extranjero a tasa 0% de IVA de forma segura."
+                    : "Mientras liberamos accesos a la beta, descarga nuestra guía gratuita sobre el régimen RESICO. Está pensada para personas físicas y pequeños negocios que quieren cumplir sin complicarse."}
                 </p>
               </div>
 
@@ -172,18 +173,26 @@ function ThankYouContent() {
                   </div>
                   <div className="space-y-2 flex-1">
                     <h3 className="text-lg font-display font-medium tracking-tight">
-                      Guía RESICO 2026
+                      {isExportSource ? "Plantilla Factura Extranjera" : "Guía RESICO 2026"}
                     </h3>
                     <p className="text-xs text-muted-foreground tracking-wide">
-                      PDF • 12 páginas • Actualizado Febrero 2026
+                      {isExportSource ? "PDF • Actualizado Julio 2026" : "PDF • 12 páginas • Actualizado Febrero 2026"}
                     </p>
                     <div className="pt-4 space-y-3">
-                      {[
-                        "Requisitos para tributar en RESICO",
-                        "Cómo evitar errores que te cuestan dinero",
-                        "Cómo llevar control sin ser contador",
-                        "Prepárate para la beta privada",
-                      ].map((item) => (
+                      {(isExportSource
+                        ? [
+                            "RFC genérico extranjero y Tax ID",
+                            "Claves de objeto de impuesto (02) y exportación (02)",
+                            "Campos obligatorios para IVA 0%",
+                            "Requisitos de rastro bancario SPEI",
+                          ]
+                        : [
+                            "Requisitos para tributar en RESICO",
+                            "Cómo evitar errores que te cuestan dinero",
+                            "Cómo llevar control sin ser contador",
+                            "Prepárate para la beta privada",
+                          ]
+                      ).map((item) => (
                         <div
                           key={item}
                           className="flex items-center gap-3 text-sm"
@@ -204,12 +213,13 @@ function ThankYouContent() {
                     onClick={handleDownloadGuide}
                   >
                     <Download className="h-3.5 w-3.5 mr-3" />
-                    Descargar la guía RESICO (PDF)
+                    {isExportSource ? "Descargar la plantilla (PDF)" : "Descargar la guía RESICO (PDF)"}
                   </Button>
                   <p className="text-muted-foreground text-sm text-center">
                     <small>
-                      Esta guía es informativa y no sustituye la asesoría de un
-                      contador.
+                      {isExportSource
+                        ? "Esta plantilla es una guía de llenado y no sustituye la asesoría de un contador."
+                        : "Esta guía es informativa y no sustituye la asesoría de un contador."}
                     </small>
                   </p>
                 </div>

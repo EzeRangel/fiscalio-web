@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
+import { ContextualPainCTA } from "@/components/contextual-pain-cta";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Cómo hacer declaración mensual RESICO SAT 2026",
@@ -172,9 +174,11 @@ export default function BlogPage() {
                     SAT solo es un lugar donde vas a confirmar lo que ya sabes.
                     Una buena práctica es{" "}
                     <InlineLink href="/calculadora-resico">
-                      simular tu ISR e IVA con nuestra calculadora de impuestos RESICO
+                      simular tu ISR e IVA con nuestra calculadora de impuestos
+                      RESICO
                     </InlineLink>{" "}
-                    para validar que tus cálculos coincidan con lo que el SAT te mostrará pre-llenado.
+                    para validar que tus cálculos coincidan con lo que el SAT te
+                    mostrará pre-llenado.
                   </p>
                 </section>
 
@@ -219,9 +223,7 @@ export default function BlogPage() {
                       <p className="text-xs text-muted-foreground italic">
                         *A diferencia del ISR, aquí sí puedes usar tus gastos
                         para bajar el monto (
-                        <InlineLink
-                          href="/blog/deducciones-resico-isr"
-                        >
+                        <InlineLink href="/blog/deducciones-resico-isr">
                           ver por qué
                         </InlineLink>
                         ).
@@ -323,6 +325,22 @@ export default function BlogPage() {
                   </div>
                 </section>
 
+                <Suspense>
+                  <ContextualPainCTA
+                    variant="checklist"
+                    title="Deja de pelear con el portal del SAT"
+                    description="En Fiscalio, conectas tus facturas y te decimos exactamente qué números poner en tu declaración mensual para que cuadre todo."
+                    buttonText="Quiero declarar rápido y sin errores"
+                    source="blog_declaracion_mensual"
+                    items={[
+                      "Conciliación automática de facturas efectivamente cobradas",
+                      "Separación inmediata de IVA trasladado e IVA acreditable",
+                      "Cálculo automático de retenciones de ISR de Personas Morales",
+                      "Generación del borrador exacto para vaciar en el portal del SAT",
+                    ]}
+                  />
+                </Suspense>
+
                 <section className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
                     ¿Y si quiero estar 100% seguro antes de entrar?
@@ -355,7 +373,7 @@ export default function BlogPage() {
                     </p>
                   </div>
                 </section>
-                <CalculatorCTA 
+                <CalculatorCTA
                   title="Simplifica tu declaración mensual"
                   description="Obtén los montos exactos de ISR e IVA a pagar en menos de un minuto con nuestra calculadora gratuita."
                   buttonText="Hacer cálculo mensual gratis"

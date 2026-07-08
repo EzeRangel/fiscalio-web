@@ -3,6 +3,7 @@
 import * as React from "react";
 import { render } from "@react-email/render";
 import { EmailTemplate } from "@/components/email-thankyou";
+import { EmailExportTemplate } from "@/components/email-export-template";
 import { EmailUpdateTemplate } from "@/components/email-update";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,6 +11,9 @@ import { Textarea } from "@/components/ui/textarea";
 export default function EmailPreviewPage() {
   const [activeTab, setActiveTab] = React.useState<"thank-you" | "update">(
     "thank-you"
+  );
+  const [thankYouSource, setThankYouSource] = React.useState<"direct" | "blog_exportacion_servicios">(
+    "direct"
   );
   const [renderedHtml, setRenderedHtml] = React.useState<string>("");
   const [isLoading, setIsLoading] = React.useState(true);
@@ -47,7 +51,9 @@ export default function EmailPreviewPage() {
       setIsLoading(true);
       try {
         const element = activeTab === "thank-you" 
-          ? <EmailTemplate email="test@example.com" recordId="rec123" />
+          ? (thankYouSource === "blog_exportacion_servicios"
+              ? <EmailExportTemplate email="test@example.com" recordId="rec123" />
+              : <EmailTemplate email="test@example.com" recordId="rec123" />)
           : <EmailUpdateTemplate {...updateData} />;
         
         const html = await render(element, { pretty: true });
@@ -60,7 +66,7 @@ export default function EmailPreviewPage() {
     }
 
     updatePreview();
-  }, [activeTab, updateData]);
+  }, [activeTab, updateData, thankYouSource]);
 
   return (
     <div className="flex flex-col h-screen bg-zinc-50">
@@ -95,9 +101,37 @@ export default function EmailPreviewPage() {
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar Controls (Only for Update) */}
-        {activeTab === "update" && (
-          <aside className="w-80 border-r border-zinc-200 bg-white overflow-y-auto p-6 space-y-6">
+        {/* Sidebar Controls */}
+        <aside className="w-80 border-r border-zinc-200 bg-white overflow-y-auto p-6 space-y-6">
+          {activeTab === "thank-you" ? (
+            <div className="space-y-4">
+              <h2 className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400">
+                Variante Thank You
+              </h2>
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => setThankYouSource("direct")}
+                  className={`w-full text-left px-3 py-2.5 text-xs font-medium rounded-md transition-colors ${
+                    thankYouSource === "direct"
+                      ? "bg-zinc-900 text-white"
+                      : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
+                  }`}
+                >
+                  General / Guía RESICO
+                </button>
+                <button
+                  onClick={() => setThankYouSource("blog_exportacion_servicios")}
+                  className={`w-full text-left px-3 py-2.5 text-xs font-medium rounded-md transition-colors ${
+                    thankYouSource === "blog_exportacion_servicios"
+                      ? "bg-zinc-900 text-white"
+                      : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
+                  }`}
+                >
+                  Exportación / Plantilla
+                </button>
+              </div>
+            </div>
+          ) : (
             <div className="space-y-4">
               <h2 className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400">
                 Configuración del Correo
@@ -144,7 +178,9 @@ export default function EmailPreviewPage() {
                 />
               </div>
             </div>
+          )}
 
+          {activeTab === "update" && (
             <div className="space-y-4">
               <h2 className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400">
                 Call to Action
@@ -166,8 +202,8 @@ export default function EmailPreviewPage() {
                 />
               </div>
             </div>
-          </aside>
-        )}
+          )}
+        </aside>
 
         {/* Preview Area */}
         <main className="flex-1 bg-zinc-100 flex items-center justify-center p-8 overflow-y-auto">

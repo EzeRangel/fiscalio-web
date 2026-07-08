@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { APP_URL } from "@/lib/constants";
+import { ContextualPainCTA } from "@/components/contextual-pain-cta";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "PUE vs PPD: La diferencia real entre facturar y cobrar | Fiscalio",
@@ -223,19 +225,17 @@ export default function BlogPage() {
                     dinero no ha tocado tu cuenta. La operación se queda
                     "abierta".
                   </p>
-
-                  <BlockQuote
-                    title="El peligro de equivocarte"
-                    content={
-                      <p className="text-lg font-medium">
-                        Si emites como PUE una factura que te van a pagar el
-                        próximo mes, el SAT asumirá que ya tienes el dinero hoy.
-                        Te tocará pagar impuestos con dinero que aún no tienes
-                        en la bolsa.
-                      </p>
-                    }
-                  />
                 </section>
+
+                <Suspense>
+                  <ContextualPainCTA
+                    variant="warning"
+                    title="Cuidado con pagar impuestos de más"
+                    description="Si emites facturas PUE que te van a pagar el próximo mes, el SAT asumirá que ya tienes el dinero hoy. Te tocará pagar impuestos con dinero que aún no tienes en la bolsa. Fiscalio audita tu flujo de efectivo en tiempo real para evitar que regales dinero."
+                    buttonText="Proteger mi dinero"
+                    source="blog_pue_vs_ppd"
+                  />
+                </Suspense>
 
                 <section className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight mt-12 mb-6 text-foreground">
@@ -339,7 +339,7 @@ export default function BlogPage() {
                   </p>
                 </section>
 
-                <CalculatorCTA 
+                <CalculatorCTA
                   title="Calcula tus impuestos sobre flujo real"
                   description="Descubre tu ISR e IVA a pagar considerando solo tus facturas PUE y PPD efectivamente cobradas este mes."
                   buttonText="Calcular impuestos sobre flujo"

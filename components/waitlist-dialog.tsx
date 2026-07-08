@@ -21,6 +21,36 @@ import { signupWaitlist } from "@/actions/signupWaitlist";
 import { toast } from "sonner";
 import { sendGAEvent } from "@next/third-parties/google";
 
+const CONTEXTUAL_COPY: Record<
+  string,
+  { title: string; description: string; buttonText: string }
+> = {
+  blog_sat_no_precarga: {
+    title: "Evita los errores del SAT",
+    description:
+      "Únete a la beta privada de Fiscalio. Conectamos tus facturas y auditamos tus XMLs automáticamente para que no declares con errores.",
+    buttonText: "Unirme a la beta privada",
+  },
+  blog_pue_vs_ppd: {
+    title: "Protege tu dinero hoy mismo",
+    description:
+      "Deja de pagar impuestos por dinero que no has cobrado. Únete a la beta de Fiscalio para conciliar facturas PUE y PPD automáticamente.",
+    buttonText: "Proteger mi dinero",
+  },
+  blog_exportacion_servicios: {
+    title: "Descarga la plantilla de exportación",
+    description:
+      "Ingresa tu correo para recibir la plantilla CFDI 4.0 perfecta para facturar al extranjero a tasa 0% y unirte a la beta de Fiscalio.",
+    buttonText: "Descargar plantilla gratis",
+  },
+  blog_declaracion_mensual: {
+    title: "Declara en 5 minutos sin errores",
+    description:
+      "En Fiscalio leemos tus facturas y te decimos qué casillas llenar del portal del SAT. Únete a la beta para tener tranquilidad fiscal.",
+    buttonText: "Solicitar acceso a la beta",
+  },
+};
+
 export function WaitlistDialog() {
   const router = useRouter();
   const pathname = usePathname();
@@ -57,6 +87,7 @@ export function WaitlistDialog() {
     startTransition(async () => {
       const response = await signupWaitlist({
         email: formElements.email.value,
+        source: source,
       });
 
       if (response?.error || !response.record) {
@@ -73,11 +104,17 @@ export function WaitlistDialog() {
           signup_source: source,
           page_path: pathname,
         });
-        redirect(`/signup/thank-you?id=${response.record}`);
+        redirect(`/signup/thank-you?id=${response.record}&source=${source}`);
       }
     });
   };
 
+  const copy = CONTEXTUAL_COPY[source] || {
+    title: "Únete a la beta privada",
+    description:
+      "Regístrate para recibir acceso anticipado a la beta privada de Fiscalio y asegurar tu precio fundador.",
+    buttonText: "Solicitar acceso a la beta",
+  };
 
   return (
     <Dialog
@@ -98,10 +135,10 @@ export function WaitlistDialog() {
       <DialogContent className="sm:max-w-md rounded-none border-2">
         <DialogHeader className="space-y-4">
           <DialogTitle className="text-2xl font-medium tracking-tight font-display">
-            Únete a la beta privada
+            {copy.title}
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground leading-relaxed tracking-wide font-display">
-            Regístrate para recibir acceso anticipado a la beta privada de Fiscalio y asegurar tu precio fundador.
+            {copy.description}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-6 pt-4">
@@ -126,7 +163,7 @@ export function WaitlistDialog() {
             className="w-full h-12 text-xs tracking-[0.2em] rounded-none font-bold uppercase"
             disabled={isPending}
           >
-            {isPending ? "Procesando..." : "Solicitar acceso a la beta"}
+            {isPending ? "Procesando..." : copy.buttonText}
             {!isPending && <ArrowRightIcon className="h-3.5 w-3.5 ml-3" />}
           </Button>
 
@@ -141,3 +178,4 @@ export function WaitlistDialog() {
     </Dialog>
   );
 }
+
