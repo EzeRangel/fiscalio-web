@@ -1,11 +1,9 @@
 import { InlineLink } from "@/components/inline-link";
-import { CalendarIcon, UserIcon, ArrowRight } from "lucide-react";
-import { BlockQuote } from "@/components/blockquote";
+import { CalendarIcon, UserIcon } from "lucide-react";
 import { CalculatorCTA } from "@/components/calculator-cta";
 import { HighlightBox } from "@/components/highlight-box";
 import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { APP_URL } from "@/lib/constants";
@@ -15,7 +13,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "PUE vs PPD: La diferencia real entre facturar y cobrar | Fiscalio",
   description:
-    "Aprende la diferencia entre PUE y PPD. Evita pagar impuestos por dinero que aún no has cobrado y domina el flujo de caja de tu negocio como freelancer.",
+    "PUE: El dinero ya fue cobrado al emitir factura. PPD: La factura se emitió a crédito y se pagará en varios pagos o parcialidades.",
   keywords:
     "PUE vs PPD, factura PUE, factura PPD, complemento de pago, SAT freelancers, RESICO facturación, flujo de efectivo SAT",
   authors: [
