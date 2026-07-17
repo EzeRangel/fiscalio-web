@@ -2,6 +2,10 @@
 
 Historial de cambios técnicos, optimizaciones de SEO y producto para mediciones de Growth.
 
+## 2026-07-17
+- **SEO/Calculadoras Satélite**: Creación de la nueva landing page satélite para retenciones en la ruta `/calculadora-resico/retenciones`, implementando el borrador optimizado para Persona Física a Persona Moral.
+- **Componentes**: Modificación del componente `<TaxCalculator />` para admitir props opcionales de inicialización (`initialTipoIngreso`, `initialTipoCliente` y `source`). Esto permite pre-configurar la calculadora por defecto según el caso de uso de la landing y pasar la procedencia (`source`) al evento `calculator_used` de GA4.
+
 ## 2026-07-11
 - **SEO/Metadata**: Se optimizó la meta descripción de la página `/blog/pue-vs-ppd-diferencia-facturar-cobrar` para mejorar el CTR respondiendo la duda directamente en el snippet (Definiciones cortas de PUE y PPD).
 

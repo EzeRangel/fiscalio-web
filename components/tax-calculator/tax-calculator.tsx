@@ -33,11 +33,21 @@ const EXPLANATIONS = {
   },
 };
 
-export function TaxCalculator() {
+interface TaxCalculatorProps {
+  initialTipoIngreso?: TipoIngreso;
+  initialTipoCliente?: TipoCliente;
+  source?: string;
+}
+
+export function TaxCalculator({
+  initialTipoIngreso = "NACIONAL",
+  initialTipoCliente = "FISICA",
+  source = "calculadora_general",
+}: TaxCalculatorProps = {}) {
   const [rawInput, setRawInput] = useState<string>("");
 
-  const [tipoIngreso, setTipoIngreso] = useState<TipoIngreso>("NACIONAL");
-  const [tipoCliente, setTipoCliente] = useState<TipoCliente>("FISICA");
+  const [tipoIngreso, setTipoIngreso] = useState<TipoIngreso>(initialTipoIngreso);
+  const [tipoCliente, setTipoCliente] = useState<TipoCliente>(initialTipoCliente);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
@@ -49,11 +59,12 @@ export function TaxCalculator() {
         tipo_ingreso: tipoIngreso,
         tipo_cliente: tipoCliente,
         has_amount: true,
+        source: source,
       });
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [rawInput, tipoIngreso, tipoCliente]);
+  }, [rawInput, tipoIngreso, tipoCliente, source]);
 
   const result: CalculoResult = useMemo(() => {
     const numAmount = parseFloat(rawInput.replace(/[^0-9.]/g, "")) || 0;
