@@ -19,29 +19,27 @@ export async function signupWaitlist(params: SignupWaitlistRequest) {
 
     const record = await saveToWaitlist(params.email);
 
-    (async () => {
-      try {
-        const isExportSource = params.source === "blog_exportacion_servicios";
-        const emailSubject = isExportSource
-          ? "Confirmación: Aquí tienes tu Plantilla de Factura Extranjera"
-          : "Confirmación: ya estás en la lista de espera de Fiscalio";
+    const isExportSource = params.source === "blog_exportacion_servicios";
+    const emailSubject = isExportSource
+      ? "Confirmación: Aquí tienes tu Plantilla de Factura Extranjera"
+      : "Confirmación: ya estás en la lista de espera de Fiscalio";
 
-        const { error } = await resend.emails.send({
-          from: "Ezequiel de Fiscalio <ezequiel@fiscalio.app>",
-          to: [params.email],
-          subject: emailSubject,
-          react: isExportSource
-            ? EmailExportTemplate({ email: params.email, recordId: record })
-            : EmailTemplate({ email: params.email, recordId: record }),
-        });
+    try {
+      const { error } = await resend.emails.send({
+        from: "Ezequiel de Fiscalio <ezequiel@fiscalio.app>",
+        to: [params.email],
+        subject: emailSubject,
+        react: isExportSource
+          ? EmailExportTemplate({ email: params.email, recordId: record })
+          : EmailTemplate({ email: params.email, recordId: record }),
+      });
 
-        if (error) {
-          throw error;
-        }
-      } catch (error) {
-        console.error("Resend error in background:", error);
+      if (error) {
+        console.error("Resend error in signupWaitlist:", error);
       }
-    })();
+    } catch (resendError) {
+      console.error("Resend exception in signupWaitlist:", resendError);
+    }
 
     return { record };
   } catch (error) {
