@@ -33,7 +33,7 @@ export function ProductUpdate01({ webMode = false }: UpdateComponentProps) {
 
       <Section>
         <Img
-          src="https://fiscalio.app/snapshot.png"
+          src="https://fiscalio.app/detalle-factura.png"
           alt="Rediseño de Factura"
           style={emailStyles.image}
         />

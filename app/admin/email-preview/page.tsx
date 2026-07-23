@@ -8,6 +8,9 @@ import { EmailUpdateTemplate } from "@/components/email-update";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { productUpdates, getUpdateComponent } from "@/lib/updates";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { CopyIcon } from "lucide-react";
 
 export default function EmailPreviewPage() {
   const [activeTab, setActiveTab] = React.useState<"thank-you" | "update">(
@@ -39,6 +42,20 @@ export default function EmailPreviewPage() {
       }
     ]
   });
+
+  const handleCopyHtml = async () => {
+    try {
+      await navigator.clipboard.writeText(renderedHtml);
+      toast.success("Código HTML copiado al portapapeles", {
+        description: "Listo para pegar en tu campaña de Resend.",
+      });
+    } catch (err) {
+      console.error("Failed to copy HTML:", err);
+      toast.error("No se pudo copiar el HTML", {
+        description: "Inténtalo de nuevo o copia el código manualmente.",
+      });
+    }
+  };
 
   React.useEffect(() => {
     async function updatePreview() {
@@ -100,6 +117,16 @@ export default function EmailPreviewPage() {
             </button>
           </div>
         </div>
+
+        <Button
+          onClick={handleCopyHtml}
+          variant="outline"
+          size="sm"
+          className="text-xs font-mono font-bold tracking-tighter border-2 rounded-none h-9 hover:bg-zinc-50"
+        >
+          <CopyIcon className="h-3 w-3 mr-2" />
+          COPIAR_HTML
+        </Button>
       </header>
 
       <div className="flex flex-1 overflow-hidden">
