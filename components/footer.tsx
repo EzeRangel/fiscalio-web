@@ -144,6 +144,14 @@ export default function Footer() {
                   Archivo del Blog
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/novedades"
+                  className="text-[11px] text-secondary/70 hover:text-white transition-colors uppercase tracking-wider"
+                >
+                  Novedades / Changelog
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

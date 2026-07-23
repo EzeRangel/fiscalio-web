@@ -245,7 +245,7 @@ export default function BlogIndex() {
       <section className="py-24 lg:py-32 bg-foreground text-background">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl space-y-8">
-            <span className="text-[10px] tracking-[0.3em] text-background/50">
+            <span className="text-[10px] tracking-[0.3em] text-background/50 font-mono">
               [02] CONTACTO
             </span>
             <h2 className="text-3xl lg:text-4xl font-display font-medium tracking-tight">
