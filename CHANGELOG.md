@@ -2,6 +2,11 @@
 
 Historial de cambios técnicos, optimizaciones de SEO y producto para mediciones de Growth.
 
+## 2026-07-23
+- **Novedades / Boletín**: Creación de la sección pública `/novedades` y su ruta dinámica `/novedades/[slug]` para indexar las actualizaciones del producto en motores de búsqueda y dinamizar el embudo de waitlist.
+- **Estructura de Correos (React Email)**: Creación de un sistema flexible y reutilizable de primitivas (`layout-primitives.tsx`) que soporta `webMode` para inyectar correos electrónicos como contenido web semántico y limpio.
+- **Product Update #02**: Redacción y maquetación de la segunda actualización de producto con tablas de datos contables, capturas de pantalla reales en `public/` y un CTA orientado al feedback de los leads de la waitlist.
+
 ## 2026-07-17
 - **SEO/Calculadoras Satélite**: Creación de la nueva landing page satélite para retenciones en la ruta `/calculadora-resico/retenciones`, implementando el borrador optimizado para Persona Física a Persona Moral.
 - **Componentes**: Modificación del componente `<TaxCalculator />` para admitir props opcionales de inicialización (`initialTipoIngreso`, `initialTipoCliente` y `source`). Esto permite pre-configurar la calculadora por defecto según el caso de uso de la landing y pasar la procedencia (`source`) al evento `calculator_used` de GA4.
