@@ -3,6 +3,16 @@ import { Navigation } from "@/components/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRightIcon } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog sobre RESICO y fiscalidad para freelancers | Fiscalio",
+  description:
+    "Aprende cómo funciona el SAT, RESICO, IVA e ISR con guías prácticas diseñadas para freelancers de tecnología en México.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 
 export const posts = [
   {

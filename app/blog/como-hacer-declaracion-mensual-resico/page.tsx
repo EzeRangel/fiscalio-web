@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     ],
   },
   robots: "index, follow",
+  alternates: {
+    canonical: "/blog/como-hacer-declaracion-mensual-resico",
+  },
 };
 
 export default function BlogPage() {

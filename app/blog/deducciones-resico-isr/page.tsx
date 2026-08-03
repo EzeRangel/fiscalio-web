@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     ],
   },
   robots: "index, follow",
+  alternates: {
+    canonical: "/blog/deducciones-resico-isr",
+  },
 };
 
 export default function BlogPage() {

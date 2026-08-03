@@ -43,6 +43,7 @@ export const metadata: Metadata = {
   },
   robots: "index, follow",
   alternates: {
+    canonical: "/blog/porque-sat-no-precarga-facturas",
     types: {
       "text/markdown": `${APP_URL}/blog/porque-sat-no-precarga-facturas/llms.txt`,
     },

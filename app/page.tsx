@@ -24,6 +24,13 @@ import { Suspense } from "react";
 import { Logo } from "@/components/logo";
 import Snapshot from "../public/snapshot.png";
 import ArtBackground from "../public/on_the_bure_near_aylsham_norfolk_1951.16.174.jpg";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function LandingPage() {
   return (

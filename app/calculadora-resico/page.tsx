@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Calculadora RESICO de impuestos 2026 | Fiscalio",
   description:
     "Calcula tus impuestos de RESICO de forma rápida y sencilla. Descubre cuánto recibirás en tu cuenta y lo que debes separar para el SAT cada mes.",
+  alternates: {
+    canonical: "/calculadora-resico",
+  },
   openGraph: {
     title: "Calculadora de impuestos RESICO 2026 | Fiscalio",
     description: "Calcula tus impuestos de RESICO de forma rápida y sencilla.",

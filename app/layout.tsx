@@ -25,6 +25,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.fiscalio.app"),
   title:
     "Fiscalio | Control fiscal RESICO para freelancers y pequeños negocios",
   description:

@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     ],
   },
   robots: "index, follow",
+  alternates: {
+    canonical: "/blog/pue-vs-ppd-diferencia-facturar-cobrar",
+  },
 };
 
 export default function BlogPage() {

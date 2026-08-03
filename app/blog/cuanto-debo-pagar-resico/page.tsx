@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     ],
   },
   robots: "index, follow",
+  alternates: {
+    canonical: "/blog/cuanto-debo-pagar-resico",
+  },
 };
 
 export default function BlogPage() {

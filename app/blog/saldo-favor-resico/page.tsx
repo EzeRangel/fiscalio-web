@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   },
   robots: "index, follow",
   alternates: {
+    canonical: "/blog/saldo-favor-resico",
     types: {
       "text/markdown": `${APP_URL}/blog/saldo-favor-resico/llms.txt`,
     },

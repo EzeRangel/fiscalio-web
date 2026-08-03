@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   },
   robots: "index, follow",
   alternates: {
+    canonical: "/blog/exportar-servicios-resico-como-freelancer",
     types: {
       "text/markdown": `${APP_URL}/blog/exportar-servicios-resico-como-freelancer/llms.txt`,
     },

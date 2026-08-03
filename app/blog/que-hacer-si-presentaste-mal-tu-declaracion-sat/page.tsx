@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     ],
   },
   robots: "index, follow",
+  alternates: {
+    canonical: "/blog/que-hacer-si-presentaste-mal-tu-declaracion-sat",
+  },
 };
 
 export default function ErrorDeclaracionPage() {

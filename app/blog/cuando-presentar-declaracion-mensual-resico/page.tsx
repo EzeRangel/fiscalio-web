@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   },
   robots: "index, follow",
   alternates: {
+    canonical: "/blog/cuando-presentar-declaracion-mensual-resico",
     types: {
       "text/markdown": `${APP_URL}/blog/cuando-presentar-declaracion-mensual-resico/llms.txt`,
     },

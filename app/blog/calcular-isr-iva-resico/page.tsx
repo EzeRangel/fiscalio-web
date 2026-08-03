@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   },
   robots: "index, follow",
   alternates: {
+    canonical: "/blog/calcular-isr-iva-resico",
     types: {
       "text/markdown": `${APP_URL}/blog/calcular-isr-iva-resico/llms.txt`,
     },
