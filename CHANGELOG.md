@@ -2,6 +2,14 @@
 
 Historial de cambios técnicos, optimizaciones de SEO y producto para mediciones de Growth.
 
+## 2026-08-08
+- **Calculadora (CRO)**: Implementación de la comparativa de ISR entre RESICO y el Régimen General (honorarios/actividad empresarial) en el componente `<TaxCalculator />`. Añade la tarifa mensual del ISR 2026 (Art. 96 LISR, Anexo 8 RMF) y la función `calculateGeneralRegimeTax` en `lib/tax-calculator.ts`.
+- **Cálculo Fiscal**: Motor del Régimen General con deducciones configurables vía slider de gastos deducibles (0-80%, 20% por defecto), retención del 10% de ISR a persona moral y manejo de saldo a favor (`isrNeto` acotado a 0).
+- **UX**: Rediseño de la tarjeta comparativa alineado al design system con copy factual ("No es una recomendación"), aviso del límite RESICO (~$291,666 MXN mensuales) y evento `slider_gastos_changed` en GA4.
+- **Correos (React Email)**: Extensión del email del reporte con sección "Comparativa de ISR: RESICO vs. Régimen General" (condicional, con base gravable, retención e ISR neto) y ajuste del copy del formulario inline para reflejar el contenido real.
+- **CRO**: Sustitución del diálogo de exportación por un formulario inline de captura de correo visible bajo la comparativa; el diálogo se conserva en el código para uso futuro.
+- **Herramientas** (`scripts/`): Script `verify_general_regime.ts` con vectores de comprobación manual del cálculo del Régimen General contra las tarifas oficiales 2026.
+
 ## 2026-07-23
 - **Novedades / Boletín**: Creación de la sección pública `/novedades` y su ruta dinámica `/novedades/[slug]` para indexar las actualizaciones del producto en motores de búsqueda y dinamizar el embudo de waitlist.
 - **Estructura de Correos (React Email)**: Creación de un sistema flexible y reutilizable de primitivas (`layout-primitives.tsx`) que soporta `webMode` para inyectar correos electrónicos como contenido web semántico y limpio.
