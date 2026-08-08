@@ -12,11 +12,18 @@ import {
   Row,
   Column,
 } from "@react-email/components";
-import { CalculoResult, TipoIngreso, TipoCliente } from "@/lib/tax-calculator";
+import {
+  CalculoResult,
+  GeneralRegimeResult,
+  TipoIngreso,
+  TipoCliente,
+} from "@/lib/tax-calculator";
 import { formatCurrency } from "@/lib/format-currency";
 
 interface TaxReportEmailProps {
   result: CalculoResult;
+  generalRegimeResult?: GeneralRegimeResult;
+  gastosPercent?: number;
   tipoIngreso: TipoIngreso;
   tipoCliente: TipoCliente;
   date: string;
@@ -114,6 +121,29 @@ const totalBox = {
   color: "#fcfaf6",
 };
 
+const comparisonBox = {
+  border: "1px solid #e5e5e5",
+  padding: "20px",
+  marginTop: "24px",
+};
+
+const comparisonNote = {
+  fontSize: "11px",
+  color: "#737373",
+  lineHeight: "1.5",
+  marginTop: "0",
+};
+
+const watch = {
+  fontSize: "10px",
+  color: "#a3a3a3",
+  lineHeight: "1.5",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.08em",
+  marginTop: "16px",
+  marginBottom: "0",
+};
+
 const totalLabel = {
   fontSize: "10px",
   textTransform: "uppercase" as const,
@@ -138,11 +168,18 @@ const footer = {
 
 export function TaxReportEmail({
   result,
+  generalRegimeResult,
+  gastosPercent,
   tipoIngreso,
   tipoCliente,
   date,
   reportId,
 }: TaxReportEmailProps) {
+  const resicoIsr = result.isrNeto < 0 ? 0 : result.isrNeto;
+  const diferencia = generalRegimeResult
+    ? generalRegimeResult.isrNeto - resicoIsr
+    : null;
+
   return (
     <Html>
       <Head />
@@ -287,6 +324,82 @@ export function TaxReportEmail({
               ${formatCurrency(result.utilidadReal)}
             </Text>
           </Section>
+
+          {generalRegimeResult && gastosPercent !== undefined && (
+            <Section style={comparisonBox}>
+              <Text
+                style={{
+                  ...sectionTitle,
+                  marginTop: 0,
+                  borderBottom: "none",
+                  paddingBottom: 0,
+                  marginBottom: 12,
+                  color: "#3a3a3a",
+                }}
+              >
+                Comparativa de ISR: RESICO vs. Régimen General
+              </Text>
+              <Text style={comparisonNote}>
+                ISR estimado del mes en ambos regímenes. Para el régimen general
+                se asume un {gastosPercent}% de gastos deducibles. Este cálculo
+                es una referencia; tu situación real puede variar según tus
+                deducciones y la acumulación del ejercicio.
+              </Text>
+              <Row style={row}>
+                <Column style={label}>
+                  Régimen General (tasa sobre utilidad)
+                </Column>
+                <Column style={value}>
+                  ${formatCurrency(generalRegimeResult.isrBruto)}
+                </Column>
+              </Row>
+              {generalRegimeResult.retencionISR > 0 && (
+                <Row style={row}>
+                  <Column style={label}>(-) Retención ISR (10%)</Column>
+                  <Column style={{ ...value, color: "#ce2c31" }}>
+                    -${formatCurrency(generalRegimeResult.retencionISR)}
+                  </Column>
+                </Row>
+              )}
+              <Hr style={{ borderColor: "#e5e2e2", margin: "8px 0" }} />
+              <Row style={row}>
+                <Column style={{ ...label, fontWeight: "bold", color: "#3a3a3a" }}>
+                  Régimen General · ISR neto
+                </Column>
+                <Column style={{ ...value, fontWeight: "bold" }}>
+                  ${formatCurrency(generalRegimeResult.isrNeto)}
+                </Column>
+              </Row>
+
+              <Row style={{ ...row, marginTop: "8px" }}>
+                <Column style={label}>RESICO · ISR a pagar</Column>
+                <Column style={value}>${formatCurrency(resicoIsr)}</Column>
+              </Row>
+
+              <Text
+                style={{
+                  ...sectionTitle,
+                  borderTop: "1px solid #e5e5e5",
+                  paddingBottom: 0,
+                  marginTop: "20px",
+                  marginBottom: 8,
+                  color: diferencia! >= 0 ? "#b45309" : "#3a3a3a",
+                  fontSize: "11px",
+                }}
+              >
+                {diferencia! >= 0
+                  ? `Con RESICO tu ISR estimado es $${formatCurrency(diferencia!)} menor al mes`
+                  : `El ISR estimado del régimen general es $${formatCurrency(
+                      Math.abs(diferencia!),
+                    )} menor al mes`}
+              </Text>
+              <Text style={watch}>
+                Esto no es una recomendación de régimen. Evalúa tu situación con
+                un contador: deducciones, obligaciones y el límite de ingresos
+                de cada régimen.
+              </Text>
+            </Section>
+          )}
 
           <Text style={footer}>
             Fiscalio // Control fiscal claro para RESICO

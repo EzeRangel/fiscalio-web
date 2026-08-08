@@ -67,3 +67,46 @@ export function calculateTax(
     tasaAplicada,
   };
 }
+
+export interface GeneralRegimeResult {
+  baseGravable: number;
+  gastosEstimados: number;
+  isrBruto: number;
+  retencionISR: number;
+  isrNeto: number;
+}
+
+export function calculateGeneralRegimeTax(
+  amount: number,
+  tipoIngreso: TipoIngreso,
+  tipoCliente: TipoCliente,
+  gastosPercent: number = 0.20
+): GeneralRegimeResult {
+  const gastosEstimados = amount * gastosPercent;
+  const baseGravable = Math.max(0, amount - gastosEstimados);
+  const baseRedondeada = Math.round(baseGravable * 100) / 100;
+  
+  type RangoISR = (typeof TAX_CONSTANTS.TABLA_ISR_GENERAL_MENSUAL_2026)[number];
+  let rango: RangoISR = TAX_CONSTANTS.TABLA_ISR_GENERAL_MENSUAL_2026[0];
+  for (const r of TAX_CONSTANTS.TABLA_ISR_GENERAL_MENSUAL_2026) {
+    if (baseRedondeada >= r.limiteInferior && baseRedondeada <= r.limiteSuperior) {
+      rango = r;
+      break;
+    }
+  }
+  
+  const excedente = baseRedondeada - rango.limiteInferior;
+  const isrBruto = (excedente * rango.porcentaje) + rango.cuotaFija;
+  
+  const retencionISR = (tipoIngreso === "NACIONAL" && tipoCliente === "MORAL") ? amount * 0.10 : 0;
+  
+  const isrNeto = Math.max(0, isrBruto - retencionISR);
+  
+  return {
+    baseGravable: Math.round(baseGravable * 100) / 100,
+    gastosEstimados: Math.round(gastosEstimados * 100) / 100,
+    isrBruto: Math.round(isrBruto * 100) / 100,
+    retencionISR: Math.round(retencionISR * 100) / 100,
+    isrNeto: Math.round(isrNeto * 100) / 100,
+  };
+}

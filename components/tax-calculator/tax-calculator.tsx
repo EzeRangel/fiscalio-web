@@ -3,14 +3,14 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import {
   calculateTax,
+  calculateGeneralRegimeTax,
   TipoIngreso,
   TipoCliente,
   CalculoResult,
 } from "@/lib/tax-calculator";
 import { formatCurrency, formatPercent } from "@/lib/format-currency";
-import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { SendReportDialog } from "./send-report-dialog";
+import { InlineReportForm } from "./inline-report-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { VaultCard } from "./vault-card";
@@ -48,7 +48,7 @@ export function TaxCalculator({
 
   const [tipoIngreso, setTipoIngreso] = useState<TipoIngreso>(initialTipoIngreso);
   const [tipoCliente, setTipoCliente] = useState<TipoCliente>(initialTipoCliente);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [gastosPercent, setGastosPercent] = useState<number>(20);
 
   useEffect(() => {
     const numAmount = parseFloat(rawInput.replace(/[^0-9.]/g, "")) || 0;
@@ -70,6 +70,11 @@ export function TaxCalculator({
     const numAmount = parseFloat(rawInput.replace(/[^0-9.]/g, "")) || 0;
     return calculateTax(numAmount, tipoIngreso, tipoCliente);
   }, [rawInput, tipoIngreso, tipoCliente]);
+
+  const generalRegimeResult = useMemo(() => {
+    const numAmount = parseFloat(rawInput.replace(/[^0-9.]/g, "")) || 0;
+    return calculateGeneralRegimeTax(numAmount, tipoIngreso, tipoCliente, gastosPercent / 100);
+  }, [rawInput, tipoIngreso, tipoCliente, gastosPercent]);
 
   const { ivaPercent, isrPercent, utilPercent } = useMemo(() => {
     const totalCash = result.totalNeto || 1;
@@ -134,14 +139,6 @@ export function TaxCalculator({
 
   return (
     <div className="w-full max-w-4xl mx-auto font-sans">
-      <SendReportDialog
-        open={isDialogOpen}
-        onOpenChange={setIsDialogOpen}
-        result={result}
-        tipoIngreso={tipoIngreso}
-        tipoCliente={tipoCliente}
-        date={today}
-      />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -447,29 +444,115 @@ export function TaxCalculator({
                     ))}
                   </div>
                 </motion.div>
+
+                {/* Regime Comparison */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.45 }}
+                  className="mt-6 border border-border bg-card p-5 md:p-6"
+                >
+                  <div className="mb-5">
+                    <h3 className="font-display text-lg font-semibold tracking-tight">
+                      Comparativa de ISR mensual
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Cuánto pagarías de ISR en cada régimen con tu ingreso
+                      actual. No es una recomendación: consulta a tu contador.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div className="border border-border p-4 sm:p-5">
+                      <p className="text-xs font-semibold uppercase tracking-widest font-sans text-muted-foreground">
+                        Régimen General
+                      </p>
+                      <p className="text-xs text-muted-foreground mb-3">
+                        Honorarios / Act. Empresarial · gastos deducibles
+                      </p>
+                      <p className="font-mono text-3xl font-bold text-foreground">
+                        ${formatCurrency(generalRegimeResult.isrNeto)}
+                      </p>
+                      <p className="font-mono text-xs text-muted-foreground mt-2">
+                        base: ${formatCurrency(generalRegimeResult.baseGravable)}
+                      </p>
+                    </div>
+                    <div className="border border-primary/20 bg-primary/[0.03] p-4 sm:p-5">
+                      <p className="text-xs font-semibold uppercase tracking-wide font-sans text-foreground">
+                        RESICO
+                      </p>
+                      <p className="text-xs text-muted-foreground mb-3">
+                        Tasa preferencial / ISR sobre ingreso
+                      </p>
+                      <p className="font-mono text-3xl font-bold text-foreground">
+                        ${formatCurrency(Math.max(0, result.isrNeto))}
+                      </p>
+                      <p className="font-mono text-xs text-muted-foreground mt-2">
+                        tasa: {formatPercent(result.tasaAplicada)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-border pt-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                      <label className="text-xs text-foreground">
+                        % de gastos deducibles (régimen general)
+                      </label>
+                      <span className="font-mono text-xs font-semibold">
+                        {gastosPercent}%
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="80"
+                      step="5"
+                      value={gastosPercent}
+                      onChange={(e) => {
+                        setGastosPercent(parseInt(e.target.value));
+                        sendGAEvent("event", "slider_gastos_changed", { value: e.target.value });
+                      }}
+                      className="w-full accent-foreground h-1.5 bg-secondary rounded-none appearance-none cursor-pointer"
+                      aria-label="Porcentaje de gastos deducibles en el régimen general"
+                    />
+                    <p className="text-[11px] text-muted-foreground mt-2">
+                      * El ISR del régimen general se calcula sobre tu utilidad
+                      (ingresos menos gastos deducibles). Ajusta el porcentaje
+                      para ver cómo cambia la comparativa.
+                    </p>
+                    {result.subtotal > 291666 && (
+                      <p className="text-[10px] text-accent-amber mt-3 uppercase tracking-wide font-medium">
+                        ⚠️ Tu ingreso mensual rebasa el límite aproximado de
+                        $291,666 MXN para tributar en RESICO ($3.5M anuales).
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
         {/* Footer / Send report */}
-        <div className={cn(
-          "dark:border-zinc-800 p-4 md:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-between items-center bg-zinc-50/95 dark:bg-zinc-900/95 sm:bg-zinc-50/50 sm:dark:bg-zinc-900/50 rounded-none font-sans border-t border-border z-20 backdrop-blur-md sm:backdrop-blur-none",
-          result.subtotal > 0 ? "sticky bottom-0 sm:static" : "static"
-        )}>
-          <div className="hidden sm:block text-xs text-muted-foreground text-center sm:text-left leading-relaxed">
-            Cálculo estimado mensual bajo régimen RESICO. Consulta a tu contador
-            para precisión fiscal.
-          </div>
-          <Button
-            onClick={() => setIsDialogOpen(true)}
-            disabled={result.subtotal <= 0}
-            className="w-full sm:w-auto rounded-none font-sans text-xs uppercase tracking-[0.15em] h-11 px-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-sm flex-shrink-0 font-bold"
-          >
-            <span className="sm:hidden">Exportar (PDF gratis)</span>
-            <span className="hidden sm:inline">Exportar cálculo mensual (PDF gratis)</span>
-          </Button>
-        </div>
+        <AnimatePresence>
+          {result.subtotal > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden"
+            >
+              <InlineReportForm 
+                result={result}
+                generalRegimeResult={generalRegimeResult}
+                gastosPercent={gastosPercent}
+                tipoIngreso={tipoIngreso}
+                tipoCliente={tipoCliente}
+                date={today}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
       <p className="text-[11px] text-muted-foreground text-center mt-4 px-4 leading-relaxed sm:hidden">
         Cálculo estimado mensual bajo régimen RESICO. Consulta a tu contador para precisión fiscal.

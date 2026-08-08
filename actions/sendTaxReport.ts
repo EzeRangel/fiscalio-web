@@ -2,7 +2,12 @@
 
 import { Resend } from "resend";
 import { TaxReportEmail } from "@/components/emails/tax-report-email";
-import { CalculoResult, TipoIngreso, TipoCliente } from "@/lib/tax-calculator";
+import {
+  CalculoResult,
+  GeneralRegimeResult,
+  TipoIngreso,
+  TipoCliente,
+} from "@/lib/tax-calculator";
 import { saveToWaitlist } from "@/lib/airtable";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -10,6 +15,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 interface SendTaxReportRequest {
   email: string;
   result: CalculoResult;
+  generalRegimeResult?: GeneralRegimeResult;
+  gastosPercent?: number;
   tipoIngreso: TipoIngreso;
   tipoCliente: TipoCliente;
   date: string;
@@ -27,6 +34,8 @@ export async function sendTaxReport(params: SendTaxReportRequest) {
       subject: "Tu informe de la calculadora RESICO - Fiscalio",
       react: TaxReportEmail({
         result: params.result,
+        generalRegimeResult: params.generalRegimeResult,
+        gastosPercent: params.gastosPercent,
         tipoIngreso: params.tipoIngreso,
         tipoCliente: params.tipoCliente,
         date: params.date,
