@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, ChevronLeftIcon } from "lucide-react";
 import { productUpdates, getUpdateComponent } from "@/lib/updates";
+import { APP_URL } from "@/lib/constants";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,9 +24,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const update = productUpdates.find((u) => u.slug === slug);
   if (!update) return {};
 
+  const ogTitle = update.ogTitle || update.title;
+  const ogDesc = update.ogDescription || update.previewText;
+  const ogLabel = update.ogLabel || update.tag;
+
+  const ogUrl = `${APP_URL}/api/og?title=${encodeURIComponent(ogTitle)}&subtitle=${encodeURIComponent(ogDesc)}&label=${encodeURIComponent(ogLabel)}&v=1`;
+
   return {
     title: `${update.title} - Actualización de Fiscalio`,
     description: update.previewText,
+    openGraph: {
+      title: `${ogTitle} - Actualización de Fiscalio`,
+      description: ogDesc,
+      type: "article",
+      locale: "es_MX",
+      siteName: "Fiscalio",
+      images: [
+        {
+          url: ogUrl,
+          width: 1200,
+          height: 630,
+          alt: ogTitle,
+        },
+      ],
+    },
   };
 }
 
