@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import { render } from "@react-email/render";
-import { EmailTemplate } from "@/components/email-thankyou";
-import { EmailExportTemplate } from "@/components/email-export-template";
-import { EmailUpdateTemplate } from "@/components/email-update";
+import { EmailTemplate } from "@/components/emails/email-thankyou";
+import { EmailExportTemplate } from "@/components/emails/email-export-template";
+import { EmailUpdateTemplate } from "@/components/emails/email-update";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { productUpdates, getUpdateComponent } from "@/lib/updates";

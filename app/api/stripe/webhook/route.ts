@@ -6,7 +6,7 @@ import {
   getLatestRelease,
   findInstallerAsset,
 } from "@/lib/github-release";
-import EmailDownloadTemplate from "@/components/email-download";
+import EmailDownloadTemplate from "@/components/emails/email-download";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
