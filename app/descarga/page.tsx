@@ -3,10 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Download, Check, ArrowLeft } from "lucide-react";
 import { getPaidSession } from "@/lib/stripe";
-import {
-  getLatestRelease,
-  findInstallerAsset,
-} from "@/lib/github-release";
+import { getLatestRelease, findInstallerAsset } from "@/lib/github-release";
 
 interface DescargaPageProps {
   searchParams: Promise<{ session_id?: string }>;
@@ -25,12 +22,8 @@ export default async function DescargaPage({
     getLatestRelease(),
   ]);
   const valid = Boolean(session);
-  const winHash = stripDigestPrefix(
-    findInstallerAsset(release, "win")?.digest,
-  );
-  const macHash = stripDigestPrefix(
-    findInstallerAsset(release, "mac")?.digest,
-  );
+  const winHash = stripDigestPrefix(findInstallerAsset(release, "win")?.digest);
+  const macHash = stripDigestPrefix(findInstallerAsset(release, "mac")?.digest);
 
   return (
     <div className="min-h-screen bg-background">
@@ -82,7 +75,8 @@ export default async function DescargaPage({
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
-                <Link
+                <a
+                  download
                   href={`/descarga/win?session_id=${encodeURIComponent(sessionId!)}`}
                   className="block"
                 >
@@ -94,8 +88,9 @@ export default async function DescargaPage({
                     <Download className="h-6 w-6 text-accent-rust" />
                     Descargar para Windows
                   </Button>
-                </Link>
-                <Link
+                </a>
+                <a
+                  download
                   href={`/descarga/mac?session_id=${encodeURIComponent(sessionId!)}`}
                   className="block"
                 >
@@ -107,7 +102,7 @@ export default async function DescargaPage({
                     <Download className="h-6 w-6 text-accent-rust" />
                     Descargar para macOS
                   </Button>
-                </Link>
+                </a>
               </div>
 
               <div className="bg-muted/30 border border-border p-8 max-w-2xl mx-auto space-y-6">
@@ -156,20 +151,20 @@ export default async function DescargaPage({
                   <h2 className="text-sm font-display font-medium tracking-tight">
                     Notas de instalación
                   </h2>
-                <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
-                  <li>
-                    macOS: si Gatekeeper bloquea la app al abrirla, ve a{" "}
-                    <span className="text-foreground">
-                      Configuración → Privacidad y seguridad
-                    </span>{" "}
-                    y haz clic en &quot;Abrir de todas formas&quot;.
-                  </li>
-                  <li>
-                    Windows: si SmartScreen muestra una advertencia, haz clic en
-                    &quot;Más información&quot; y luego en &quot;Ejecutar de
-                    todas formas&quot;.
-                  </li>
-                </ul>
+                  <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+                    <li>
+                      macOS: si Gatekeeper bloquea la app al abrirla, ve a{" "}
+                      <span className="text-foreground">
+                        Configuración → Privacidad y seguridad
+                      </span>{" "}
+                      y haz clic en &quot;Abrir de todas formas&quot;.
+                    </li>
+                    <li>
+                      Windows: si SmartScreen muestra una advertencia, haz clic
+                      en &quot;Más información&quot; y luego en &quot;Ejecutar
+                      de todas formas&quot;.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -189,7 +184,10 @@ export default async function DescargaPage({
                 inmediato.
               </p>
               <a href="mailto:ezequiel@fiscalio.app">
-                <Button variant="outline" className="rounded-none text-xs tracking-[0.15em] uppercase">
+                <Button
+                  variant="outline"
+                  className="rounded-none text-xs tracking-[0.15em] uppercase"
+                >
                   Contactar soporte
                 </Button>
               </a>

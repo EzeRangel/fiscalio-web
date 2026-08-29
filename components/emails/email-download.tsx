@@ -107,7 +107,7 @@ export default function EmailDownloadTemplate({
           <Img
             src={`${APP_URL}/logo.png`}
             alt="Fiscalio"
-            width={120}
+            width={60}
             style={{ marginBottom: "32px" }}
           />
           <div style={badge}>PAGO_CONFIRMADO</div>
