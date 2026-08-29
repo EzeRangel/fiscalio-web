@@ -6,10 +6,12 @@ import {
   Head,
   Heading,
   Html,
+  Img,
   Preview,
   Text,
   Section,
 } from "@react-email/components";
+import { APP_URL } from "@/lib/constants";
 
 interface EmailDownloadTemplateProps {
   downloadUrl: string;
@@ -31,16 +33,6 @@ const container = {
   padding: "0 20px",
   width: "600px",
   maxWidth: "100%",
-};
-
-const brandText = {
-  fontSize: "12px",
-  fontWeight: "500",
-  letterSpacing: "0.1em",
-  color: "#262626",
-  textTransform: "uppercase" as const,
-  margin: "0",
-  fontFamily: "'DM Sans', sans-serif",
 };
 
 const badge = {
@@ -112,7 +104,12 @@ export default function EmailDownloadTemplate({
       <Preview>Tu descarga de Fiscalio está lista</Preview>
       <Body style={main}>
         <Container style={container}>
-          <p style={brandText}>FISCALIO</p>
+          <Img
+            src={`${APP_URL}/logo.png`}
+            alt="Fiscalio"
+            width={120}
+            style={{ marginBottom: "32px" }}
+          />
           <div style={badge}>PAGO_CONFIRMADO</div>
           <Heading style={h1}>Gracias por apoyar a Fiscalio</Heading>
           <Text style={body}>
