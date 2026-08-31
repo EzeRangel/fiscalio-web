@@ -59,14 +59,25 @@ export async function fetchAssetStream(
 
 export function findInstallerAsset(
   release: GithubRelease | null,
-  platform: "win" | "mac",
+  platform: "win" | "mac" | "mac-arm64",
 ): GithubAsset | null {
   if (!release) return null;
-  const extension = platform === "win" ? ".exe" : ".dmg";
+  if (platform === "mac-arm64") {
+    return (
+      release.assets.find(
+        (asset) =>
+          asset.name.toLowerCase().endsWith(".dmg") &&
+          asset.name.toLowerCase().includes("arm64") &&
+          !asset.name.toLowerCase().includes("latest.yml"),
+      ) ?? null
+    );
+  }
+  const isMac = platform === "mac";
   return (
     release.assets.find(
       (asset) =>
-        asset.name.toLowerCase().endsWith(extension) &&
+        asset.name.toLowerCase().endsWith(isMac ? ".dmg" : ".exe") &&
+        !asset.name.toLowerCase().includes("arm64") &&
         !asset.name.toLowerCase().includes("latest.yml"),
     ) ?? null
   );

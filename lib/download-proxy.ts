@@ -7,7 +7,7 @@ import {
 
 export async function proxyDownload(
   req: Request,
-  platform: "win" | "mac",
+  platform: "win" | "mac" | "mac-arm64",
 ): Promise<Response> {
   const { searchParams } = new URL(req.url);
   const sessionId = searchParams.get("session_id");

@@ -12,7 +12,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 function getDigest(
   release: Awaited<ReturnType<typeof getLatestRelease>>,
-  platform: "win" | "mac",
+  platform: "win" | "mac" | "mac-arm64",
 ): string | undefined {
   if (!release) return undefined;
   return findInstallerAsset(release, platform)?.digest?.replace("sha256:", "");
@@ -58,12 +58,13 @@ export async function POST(req: Request) {
           ? [email]
           : ["delivered@resend.dev"];
 
-      let hashes: { win?: string; mac?: string } | undefined;
+      let hashes: { win?: string; mac?: string; macArm?: string } | undefined;
       try {
         const release = await getLatestRelease();
         hashes = {
           win: getDigest(release, "win"),
           mac: getDigest(release, "mac"),
+          macArm: getDigest(release, "mac-arm64"),
         };
       } catch (releaseError) {
         console.error("GitHub release fetch failed in webhook:", releaseError);

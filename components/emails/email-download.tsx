@@ -18,6 +18,7 @@ interface EmailDownloadTemplateProps {
   hashes?: {
     win?: string;
     mac?: string;
+    macArm?: string;
   };
 }
 
@@ -129,7 +130,7 @@ export default function EmailDownloadTemplate({
               Compara el hash SHA-256 del instalador descargado contra estos
               valores:
             </Text>
-            {(hashes?.win || hashes?.mac) && (
+            {(hashes?.win || hashes?.mac || hashes?.macArm) && (
               <div>
                 {hashes?.win && (
                   <Text style={{ ...mono, fontWeight: 600 }}>
@@ -139,12 +140,19 @@ export default function EmailDownloadTemplate({
                 )}
                 {hashes?.mac && (
                   <Text style={{ ...mono, fontWeight: 600 }}>
-                    macOS: <span style={{ fontWeight: 400 }}>{hashes.mac}</span>
+                    macOS Intel:{" "}
+                    <span style={{ fontWeight: 400 }}>{hashes.mac}</span>
+                  </Text>
+                )}
+                {hashes?.macArm && (
+                  <Text style={{ ...mono, fontWeight: 600 }}>
+                    macOS Apple Silicon:{" "}
+                    <span style={{ fontWeight: 400 }}>{hashes.macArm}</span>
                   </Text>
                 )}
               </div>
             )}
-            {!hashes?.win && !hashes?.mac && (
+            {!hashes?.win && !hashes?.mac && !hashes?.macArm && (
               <Text style={{ ...mono, margin: "0" }}>
                 Los hashes también están disponibles en la página de descarga.
               </Text>

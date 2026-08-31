@@ -48,6 +48,7 @@ export default function EmailPreviewPage() {
     downloadUrl: "https://fiscalio.app/descarga?session_id=cs_test_123",
     winHash: "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
     macHash: "f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5",
+    macArmHash: "b1a2c3d4e5f6b1a2c3d4e5f6b1a2c3d4e5f6b1a2c3d4e5f6b1a2c3d4e5f6b1a2",
   });
 
   const handleCopyHtml = async () => {
@@ -80,6 +81,7 @@ export default function EmailPreviewPage() {
               hashes={{
                 win: downloadData.winHash || undefined,
                 mac: downloadData.macHash || undefined,
+                macArm: downloadData.macArmHash || undefined,
               }}
             />
           );
@@ -209,10 +211,18 @@ export default function EmailPreviewPage() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">Hash macOS (SHA-256)</label>
+                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">Hash macOS Intel (SHA-256)</label>
                 <Input
                   value={downloadData.macHash}
                   onChange={(e) => setDownloadData(prev => ({ ...prev, macHash: e.target.value }))}
+                  className="h-8 text-xs font-mono"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">Hash macOS Apple Silicon (SHA-256)</label>
+                <Input
+                  value={downloadData.macArmHash}
+                  onChange={(e) => setDownloadData(prev => ({ ...prev, macArmHash: e.target.value }))}
                   className="h-8 text-xs font-mono"
                 />
               </div>

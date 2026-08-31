@@ -8,6 +8,7 @@ import {
   Monitor,
   Apple,
   Terminal,
+  Cpu,
 } from "lucide-react";
 import { getPaidSession } from "@/lib/stripe";
 import { getLatestRelease, findInstallerAsset } from "@/lib/github-release";
@@ -31,6 +32,9 @@ export default async function DescargaPage({
   const valid = Boolean(session);
   const winHash = stripDigestPrefix(findInstallerAsset(release, "win")?.digest);
   const macHash = stripDigestPrefix(findInstallerAsset(release, "mac")?.digest);
+  const macArmHash = stripDigestPrefix(
+    findInstallerAsset(release, "mac-arm64")?.digest,
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -82,7 +86,7 @@ export default async function DescargaPage({
               </div>
 
               {/* Download Cards */}
-              <div className="grid gap-6 sm:grid-cols-3">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Windows */}
                 <div className="border border-border bg-card p-8 space-y-6 transition-colors hover:border-foreground/20">
                   <div className="space-y-3">
@@ -113,7 +117,7 @@ export default async function DescargaPage({
                   <div className="space-y-3">
                     <Apple className="h-8 w-8 text-foreground" />
                     <h2 className="text-lg font-display font-medium tracking-tight">
-                      macOS
+                      macOS Intel
                     </h2>
                   </div>
                   <a
@@ -128,6 +132,34 @@ export default async function DescargaPage({
                   </a>
                   <p className="text-[11px] text-muted-foreground leading-relaxed">
                     Si Gatekeeper bloquea la app, ve a{" "}
+                    <span className="text-foreground">
+                      Configuración → Privacidad y seguridad
+                    </span>{" "}
+                    y haz clic en &quot;Abrir de todas formas&quot;.
+                  </p>
+                </div>
+
+                {/* macOS Apple Silicon */}
+                <div className="border border-border bg-card p-8 space-y-6 transition-colors hover:border-foreground/20">
+                  <div className="space-y-3">
+                    <Cpu className="h-8 w-8 text-foreground" />
+                    <h2 className="text-lg font-display font-medium tracking-tight">
+                      macOS Apple Silicon
+                    </h2>
+                  </div>
+                  <a
+                    download
+                    className="inline-block w-full"
+                    href={`/descarga/mac-arm64?session_id=${encodeURIComponent(sessionId!)}`}
+                  >
+                    <Button className="w-full rounded-none text-xs tracking-[0.15em] uppercase">
+                      <Download className="h-4 w-4 mr-2" />
+                      Descargar
+                    </Button>
+                  </a>
+                  <p className="text-[11px] text-muted-foreground leading-relaxed">
+                    Para Macs con chip M1, M2, M3 o M4. Si Gatekeeper bloquea
+                    la app, ve a{" "}
                     <span className="text-foreground">
                       Configuración → Privacidad y seguridad
                     </span>{" "}
@@ -157,7 +189,7 @@ export default async function DescargaPage({
               </div>
 
               {/* Hash Verification */}
-              {(winHash || macHash) && (
+              {(winHash || macHash || macArmHash) && (
                 <div className="bg-muted/30 border border-border p-8 max-w-3xl mx-auto space-y-4">
                   <h2 className="text-sm font-display font-medium tracking-tight">
                     Verificación de integridad
@@ -174,9 +206,17 @@ export default async function DescargaPage({
                     {macHash && (
                       <p className="text-xs text-muted-foreground leading-relaxed break-all">
                         <span className="text-foreground font-medium">
-                          macOS SHA-256:{" "}
+                          macOS Intel SHA-256:{" "}
                         </span>
                         <span className="font-mono">{macHash}</span>
+                      </p>
+                    )}
+                    {macArmHash && (
+                      <p className="text-xs text-muted-foreground leading-relaxed break-all">
+                        <span className="text-foreground font-medium">
+                          macOS Apple Silicon SHA-256:{" "}
+                        </span>
+                        <span className="font-mono">{macArmHash}</span>
                       </p>
                     )}
                   </div>
