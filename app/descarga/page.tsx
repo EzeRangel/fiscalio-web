@@ -14,6 +14,8 @@ import {
 import { getPaidSession } from "@/lib/stripe";
 import { getLatestRelease, findInstallerAsset } from "@/lib/github-release";
 import { CAL_COM_BOOKING_URL } from "@/lib/constants";
+import { Logo } from "@/components/logo";
+import { Navigation } from "@/components/navigation";
 
 interface DescargaPageProps {
   searchParams: Promise<{ session_id?: string }>;
@@ -40,34 +42,7 @@ export default async function DescargaPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="border-b border-border">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-16">
-            <Link
-              href="/"
-              className="flex items-center gap-3 hover:opacity-70 transition-opacity"
-            >
-              <Image
-                src="/logo.png"
-                width={20}
-                height={20}
-                alt="Logotipo de Fiscalio"
-              />
-              <span className="text-sm tracking-tight">FISCALIO</span>
-            </Link>
-            <Link href="/">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-xs tracking-wider h-8"
-              >
-                <ArrowLeft className="h-3 w-3 mr-2" />
-                VOLVER
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {valid ? (
         <section className="py-24 lg:py-32">
@@ -160,8 +135,8 @@ export default async function DescargaPage({
                     </Button>
                   </a>
                   <p className="text-[11px] text-muted-foreground leading-relaxed">
-                    Para Macs con chip M1, M2, M3 o M4. Si Gatekeeper bloquea
-                    la app, ve a{" "}
+                    Para Macs con chip M1, M2, M3 o M4. Si Gatekeeper bloquea la
+                    app, ve a{" "}
                     <span className="text-foreground">
                       Configuración → Privacidad y seguridad
                     </span>{" "}
@@ -282,7 +257,7 @@ export default async function DescargaPage({
                 No pudimos verificar tu acceso a la descarga
               </h1>
               <p className="text-sm text-muted-foreground tracking-wide leading-relaxed">
-                Abre este página desde el enlace que te enviamos después de tu
+                Abre esta página desde el enlace que te enviamos después de tu
                 compra. Si el problema persiste, escríbenos y lo resolvemos de
                 inmediato.
               </p>
