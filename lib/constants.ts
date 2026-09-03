@@ -14,3 +14,5 @@ export const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
 
 export const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 export const GITHUB_RELEASES_REPO = process.env.GITHUB_RELEASES_REPO || "";
+
+export const CAL_COM_BOOKING_URL = process.env.CAL_COM_BOOKING_URL || "";

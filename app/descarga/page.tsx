@@ -7,11 +7,13 @@ import {
   ArrowLeft,
   Monitor,
   Apple,
+  Calendar,
   Terminal,
   Cpu,
 } from "lucide-react";
 import { getPaidSession } from "@/lib/stripe";
 import { getLatestRelease, findInstallerAsset } from "@/lib/github-release";
+import { CAL_COM_BOOKING_URL } from "@/lib/constants";
 
 interface DescargaPageProps {
   searchParams: Promise<{ session_id?: string }>;
@@ -187,6 +189,44 @@ export default async function DescargaPage({
                   </p>
                 </div>
               </div>
+
+              {CAL_COM_BOOKING_URL && (
+                <div className="bg-muted/30 border border-border p-8 lg:p-10 max-w-3xl mx-auto space-y-8 w-full">
+                  <div className="flex flex-col sm:flex-row items-start gap-6">
+                    <div className="flex items-center justify-center w-12 h-12 flex-shrink-0 border-2 border-accent-rust text-accent-rust">
+                      <Calendar className="h-5 w-5" />
+                    </div>
+                    <div className="space-y-3 flex-1">
+                      <h2 className="text-xl lg:text-2xl font-display font-medium tracking-tight">
+                        Antes de usarla a fondo, configuremos todo juntos en 30
+                        min
+                      </h2>
+                      <p className="text-sm text-muted-foreground tracking-wide leading-relaxed">
+                        Esta sesión 1 a 1 ya está incluida en tu acceso. Nos
+                        conectamos por Google Meet, configuramos la app,
+                        organizamos tus XMLs del SAT y dejamos listo tu cálculo
+                        del mes. Si durante o después de la sesión sientes que
+                        Fiscalio no es para ti, te devuelvo el 100% de tu
+                        dinero.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href={CAL_COM_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full sm:w-auto"
+                  >
+                    <Button
+                      size="lg"
+                      className="w-full sm:w-auto rounded-none text-xs tracking-[0.15em] uppercase"
+                    >
+                      <Calendar className="h-4 w-4 mr-2" />
+                      Agendar mi sesión (30 min)
+                    </Button>
+                  </a>
+                </div>
+              )}
 
               {/* Hash Verification */}
               {(winHash || macHash || macArmHash) && (

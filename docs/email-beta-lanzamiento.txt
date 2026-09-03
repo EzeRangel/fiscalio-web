@@ -1,0 +1,20 @@
+Asunto: Tu acceso a la Beta Privada de Fiscalio
+
+Hola {{nombre}},
+
+Te escribo personalmente porque fuiste de las primeras personas en registrarte en la lista de espera de Fiscalio.
+
+La versión Beta para Mac y Windows ya está lista. Estoy abriendo el acceso a Early Adopters con estos beneficios:
+
+1. Precio de Fundador congelado de por vida: $419 MXN + IVA (frente al precio de lanzamiento público).
+2. Sesión 1 a 1 de configuración (30 min): Nos conectamos por Google Meet. Configuramos la app juntos, organizamos tus XMLs del SAT y dejamos listo tu cálculo del mes.
+3. Canal directo conmigo para cualquier duda o sugerencia — no hay equipo de soporte, solo yo.
+4. Garantía total: Si durante o después de nuestra sesión de configuración sientes que Fiscalio no es para ti, te devuelvo el 100% de tu dinero, sin preguntas.
+
+👉 [Activar mi Acceso de Fundador] ({{checkout_url}})
+
+Doy el onboarding yo mismo, así que solo puedo tomar un número limitado de personas por semana — después de pagar, agendamos tu sesión directo en mi calendario.
+
+Un saludo,
+Ezequiel Rangel
+Creador de Fiscalio
