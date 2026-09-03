@@ -2,9 +2,10 @@
 
 import * as React from "react";
 import { render } from "@react-email/render";
-import { EmailTemplate } from "@/components/email-thankyou";
-import { EmailExportTemplate } from "@/components/email-export-template";
-import { EmailUpdateTemplate } from "@/components/email-update";
+import { EmailTemplate } from "@/components/emails/email-thankyou";
+import { EmailExportTemplate } from "@/components/emails/email-export-template";
+import { EmailUpdateTemplate } from "@/components/emails/email-update";
+import EmailDownloadTemplate from "@/components/emails/email-download";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { productUpdates, getUpdateComponent } from "@/lib/updates";
@@ -13,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { CopyIcon } from "lucide-react";
 
 export default function EmailPreviewPage() {
-  const [activeTab, setActiveTab] = React.useState<"thank-you" | "update">(
+  const [activeTab, setActiveTab] = React.useState<"thank-you" | "update" | "download">(
     "update"
   );
   const [thankYouSource, setThankYouSource] = React.useState<"direct" | "blog_exportacion_servicios">(
@@ -43,6 +44,13 @@ export default function EmailPreviewPage() {
     ]
   });
 
+  const [downloadData, setDownloadData] = React.useState({
+    downloadUrl: "https://fiscalio.app/descarga?session_id=cs_test_123",
+    winHash: "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+    macHash: "f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5",
+    macArmHash: "b1a2c3d4e5f6b1a2c3d4e5f6b1a2c3d4e5f6b1a2c3d4e5f6b1a2c3d4e5f6b1a2",
+  });
+
   const handleCopyHtml = async () => {
     try {
       await navigator.clipboard.writeText(renderedHtml);
@@ -66,6 +74,17 @@ export default function EmailPreviewPage() {
           element = thankYouSource === "blog_exportacion_servicios"
             ? <EmailExportTemplate email="test@example.com" recordId="rec123" />
             : <EmailTemplate email="test@example.com" recordId="rec123" />;
+        } else if (activeTab === "download") {
+          element = (
+            <EmailDownloadTemplate
+              downloadUrl={downloadData.downloadUrl}
+              hashes={{
+                win: downloadData.winHash || undefined,
+                mac: downloadData.macHash || undefined,
+                macArm: downloadData.macArmHash || undefined,
+              }}
+            />
+          );
         } else {
           if (selectedUpdateSlug === "sandbox") {
             element = <EmailUpdateTemplate {...sandboxData} />;
@@ -85,7 +104,7 @@ export default function EmailPreviewPage() {
     }
 
     updatePreview();
-  }, [activeTab, selectedUpdateSlug, sandboxData, thankYouSource]);
+  }, [activeTab, selectedUpdateSlug, sandboxData, thankYouSource, downloadData]);
 
   return (
     <div className="flex flex-col h-screen bg-zinc-50">
@@ -114,6 +133,16 @@ export default function EmailPreviewPage() {
               }`}
             >
               Updates / Boletín
+            </button>
+            <button
+              onClick={() => setActiveTab("download")}
+              className={`px-3 py-1.5 text-xs font-medium rounded-sm transition-colors ${
+                activeTab === "download"
+                  ? "bg-white shadow-sm text-zinc-900"
+                  : "text-zinc-500 hover:text-zinc-700"
+              }`}
+            >
+              Descarga
             </button>
           </div>
         </div>
@@ -158,6 +187,44 @@ export default function EmailPreviewPage() {
                 >
                   Exportación / Plantilla
                 </button>
+              </div>
+            </div>
+          ) : activeTab === "download" ? (
+            <div className="space-y-4">
+              <h2 className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400">
+                Datos de Descarga
+              </h2>
+              <div className="space-y-2">
+                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">URL de descarga</label>
+                <Input
+                  value={downloadData.downloadUrl}
+                  onChange={(e) => setDownloadData(prev => ({ ...prev, downloadUrl: e.target.value }))}
+                  className="h-8 text-xs"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">Hash Windows (SHA-256)</label>
+                <Input
+                  value={downloadData.winHash}
+                  onChange={(e) => setDownloadData(prev => ({ ...prev, winHash: e.target.value }))}
+                  className="h-8 text-xs font-mono"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">Hash macOS Intel (SHA-256)</label>
+                <Input
+                  value={downloadData.macHash}
+                  onChange={(e) => setDownloadData(prev => ({ ...prev, macHash: e.target.value }))}
+                  className="h-8 text-xs font-mono"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[11px] font-medium text-zinc-500 uppercase tracking-wider">Hash macOS Apple Silicon (SHA-256)</label>
+                <Input
+                  value={downloadData.macArmHash}
+                  onChange={(e) => setDownloadData(prev => ({ ...prev, macArmHash: e.target.value }))}
+                  className="h-8 text-xs font-mono"
+                />
               </div>
             </div>
           ) : (

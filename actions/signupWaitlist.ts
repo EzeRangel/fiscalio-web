@@ -2,8 +2,8 @@
 
 import { Resend } from "resend";
 import { delay } from "@/lib/utils";
-import { EmailTemplate } from "@/components/email-thankyou";
-import { EmailExportTemplate } from "@/components/email-export-template";
+import { EmailTemplate } from "@/components/emails/email-thankyou";
+import { EmailExportTemplate } from "@/components/emails/email-export-template";
 import { saveToWaitlist } from "@/lib/airtable";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
