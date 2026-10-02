@@ -11,6 +11,16 @@ interface DemoCtaProps {
   placement?: string;
 }
 
+function getCalLink(url: string): string | null {
+  try {
+    const parsed = new URL(url);
+    if (!parsed.hostname.endsWith("cal.com")) return null;
+    return parsed.pathname.replace(/^\/+|\/+$/g, "");
+  } catch {
+    return null;
+  }
+}
+
 export function DemoCta({
   url,
   label = "Preparar mi borrador gratis",
@@ -18,6 +28,7 @@ export function DemoCta({
 }: DemoCtaProps) {
   const firedRef = useRef(false);
   const href = useMemo(() => withCampaignParams(url), [url]);
+  const calLink = useMemo(() => getCalLink(url), [url]);
 
   const handleClick = useCallback(() => {
     trackEvent("cta_click", { placement });
@@ -44,6 +55,12 @@ export function DemoCta({
   return (
     <a
       href={href}
+      {...(calLink
+        ? {
+            "data-cal-link": calLink,
+            "data-cal-config": '{"layout":"month_view"}',
+          }
+        : {})}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}

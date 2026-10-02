@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Logo } from "@/components/logo";
 import { PageView } from "@/components/page-view";
+import { CalEmbed } from "@/components/cal-embed";
 import { CAL_COM_DEMO_URL, APP_URL } from "@/lib/constants";
 import { DemoCta } from "./demo-cta";
 import { Check, FileText, Monitor, ShieldCheck } from "lucide-react";
@@ -60,6 +61,7 @@ export default function DemoResicoPage() {
   return (
     <div className="min-h-screen bg-background">
       <PageView event="landing_view" params={{ page: "demo-resico" }} />
+      <CalEmbed />
 
       <header className="py-6 px-6 lg:px-12">
         <div className="container mx-auto max-w-5xl">
