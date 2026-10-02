@@ -16,3 +16,8 @@ export const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 export const GITHUB_RELEASES_REPO = process.env.GITHUB_RELEASES_REPO || "";
 
 export const CAL_COM_BOOKING_URL = process.env.CAL_COM_BOOKING_URL || "";
+
+export const CAL_COM_DEMO_URL = process.env.CAL_COM_DEMO_URL || "";
+
+export const PUBLIC_META_PIXEL_ID =
+  process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
