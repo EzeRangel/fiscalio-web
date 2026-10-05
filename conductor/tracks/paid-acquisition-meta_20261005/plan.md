@@ -6,10 +6,10 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 
 ## Phase 0: Estabilizar WIP (build roto)
 
-- [ ] Task: Fix del import roto de `CalEmbed` en `app/demo-resico/page.tsx` (TS2614)
-- [ ] Task: Remover `prettier` de `dependencies` en `package.json`
-- [ ] Task: Calidad — `npm run lint` + `npx tsc --noEmit` + `npm run build`
-- [ ] Task: Commit del WIP del embed de Cal.com (`@calcom/embed-react`)
+- [x] Task: Fix del import roto de `CalEmbed` en `app/demo-resico/page.tsx` (TS2614) (4d747aa)
+- [x] Task: Remover `prettier` de `dependencies` en `package.json` (4d747aa)
+- [x] Task: Calidad — `npm run lint` + `npx tsc --noEmit` + `npm run build` (4d747aa)
+- [x] Task: Commit del WIP del embed de Cal.com (`@calcom/embed-react`) — incluye restaurar `cta_click`/`calendar_view`/`Schedule` perdidos en el refactor vía `onInteract` (4d747aa)
 
 ## Phase 1: Tracking / GA4 / Meta audit (§13) — entregable: Tracking audit
 
