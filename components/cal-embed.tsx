@@ -3,21 +3,41 @@
 import { useEffect } from "react";
 import { trackEvent, trackMeta } from "@/lib/analytics";
 
-const CAL_EMBED_SRC = "https://app.cal.com/embed.js";
-const CAL_ORIGIN = "https://app.cal.com";
+import { getCalApi } from "@calcom/embed-react";
+import { Button } from "./ui/button";
+import { Calendar } from "lucide-react";
 
-type CalQueueEntry = unknown[];
-
-interface CalGlobal {
-  (...args: unknown[]): void;
-  loaded?: boolean;
-  q?: CalQueueEntry[];
+interface CalEmbedProps {
+  label: string;
+  onInteract?: () => void;
 }
 
-declare global {
-  interface Window {
-    Cal?: CalGlobal;
-  }
+export default function CalEmbed({ label, onInteract }: CalEmbedProps) {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "demo-fiscalio" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+
+      cal("on", {
+        action: "bookingSuccessfulV2",
+        callback: () => trackBooking("embed"),
+      });
+    })();
+  }, []);
+
+  return (
+    <Button
+      onClick={onInteract}
+      data-cal-namespace="demo-fiscalio"
+      data-cal-link="ezerangel/demo-fiscalio"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+      size="lg"
+      className="rounded-none text-xs tracking-[0.15em] uppercase h-12 px-8"
+    >
+      <Calendar className="h-4 w-4 mr-2" />
+      {label}
+    </Button>
+  );
 }
 
 let bookingTracked = false;
@@ -29,52 +49,3 @@ function trackBooking(source: string) {
   trackMeta("Lead");
 }
 
-function ensureCal(): CalGlobal {
-  if (window.Cal) return window.Cal;
-
-  const cal = ((...args: unknown[]) => {
-    if (!cal.loaded) {
-      cal.loaded = true;
-      cal.q = [];
-      const script = document.createElement("script");
-      script.src = CAL_EMBED_SRC;
-      script.async = true;
-      document.head.appendChild(script);
-    }
-    (cal.q = cal.q || []).push(args);
-  }) as CalGlobal;
-
-  window.Cal = cal;
-  return cal;
-}
-
-export function CalEmbed() {
-  useEffect(() => {
-    const cal = ensureCal();
-    cal("init", { origin: CAL_ORIGIN });
-    cal("on", {
-      action: "bookingSuccessful",
-      callback: () => trackBooking("embed"),
-    });
-
-    const onMessage = (event: MessageEvent) => {
-      if (typeof event.data !== "object" || event.data === null) return;
-      if (!event.origin.includes("cal.com")) return;
-
-      const data = event.data as { originator?: unknown; type?: unknown; action?: unknown };
-      if (data.originator !== "CAL") return;
-
-      const types = [data.type, data.action].filter(
-        (value): value is string => typeof value === "string",
-      );
-      if (types.some((value) => /booking[_A-Za-z]*success/i.test(value))) {
-        trackBooking("embed");
-      }
-    };
-
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, []);
-
-  return null;
-}
