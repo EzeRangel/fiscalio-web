@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackEvent, trackMeta } from "@/lib/analytics";
+import { trackEvent, markTrackedOnce } from "@/lib/analytics";
+import { trackBookingOnce } from "@/lib/booking-tracking";
 
 import { getCalApi } from "@calcom/embed-react";
 import { Button } from "./ui/button";
@@ -9,21 +10,38 @@ import { Calendar } from "lucide-react";
 
 interface CalEmbedProps {
   label: string;
+  placement?: string;
   onInteract?: () => void;
 }
 
-export default function CalEmbed({ label, onInteract }: CalEmbedProps) {
+export default function CalEmbed({
+  label,
+  placement = "hero",
+  onInteract,
+}: CalEmbedProps) {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "demo-fiscalio" });
+      if (window.Cal) {
+        window.Cal.config = {
+          ...window.Cal.config,
+          forwardQueryParams: true,
+        };
+      }
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
 
       cal("on", {
+        action: "linkReady",
+        callback: () => trackCalendarView(placement),
+      });
+
+      cal("on", {
         action: "bookingSuccessfulV2",
-        callback: () => trackBooking("embed"),
+        callback: (event) =>
+          trackBookingOnce("embed", event.detail.data.uid),
       });
     })();
-  }, []);
+  }, [placement]);
 
   return (
     <Button
@@ -40,12 +58,7 @@ export default function CalEmbed({ label, onInteract }: CalEmbedProps) {
   );
 }
 
-let bookingTracked = false;
-
-function trackBooking(source: string) {
-  if (bookingTracked) return;
-  bookingTracked = true;
-  trackEvent("booking", { page: "demo-resico", source });
-  trackMeta("Lead");
+function trackCalendarView(placement: string): void {
+  if (markTrackedOnce(`fiscalio_calendar_view_${placement}`)) return;
+  trackEvent("calendar_view", { placement });
 }
-

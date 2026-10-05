@@ -16,6 +16,7 @@ import { getLatestRelease, findInstallerAsset } from "@/lib/github-release";
 import { CAL_COM_BOOKING_URL } from "@/lib/constants";
 import { Logo } from "@/components/logo";
 import { Navigation } from "@/components/navigation";
+import { PurchaseView } from "@/components/purchase-view";
 
 interface DescargaPageProps {
   searchParams: Promise<{ session_id?: string }>;
@@ -46,6 +47,13 @@ export default async function DescargaPage({
 
       {valid ? (
         <section className="py-24 lg:py-32">
+          {session && (
+            <PurchaseView
+              transactionId={session.id}
+              value={(session.amount_total ?? 0) / 100}
+              currency={(session.currency ?? "mxn").toUpperCase()}
+            />
+          )}
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl mx-auto space-y-16">
               {/* Hero */}

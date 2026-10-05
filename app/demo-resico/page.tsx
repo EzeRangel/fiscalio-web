@@ -59,7 +59,12 @@ const preparation = [
 export default function DemoResicoPage() {
   return (
     <div className="min-h-screen bg-background">
-      <PageView event="landing_view" params={{ page: "demo-resico" }} />
+      <PageView
+        event="landing_view"
+        params={{ page: "demo-resico" }}
+        meta="ViewContent"
+        metaParams={{ content_name: "demo-resico" }}
+      />
 
       <header className="py-6 px-6 lg:px-12">
         <div className="container mx-auto max-w-5xl">

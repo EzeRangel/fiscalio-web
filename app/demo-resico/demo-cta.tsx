@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useCallback } from "react";
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { trackEvent, trackMeta } from "@/lib/analytics";
+import { trackEvent, trackMeta, markTrackedOnce } from "@/lib/analytics";
 import CalEmbed from "@/components/cal-embed";
 
 interface DemoCtaProps {
@@ -17,15 +17,10 @@ export function DemoCta({
   label = "Preparar mi borrador gratis",
   placement = "hero",
 }: DemoCtaProps) {
-  const firedRef = useRef(false);
-
   const handleClick = useCallback(() => {
     trackEvent("cta_click", { placement });
-    trackEvent("calendar_view", { placement });
-
-    if (firedRef.current) return;
-    firedRef.current = true;
-    trackMeta("Schedule");
+    if (markTrackedOnce("fiscalio_meta_schedule")) return;
+    trackMeta("Schedule", { content_name: "demo-resico" });
   }, [placement]);
 
   if (!url) {
@@ -41,5 +36,5 @@ export function DemoCta({
     );
   }
 
-  return <CalEmbed label={label} onInteract={handleClick} />;
+  return <CalEmbed label={label} placement={placement} onInteract={handleClick} />;
 }

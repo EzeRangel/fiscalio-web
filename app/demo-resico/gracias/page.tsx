@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
-import { PageView } from "@/components/page-view";
+import { BookingView } from "./booking-view";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ const nextSteps = [
 export default function DemoResicoGraciasPage() {
   return (
     <div className="min-h-screen bg-background">
-      <PageView event="booking" params={{ page: "demo-resico" }} />
+      <BookingView />
 
       <header className="py-6 px-6 lg:px-12">
         <div className="container mx-auto max-w-5xl">
