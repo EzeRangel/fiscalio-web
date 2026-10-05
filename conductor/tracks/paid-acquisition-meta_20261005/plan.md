@@ -11,7 +11,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Calidad — `npm run lint` + `npx tsc --noEmit` + `npm run build` (4d747aa)
 - [x] Task: Commit del WIP del embed de Cal.com (`@calcom/embed-react`) — incluye restaurar `cta_click`/`calendar_view`/`Schedule` perdidos en el refactor vía `onInteract` (4d747aa)
 
-## Phase 1: Tracking / GA4 / Meta audit (§13) — entregable: Tracking audit
+## Phase 1: Tracking / GA4 / Meta audit (§13) — entregable: Tracking audit (Checkpoint: 6dfb715)
 
 - [x] Task: Definir y documentar conversiones (GA4 y Meta) y evento de optimización de campaña (72b4fbf)
 - [x] Task: Fix doble conteo de `booking` (embed + `app/demo-resico/gracias`) vía `trackBookingOnce` + `booking_uid` (346093d)
@@ -22,7 +22,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Verificar env vars en producción — hallazgos: falta `NEXT_PUBLIC_META_PIXEL_ID` en Vercel y `/demo-resico` no está desplegado (72b4fbf)
 - [x] Task: Escribir Tracking/GA4 audit → `tracking-audit.md` de este track (72b4fbf)
 - [ ] Task: (externo, antes de lanzar) Setear `NEXT_PUBLIC_META_PIXEL_ID` en Vercel, push `staging` → merge `main` → deploy, re-verificar pixel + `/demo-resico` + `CAL_COM_DEMO_URL` en producción
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md) (6dfb715)
 
 ## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
 
