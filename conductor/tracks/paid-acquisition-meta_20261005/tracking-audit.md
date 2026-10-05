@@ -22,7 +22,7 @@ Fecha de verificación: 2026-10-05.
 | `ViewContent` (Meta) | igual que `landing_view` | `content_name=demo-resico` | — |
 | `cta_click` | clic en CTA (`DemoCta`) | `placement=hero\|final` + utm_* | — |
 | `Schedule` (Meta) | clic en CTA | `content_name=demo-resico` | 1 por sesión (`fiscalio_meta_schedule`) |
-| `calendar_view` | callback `linkReady` de Cal (iframe del calendario listo, **no** en el clic) | `placement` | 1 por placement (`fiscalio_calendar_view_*`) |
+| `calendar_view` | callback `linkReady` de Cal (iframe del calendario listo, **no** en el clic); listener registrado una sola vez en el módulo (los dos CTA comparten namespace `demo-fiscalio`) | `placement` = CTA que abrió el modal | 1 por sesión (`fiscalio_calendar_view`) |
 | `booking` | callback `bookingSuccessfulV2` (embed) **o** `/gracias` | `page`, `source=embed\|gracias`, `booking_uid`, utm_* | `fiscalio_booking_tracked` (sessionStorage, cruza landing→gracias) |
 | `Lead` (Meta) | junto a `booking` | `content_name=demo-resico` | ídem |
 | `purchase` | `/descarga` con `session_id` verificada server-side | `transaction_id`, `value`, `currency`, utm_* de la sesión | `fiscalio_purchase_<id>` (localStorage) + dedupe GA4 por `transaction_id` |
@@ -62,6 +62,7 @@ final y reglas en `campaign-launch-pack.md` (Phase 5).
 - [ ] CAPI no implementado: sin dedupe server-side (limitación documentada, §7)
 
 **Cal.com:**
+- [ ] Configurar *Success redirect URL* del evento → `https://www.fiscalio.app/demo-resico/gracias` (verificado 2026-10-05: **no está configurado**, el modal no redirige y el usuario nunca ve la página de instrucciones post-booking)
 - [ ] Verificar con un booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe (Phase 2)
 - [ ] Confirmar `booking_uid` visible en el export de reservas (llave de join Cal ⇄ GA4)
 

@@ -27,7 +27,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 ## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
 
 - [ ] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
-- [ ] Task: Verificar confirmación, reminders y redirect de éxito a `/demo-resico/gracias`
+- [ ] Task: Verificar confirmación, reminders y redirect de éxito a `/demo-resico/gracias` — **hallazgo Phase 1: el redirect NO está configurado** (el modal no redirige; configurarlo en Cal.com → *Success redirect URL* = `https://www.fiscalio.app/demo-resico/gracias`; sin él el usuario nunca ve la página de instrucciones post-booking)
 - [ ] Task: Instrucciones previas también en el email de Cal.com (ingresos del mes + CFDIs; sin e.firma ni contraseñas)
 - [ ] Task: Configurar preguntas de qualification (RESICO sí/no/no-seguro · qué revisar · preocupación de research)
 - [ ] Task: Revisar experiencia móvil del booking
