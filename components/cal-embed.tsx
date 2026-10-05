@@ -14,6 +14,9 @@ interface CalEmbedProps {
   onInteract?: () => void;
 }
 
+let pendingPlacement = "hero";
+let listenersRegistered = false;
+
 export default function CalEmbed({
   label,
   placement = "hero",
@@ -30,9 +33,15 @@ export default function CalEmbed({
       }
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
 
+      if (listenersRegistered) return;
+      listenersRegistered = true;
+
       cal("on", {
         action: "linkReady",
-        callback: () => trackCalendarView(placement),
+        callback: () => {
+          if (markTrackedOnce("fiscalio_calendar_view")) return;
+          trackEvent("calendar_view", { placement: pendingPlacement });
+        },
       });
 
       cal("on", {
@@ -41,11 +50,16 @@ export default function CalEmbed({
           trackBookingOnce("embed", event.detail.data.uid),
       });
     })();
-  }, [placement]);
+  }, []);
+
+  const handleClick = () => {
+    pendingPlacement = placement;
+    onInteract?.();
+  };
 
   return (
     <Button
-      onClick={onInteract}
+      onClick={handleClick}
       data-cal-namespace="demo-fiscalio"
       data-cal-link="ezerangel/demo-fiscalio"
       data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
@@ -56,9 +70,4 @@ export default function CalEmbed({
       {label}
     </Button>
   );
-}
-
-function trackCalendarView(placement: string): void {
-  if (markTrackedOnce(`fiscalio_calendar_view_${placement}`)) return;
-  trackEvent("calendar_view", { placement });
 }
