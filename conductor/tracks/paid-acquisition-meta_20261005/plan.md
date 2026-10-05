@@ -1,0 +1,77 @@
+# Implementation Plan: Primera campaña de adquisición pagada Meta Ads ($1,000 MXN)
+
+Estados: `[ ]` pendiente · `[~]` en progreso · `[x]` completado (adjuntar hash de commit).
+
+Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que funciona.
+
+## Phase 0: Estabilizar WIP (build roto)
+
+- [ ] Task: Fix del import roto de `CalEmbed` en `app/demo-resico/page.tsx` (TS2614)
+- [ ] Task: Remover `prettier` de `dependencies` en `package.json`
+- [ ] Task: Calidad — `npm run lint` + `npx tsc --noEmit` + `npm run build`
+- [ ] Task: Commit del WIP del embed de Cal.com (`@calcom/embed-react`)
+
+## Phase 1: Tracking / GA4 / Meta audit (§13) — entregable: Tracking audit
+
+- [ ] Task: Definir y documentar conversiones (GA4 y Meta) y evento de optimización de campaña
+- [ ] Task: Fix doble conteo de `booking` (embed + `app/demo-resico/gracias`)
+- [ ] Task: Fix/renombrar `calendar_view` (hoy se dispara en el click del CTA)
+- [ ] Task: Hacer registrable `purchase` (disparo GA4 o proceso manual documentado) — hoy solo `console.log` en `app/api/stripe/webhook/route.ts`
+- [ ] Task: Restaurar propagación de UTMs/`fbclid`/lead identifier hacia Cal.com (`withCampaignParams` sin uso en `demo-cta.tsx`)
+- [ ] Task: Meta — `ViewContent` en landing + parámetros en `Schedule`/`Lead` + verificación en Events Manager
+- [ ] Task: Verificar env vars en producción (`NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `CAL_COM_DEMO_URL`)
+- [ ] Task: Escribir Tracking/GA4 audit en `docs-en-track` (ver `docs/tracking-audit.md` del track)
+- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md)
+
+## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
+
+- [ ] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
+- [ ] Task: Verificar confirmación, reminders y redirect de éxito a `/demo-resico/gracias`
+- [ ] Task: Instrucciones previas también en el email de Cal.com (ingresos del mes + CFDIs; sin e.firma ni contraseñas)
+- [ ] Task: Configurar preguntas de qualification (RESICO sí/no/no-seguro · qué revisar · preocupación de research)
+- [ ] Task: Revisar experiencia móvil del booking
+- [ ] Task: Escribir Cal.com audit
+- [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)
+
+## Phase 3: Landing audit (§10) — entregable: Landing audit
+
+- [ ] Task: Revisar correspondencia ad → problema → oferta → landing → agenda en `/demo-resico`
+- [ ] Task: Checklist: qué es la sesión / quién / qué se revisa / qué preparar / duración / gratuita / qué pasa después
+- [ ] Task: Verificar OG/imagen y consistencia de mensaje con los creativos
+- [ ] Task: Escribir Landing audit
+
+## Phase 4: Research GTM (§18–19) — entregable: Research notes
+
+- [ ] Task: Meta Ads MX — formatos, Reels/Stories/Feed, tracking, optimización, presupuesto pequeño
+- [ ] Task: Audiencia MX freelancers/RESICO — tamaño, intereses disponibles, limitaciones, broad vs intereses
+- [ ] Task: Competencia (contadores RESICO, software fiscal, servicios de declaración) — hooks/ofertas/CTA/pricing/objeciones
+- [ ] Task: Creative research (servicios fiscales, SaaS B2C/B2SMB, founder-led, educación fiscal MX)
+- [ ] Task: Documentar señales que justificarían una prueba en Google Search (§19)
+
+## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md`
+
+- [ ] Task: Hipótesis de campaña (H1/H2/H3 ↔ eventos medidos)
+- [ ] Task: Audience strategy + recomendación de targeting
+- [ ] Task: Campaign structure (1 campaña / 1 conjunto / 3–4 creativos)
+- [ ] Task: Budget allocation ($1,000; $100–150/día ~1 semana; reglas de ajuste)
+- [ ] Task: Creative strategy + formatos/dimensiones de cada creativo
+- [ ] Task: Copy final Ángulo A (incertidumbre)
+- [ ] Task: Copy final Ángulo B (trabajo manual)
+- [ ] Task: Copy final Ángulo C (miedo a equivocarse)
+- [ ] Task: Ángulo D founder-led — video vertical 20–30 s (guion optimizado, grabación, edición)
+- [ ] Task: Convención UTM + definiciones de conversión
+- [ ] Task: Campos de qualification (respaldar F2)
+- [ ] Task: Plan de experimentación + tabla de registro (incluye columna `Known person?`)
+- [ ] Task: Checklist de monitoreo diario + decision rules
+- [ ] Task: Template de análisis post-campaña + recomendaciones por resultado
+- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol en workflow.md)
+
+## Phase 6: Lanzamiento y operación
+
+- [ ] Task: Setup en Meta Ads Manager (estructura, evento de conversión, presupuesto, UTMs)
+- [ ] Task: QA end-to-end con UTM de prueba (ad → landing → booking → gracias → Stripe → descarga)
+- [ ] Task: Lanzamiento con $100–150 MXN/día
+- [ ] Task: Operación diaria — checklist, registro en tabla, marcar conocidos vs externos
+- [ ] Task: Registro manual de `attended` / `qualified` / `trial/product_use` / `purchase`
+- [ ] Task: Análisis post-campaña + recomendación de siguiente iteración (Meta, mensaje, oferta, Google Search o funnel)
+- [ ] Task: Archivar track en `conductor/archive/` y actualizar `conductor/tracks.md`
