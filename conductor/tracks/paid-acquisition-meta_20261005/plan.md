@@ -13,14 +13,15 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 
 ## Phase 1: Tracking / GA4 / Meta audit (§13) — entregable: Tracking audit
 
-- [ ] Task: Definir y documentar conversiones (GA4 y Meta) y evento de optimización de campaña
-- [ ] Task: Fix doble conteo de `booking` (embed + `app/demo-resico/gracias`)
-- [ ] Task: Fix/renombrar `calendar_view` (hoy se dispara en el click del CTA)
-- [ ] Task: Hacer registrable `purchase` (disparo GA4 o proceso manual documentado) — hoy solo `console.log` en `app/api/stripe/webhook/route.ts`
-- [ ] Task: Restaurar propagación de UTMs/`fbclid`/lead identifier hacia Cal.com (`withCampaignParams` sin uso en `demo-cta.tsx`)
-- [ ] Task: Meta — `ViewContent` en landing + parámetros en `Schedule`/`Lead` + verificación en Events Manager
-- [ ] Task: Verificar env vars en producción (`NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `CAL_COM_DEMO_URL`)
-- [ ] Task: Escribir Tracking/GA4 audit en `docs-en-track` (ver `docs/tracking-audit.md` del track)
+- [x] Task: Definir y documentar conversiones (GA4 y Meta) y evento de optimización de campaña (72b4fbf)
+- [x] Task: Fix doble conteo de `booking` (embed + `app/demo-resico/gracias`) vía `trackBookingOnce` + `booking_uid` (346093d)
+- [x] Task: Fix/renombrar `calendar_view` — ahora dispara en `linkReady` de Cal, no en el click (346093d)
+- [x] Task: Hacer registrable `purchase` — `PurchaseView` en `/descarga` con `transaction_id` verificado server-side (346093d)
+- [x] Task: Restaurar propagación de UTMs/`fbclid`/lead identifier — `rememberCampaignParams` + merge en `trackEvent` + `forwardQueryParams` al iframe de Cal (346093d)
+- [x] Task: Meta — `ViewContent` en landing + parámetros en `Schedule`/`Lead`/`Purchase` (346093d). *Verificación en Events Manager: pendiente externo, ver `tracking-audit.md` §4*
+- [x] Task: Verificar env vars en producción — hallazgos: falta `NEXT_PUBLIC_META_PIXEL_ID` en Vercel y `/demo-resico` no está desplegado (72b4fbf)
+- [x] Task: Escribir Tracking/GA4 audit → `tracking-audit.md` de este track (72b4fbf)
+- [ ] Task: (externo, antes de lanzar) Setear `NEXT_PUBLIC_META_PIXEL_ID` en Vercel, push `staging` → merge `main` → deploy, re-verificar pixel + `/demo-resico` + `CAL_COM_DEMO_URL` en producción
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md)
 
 ## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
