@@ -4,7 +4,7 @@ Estados: `[ ]` pendiente · `[~]` en progreso · `[x]` completado (adjuntar hash
 
 Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que funciona.
 
-## Phase 0: Estabilizar WIP (build roto)
+## Phase 0: Estabilizar WIP (build roto) (Checkpoint: 15b5cfe)
 
 - [x] Task: Fix del import roto de `CalEmbed` en `app/demo-resico/page.tsx` (TS2614) (4d747aa)
 - [x] Task: Remover `prettier` de `dependencies` en `package.json` (4d747aa)
