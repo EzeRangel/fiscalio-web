@@ -64,8 +64,8 @@ final y reglas en `campaign-launch-pack.md` (Phase 5).
 
 **Cal.com:**
 - [x] Redirect de éxito a `https://www.fiscalio.app/demo-resico/gracias` — verificado 2026-10-05: **no estaba configurado** y no se puede configurar en el plan actual (la opción *Redirect on booking* del evento está detrás de planes de pago). Resuelto en código 2026-10-06 en `components/cal-embed.tsx` (callback `bookingSuccessfulV2` → redirect a `/demo-resico/gracias?uid=`). *Pendiente: verificación en móvil (escritorio verificado 2026-10-06)*
-- [ ] Verificar con un booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe (Phase 2)
-- [ ] Confirmar `booking_uid` visible en el export de reservas (llave de join Cal ⇄ GA4)
+- [x] Verificar con un booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe — ✅ verificado 2026-10-06 (aparecen en el detalle de la reserva en el panel)
+- [ ] Confirmar `booking_uid` visible en el detalle de la reserva / export de Cal (llave de join Cal ⇄ GA4) — **no hay export CSV en el plan actual** (ver `cal-audit.md` §6.9): alternativas → copia manual del UID en el panel, o API v2 `GET /v2/bookings` con API key gratis
 
 ## 5. Estado de env vars y despliegue (verificado 2026-10-05)
 

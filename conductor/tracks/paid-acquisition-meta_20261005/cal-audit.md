@@ -117,13 +117,15 @@ Requisito de despliegue: `CAL_COM_DEMO_URL` seteada en Vercel (si falta, el CTA 
 | 6 | Un solo recordatorio (24 h); sin reminder corto (1 h) | baja | opcional: añadir 2º paso al workflow |
 | 7 | Página de Cal indexable (`robots: index, follow`, canonical a cal.com) | info | sin acción |
 | 8 | Cancelar/reprogramar terminan en las páginas de Cal, sin paso por `/gracias` | info | sin acción; no hay tracking de `reschedule`/`cancel` |
+| 9 | **No existe export de reservas en el plan actual**: el botón CSV de la página Bookings solo aparece para cuentas de **organización** (calcom/cal.com#27107) y el CSV de **Insights** es de pago/no disponible para individuos | baja (volumen: 1–7 leads/día) | join manual por `booking_uid` (panel → reserva → UID, o link de la reserva que lo contiene); si escala → API v2 `GET /v2/bookings` con API key (Settings → Security → API Keys, plan free la incluye): devuelve `uid`, horarios, asistentes y `bookingFieldsResponses` (las respuestas de qualification). La API **no** expone los UTMs — esos ya están en GA4 vía el evento `booking` |
 
 ## 7. Pendientes externos (no se resuelven en repo)
 
-- [ ] Booking de prueba: email de confirmación + recordatorio 24 h + redirect a `/gracias` (escritorio)
-- [ ] Ídem en **móvil**
+- [x] Booking de prueba en escritorio: redirect a `/gracias?uid=` ✅ y email de confirmación de Cal ✅ (2026-10-06)
+- [x] Booking de prueba en **móvil**: flujo completo + redirect ✅ (2026-10-06)
+- [ ] Recordatorio `Recordatorio Borrador RESICO` (24 h): confirmar llegada del correo (~2026-10-07, día siguiente al booking de prueba)
 - [x] Prueba de zona horaria: visitante con otra zona ve su hora local correctamente (spoof, 2026-10-06) — hallazgo §6.1 cerrado
+- [x] Cal guarda los UTMs que llegan en la URL del iframe — ✅ visibles en el detalle de la reserva (2026-10-06)
+- [ ] `booking_uid` visible en el detalle de la reserva (panel o link de la reserva) — no hay export CSV en el plan actual, ver §6.9
 - [ ] Decidir y aplicar §2: opción «No estoy seguro» + formato de `review`/`worried-about`
-- [ ] Confirmar `booking_uid` visible en el export/CSV de Cal (llave de join Cal ⇄ GA4, tracking-audit §4)
-- [ ] Verificar con booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe (tracking-audit §4)
 - [ ] (Opcional) segundo recordatorio 1 h antes (hallazgo §6.6)
