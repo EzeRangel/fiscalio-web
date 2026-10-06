@@ -27,11 +27,11 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 ## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
 
 - [x] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
-- [ ] Task: Verificar confirmación y reminders de Cal.com (email de confirmación + recordatorios) — el redirect de éxito a `/demo-resico/gracias` quedó **resuelto en código** (`components/cal-embed.tsx`: 800 ms después de `bookingSuccessfulV2` navega a `/demo-resico/gracias?uid=`), porque la opción *Redirect on booking* de Cal.com está en planes de pago y la config. queda bloqueada. Pendiente: booking de prueba real en desktop y móvil que confirme el redirect + confirmación/reminders en el correo
+- [ ] Task: Verificar en un booking de prueba la llegada de los emails (confirmación + reminder 24 h) y el redirect en **móvil** — el redirect de éxito a `/demo-resico/gracias` quedó **resuelto en código y verificado en escritorio** (`bc58f6b`: `bookingSuccessfulV2` → 800 ms → `/demo-resico/gracias?uid=`), porque *Redirect on booking* está tras paywall; confirmación/reminders/emails documentados en `cal-audit.md` §3
 - [x] Task: Instrucciones previas también en el email de Cal.com (ingresos del mes + CFDIs; sin e.firma ni contraseñas)
 - [x] Task: Configurar preguntas de qualification (RESICO sí/no/no-seguro · qué revisar · preocupación de research)
 - [x] Task: Revisar experiencia móvil del booking
-- [ ] Task: Escribir Cal.com audit
+- [x] Task: Escribir Cal.com audit (7878137)
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)
 
 ## Phase 3: Landing audit (§10) — entregable: Landing audit

@@ -63,7 +63,7 @@ final y reglas en `campaign-launch-pack.md` (Phase 5).
 - [ ] CAPI no implementado: sin dedupe server-side (limitación documentada, §7)
 
 **Cal.com:**
-- [x] Redirect de éxito a `https://www.fiscalio.app/demo-resico/gracias` — verificado 2026-10-05: **no estaba configurado** y no se puede configurar en el plan actual (la opción *Redirect on booking* del evento está detrás de planes de pago). Resuelto en código 2026-10-06 en `components/cal-embed.tsx` (callback `bookingSuccessfulV2` → redirect a `/demo-resico/gracias?uid=`). *Pendiente de verificación manual: booking de prueba real ⇒ llega a `/gracias` en desktop y móvil*
+- [x] Redirect de éxito a `https://www.fiscalio.app/demo-resico/gracias` — verificado 2026-10-05: **no estaba configurado** y no se puede configurar en el plan actual (la opción *Redirect on booking* del evento está detrás de planes de pago). Resuelto en código 2026-10-06 en `components/cal-embed.tsx` (callback `bookingSuccessfulV2` → redirect a `/demo-resico/gracias?uid=`). *Pendiente: verificación en móvil (escritorio verificado 2026-10-06)*
 - [ ] Verificar con un booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe (Phase 2)
 - [ ] Confirmar `booking_uid` visible en el export de reservas (llave de join Cal ⇄ GA4)
 
