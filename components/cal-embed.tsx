@@ -16,6 +16,10 @@ interface CalEmbedProps {
 
 let pendingPlacement = "hero";
 let listenersRegistered = false;
+let redirectScheduled = false;
+
+const GRACIAS_PATH = "/demo-resico/gracias";
+const REDIRECT_DELAY_MS = 800;
 
 export default function CalEmbed({
   label,
@@ -46,8 +50,17 @@ export default function CalEmbed({
 
       cal("on", {
         action: "bookingSuccessfulV2",
-        callback: (event) =>
-          trackBookingOnce("embed", event.detail.data.uid),
+        callback: (event) => {
+          const uid = event.detail.data.uid;
+          trackBookingOnce("embed", uid);
+          if (redirectScheduled) return;
+          redirectScheduled = true;
+          window.setTimeout(() => {
+            if (window.location.pathname === GRACIAS_PATH) return;
+            const query = uid ? `?uid=${encodeURIComponent(uid)}` : "";
+            window.location.assign(`${GRACIAS_PATH}${query}`);
+          }, REDIRECT_DELAY_MS);
+        },
       });
     })();
   }, []);
