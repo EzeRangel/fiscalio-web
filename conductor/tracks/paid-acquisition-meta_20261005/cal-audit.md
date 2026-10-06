@@ -43,13 +43,17 @@ Ocultos/inactivos: teléfono, `notes`, invitados, título de la reunión.
 **Cumple el requisito de no pedir información fiscal sensible: nada de e.firma ni
 contraseñas** (también explícito en la descripción del evento).
 
-### Desviaciones vs spec F2.3 (decisión pendiente, se arregla en el panel de Cal)
+### Desviaciones vs spec F2.3 — **decisión 2026-10-06: se mantiene la config. actual**
 
-| Spec | Estado actual | Recomendación |
+Criterio: simplicidad de edición en el panel de Cal y no requerir más de lo necesario
+al booker. Se descartan las opciones predefinidas y la tercera opción del primer campo.
+Queda documentado para que la tabla de experimentación se lea con ese contexto.
+
+| Spec | Estado actual | Decisión (2026-10-06) |
 |---|---|---|
-| «¿Actualmente tributas en RESICO?» con Sí / No / **No estoy seguro** | solo Sí / No | añadir **«No estoy seguro»**: es el perfil justamente incierto que busca la campaña y hoy queda forzado a mentir o a responder «No» |
-| «¿Qué quieres revisar?» como opciones (Declaración mensual / ISR / IVA / Retenciones / No sé por dónde empezar) | texto libre | pasar a select con esas 5 opciones: habilita conteo rápido por lead en la tabla de experimentación; el texto libre no se lee a los 15 min |
-| «¿Qué es lo que más te preocupa de tu declaración?» (6 opciones + Otro) | textarea libre | si el objetivo es **contar** patrones → select + «Otro»; si es leer contexto en la sesión → la textarea está bien. Elegir uno, no las dos |
+| «¿Actualmente tributas en RESICO?» con Sí / No / **No estoy seguro** | solo Sí / No | **no se añade** «No estoy seguro»: se mantiene Sí / No |
+| «¿Qué quieres revisar?» como opciones (Declaración mensual / ISR / IVA / Retenciones / No sé por dónde empezar) | texto libre (requerido) | **se mantiene texto libre**: más fácil de editar en Cal; se lee a mano en la tabla de experimentación |
+| «¿Qué es lo que más te preocupa de tu declaración?» (6 opciones + Otro) | textarea libre, opcional | **se mantiene textarea opcional** |
 
 ## 3. Confirmación, reminders e instrucciones
 
@@ -57,6 +61,7 @@ contraseñas** (también explícito en la descripción del evento).
   confirmación de inmediato con el link de Google Meet.
 - **Recordatorio**: workflow `Recordatorio Borrador RESICO` (id `470299`,
   `EMAIL_ATTENDEE`) → **24 h antes** de la sesión. Un solo recordatorio.
+  ✅ correo verificado 2026-10-06.
 - **Instrucciones previas en el email de Cal** (ingresos del mes + CFDIs; sin e.firma
   ni contraseñas): ✅ añadidas — verificado manualmente en Phase 2 (el cuerpo del email
   no lo expone la API pública).
@@ -89,7 +94,7 @@ Por qué así:
 - `forwardParamsSuccessRedirect: true` está activo en el evento pero es inocuo mientras
   no haya URL nativa.
 
-**Verificado:** redirect de escritorio OK (2026-10-06). Pendiente: prueba en móvil.
+**Verificado:** redirect en escritorio y en móvil OK (2026-10-06).
 
 ## 5. Embed en la landing
 
@@ -110,8 +115,8 @@ Requisito de despliegue: `CAL_COM_DEMO_URL` seteada en Vercel (si falta, el CTA 
 | # | Hallazgo | Severidad | Acción |
 |---|---|---|---|
 | 1 | Zona horaria: `America/Mazatlan` (UTC−7) con `useBookerTimezone: false` → duda si un visitante de otra zona ve su hora local | **cerrado 2026-10-06** | ✅ verificado con spoof de zona horaria: Cal muestra la hora local del visitante correctamente |
-| 2 | Falta «No estoy seguro» en `¿Tributas en RESICO?` | media | añadir en panel de Cal |
-| 3 | `review` / `worried-about` como texto libre en vez de opciones (§2) | media | decidir antes de lanzar, cambia cómo se lee la tabla de experimentación |
+| 2 | Falta «No estoy seguro» en `¿Tributas en RESICO?` | cerrado 2026-10-06 | decisión: se mantiene Sí / No (§2) |
+| 3 | `review` / `worried-about` como texto libre en vez de opciones (§2) | cerrado 2026-10-06 | decisión: se mantiene texto libre (§2) |
 | 4 | Sin verificación de email del booker → un typo en el correo = no show | baja | mitigación parcial: recordatorio 24 h; aceptable para 15 min gratis |
 | 5 | Redirect nativo bloqueado por paywall | resuelto | §4 (código) |
 | 6 | Un solo recordatorio (24 h); sin reminder corto (1 h) | baja | opcional: añadir 2º paso al workflow |
@@ -123,9 +128,9 @@ Requisito de despliegue: `CAL_COM_DEMO_URL` seteada en Vercel (si falta, el CTA 
 
 - [x] Booking de prueba en escritorio: redirect a `/gracias?uid=` ✅ y email de confirmación de Cal ✅ (2026-10-06)
 - [x] Booking de prueba en **móvil**: flujo completo + redirect ✅ (2026-10-06)
-- [ ] Recordatorio `Recordatorio Borrador RESICO` (24 h): confirmar llegada del correo (~2026-10-07, día siguiente al booking de prueba)
+- [x] Recordatorio `Recordatorio Borrador RESICO` (24 h): correo recibido y correcto ✅ (2026-10-06)
+- [x] Decisión §2 (2026-10-06): mantener la config. actual — `is-resico` Sí/No, `review` y `worried-about` como texto libre (este último opcional), sin «No estoy seguro» ni opciones predefinidas
 - [x] Prueba de zona horaria: visitante con otra zona ve su hora local correctamente (spoof, 2026-10-06) — hallazgo §6.1 cerrado
 - [x] Cal guarda los UTMs que llegan en la URL del iframe — ✅ visibles en el detalle de la reserva (2026-10-06)
 - [ ] `booking_uid` visible en el detalle de la reserva (panel o link de la reserva) — no hay export CSV en el plan actual, ver §6.9
-- [ ] Decidir y aplicar §2: opción «No estoy seguro» + formato de `review`/`worried-about`
 - [ ] (Opcional) segundo recordatorio 1 h antes (hallazgo §6.6)
