@@ -20,8 +20,8 @@ de Phase 2) y código del repo (`components/cal-embed.tsx`, `app/demo-resico/`).
 | Precio | 0 (gratis) | coherente con "gratuita" en la landing |
 | Descripción | «Trae tus XMLs y calculamos tu declaración RESICO en vivo, gratis y en 15 minutos; sin contraseñas ni e-firma.» | ✅ sin pedir credenciales |
 | Confirmación | `requiresConfirmation: false` → **auto-confirmada** | email de confirmación al instante al asistente |
-| Zona horaria del schedule | `America/Mazatlan` (UTC−7) | ver hallazgo §6.1 |
-| `useBookerTimezone` | `false` | ver hallazgo §6.1 |
+| Zona horaria del schedule | `America/Mazatlan` (UTC−7) | ✅ sin riesgo: Cal detecta la zona del visitante (§6.1) |
+| `useBookerTimezone` | `false` | sin efecto práctico — verificado 2026-10-06 (§6.1) |
 | Buffer | 15 min antes / 15 min después | panel, 2026-10-06 |
 | Cupo / ventana | **sin límite** (`periodType: UNLIMITED`) | confirmado en panel |
 | Cancelar / reprogramar | habilitados para el asistente | sin redirect propio (quedan en Cal) |
@@ -109,7 +109,7 @@ Requisito de despliegue: `CAL_COM_DEMO_URL` seteada en Vercel (si falta, el CTA 
 
 | # | Hallazgo | Severidad | Acción |
 |---|---|---|---|
-| 1 | `America/Mazatlan` (UTC−7) con `useBookerTimezone: false` y **sin probar** qué hora ve un visitante de CDMX (UTC−6): si ve hora de Mazatlán hay riesgo de ±1 h = cita perdida | **alta** | abrir el booker desde otra zona antes de lanzar; si no detecta la zona del visitante, activar detección automática o dejarlo explícito en la landing |
+| 1 | Zona horaria: `America/Mazatlan` (UTC−7) con `useBookerTimezone: false` → duda si un visitante de otra zona ve su hora local | **cerrado 2026-10-06** | ✅ verificado con spoof de zona horaria: Cal muestra la hora local del visitante correctamente |
 | 2 | Falta «No estoy seguro» en `¿Tributas en RESICO?` | media | añadir en panel de Cal |
 | 3 | `review` / `worried-about` como texto libre en vez de opciones (§2) | media | decidir antes de lanzar, cambia cómo se lee la tabla de experimentación |
 | 4 | Sin verificación de email del booker → un typo en el correo = no show | baja | mitigación parcial: recordatorio 24 h; aceptable para 15 min gratis |
@@ -122,7 +122,7 @@ Requisito de despliegue: `CAL_COM_DEMO_URL` seteada en Vercel (si falta, el CTA 
 
 - [ ] Booking de prueba: email de confirmación + recordatorio 24 h + redirect a `/gracias` (escritorio)
 - [ ] Ídem en **móvil**
-- [ ] Prueba de zona horaria: visitante de CDMX ve su hora local o la de Mazatlán (hallazgo §6.1)
+- [x] Prueba de zona horaria: visitante con otra zona ve su hora local correctamente (spoof, 2026-10-06) — hallazgo §6.1 cerrado
 - [ ] Decidir y aplicar §2: opción «No estoy seguro» + formato de `review`/`worried-about`
 - [ ] Confirmar `booking_uid` visible en el export/CSV de Cal (llave de join Cal ⇄ GA4, tracking-audit §4)
 - [ ] Verificar con booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe (tracking-audit §4)
