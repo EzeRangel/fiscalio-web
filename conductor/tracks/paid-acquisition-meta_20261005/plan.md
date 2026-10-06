@@ -27,9 +27,9 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 ## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
 
 - [x] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
-- [ ] Task: Verificar el recordatorio 24 h de Cal (único chequeo que falta de la prueba de booking) — redirect verificado en **escritorio y móvil** ✅, email de confirmación ✅ y UTMs guardados por Cal ✅ (2026-10-06). *Residuo del antiguo task: `Redirect on booking` estaba tras paywall y quedó resuelto en código (`bc58f6b`); detalle en `cal-audit.md` §3–§4*
+- [x] Task: Verificar el recordatorio 24 h de Cal (último chequeo de la prueba de booking) — correo recibido ✅ (2026-10-06). Acumulado de la prueba: redirect en **escritorio y móvil** ✅, email de confirmación ✅, UTMs guardados por Cal ✅. *Residuo del antiguo task: `Redirect on booking` estaba tras paywall y quedó resuelto en código (`bc58f6b`); detalle en `cal-audit.md` §3–§4* (cd1ed40)
 - [x] Task: Instrucciones previas también en el email de Cal.com (ingresos del mes + CFDIs; sin e.firma ni contraseñas)
-- [x] Task: Configurar preguntas de qualification (RESICO sí/no/no-seguro · qué revisar · preocupación de research)
+- [x] Task: Configurar preguntas de qualification (RESICO sí/no · qué revisar · preocupación de research) — decisión 2026-10-06: se mantiene la config. actual, texto libre (ver `cal-audit.md` §2)
 - [x] Task: Revisar experiencia móvil del booking
 - [x] Task: Escribir Cal.com audit (7878137)
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)
