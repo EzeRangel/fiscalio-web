@@ -24,7 +24,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [ ] Task: (externo, antes de lanzar) Setear `NEXT_PUBLIC_META_PIXEL_ID` en Vercel, push `staging` → merge `main` → deploy, re-verificar pixel + `/demo-resico` + `CAL_COM_DEMO_URL` en producción
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md) (6dfb715)
 
-## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
+## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit (Checkpoint: fd7de2a)
 
 - [x] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
 - [x] Task: Verificar el recordatorio 24 h de Cal (último chequeo de la prueba de booking) — correo recibido ✅ (2026-10-06). Acumulado de la prueba: redirect en **escritorio y móvil** ✅, email de confirmación ✅, UTMs guardados por Cal ✅. *Residuo del antiguo task: `Redirect on booking` estaba tras paywall y quedó resuelto en código (`bc58f6b`); detalle en `cal-audit.md` §3–§4* (cd1ed40)
@@ -32,7 +32,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Configurar preguntas de qualification (RESICO sí/no · qué revisar · preocupación de research) — decisión 2026-10-06: se mantiene la config. actual, texto libre (ver `cal-audit.md` §2)
 - [x] Task: Revisar experiencia móvil del booking
 - [x] Task: Escribir Cal.com audit (7878137)
-- [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md) (fd7de2a)
 
 ## Phase 3: Landing audit (§10) — entregable: Landing audit
 

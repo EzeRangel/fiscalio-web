@@ -142,7 +142,7 @@ Entregar los 19 elementos, todos documentados en este track:
 - [ ] `npm run lint` y `npx tsc --noEmit` pasan (WIP estabilizado).
 - [ ] Ningún evento del funnel se duplica y `purchase` es registrable.
 - [ ] Cada booking es atribuible a un anuncio (UTM/lead identifier preservado).
-- [ ] Cal.com: 15 min, timezone, reminders, redirect y preguntas de qualification verificados.
+- [x] Cal.com: 15 min, timezone, reminders, redirect y preguntas de qualification verificados.
 - [ ] Landing, Cal.com y tracking audits documentados en este track.
 - [ ] Campaign Launch Pack completo (19 entregables) dentro de este track.
 - [ ] Tabla de experimentación creada y operativa durante la campaña.
