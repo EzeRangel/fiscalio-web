@@ -33,6 +33,7 @@ Mecanismos de soporte en `lib/analytics.ts`:
 - `rememberCampaignParams()` / `getCampaignParams()` — captura utm_* + `fbclid`/`gclid` al cargar la landing (sessionStorage) y los re-adjunta a **todos** los eventos posteriores, incluido `booking` en `/gracias` (cuya URL ya no trae UTMs).
 - `markTrackedOnce(key, persistent?)` — dedupe por pestaña (session) o por navegador (local).
 - `forwardQueryParams` del embed de Cal activado en `cal-embed.tsx`: los UTMs de la landing se propagan al iframe del booker (requisito para que Cal pueda guardarlos).
+- **Redirect post-booking** en `cal-embed.tsx`: 800 ms después de `bookingSuccessfulV2` navega a `/demo-resico/gracias?uid=<booking_uid>`. Sustituye el *Redirect on booking* de Cal.com (feature de planes de pago). Se usa navegación completa (`window.location.assign`, no `router.push`) para descartar el modal inyectado por Cal en `document.body` y para que GA4 registre el `page_view` de `/gracias`; el delay deja que se vea la pantalla de confirmación y que GA4/Meta drenen los hits antes de salir.
 
 ## 3. Definiciones de conversión
 
@@ -62,7 +63,7 @@ final y reglas en `campaign-launch-pack.md` (Phase 5).
 - [ ] CAPI no implementado: sin dedupe server-side (limitación documentada, §7)
 
 **Cal.com:**
-- [ ] Configurar *Success redirect URL* del evento → `https://www.fiscalio.app/demo-resico/gracias` (verificado 2026-10-05: **no está configurado**, el modal no redirige y el usuario nunca ve la página de instrucciones post-booking)
+- [x] Redirect de éxito a `https://www.fiscalio.app/demo-resico/gracias` — verificado 2026-10-05: **no estaba configurado** y no se puede configurar en el plan actual (la opción *Redirect on booking* del evento está detrás de planes de pago). Resuelto en código 2026-10-06 en `components/cal-embed.tsx` (callback `bookingSuccessfulV2` → redirect a `/demo-resico/gracias?uid=`). *Pendiente de verificación manual: booking de prueba real ⇒ llega a `/gracias` en desktop y móvil*
 - [ ] Verificar con un booking de prueba si Cal guarda los UTMs que llegan en la URL del iframe (Phase 2)
 - [ ] Confirmar `booking_uid` visible en el export de reservas (llave de join Cal ⇄ GA4)
 

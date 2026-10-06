@@ -26,11 +26,11 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 
 ## Phase 2: Cal.com audit (§11–12) — entregable: Cal.com audit
 
-- [ ] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
-- [ ] Task: Verificar confirmación, reminders y redirect de éxito a `/demo-resico/gracias` — **hallazgo Phase 1: el redirect NO está configurado** (el modal no redirige; configurarlo en Cal.com → *Success redirect URL* = `https://www.fiscalio.app/demo-resico/gracias`; sin él el usuario nunca ve la página de instrucciones post-booking)
-- [ ] Task: Instrucciones previas también en el email de Cal.com (ingresos del mes + CFDIs; sin e.firma ni contraseñas)
-- [ ] Task: Configurar preguntas de qualification (RESICO sí/no/no-seguro · qué revisar · preocupación de research)
-- [ ] Task: Revisar experiencia móvil del booking
+- [x] Task: Verificar evento `ezerangel/demo-fiscalio`: 15 min, timezone, buffer, cupo semanal
+- [ ] Task: Verificar confirmación y reminders de Cal.com (email de confirmación + recordatorios) — el redirect de éxito a `/demo-resico/gracias` quedó **resuelto en código** (`components/cal-embed.tsx`: 800 ms después de `bookingSuccessfulV2` navega a `/demo-resico/gracias?uid=`), porque la opción *Redirect on booking* de Cal.com está en planes de pago y la config. queda bloqueada. Pendiente: booking de prueba real en desktop y móvil que confirme el redirect + confirmación/reminders en el correo
+- [x] Task: Instrucciones previas también en el email de Cal.com (ingresos del mes + CFDIs; sin e.firma ni contraseñas)
+- [x] Task: Configurar preguntas de qualification (RESICO sí/no/no-seguro · qué revisar · preocupación de research)
+- [x] Task: Revisar experiencia móvil del booking
 - [ ] Task: Escribir Cal.com audit
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)
 
