@@ -113,23 +113,34 @@ pieza.
 
 ## 5. Copy exacto de la landing (registro)
 
+> **Revisión de diseño (2026-10-07):** se rediseñó la página (misma oferta, misma
+> estructura de mensaje) y se afinó copy de apoyo. El H1 sigue siendo la oferta
+> **literal** de la spec y no se tocó el precio ni se añadió una segunda oferta.
+> El copy vigente es el de abajo; los hallazgos §6.1 y §6.2 siguen abiertos.
+
 Se congela aquí para detectar cambios durante el experimento (spec: no cambiar
 copy/landing y oferta a la vez sin registrar el cambio).
 
 - **Badge:** «Sesión gratuita · 15 minutos»
 - **H1:** «Prepara tu borrador de declaración mensual RESICO gratis en 15 minutos»
-- **Subtítulo:** «En una llamada de 15 minutos revisamos tu situación y preparamos
-  el borrador de tu declaración mensual con tus propios CFDIs. Ves el resultado
-  real — ISR, IVA, retenciones — y decides. Sin compromiso.»
+- **Subtítulo:** «En una videollamada de 15 minutos revisamos tu situación y
+  preparamos el borrador de tu declaración mensual con tus propios CFDIs. Ves el
+  resultado real — ISR, IVA, retenciones — y decides. Sin compromiso.»
+- **Ficha de la sesión:** duración 15 minutos · formato videollamada (Google Meet)
+  · costo $0 MXN · te llevas tu borrador RESICO del mes · trae tus CFDIs o el
+  resumen del mes · no necesitas e.firma ni contraseñas
 - **CTA hero:** «Preparar mi borrador gratis»
 - **Esto es para ti si:** RESICO (clave 626) · contabilidad propia o ayuda externa
   · no terminas de saber si estás declarando bien
-- **Qué pasa en la llamada:** 1) Revisamos tu situación · 2) Preparamos tu
-  borrador con Fiscalio · 3) Te llevas el resultado
-- **Qué necesitas preparar:** ingresos del mes · CFDIs (XML/PDF) o resumen ·
-  «Nada más: no necesitas contraseñas ni e.firma»
+- **Qué pasa en los 15 minutos:** 1) Me cuentas tu situación (00:00–05:00) ·
+  2) Corremos tu borrador (05:00–11:00) · 3) Te llevas tu resultado (11:00–15:00)
+- **Qué necesitas preparar:** «Trae esto» (ingresos del mes · CFDIs XML/PDF o
+  resumen · cinco minutos para la videollamada) y «Y no hace falta» (e.firma ni
+  contraseñas · subir datos a la nube · tener los números perfectos)
 - **Gratuita y sin compromiso:** «La sesión no tiene costo. Al terminar te llevas
-  tu borrador y decides con calma. No hay presión ni letra chica.»
+  tu borrador y decides con calma. No hay presión ni letra chica.» + sin tarjeta ·
+  sin contraseñas ni e.firma · sin obligación de comprar
+- **CTA mid-funnel:** «Agendar mis 15 minutos»
 - **CTA final:** «Agendar mi sesión gratuita» (tras «Las llamadas son limitadas
   por semana…»)
 
@@ -141,7 +152,7 @@ copy/landing y oferta a la vez sin registrar el cambio).
 | 2 | El copy dice «Las llamadas son limitadas por semana», pero el evento de Cal es `UNLIMITED` (sin cupo, `cal-audit.md` §1) | baja | Alinear: o se fija un cupo semanal en Cal, o se suaviza el copy. De facto la capacidad es de una persona, pero la afirmación hoy no está respaldada por la config |
 | 3 | `APP_URL` por defecto es `https://fiscalio.app` (sin `www`) mientras `metadataBase` es `https://www.fiscalio.app` | baja | En prod el OG puede quedar en `fiscalio.app` y el canonical en `www.fiscalio.app`; unificar dominio en la var de entorno |
 | 4 | Ángulos B (trabajo manual) y C (miedo a equivocarse) no están literales en la landing | info | Intencional: la landing es agnóstica al ángulo. Confirmar en Phase 5 que su copy no promete más de lo que la página sostiene |
-| 5 | La landing menciona «llamada» mientras la sesión es por Google Meet | info | Sin acción; queda claro con el email de Cal (que sí lo indica) |
+| 5 | La landing decía «llamada»; el rediseño (2026-10-07) la cambió a «videollamada» (Google Meet) | cerrado | ✅ copy actualizado en el rediseño |
 | 6 | `noindex, nofollow` en la landing | info | Intencional (tráfico pagado); no afecta la vista previa del anuncio |
 | 7 | Verificación en móvil del render de la landing (jerarquía, CTA, ancho del H1) | baja | Manual antes de lanzar; el layout es responsive (clases `sm/lg`), pendiente de confirmación visual |
 

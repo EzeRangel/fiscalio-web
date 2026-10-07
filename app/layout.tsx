@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { PUBLIC_GA_ID, PUBLIC_META_PIXEL_ID } from "@/lib/constants";
 import "./globals.css";
 import Link from "next/link";
-import Footer from "@/components/footer";
+import { FooterGate } from "@/components/footer-gate";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,7 +77,7 @@ fbq('track', 'PageView');`,
       >
         {children}
         <Toaster />
-        <Footer />
+        <FooterGate />
       </body>
     </html>
   );
