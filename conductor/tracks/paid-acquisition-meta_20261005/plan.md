@@ -36,10 +36,10 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 
 ## Phase 3: Landing audit (§10) — entregable: Landing audit
 
-- [ ] Task: Revisar correspondencia ad → problema → oferta → landing → agenda en `/demo-resico`
-- [ ] Task: Checklist: qué es la sesión / quién / qué se revisa / qué preparar / duración / gratuita / qué pasa después
-- [ ] Task: Verificar OG/imagen y consistencia de mensaje con los creativos
-- [ ] Task: Escribir Landing audit
+- [x] Task: Revisar correspondencia ad → problema → oferta → landing → agenda en `/demo-resico` (2134433)
+- [x] Task: Checklist: qué es la sesión / quién / qué se revisa / qué preparar / duración / gratuita / qué pasa después (2134433)
+- [x] Task: Verificar OG/imagen y consistencia de mensaje con los creativos (2134433)
+- [x] Task: Escribir Landing audit (2134433)
 
 ## Phase 4: Research GTM (§18–19) — entregable: Research notes
 
