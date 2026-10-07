@@ -8,6 +8,7 @@ Audits:
 
 - [Tracking / GA4 / Meta](./tracking-audit.md)
 - [Cal.com](./cal-audit.md)
+- [Landing](./landing-audit.md)
 
 Pregunta central del experimento:
 
