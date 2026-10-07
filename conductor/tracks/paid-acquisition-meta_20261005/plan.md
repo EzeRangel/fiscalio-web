@@ -34,7 +34,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Escribir Cal.com audit (7878137)
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md) (fd7de2a)
 
-## Phase 3: Landing audit (§10) — entregable: Landing audit
+## Phase 3: Landing audit (§10) — entregable: Landing audit (Checkpoint: 0f34861)
 
 - [x] Task: Revisar correspondencia ad → problema → oferta → landing → agenda en `/demo-resico` (2134433)
 - [x] Task: Checklist: qué es la sesión / quién / qué se revisa / qué preparar / duración / gratuita / qué pasa después (2134433)
