@@ -117,6 +117,7 @@ pieza.
 > estructura de mensaje) y se afinó copy de apoyo. El H1 sigue siendo la oferta
 > **literal** de la spec y no se tocó el precio ni se añadió una segunda oferta.
 > El copy vigente es el de abajo; los hallazgos §6.1 y §6.2 siguen abiertos.
+> **Diseño aprobado por el usuario el 2026-10-07** (commit `5cd8788`).
 
 Se congela aquí para detectar cambios durante el experimento (spec: no cambiar
 copy/landing y oferta a la vez sin registrar el cambio).
