@@ -51,20 +51,20 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 
 ## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md`
 
-- [ ] Task: Hipótesis de campaña (H1/H2/H3 ↔ eventos medidos)
-- [ ] Task: Audience strategy + recomendación de targeting
-- [ ] Task: Campaign structure (1 campaña / 1 conjunto / 3–4 creativos)
-- [ ] Task: Budget allocation ($1,000; $100–150/día ~1 semana; reglas de ajuste)
-- [ ] Task: Creative strategy + formatos/dimensiones de cada creativo
-- [ ] Task: Copy final Ángulo A (incertidumbre)
-- [ ] Task: Copy final Ángulo B (trabajo manual)
-- [ ] Task: Copy final Ángulo C (miedo a equivocarse)
-- [ ] Task: Ángulo D founder-led — video vertical 20–30 s (guion optimizado, grabación, edición)
-- [ ] Task: Convención UTM + definiciones de conversión
-- [ ] Task: Campos de qualification (respaldar F2)
-- [ ] Task: Plan de experimentación + tabla de registro (incluye columna `Known person?`)
-- [ ] Task: Checklist de monitoreo diario + decision rules
-- [ ] Task: Template de análisis post-campaña + recomendaciones por resultado
+- [x] Task: Hipótesis de campaña (H1/H2/H3 ↔ eventos medidos) (a2f46e3)
+- [x] Task: Audience strategy + recomendación de targeting (a2f46e3)
+- [x] Task: Campaign structure (1 campaña / 1 conjunto / 3–4 creativos) (a2f46e3)
+- [x] Task: Budget allocation ($1,000; $100–150/día ~1 semana; reglas de ajuste) (a2f46e3)
+- [x] Task: Creative strategy + formatos/dimensiones de cada creativo (a2f46e3)
+- [x] Task: Copy final Ángulo A (incertidumbre) (a2f46e3)
+- [x] Task: Copy final Ángulo B (trabajo manual) (a2f46e3)
+- [x] Task: Copy final Ángulo C (miedo a equivocarse) (a2f46e3)
+- [x] Task: Ángulo D founder-led — video vertical 20–30 s (guion optimizado, grabación, edición) (a2f46e3)
+- [x] Task: Convención UTM + definiciones de conversión (a2f46e3)
+- [x] Task: Campos de qualification (respaldar F2) (a2f46e3)
+- [x] Task: Plan de experimentación + tabla de registro (incluye columna `Known person?`) (a2f46e3)
+- [x] Task: Checklist de monitoreo diario + decision rules (a2f46e3)
+- [x] Task: Template de análisis post-campaña + recomendaciones por resultado (a2f46e3)
 - [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol en workflow.md)
 
 ## Phase 6: Lanzamiento y operación
