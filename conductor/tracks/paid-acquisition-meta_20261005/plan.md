@@ -43,11 +43,11 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 
 ## Phase 4: Research GTM (§18–19) — entregable: Research notes
 
-- [ ] Task: Meta Ads MX — formatos, Reels/Stories/Feed, tracking, optimización, presupuesto pequeño
-- [ ] Task: Audiencia MX freelancers/RESICO — tamaño, intereses disponibles, limitaciones, broad vs intereses
-- [ ] Task: Competencia (contadores RESICO, software fiscal, servicios de declaración) — hooks/ofertas/CTA/pricing/objeciones
-- [ ] Task: Creative research (servicios fiscales, SaaS B2C/B2SMB, founder-led, educación fiscal MX)
-- [ ] Task: Documentar señales que justificarían una prueba en Google Search (§19)
+- [x] Task: Meta Ads MX — formatos, Reels/Stories/Feed, tracking, optimización, presupuesto pequeño (6e68f71)
+- [x] Task: Audiencia MX freelancers/RESICO — tamaño, intereses disponibles, limitaciones, broad vs intereses (6e68f71)
+- [x] Task: Competencia (contadores RESICO, software fiscal, servicios de declaración) — hooks/ofertas/CTA/pricing/objeciones (6e68f71)
+- [x] Task: Creative research (servicios fiscales, SaaS B2C/B2SMB, founder-led, educación fiscal MX) (6e68f71)
+- [x] Task: Documentar señales que justificarían una prueba en Google Search (§19) (6e68f71)
 
 ## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md`
 
