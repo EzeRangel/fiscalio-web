@@ -49,7 +49,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Creative research (servicios fiscales, SaaS B2C/B2SMB, founder-led, educación fiscal MX) (6e68f71)
 - [x] Task: Documentar señales que justificarían una prueba en Google Search (§19) (6e68f71)
 
-## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md`
+## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md` (Checkpoint: 53136f3)
 
 - [x] Task: Hipótesis de campaña (H1/H2/H3 ↔ eventos medidos) (a2f46e3)
 - [x] Task: Audience strategy + recomendación de targeting (a2f46e3)
@@ -65,7 +65,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Plan de experimentación + tabla de registro (incluye columna `Known person?`) (a2f46e3)
 - [x] Task: Checklist de monitoreo diario + decision rules (a2f46e3)
 - [x] Task: Template de análisis post-campaña + recomendaciones por resultado (a2f46e3)
-- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol en workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 5' (Protocol en workflow.md) (53136f3)
 
 ## Phase 6: Lanzamiento y operación
 
