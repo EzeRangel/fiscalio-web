@@ -41,7 +41,7 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Verificar OG/imagen y consistencia de mensaje con los creativos (2134433)
 - [x] Task: Escribir Landing audit (2134433)
 
-## Phase 4: Research GTM (§18–19) — entregable: Research notes
+## Phase 4: Research GTM (§18–19) — entregable: Research notes (Checkpoint: 70e3e17)
 
 - [x] Task: Meta Ads MX — formatos, Reels/Stories/Feed, tracking, optimización, presupuesto pequeño (6e68f71)
 - [x] Task: Audiencia MX freelancers/RESICO — tamaño, intereses disponibles, limitaciones, broad vs intereses (6e68f71)
