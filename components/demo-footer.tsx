@@ -6,7 +6,7 @@ export function DemoFooter() {
       <div className="container mx-auto max-w-6xl px-6 lg:px-12 py-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white p-1">
+            <div className="bg-white p-1 rounded-sm">
               <Image
                 src="/logo.png"
                 width={20}

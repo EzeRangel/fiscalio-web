@@ -41,7 +41,7 @@ const ficha: { label: string; value: string; tone?: "accent" | "muted" }[] = [
   { label: "Formato", value: "Videollamada · Google Meet" },
   { label: "Costo", value: "$0 MXN", tone: "accent" },
   { label: "Te llevas", value: "Tu borrador RESICO del mes" },
-  { label: "Trae", value: "Tus CFDIs o el resumen del mes" },
+  { label: "Trae", value: "Tus CFDIs del mes" },
   { label: "No necesitas", value: "e.firma ni contraseñas", tone: "muted" },
 ];
 
@@ -55,7 +55,7 @@ const ticker = [
 
 const profiles = [
   {
-    title: "Facturas bajo RESICO (clave 626)",
+    title: "Facturas bajo RESICO",
     desc: "Estás dado de alta y presentas pagos mensuales de ISR e IVA.",
   },
   {
@@ -88,7 +88,7 @@ const timeline = [
 
 const bring = [
   "Los ingresos que cobraste este mes",
-  "Tus CFDIs (XML o PDF) o el resumen con el que declaras",
+  "Tus CFDIs (XML) y el resumen con el que declaras",
   "Cinco minutos para entrar a la videollamada",
 ];
 
@@ -187,10 +187,9 @@ function FichaCard() {
 
       <a
         href="#reserva"
-        className="flex items-center justify-between px-5 py-3 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:text-foreground"
+        className="flex items-center justify-center px-5 py-3 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:text-foreground"
       >
         <span>Cupo semanal limitado</span>
-        <span className="text-accent-rust">↓ Reserva abajo</span>
       </a>
     </div>
   );
@@ -209,10 +208,6 @@ export default function DemoResicoPage() {
       <header className="border-b border-border">
         <div className="container mx-auto max-w-6xl px-6 lg:px-12 flex h-16 items-center justify-between">
           <Logo />
-          <span className="hidden sm:flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-rust" />
-            RESICO · ISR · IVA
-          </span>
         </div>
       </header>
 
@@ -246,8 +241,7 @@ export default function DemoResicoPage() {
                   <p className="text-sm lg:text-base text-muted-foreground leading-relaxed tracking-wide max-w-xl">
                     En una videollamada de 15 minutos revisamos tu situación y
                     preparamos el borrador de tu declaración mensual con tus
-                    propios CFDIs. Ves el resultado real — ISR, IVA, retenciones
-                    — y decides. Sin compromiso.
+                    propios CFDIs. Ves el resultado real; ISR, IVA, retenciones y decides. Sin compromiso.
                   </p>
                 </Reveal>
 
@@ -257,24 +251,6 @@ export default function DemoResicoPage() {
                       url={CAL_COM_DEMO_URL}
                       label="Preparar mi borrador gratis"
                     />
-                    <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground">
-                      Sin tarjeta · Sin e.firma · Sin compromiso
-                    </span>
-                  </div>
-                </Reveal>
-
-                <Reveal delay={0.2}>
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center border border-border font-mono text-[10px] tracking-wider text-muted-foreground">
-                      EZ
-                    </span>
-                    <p className="text-[11px] leading-snug text-muted-foreground">
-                      Te atiende{" "}
-                      <span className="text-foreground">
-                        Ezequiel, fundador de Fiscalio
-                      </span>
-                      . No un equipo de ventas.
-                    </p>
                   </div>
                 </Reveal>
               </div>
@@ -292,7 +268,7 @@ export default function DemoResicoPage() {
 
         <div className="border-b border-border bg-foreground text-background">
           <div className="container mx-auto max-w-6xl px-6 lg:px-12 py-3">
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.2em] uppercase text-background/70">
+            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] tracking-[0.2em] uppercase text-background/70">
               {ticker.map((item, i) => (
                 <li key={item} className="flex items-center gap-5">
                   {i > 0 ? (
@@ -338,12 +314,6 @@ export default function DemoResicoPage() {
         </section>
 
         <section className="relative overflow-hidden bg-foreground text-background">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -bottom-20 -right-4 select-none font-display text-[18rem] font-bold leading-none text-background/[0.05]"
-          >
-            15
-          </span>
           <div className="container relative z-10 mx-auto max-w-6xl px-6 lg:px-12 py-16 lg:py-24">
             <div className="grid grid-cols-1 gap-6 border-b border-background/15 pb-10 lg:grid-cols-12 lg:pb-14">
               <div className="lg:col-span-4">
@@ -363,7 +333,7 @@ export default function DemoResicoPage() {
             </div>
 
             <div className="relative mt-12 lg:mt-16">
-              <div className="absolute left-0 right-0 top-3 hidden h-px bg-background/20 lg:block" />
+              {/* <div className="absolute left-0 right-0 top-3 hidden h-px bg-background/20 lg:block" /> */}
               <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8">
                 {timeline.map((step, i) => (
                   <Reveal
@@ -374,10 +344,7 @@ export default function DemoResicoPage() {
                     <div className="flex items-center gap-3">
                       <span
                         className={cn(
-                          "flex h-6 w-6 items-center justify-center border font-mono text-[10px]",
-                          i === 2
-                            ? "border-accent-amber text-accent-amber"
-                            : "border-background/30 text-background/60",
+                          "flex h-6 w-6 items-center justify-center border font-mono text-[10px] border-background/30 text-background/60",
                         )}
                       >
                         {`0${i + 1}`}
@@ -505,11 +472,6 @@ export default function DemoResicoPage() {
                     Las llamadas son limitadas por semana. Si hay espacio
                     disponible, elige el horario que mejor te funcione.
                   </p>
-                  <div className="flex flex-wrap gap-x-5 gap-y-2 pt-2 font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-                    <span>Gratis</span>
-                    <span>15 min</span>
-                    <span>Google Meet</span>
-                  </div>
                 </div>
 
                 <div className="flex flex-col items-start justify-center gap-4 bg-muted/40 p-8 lg:col-span-5 lg:p-12">
