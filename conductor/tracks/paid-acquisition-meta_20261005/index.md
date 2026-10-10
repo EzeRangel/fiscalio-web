@@ -8,6 +8,20 @@ Audits:
 
 - [Tracking / GA4 / Meta](./tracking-audit.md)
 - [Cal.com](./cal-audit.md)
+- [Landing](./landing-audit.md)
+
+Research (Fase 4):
+
+- [Research notes (F4.1–F4.5)](../../../docs/paid-acquisition-meta_20261005/research-notes.md)
+  - [Meta Ads MX](../../../docs/paid-acquisition-meta_20261005/research/01-meta-ads-mx.md)
+  - [Audiencia MX](../../../docs/paid-acquisition-meta_20261005/research/02-audiencia-mx.md)
+  - [Competencia](../../../docs/paid-acquisition-meta_20261005/research/03-competencia.md)
+  - [Creative](../../../docs/paid-acquisition-meta_20261005/research/04-creative.md)
+  - [Señales Google Search](../../../docs/paid-acquisition-meta_20261005/research/05-google-search.md)
+
+Launch Pack (Fase 5):
+
+- [Campaign Launch Pack](../../../docs/paid-acquisition-meta_20261005/campaign-launch-pack.md)
 
 Pregunta central del experimento:
 

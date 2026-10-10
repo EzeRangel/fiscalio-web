@@ -34,38 +34,38 @@ Regla del experimento: descubrir si Meta funciona y por qué, no demostrar que f
 - [x] Task: Escribir Cal.com audit (7878137)
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md) (fd7de2a)
 
-## Phase 3: Landing audit (§10) — entregable: Landing audit
+## Phase 3: Landing audit (§10) — entregable: Landing audit (Checkpoint: 0f34861)
 
-- [ ] Task: Revisar correspondencia ad → problema → oferta → landing → agenda en `/demo-resico`
-- [ ] Task: Checklist: qué es la sesión / quién / qué se revisa / qué preparar / duración / gratuita / qué pasa después
-- [ ] Task: Verificar OG/imagen y consistencia de mensaje con los creativos
-- [ ] Task: Escribir Landing audit
+- [x] Task: Revisar correspondencia ad → problema → oferta → landing → agenda en `/demo-resico` (2134433)
+- [x] Task: Checklist: qué es la sesión / quién / qué se revisa / qué preparar / duración / gratuita / qué pasa después (2134433)
+- [x] Task: Verificar OG/imagen y consistencia de mensaje con los creativos (2134433)
+- [x] Task: Escribir Landing audit (2134433)
 
-## Phase 4: Research GTM (§18–19) — entregable: Research notes
+## Phase 4: Research GTM (§18–19) — entregable: Research notes (Checkpoint: 70e3e17)
 
-- [ ] Task: Meta Ads MX — formatos, Reels/Stories/Feed, tracking, optimización, presupuesto pequeño
-- [ ] Task: Audiencia MX freelancers/RESICO — tamaño, intereses disponibles, limitaciones, broad vs intereses
-- [ ] Task: Competencia (contadores RESICO, software fiscal, servicios de declaración) — hooks/ofertas/CTA/pricing/objeciones
-- [ ] Task: Creative research (servicios fiscales, SaaS B2C/B2SMB, founder-led, educación fiscal MX)
-- [ ] Task: Documentar señales que justificarían una prueba en Google Search (§19)
+- [x] Task: Meta Ads MX — formatos, Reels/Stories/Feed, tracking, optimización, presupuesto pequeño (6e68f71)
+- [x] Task: Audiencia MX freelancers/RESICO — tamaño, intereses disponibles, limitaciones, broad vs intereses (6e68f71)
+- [x] Task: Competencia (contadores RESICO, software fiscal, servicios de declaración) — hooks/ofertas/CTA/pricing/objeciones (6e68f71)
+- [x] Task: Creative research (servicios fiscales, SaaS B2C/B2SMB, founder-led, educación fiscal MX) (6e68f71)
+- [x] Task: Documentar señales que justificarían una prueba en Google Search (§19) (6e68f71)
 
-## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md`
+## Phase 5: Campaign Launch Pack (§20) — entregable: `campaign-launch-pack.md` (Checkpoint: 53136f3)
 
-- [ ] Task: Hipótesis de campaña (H1/H2/H3 ↔ eventos medidos)
-- [ ] Task: Audience strategy + recomendación de targeting
-- [ ] Task: Campaign structure (1 campaña / 1 conjunto / 3–4 creativos)
-- [ ] Task: Budget allocation ($1,000; $100–150/día ~1 semana; reglas de ajuste)
-- [ ] Task: Creative strategy + formatos/dimensiones de cada creativo
-- [ ] Task: Copy final Ángulo A (incertidumbre)
-- [ ] Task: Copy final Ángulo B (trabajo manual)
-- [ ] Task: Copy final Ángulo C (miedo a equivocarse)
-- [ ] Task: Ángulo D founder-led — video vertical 20–30 s (guion optimizado, grabación, edición)
-- [ ] Task: Convención UTM + definiciones de conversión
-- [ ] Task: Campos de qualification (respaldar F2)
-- [ ] Task: Plan de experimentación + tabla de registro (incluye columna `Known person?`)
-- [ ] Task: Checklist de monitoreo diario + decision rules
-- [ ] Task: Template de análisis post-campaña + recomendaciones por resultado
-- [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol en workflow.md)
+- [x] Task: Hipótesis de campaña (H1/H2/H3 ↔ eventos medidos) (a2f46e3)
+- [x] Task: Audience strategy + recomendación de targeting (a2f46e3)
+- [x] Task: Campaign structure (1 campaña / 1 conjunto / 3–4 creativos) (a2f46e3)
+- [x] Task: Budget allocation ($1,000; $100–150/día ~1 semana; reglas de ajuste) (a2f46e3)
+- [x] Task: Creative strategy + formatos/dimensiones de cada creativo (a2f46e3)
+- [x] Task: Copy final Ángulo A (incertidumbre) (a2f46e3)
+- [x] Task: Copy final Ángulo B (trabajo manual) (a2f46e3)
+- [x] Task: Copy final Ángulo C (miedo a equivocarse) (a2f46e3)
+- [x] Task: Ángulo D founder-led — video vertical 20–30 s (guion optimizado, grabación, edición) (a2f46e3)
+- [x] Task: Convención UTM + definiciones de conversión (a2f46e3)
+- [x] Task: Campos de qualification (respaldar F2) (a2f46e3)
+- [x] Task: Plan de experimentación + tabla de registro (incluye columna `Known person?`) (a2f46e3)
+- [x] Task: Checklist de monitoreo diario + decision rules (a2f46e3)
+- [x] Task: Template de análisis post-campaña + recomendaciones por resultado (a2f46e3)
+- [x] Task: Conductor - User Manual Verification 'Phase 5' (Protocol en workflow.md) (53136f3)
 
 ## Phase 6: Lanzamiento y operación
 

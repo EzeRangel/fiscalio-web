@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { DemoFooter } from "@/components/demo-footer";
 import { BookingView } from "./booking-view";
 import { Check } from "lucide-react";
 
@@ -88,6 +89,8 @@ export default function DemoResicoGraciasPage() {
           </div>
         </section>
       </main>
+
+      <DemoFooter />
     </div>
   );
 }

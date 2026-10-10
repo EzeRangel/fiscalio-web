@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { trackEvent, markTrackedOnce } from "@/lib/analytics";
 import { trackBookingOnce } from "@/lib/booking-tracking";
+import { cn } from "@/lib/utils";
 
 import { getCalApi } from "@calcom/embed-react";
 import { Button } from "./ui/button";
@@ -12,6 +13,7 @@ interface CalEmbedProps {
   label: string;
   placement?: string;
   onInteract?: () => void;
+  className?: string;
 }
 
 let pendingPlacement = "hero";
@@ -25,6 +27,7 @@ export default function CalEmbed({
   label,
   placement = "hero",
   onInteract,
+  className,
 }: CalEmbedProps) {
   useEffect(() => {
     (async function () {
@@ -77,7 +80,10 @@ export default function CalEmbed({
       data-cal-link="ezerangel/demo-fiscalio"
       data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
       size="lg"
-      className="rounded-none text-xs tracking-[0.15em] uppercase h-12 px-8"
+      className={cn(
+        "rounded-none text-xs tracking-[0.15em] uppercase h-12 px-8",
+        className,
+      )}
     >
       <Calendar className="h-4 w-4 mr-2" />
       {label}
