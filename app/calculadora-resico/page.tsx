@@ -149,7 +149,7 @@ export default function CalculatorPage() {
                     href="/blog/cuanto-debo-pagar-resico"
                     className="underline decoration-primary underline-offset-4"
                   >
-                    revisa nuestro módelo de las tres bóvedas
+                    revisa nuestro modelo de las tres bóvedas
                   </Link>{" "}
                   para saber realmente cuánto debes pagar de impuestos.
                 </p>

@@ -25,6 +25,12 @@ const CONTEXTUAL_COPY: Record<
   string,
   { title: string; description: string; buttonText: string }
 > = {
+  modelo_3_bovedas: {
+    title: "Separa cada depósito en 3 bóvedas",
+    description:
+      "Únete a la beta privada de Fiscalio y calcula el IVA, el ISR y tu Neto Real de cada cobro. Lo que queda en tu cuenta principal ya es tuyo.",
+    buttonText: "Unirme a la beta privada",
+  },
   blog_sat_no_precarga: {
     title: "Evita los errores del SAT",
     description:
