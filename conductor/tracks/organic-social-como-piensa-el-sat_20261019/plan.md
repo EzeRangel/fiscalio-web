@@ -5,6 +5,10 @@ Estados: `[ ]` pendiente · `[~]` en progreso · `[x]` completado (adjuntar hash
 Regla de la campaña: awareness y enseñanza. Un modelo mental por semana. El
 orgánico no vende: hace entendible lo que la categoría explica con miedo.
 
+> **¿Vas a empezar la semana 2?** Lee primero
+> [`handoff-semana-02.md`](handoff-semana-02.md): es autosuficiente y contiene el
+> estado real, las decisiones que faltan y la definición de terminado.
+
 ## Phase 0: Fundaciones de contenido
 
 - [x] Task: Escribir el registro de modelos mentales [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md) (frase ancla, origen, objeto visual, `source`, CTA, UTM)
@@ -27,6 +31,8 @@ orgánico no vende: hace entendible lo que la categoría explica con miedo.
 
 ## Phase 2: Semanas 2–3 (26 oct – 6 nov)
 
+- [x] Task: Handoff autosuficiente para la semana 2 — [`handoff-semana-02.md`](handoff-semana-02.md)
+- [ ] Task: Semana 2 — resolver las 2 decisiones abiertas del handoff (§6.1 retención de IVA `0.106667` vs 2/3; §6.2 ISR retenido vs ISR propio) con el usuario
 - [ ] Task: Semana 2 — modelo «Lo que te retienen ya es un pago a cuenta» (carrusel bandera + apoyo + conversación). Es la secuela prometida en la placa 5 de la semana 1: mismo ejemplo de $50,000, mismo objeto visual, ahora con cliente persona moral. Destino: `/calculadora-resico/retenciones`, `source` `modelo_retenciones`
 - [ ] Task: Semana 2 — verificar y decidir la presentación de la retención de IVA (`RETENCION_IVA_PM: 0.106667` vs 2/3 exacto) antes de publicar la cifra
 - [ ] Task: Semana 2 — registro y lectura de guardados/compartidos
