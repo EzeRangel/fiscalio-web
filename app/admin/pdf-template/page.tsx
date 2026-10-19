@@ -1,11 +1,5 @@
 import Image from "next/image";
-import { DM_Sans } from "next/font/google";
 import { Metadata } from "next";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
 
 export const metadata: Metadata = {
   title:
@@ -126,7 +120,7 @@ export default function PDFTemplate() {
           <Image src="/logo.png" width={80} height={80} alt="Logo" />
           <div className="text-center space-y-4">
             <h1
-              className={`text-7xl font-bold tracking-tighter ${dmSans.className}`}
+              className="text-7xl font-bold tracking-tighter font-display"
             >
               Guía Práctica <br />
               <span className="text-accent-rust">RESICO</span>
@@ -973,7 +967,7 @@ export default function PDFTemplate() {
               CONCLUSIÓN
             </div>
             <p
-              className={`text-3xl font-bold tracking-tighter ${dmSans.className}`}
+              className="text-3xl font-bold tracking-tighter font-display"
             >
               La claridad fiscal es una <br /> ventaja competitiva.
             </p>

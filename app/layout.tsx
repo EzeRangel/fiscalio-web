@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
@@ -8,22 +7,6 @@ import { PUBLIC_GA_ID, PUBLIC_META_PIXEL_ID } from "@/lib/constants";
 import "./globals.css";
 import Link from "next/link";
 import { FooterGate } from "@/components/footer-gate";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.fiscalio.app"),
@@ -73,7 +56,7 @@ fbq('track', 'PageView');`,
         </>
       ) : null}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} antialiased`}
+        className="antialiased"
       >
         {children}
         <Toaster />

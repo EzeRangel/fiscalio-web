@@ -1,11 +1,5 @@
 import Image from "next/image";
-import { DM_Sans } from "next/font/google";
 import { Metadata } from "next";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Fiscalio | Plantilla de Factura Extranjera Perfecta",
@@ -125,7 +119,7 @@ export default function PDFPreviewPage() {
           <Image src="/logo.png" width={80} height={80} alt="Logo" />
           <div className="text-center space-y-4">
             <h1
-              className={`text-6xl font-bold tracking-tighter ${dmSans.className}`}
+              className="text-6xl font-bold tracking-tighter font-display"
             >
               Plantilla de <br />
               <span className="text-accent-rust">Factura Extranjera</span>
