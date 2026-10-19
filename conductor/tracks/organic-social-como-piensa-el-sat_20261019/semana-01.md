@@ -52,7 +52,7 @@ Un modelo que lo simplifica: cada depósito se reparte en 3 bóvedas.
 Ejemplo en RESICO persona física: tu precio es $50,000 + IVA, así que te depositan $58,000.
 $8,000 van a la bóveda del IVA y $550 a la del ISR. ¿Y la tuya?
 
-Antes de ver la última imagen, escribe en los comentarios cuánto crees que te queda.
+Antes de hacer la cuenta, ¿cuánto dirías que te queda? Escríbelo en los comentarios.
 
 El hábito que lo cambia todo: el día que cobras, mueve IVA + ISR a otra cuenta. Lo que se queda en la principal ya es tuyo, y el día 17 llega sin sorpresas.
 
@@ -83,9 +83,21 @@ abrir solo al llegar, la pieza es de enseñanza.
 
 ## 4. Estructura del carrusel (aprobada)
 
-Ojo con el truco del collage: Facebook muestra las placas 1–4 y tapa la 5 con
-«+1». La tensión entre la pregunta (placa 2) y la respuesta (placa 5) es lo que
-empuja los comentarios.
+Ojo: el truco del collage **no funcionó**. Verificado el 2026-10-19 con este
+carrusel: Facebook mostró las **5 placas** y no tapó la última con «+1». Con 5
+imágenes en 4:5 el collage no oculta nada, así que el suspenso entre la pregunta
+(placa 2) y la respuesta (placa 5) no existe.
+
+**Decisión (2026-10-19):** publicar tal cual, sin re-render. Dos ajustes de copy
+para que funcione con todo visible:
+
+1. El reto pasó de *«Antes de ver la última imagen, escribe tu número»* a
+   *«Antes de hacer la cuenta, ¿cuánto dirías que te queda?»*: pide la intuición,
+   no el cálculo, y no depende de que algo esté oculto.
+2. El primer comentario asume que la respuesta ya se vio.
+
+Alternativa descartada por tiempo: publicar solo las placas 1–4 y subir la 5 como
+primer comentario con imagen.
 
 | Placa | Contenido |
 |---|---|
@@ -113,7 +125,7 @@ comentario.
 ## 6. Verificaciones pendientes antes de publicar
 
 - [ ] `https://fiscalio.app/calculadora-resico` responde en producción
-- [ ] Confirmar el collage con un post en borrador: **la placa 5 debe quedar tapada**. Si queda visible, se pasa la placa 4 a «$ ?» total o se publica la 5 como primer comentario con imagen
+- [x] Confirmar el collage con un post en borrador — **resuelto 2026-10-19: las 5 placas se ven, la última NO queda tapada.** Se publica tal cual y se ajustó el copy del reto (ver §4)
 - [ ] Subir las placas en orden `bovedas-1..5.png`
 - [ ] Portada del Reel: el cuadro 0 (el gancho)
 

@@ -136,13 +136,16 @@ plantilla de las semanas 2–6.
 
 Dos reglas que hacen que funcione:
 
-- **Truco del collage:** Facebook muestra las placas 1–4 y tapa la 5 con «+1».
-  La tensión entre el reto (placa 2) y la respuesta (placa 5) es lo que empuja
-  comentarios y taps. **Validar en borrador antes de publicar**; si la 5 queda
-  visible, se cierra la placa 4 en «$ ?» total o se publica la 5 como primer
-  comentario con imagen.
-- **La pregunta pide un número, no un «comenta SÍ».** Facebook castiga el cebo;
-  una pregunta real con respuesta calculable sí genera comentarios.
+- **El truco del collage no funcionó.** Verificado el 2026-10-19 con el carrusel
+  de la semana 1: Facebook mostró las 5 placas y **no** tapó la última con «+1».
+  Con 5 imágenes en 4:5 el collage no oculta nada.
+  **Regla para las semanas 2–6: no diseñar una pieza que dependa de que una placa
+  quede oculta.** El reto tiene que funcionar con todo a la vista, o hay que subir
+  el número de placas hasta que Facebook use el «+N».
+- **La pregunta pide una intuición, no un «comenta SÍ».** Facebook castiga el cebo;
+  una pregunta real genera comentarios. Pero con todas las placas visibles, la
+  pregunta no puede ser «adivina el resultado»: pide *«antes de hacer la cuenta,
+  ¿cuánto dirías?»*, que sobrevive a que la respuesta esté a la vista.
 
 ## 5.1 Producción
 
