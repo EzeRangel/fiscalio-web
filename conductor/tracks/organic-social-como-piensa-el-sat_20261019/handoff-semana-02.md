@@ -6,6 +6,12 @@
 >
 > Estado: **listo para escribir copy.** Bloqueado solo por las 2 decisiones de §6.
 > Fecha de este handoff: 2026-10-19. HEAD: `937d7c6` (árbol limpio).
+>
+> **Actualización 2026-10-20 — terminología.** Donde este documento diga «ya está
+> pagado al SAT» o «ya le pagó al SAT por ti», leer **«te lo retuvieron»**. La
+> retención se **retiene** (el cliente aparta), se **entera** (el cliente la lleva
+> al SAT a tu nombre) y se **acredita** (tú la abonas en tu declaración). No es un
+> pago que hace el cliente: es un anticipo a tu cuenta.
 
 ---
 
@@ -20,7 +26,7 @@
 | **Cadencia** | 1 pieza bandera (carrusel) + 2 de apoyo por semana |
 | **Semana actual** | 2 de 6 · 26–30 de octubre de 2026 |
 | **Modelo de la semana** | Lo que te retienen ya es un pago a cuenta |
-| **Frase ancla** | *«Tu cliente ya le pagó al SAT por ti: 1.25% de ISR.»* |
+| **Frase ancla** | *«Lo que te retienen no es un cobro: es un anticipo.»* |
 | **Destino** | `/calculadora-resico/retenciones` |
 | **`source` nuevo** | `modelo_retenciones` (no existe todavía) |
 
@@ -127,9 +133,10 @@ Es el **mismo ejemplo de la semana 1**, ahora con cliente persona moral:
 | Retención de IVA | — | −$5,333.35 |
 | Tu ISR del mes | −$550.00 | −$550.00 |
 
-**El giro:** el depósito es menor, pero **no te falta dinero** — tu cliente ya le
-entregó $5,958.35 al SAT a tu nombre. La retención no es un cobro, es un
-**anticipo**. Estabas viendo un depósito más chico y creyendo que te pagaron menos.
+**El giro:** el depósito es menor, pero **no te falta dinero** — tu cliente
+**retuvo** $5,958.35 y los **entera** al SAT a tu nombre. La retención no es un
+cobro, es un **anticipo**. Estabas viendo un depósito más chico y creyendo que te
+pagaron menos.
 
 Ese es el «aha» y es **una sola idea**.
 

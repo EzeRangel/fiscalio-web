@@ -11,13 +11,19 @@ atribución. Cada pieza publicada se llena aquí.
 Distinta de la de paid (`utm_medium=paid_social`). **No usar `utm_term`.**
 
 ```
-utm_source   = facebook
+utm_source   = facebook | instagram
 utm_medium   = organic_social
 utm_campaign = como-piensa-el-sat
 utm_content  = modelo-<NN>-<slug>-<formato>
 ```
 
 `<formato>`: `reel` · `carrusel` · `estatico` · `conversacion`.
+
+**Instagram como espejo desde la semana 2.** Se publica el mismo arte y el mismo
+copy; lo único que cambia es el canal: `utm_source=instagram`. En Instagram los
+comentarios no son clicables, así que el destino va en la **bio** (y en sticker
+de Stories cuando aplique), no en el primer comentario. El `utm_content` no
+cambia: `utm_source` es lo que separa los dos canales.
 
 Ejemplo:
 `https://www.fiscalio.app/blog/pue-vs-ppd-diferencia-facturar-cobrar?source=blog_pue_vs_ppd&utm_source=facebook&utm_medium=organic_social&utm_campaign=como-piensa-el-sat&utm_content=modelo-04-facturado-cobrado-carrusel`
@@ -73,7 +79,7 @@ Todos derivados de contenido ya publicado en el blog. Un modelo por semana.
 | 5 | Estás jugando dos juegos: ISR e IVA | *"Las facturas ya no bajan tu ISR, pero sí bajan tu IVA."* | `deducciones-resico-isr` | Dos tableros | `/blog/deducciones-resico-isr` |
 | 3 | El IVA es un flujo, no un costo | *"No pagas IVA: lo transfieres."* | `calcular-isr-iva-resico` | Riel entradas / salidas | `/blog/calcular-isr-iva-resico` |
 | 6 | El SAT no copia, interpreta | *"El SAT no lee tus facturas: las interpreta."* | `porque-sat-no-precarga-facturas` | XML → filtro → renglón | `/blog/porque-sat-no-precarga-facturas` |
-| 9 | Lo que te retienen ya es un pago a cuenta | *"Tu cliente ya le pagó al SAT por ti: 1.25% de ISR."* | `CONTEXT.md` (retenciones) | Recibo de anticipo | `/calculadora-resico/retenciones` |
+| 9 | Lo que te retienen ya es un pago a cuenta | *"Lo que te retienen no es un cobro: es un anticipo."* | `CONTEXT.md` (retenciones) | 3 bóvedas + sello «retenido» | `/calculadora-resico/retenciones` |
 | 7 | Dos calendarios que no coinciden | *"Tu mes y el mes del SAT no empiezan el mismo día."* | `cuando-presentar-declaracion-mensual-resico` | Dos líneas de tiempo | `/blog/cuando-presentar-declaracion-mensual-resico` |
 | 8 | Declaras un mes que ya cerró | *"No estás reportando hoy: estás reportando el mes pasado."* | `como-hacer-declaracion-mensual-resico` | Calendario a mes vencido | `/blog/como-hacer-declaracion-mensual-resico` |
 | 10 | El IVA de tus gastos es dinero tuyo congelado | *"Pide factura y descongelas tu IVA."* | `deducciones-resico-isr` | IVA entrampado | `/blog/deducciones-resico-isr` |
@@ -113,11 +119,17 @@ de retenciones, con el mismo ejemplo de $50,000 y el mismo objeto visual de las 
 bóvedas. Sirve a la vez como secuela narrativa y como segundo toque del mismo
 modelo mental (que es lo que hace que se pegue).
 
-**Al preparar la semana 2, verificar:** con `lib/tax-constants.ts`, un subtotal de
-$50,000 facturado a persona moral da IVA $8,000, retención de ISR $625 (1.25%) y
-retención de IVA $5,333.35 (`RETENCION_IVA_PM: 0.106667`). Ojo: `0.106667` es una
-aproximación de 2/3; el valor exacto daría $5,333.33. Decidir la presentación (y si
-se ajusta la constante) antes de publicar la cifra.
+**Semana 2, decisión de cifras (2026-10-20):** con `lib/tax-constants.ts`, un
+subtotal de $50,000 facturado a persona moral da IVA $8,000, retención de ISR $625
+(1.25%) y retención de IVA $5,333.35 (`RETENCION_IVA_PM: 0.106667`); depósito
+$52,041.65. Se publican **esas** cifras, las que muestra el destino. La pieza **no
+cita la tasa**: el sitio muestra cuatro variantes (10.6%, 10.66%, 10.6667%,
+10.67%), así que el carrusel habla solo de montos. La corrección del motor a 2/3
+exacto queda como deuda técnica post-campaña.
+
+**Espejo en Instagram:** desde la semana 2 se publica el mismo arte y copy con
+`utm_source=instagram`; el link va en la bio. No cambia el calendario ni agrega
+piezas.
 
 ---
 
@@ -170,12 +182,12 @@ Una fila por semana. Se llena al cierre de cada semana.
 
 | Semana | Modelo | Alcance | Retención 3 s | Guardados | Compartidos | Clics al link | `waitlist_dialog_opened` | `waitlist_signup` | Notas |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | 3 bóvedas | | | | | | | | |
-| 2 | Facturado ≠ cobrado | | | | | | | | |
-| 3 | Dos juegos | | | | | | | | |
-| 4 | IVA es un flujo | | | | | | | | |
-| 5 | SAT interpreta | | | | | | | | |
-| 6 | Retenciones | | | | | | | | |
+| 1 | 3 bóvedas | | | | | | | | Carrusel y primer comentario publicados 19 oct 2026. Reel 21 oct y conversación 23 oct pendientes; métricas al cierre del 23 oct |
+| 2 | Retenciones | | | | | | | | |
+| 3 | Facturado ≠ cobrado | | | | | | | | |
+| 4 | Dos juegos | | | | | | | | |
+| 5 | IVA es un flujo | | | | | | | | |
+| 6 | SAT interpreta | | | | | | | | |
 
 **Lectura:** likes no son KPI. La señal de que un modelo funciona son
 **guardados y compartidos** (indican que el concepto se quedó y se quiso
@@ -191,6 +203,7 @@ reutilizando la infraestructura de
 - [ ] ¿Afirma o implica la situación financiera del espectador?
 - [ ] ¿Es **una sola** idea?
 - [ ] ¿La frase ancla está sola y se puede repetir de memoria?
+- [ ] ¿La terminología fiscal es precisa? **Retener** (el cliente aparta) ≠ **enterar** (el cliente lo lleva al SAT) ≠ **acreditar** (tú lo abonas en tu declaración). Nunca «ya está pagado al SAT»
 - [ ] ¿El link va en el primer comentario y **no** en el cuerpo?
 - [ ] ¿La URL lleva UTMs **y** `source` correctos?
 - [ ] ¿La cifra fiscal citada salió de `lib/tax-constants.ts`?

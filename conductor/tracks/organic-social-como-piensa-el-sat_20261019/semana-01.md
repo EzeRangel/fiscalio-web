@@ -79,6 +79,20 @@ Para el Reel, mismo link cambiando `utm_content` a
 modelo (§2 del [registro de modelos](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md)). **No** se usa `dialog=open`: el modal no debe
 abrir solo al llegar, la pieza es de enseñanza.
 
+### Post de conversación (viernes 23 oct)
+
+Sin link.
+
+```
+Pregunta para quien cobra por su trabajo: cuando cae un depósito, ¿sabes cuánto de ese dinero no es tuyo?
+
+Casi nadie lo sabe al principio. No porque sea complicado, sino porque nadie nos enseñó a separar un depósito.
+
+El modelo de esta semana: 3 bóvedas. IVA, ISR y la tuya.
+
+¿Cuál de las tres te costó más trabajo entender: la del IVA, la del ISR o la tuya?
+```
+
 ---
 
 ## 4. Estructura del carrusel (aprobada)
@@ -115,19 +129,19 @@ comentario.
 
 ## 5. Rutina de la primera hora
 
-- [ ] Responder **cada número** que comenten con su cálculo («Casi: te quedan $49,450 porque…»)
-- [ ] Compartir en 2–3 grupos de freelancers, devs y diseñadores MX **con una pregunta**, no con el link
-- [ ] Fijar un comentario propio con la nota de las retenciones (adelanto del próximo post)
-- [ ] Compartir desde el perfil personal del fundador
+- [x] Responder **cada número** que comenten con su cálculo («Casi: te quedan $49,450 porque…»)
+- [x] Compartir en 2–3 grupos de freelancers, devs y diseñadores MX **con una pregunta**, no con el link
+- [x] Fijar un comentario propio con la nota de las retenciones (adelanto del próximo post)
+- [x] Compartir desde el perfil personal del fundador
 
 ---
 
 ## 6. Verificaciones pendientes antes de publicar
 
-- [ ] `https://fiscalio.app/calculadora-resico` responde en producción
+- [x] `https://fiscalio.app/calculadora-resico` responde en producción
 - [x] Confirmar el collage con un post en borrador — **resuelto 2026-10-19: las 5 placas se ven, la última NO queda tapada.** Se publica tal cual y se ajustó el copy del reto (ver §4)
-- [ ] Subir las placas en orden `bovedas-1..5.png`
-- [ ] Portada del Reel: el cuadro 0 (el gancho)
+- [x] Subir las placas en orden `bovedas-1..5.png`
+- [x] Portada del Reel: el cuadro 0 (el gancho)
 
 ---
 
