@@ -1,5 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FacebookIcon, InstagramIcon } from "@/components/social-icons";
+
+const SOCIAL_LINKS = [
+  {
+    label: "Instagram",
+    href: "https://instagram.com/fiscalio.app",
+    Icon: InstagramIcon,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61594138147818",
+    Icon: FacebookIcon,
+  },
+];
 
 export default function Footer() {
   return (
@@ -27,6 +41,21 @@ export default function Footer() {
               información fiscal en orden para que declarar sea un trámite de 5
               minutos.
             </p>
+            <ul className="flex items-center gap-5">
+              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Fiscalio en ${label}`}
+                    className="text-secondary/70 hover:text-white transition-colors"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
             <div className="text-[10px] tracking-tight text-secondary/40">
               © {new Date().getFullYear()} TODOS LOS DERECHOS RESERVADOS
             </div>

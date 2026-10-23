@@ -31,6 +31,12 @@ const CONTEXTUAL_COPY: Record<
       "Únete a la beta privada de Fiscalio y calcula el IVA, el ISR y tu Neto Real de cada cobro. Lo que queda en tu cuenta principal ya es tuyo.",
     buttonText: "Unirme a la beta privada",
   },
+  modelo_retenciones: {
+    title: "Te depositan menos, no te pagaron menos",
+    description:
+      "Únete a la beta privada de Fiscalio y calcula la retención de ISR e IVA de cada factura a una empresa. Lo que tu cliente te retiene no se pierde: cuenta como pago de tus impuestos del mes.",
+    buttonText: "Unirme a la beta privada",
+  },
   blog_sat_no_precarga: {
     title: "Evita los errores del SAT",
     description:

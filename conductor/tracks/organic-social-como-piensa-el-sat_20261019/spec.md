@@ -154,5 +154,8 @@ Resolución:
 - Explicar procedimientos del portal del SAT paso a paso (territorio del
   contador).
 - Producción de Reel en las semanas 2–6 (restricción de recurso declarada).
-- Instagram, TikTok y LinkedIn como canales primarios (solo repurposing).
+- Instagram, TikTok y LinkedIn como canales primarios. Instagram sí opera como
+  **espejo de publicación** desde la semana 2 (mismo arte y copy,
+  `utm_source=instagram`, link en bio), aprobado el 2026-10-20; TikTok y LinkedIn
+  quedan fuera por ahora.
 - Automatización del pipeline (F5 es fase 2).
