@@ -127,7 +127,9 @@ Sigue a Fiscalio: un modelo mental fiscal cada semana.
 ```
 
 Arte del estático: **$52,041.65** · «Te depositan menos. No te pagaron menos.» ·
-recibo de la factura a la bóveda «Tuya» · «Sigue a Fiscalio».
+recibo de la factura a la bóveda «Tuya» · pie: wordmark + «Un modelo mental fiscal cada
+semana». **Sin «Sigue a Fiscalio» en el arte:** el CTA ya cierra el cuerpo del post
+y el trabajo del estático es captar email.
 
 ### Estático — primer comentario (Facebook)
 
@@ -257,7 +259,7 @@ la calculadora te dice cuánto.»
 - [x] No afirma ni implica la situación financiera del espectador
 - [x] Supuestos explícitos junto a las cifras
 - [x] Link fuera del cuerpo del post (primer comentario en FB, bio en IG)
-- [x] CTA de la pieza: «Sigue a Fiscalio»
+- [x] CTA de la pieza: «Sigue a Fiscalio» (en el arte de la placa 5; en el estático, solo en el cuerpo del post)
 - [x] `dialog=open` solo en el estático del miércoles
 - [x] Sin Reel ni pieza que dependa de que algo quede oculto
 - [x] Español MX
