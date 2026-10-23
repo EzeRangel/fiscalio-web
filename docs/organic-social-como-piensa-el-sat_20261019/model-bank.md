@@ -182,7 +182,7 @@ Una fila por semana. Se llena al cierre de cada semana.
 
 | Semana | Modelo | Alcance | Retención 3 s | Guardados | Compartidos | Clics al link | `waitlist_dialog_opened` | `waitlist_signup` | Notas |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | 3 bóvedas | | | | | | | | Carrusel y primer comentario publicados 19 oct 2026. Reel 21 oct y conversación 23 oct pendientes; métricas al cierre del 23 oct |
+| 1 | 3 bóvedas | | | | | | | | Semana completa publicada: carrusel y primer comentario 19 oct, Reel 21 oct, conversación 23 oct 2026. Métricas al cierre del 23 oct |
 | 2 | Retenciones | | | | | | | | |
 | 3 | Facturado ≠ cobrado | | | | | | | | |
 | 4 | Dos juegos | | | | | | | | |

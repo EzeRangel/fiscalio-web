@@ -42,8 +42,12 @@ en todo el sitio y evaluar el cálculo exacto como `IVA × 2/3` en
 | Estático | `~/Projects/fiscalio-product-demo/out/social/retenciones-estatico.png` | 1080×1350 (4:5) |
 
 Proyecto: `~/Projects/fiscalio-product-demo/` (Remotion). Carrusel y estático
-salen de `src/social/cards/` y `src/social/data.ts`. **No se produce Reel esta
-semana** (restricción vigente: estáticos y carruseles únicamente).
+salen de `src/social/retenciones/` (placas, estático y datos). **No se produce
+Reel esta semana** (restricción vigente: estáticos y carruseles únicamente).
+
+**Reel de la semana 2: pendiente** (decisión del 2026-10-23). Se produce cuando
+exista capacidad, con las placas v2 como guion (gancho → reto → bóvedas →
+desglose → «Lo tuyo: $49,450»). Ver la tarea de Phase 4 en `plan.md`.
 
 Paleta: fondo `#fcfaf6` · texto `#262626` · rust `#b45309` · ámbar `#fbbf24`.
 Sin gradientes ni sombras.
