@@ -1,13 +1,16 @@
 # Semana 2 — «Lo que te retienen ya es un pago a cuenta»
 
-Modelo mental de la semana: **la retención no es un cobro, es un anticipo**.
+Modelo mental de la semana: **te depositan menos, pero no te pagaron menos**.
+Tu cliente llena una parte de tus bóvedas antes de depositarte; lo que te retiene
+cuenta como pago de tus impuestos.
 Mismo ejemplo de la semana 1 ($50,000 + IVA), ahora con cliente persona moral.
 Es la secuela prometida en la placa 5 del carrusel anterior.
 
-Frase ancla: *«Lo que te retienen no es un cobro: es un anticipo.»*
+Frase ancla: *«Te depositan menos. No te pagaron menos.»*
+Frase de apoyo: *«Lo que te retienen cuenta como pago de tus impuestos.»*
 
-Estado: **copy v2 listo para aprobación humana.** Cifras congeladas el
-2026-10-20. Terminología corregida el 2026-10-20. Assets aún no renderizados.
+Estado: **copy v3 listo para aprobación humana.** Cifras congeladas el
+2026-10-20. Copy reescrito el 2026-10-23 (ver §1, D5). Assets aún no renderizados.
 
 ---
 
@@ -16,9 +19,10 @@ Estado: **copy v2 listo para aprobación humana.** Cifras congeladas el
 | # | Decisión | Resolución |
 |---|---|---|
 | D1 | Retención de IVA | Publicar **$5,333.35** y depósito **$52,041.65** (cifras de `RETENCION_IVA_PM: 0.106667`, las que muestra el destino). La pieza **no cita la tasa de IVA** |
-| D2 | ISR retenido $625 vs. ISR del mes $550 | **Omitir la comparación.** Placa 5 cierra el bucle con «retenido, no cobrado» + «se abona a tus impuestos del mes» |
+| D2 | ISR retenido $625 vs. ISR del mes $550 | **Reabierta el 2026-10-23: se publica.** Los $75 de ISR retenido de más son el remate de la idea, no una segunda idea: completan «lo tuyo no cambió» ($49,375 + $75 = $49,450, la misma bóveda «Tuya» de la semana 1) |
 | D3 | Instagram | **Espejo desde la semana 2**: mismo arte y copy, `utm_source=instagram`, link en bio. Cuenta a cargo del humano |
 | D4 | Semana 1 | Carrusel y primer comentario **publicados** el 19 oct 2026 |
+| D5 | Copy v3 (2026-10-23) | Se dejan de usar «cobro» y «anticipo» en el copy público. «Cobro» refuta una creencia que el lector no tiene (piensa «me descontaron»); «anticipo», para un freelancer, es lo que el cliente paga al arrancar un proyecto. La bóveda 3 vuelve a ser **«Tuya»**, no «Tu depósito». El reto pregunta **cuánto es tuyo**, no cuánto te retuvieron |
 
 **Por qué no se cita la tasa de IVA:** el sitio muestra cuatro valores distintos
 (10.6% en el simulador, 10.66% en metadata, 10.6667% en la guía, 10.67% en el
@@ -58,43 +62,49 @@ Espejo en Instagram: mismo arte y copy, mismo día, `utm_source=instagram`.
 
 ---
 
-## 4. Copy aprobado (v2)
+## 4. Copy aprobado (v3)
 
 ### Terminología fija de la cápsula
 
 | Verbo | Quién | Qué significa |
 |---|---|---|
-| **Retener** | Tu cliente | Aparta una parte del pago. No te la cobra ni se la queda |
+| **Retener** | Tu cliente | Aparta una parte del pago. No te la descuenta ni se la queda |
 | **Enterar** | Tu cliente | Lleva ese dinero al SAT a tu nombre |
-| **Acreditar** | Tú | En tu declaración, ese dinero se abona a tus impuestos del mes |
+| **Acreditar** | Tú | En tu declaración, ese dinero cuenta como pago de tus impuestos del mes |
 
 **Nunca se dice «ya está pagado al SAT»:** adelanta un paso que el cliente no
 hace al momento del depósito y hace creer que la retención es un pago suyo. Se
 dice **«te lo retuvieron»** y, cuando aplica, **«lo entera al SAT a tu nombre»**.
 
+**Palabras fuera del copy público:**
+
+| No se dice | Por qué | Se dice |
+|---|---|---|
+| «No es un cobro» / «Retenido, no cobrado» | Nadie cree que su cliente le cobró. La creencia real es «me descontaron» o «me pagaron menos» | «No te pagaron menos» · «Retenido a tu favor» |
+| «Es un anticipo» (suelto) | Para un freelancer, «anticipo» es el pago que recibe al arrancar un proyecto | «Cuenta como pago de tus impuestos» |
+| «Tu depósito» como bóveda | En la semana 1 el depósito es lo que se reparte, no una bóveda | Bóveda 3 · **Tuya** |
+
 ### Carrusel — cuerpo del post
 
 ```
-El mismo ejemplo de la semana pasada, ahora con un cliente distinto.
+Le facturas $58,000 a una empresa y el depósito llega en $52,041.65.
 
-Precio: $50,000 + IVA. Total facturado: $58,000. Si el cliente es una empresa, el depósito llega así: $52,041.65.
+Se siente como si te hubieran descontado casi $6,000. No te pagaron menos: tu cliente retuvo una parte y la entera al SAT a tu nombre. Cuenta como pago de tus impuestos.
 
-Antes de ver el desglose: sin hacer la cuenta, ¿cuánto dirías que te retuvieron? Escríbelo en los comentarios.
+Con las mismas 3 bóvedas de siempre:
+→ Bóveda 1 · IVA: tu cliente pone una parte y tú el resto.
+→ Bóveda 2 · ISR: tu cliente la llena completa.
+→ Bóveda 3 · Tuya: lo que sí puedes gastar.
 
-La primera reacción es pensar que faltan $5,958.35. No faltan: te los retuvieron.
+Sin hacer la cuenta: ¿cuánto de esa factura es tuyo? Escríbelo en los comentarios. La respuesta está en la última imagen.
 
-Tu cliente no se los quedó. Los retuvo y los entera al SAT a tu nombre:
-→ $5,333.35 de IVA
-→ $625.00 de ISR (1.25%)
+Te depositan menos. No te pagaron menos.
 
-Retener no es cobrar: es un anticipo que tu cliente hace por ti. Se abona a tus impuestos del mes.
-
-El depósito es más chico. El pago, no.
-
-El hábito: cuando el depósito llegue más chico de lo facturado, revisa el CFDI antes de preocuparte. Ahí viene lo que te retuvieron.
-
-(Ejemplo: RESICO persona física, cliente persona moral, sin gastos deducibles.)
+(Ejemplo: RESICO persona física, cliente persona moral, $50,000 + IVA como único ingreso del mes, sin gastos deducibles.)
 ```
+
+El cuerpo **no da la respuesta**: ni los $49,450 ni el desglose de la bóveda
+«Tuya». Esa cifra vive en la placa 5 y en las respuestas a comentarios.
 
 ### Carrusel — primer comentario (Facebook)
 
@@ -107,19 +117,17 @@ Calcula tus retenciones con tus propios números → https://www.fiscalio.app/ca
 ```
 Una factura de $58,000. Un depósito de $52,041.65.
 
-Faltan $5,958.35. No se perdieron: te los retuvieron.
+No te pagaron menos. Tu cliente retuvo $5,958.35 y los entera al SAT a tu nombre: cuentan como pago de tus impuestos del mes.
 
-Tu cliente los retuvo y los entera al SAT a tu nombre. No es un cobro: es un anticipo que se abona a tus impuestos del mes.
-
-Es la diferencia entre ver un depósito más chico y creer que te cobraron de más.
+Reparte la factura en las 3 bóvedas y lo tuyo sale igual que si no te hubieran retenido nada: $49,450.
 
 El desglose completo, con tus propios números, está en el primer comentario.
 
 Sigue a Fiscalio: un modelo mental fiscal cada semana.
 ```
 
-Arte del estático: **$52,041.65** · «Te los retuvieron. No te los cobraron.» ·
-«Retenido, no cobrado.» · «Sigue a Fiscalio».
+Arte del estático: **$52,041.65** · «Te depositan menos. No te pagaron menos.» ·
+recibo de la factura a la bóveda «Tuya» · «Sigue a Fiscalio».
 
 ### Estático — primer comentario (Facebook)
 
@@ -136,9 +144,9 @@ Pregunta para quien factura a empresas: cuando el depósito llega más chico que
 
 La respuesta que sirve: el CFDI. Ahí viene el desglose de lo que tu cliente te retuvo y entera al SAT a tu nombre.
 
-Retener no es cobrar: es un anticipo.
+Lo que te retienen cuenta como pago de tus impuestos.
 
-¿A ti te las explicaron como un cobro o como un anticipo?
+¿A ti te lo explicaron como un descuento o como un pago de tus impuestos?
 ```
 
 ### Instagram (espejo)
@@ -163,30 +171,30 @@ Para el estático, mismo patrón con `dialog=open` y
 
 | Placa | Contenido |
 |---|---|
-| 1 | `MISMO EJEMPLO · AHORA CON EMPRESA` · **$52,041.65** · «Te depositan menos. No te pagaron menos.» · base: «$50,000 + IVA 16% = $58,000 facturados» |
-| 2 | `EL RETO` · «De esos $58,000, ¿cuánto te retuvieron?» · «Sin hacer la cuenta, ¿cuánto dirías? Escríbelo en los comentarios.» |
-| 3 | `EL MODELO` · las 3 bóvedas, con el mismo objeto de la semana 1: Retención de IVA **$5,333.35** · Retención de ISR **$625.00** · Tu cuenta **$52,041.65**. Sello «RETENIDO: $ ?» sobre las dos primeras. Titular: «Retener no es cobrar.» |
-| 4 | `EL DESGLOSE` · supuestos arriba · tabla · última fila «Retenido: $ ?» |
-| 5 | `LA RESPUESTA` · **$5,958.35** · «Retenido, no cobrado.» · «Tu cliente lo retuvo y lo entera al SAT a tu nombre. Es un anticipo que se abona a tus impuestos del mes.» · hábito · «Sigue a Fiscalio» |
+| 1 | `FACTURAS A UNA EMPRESA` · «Te depositan» **$52,041.65** · «Te depositan menos. No te pagaron menos.» · base: «$50,000 + IVA 16% = $58,000 facturados» |
+| 2 | `EL RETO` · «Te depositaron $52,041.65. ¿Cuánto de esa factura es tuyo?» · «Sin hacer la cuenta, ¿cuánto dirías? Escríbelo en los comentarios.» |
+| 3 | `EL MODELO` · titular «Las mismas 3 bóvedas. Tu cliente llenó una parte.» · IVA **$8,000.00** (tu cliente $5,333.35 · tú $2,666.65) · ISR **$550.00** (tu cliente $625.00: cubierta) · Tuya **$ ?** |
+| 4 | `EL DESGLOSE` · supuestos arriba · tabla de la factura a la bóveda «Tuya» · fila «ISR a favor +$75.00» sin subtexto (el porqué ya está en la placa 3) · última fila «Tuya: $ ?» |
+| 5 | `LA RESPUESTA` · «Lo tuyo» **$49,450.00** · «Lo mismo que sin retenciones.» · «$49,375 llegan a tu cuenta y $75 de ISR quedan a tu favor.» · «Sigue a Fiscalio» |
 
-**Por qué las tres bóvedas suman exacto:** $5,333.35 + $625.00 + $52,041.65 =
-$58,000. La bóveda de IVA baja de $8,000 (semana 1) a $5,333.35 porque el tercio
-restante **sí llega a tu cuenta**. Ese es el «mismo objeto, un dato cambiado»:
-no hay que rediseñar nada.
+**Por qué las bóvedas cierran:** son las mismas de la semana 1 (IVA $8,000 · ISR
+$550 · Tuya $49,450). Lo único que cambia es **quién las llena**: tu cliente pone
+$5,333.35 de IVA y $625 de ISR antes de depositarte. Ese es el «mismo objeto, un
+dato cambiado».
 
-**Etiquetas:** la bóveda dice **«Retención de ISR»**, no «ISR». La semana 1 mostró
-$550 de ISR del mes; esta pieza muestra $625 retenidos. No son el mismo concepto y
-no deben parecerlo.
+**Colores con un solo significado en toda la pieza:** gris = lo puso tu cliente ·
+rust = lo pones tú · ámbar = tuyo. Lo retenido nunca va en ámbar.
 
-**Lo que no se dibuja:** el ISR del mes ($550) ni la comparación con los $625.
-No es el tema de la semana y abre una segunda idea.
+**Etiquetas:** la bóveda 2 se llama **«ISR»** y muestra $550 (el ISR del mes);
+debajo, «Tu cliente: $625». Así el retenido no se confunde con lo que debes.
 
 ---
 
 ## 6. Cifras y supuestos (verificados contra `lib/tax-constants.ts`)
 
-Supuestos: RESICO persona física · cliente persona moral · servicios · sin gastos
-deducibles · IVA 16% · retención ISR 1.25% · retención IVA `0.106667`.
+Supuestos: RESICO persona física · cliente persona moral · servicios · $50,000 +
+IVA como único ingreso del mes · sin gastos deducibles · IVA 16% · ISR RESICO
+1.10% · retención ISR 1.25% · retención IVA `0.106667`.
 
 | Concepto | Monto |
 |---|---|
@@ -196,24 +204,33 @@ deducibles · IVA 16% · retención ISR 1.25% · retención IVA `0.106667`.
 | Retención de ISR (1.25%) | −$625.00 |
 | Retención de IVA | −$5,333.35 |
 | **Depósito** | **$52,041.65** |
-| **Retenido** | **$5,958.35** |
+| IVA que tú enteras ($8,000 − $5,333.35) | −$2,666.65 |
+| **En tu cuenta, ya tuyo** | **$49,375.00** |
+| ISR del mes (1.10%) | $550.00 |
+| ISR a favor ($625 retenidos − $550 del mes) | +$75.00 |
+| **Tuya** | **$49,450.00** |
+| Retenido total (referencia, no es la respuesta) | $5,958.35 |
 
-No se publica la tasa de retención de IVA. El ISR del mes ($550) no se publica en
-esta cápsula.
+No se publica la tasa de retención de IVA ni la tasa de ISR RESICO (1.10%); sí se
+publica la de retención de ISR (1.25%) en la tabla.
 
 ---
 
 ## 7. Rutina de la primera hora
 
 - [ ] Publicar el primer comentario con el link **inmediatamente** y **fijarlo**
-- [ ] Responder cada número comentado con el desglose («Casi: te retuvieron $5,958.35, por eso el depósito es $52,041.65»)
+- [ ] Responder cada número comentado con el desglose («Casi: lo tuyo es $49,450, lo mismo que sin retenciones. $49,375 llegan a tu cuenta y $75 de ISR quedan a tu favor»)
 - [ ] Compartir en 2–3 grupos de freelancers, devs y diseñadores MX **con una pregunta**, no con el link
 - [ ] Compartir desde el perfil personal del fundador
 - [ ] Actualizar el link de la bio de Instagram antes de publicar el espejo
 
-Respuesta preparada si alguien saca la comparación del ISR (no publicarla como
-nota): «Retuvieron $625 y tu ISR del mes es $550: los $75 quedan a favor. Por eso
-la retención no es un cobro, es un anticipo.»
+Respuesta preparada si alguien responde con lo retenido ($5,958.35): «Eso es lo
+que tu cliente retuvo, y cuenta como pago de tus impuestos. La pregunta es cuánto
+es tuyo: $49,450, igual que si no te retuvieran nada.»
+
+Respuesta preparada si alguien pregunta cómo recupera los $75: «Es ISR que tu
+cliente retuvo de más. Queda a tu favor en tu declaración; con tus números exactos,
+la calculadora te dice cuánto.»
 
 ---
 
@@ -231,8 +248,10 @@ la retención no es un cobro, es un anticipo.»
 
 ## 9. Cumplimiento
 
-- [x] Una sola idea: la retención es un anticipo, no un cobro
+- [x] Una sola idea: te depositan menos, pero no te pagaron menos (lo tuyo no cambia)
 - [x] Terminología correcta: **retener** (cliente) · **enterar** (cliente al SAT) · **acreditar** (tú en la declaración). Nunca «ya está pagado al SAT»
+- [x] Sin «cobro» ni «anticipo» suelto en el copy público (D5)
+- [x] El cuerpo del carrusel no revela la respuesta del reto
 - [x] Mismo ejemplo y mismo objeto visual que la semana 1 (secuela reconocible)
 - [x] Sin frases vetadas («paga menos», «optimiza», «evita multas», «garantizamos», «declaramos por ti», «agenda una demo»)
 - [x] No afirma ni implica la situación financiera del espectador

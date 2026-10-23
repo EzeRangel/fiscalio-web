@@ -32,9 +32,9 @@ const CONTEXTUAL_COPY: Record<
     buttonText: "Unirme a la beta privada",
   },
   modelo_retenciones: {
-    title: "Lo que te retienen no es un cobro",
+    title: "Te depositan menos, no te pagaron menos",
     description:
-      "Únete a la beta privada de Fiscalio y calcula la retención de ISR e IVA de cada factura a una empresa. Lo que tu cliente te retiene no se pierde: es un anticipo que se abona a tus impuestos del mes.",
+      "Únete a la beta privada de Fiscalio y calcula la retención de ISR e IVA de cada factura a una empresa. Lo que tu cliente te retiene no se pierde: cuenta como pago de tus impuestos del mes.",
     buttonText: "Unirme a la beta privada",
   },
   blog_sat_no_precarga: {

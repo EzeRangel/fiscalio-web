@@ -79,7 +79,7 @@ Todos derivados de contenido ya publicado en el blog. Un modelo por semana.
 | 5 | Estás jugando dos juegos: ISR e IVA | *"Las facturas ya no bajan tu ISR, pero sí bajan tu IVA."* | `deducciones-resico-isr` | Dos tableros | `/blog/deducciones-resico-isr` |
 | 3 | El IVA es un flujo, no un costo | *"No pagas IVA: lo transfieres."* | `calcular-isr-iva-resico` | Riel entradas / salidas | `/blog/calcular-isr-iva-resico` |
 | 6 | El SAT no copia, interpreta | *"El SAT no lee tus facturas: las interpreta."* | `porque-sat-no-precarga-facturas` | XML → filtro → renglón | `/blog/porque-sat-no-precarga-facturas` |
-| 9 | Lo que te retienen ya es un pago a cuenta | *"Lo que te retienen no es un cobro: es un anticipo."* | `CONTEXT.md` (retenciones) | 3 bóvedas + sello «retenido» | `/calculadora-resico/retenciones` |
+| 9 | Lo que te retienen ya es un pago a cuenta | *"Te depositan menos. No te pagaron menos."* | `CONTEXT.md` (retenciones) | 3 bóvedas: tu cliente llena una parte | `/calculadora-resico/retenciones` |
 | 7 | Dos calendarios que no coinciden | *"Tu mes y el mes del SAT no empiezan el mismo día."* | `cuando-presentar-declaracion-mensual-resico` | Dos líneas de tiempo | `/blog/cuando-presentar-declaracion-mensual-resico` |
 | 8 | Declaras un mes que ya cerró | *"No estás reportando hoy: estás reportando el mes pasado."* | `como-hacer-declaracion-mensual-resico` | Calendario a mes vencido | `/blog/como-hacer-declaracion-mensual-resico` |
 | 10 | El IVA de tus gastos es dinero tuyo congelado | *"Pide factura y descongelas tu IVA."* | `deducciones-resico-isr` | IVA entrampado | `/blog/deducciones-resico-isr` |
