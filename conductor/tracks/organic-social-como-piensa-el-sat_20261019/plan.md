@@ -24,9 +24,9 @@ orgánico no vende: hace entendible lo que la categoría explica con miedo.
 - [x] Task: Publicar el carrusel de 5 placas (lunes) — publicado 19 oct 2026
 - [x] Task: Publicar el Reel de ~34 s (miércoles 21 oct)
 - [x] Task: Primer comentario con link a la calculadora + UTMs + `source` — publicado 19 oct 2026
-- [ ] Task: Publicar el post de conversación (viernes 23 oct) — copy en `semana-01.md` §3
+- [x] Task: Publicar el post de conversación (viernes 23 oct) — copy en `semana-01.md` §3 · publicado 23 oct 2026
 - [x] Task: Reparto desde el perfil personal del fundador y en grupos de Facebook de freelancers/RESICO
-- [ ] Task: Registro de la semana en [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md), §6
+- [x] Task: Registro de la semana en [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md), §6 — semana 1 registrada 24 oct 2026
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md)
 
 ## Phase 2: Semanas 2–3 (26 oct – 6 nov)
