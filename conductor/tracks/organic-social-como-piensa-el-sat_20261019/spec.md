@@ -127,7 +127,9 @@ Resolución:
 ## Non-Functional Requirements
 
 - **Copy en español** (contexto MX). Voz editorial, "Warm Precision".
-- **Sin link en el cuerpo del post**: el link va en el primer comentario.
+- **Sin link en el cuerpo del post**: el link va en el primer comentario, **dentro
+  del presupuesto de 2 links al mes** de la Página de Facebook (§2.1 de
+  `docs/organic-social-como-piensa-el-sat_20261019/model-bank.md`).
 - **Sin miedo, sin culpa**: se habla del error en general, nunca de la conducta
   fiscal del espectador.
 - **Cero costo de producción nuevo**: el contenido se genera en

@@ -40,7 +40,7 @@ en el **primer comentario**.
 
 | Tipo de pieza | Objetivo | Destino |
 |---|---|---|
-| **Pieza bandera** (carrusel / Reel) | Herramienta + tráfico | Calculadora RESICO con `source` + UTMs, en el **primer comentario** |
+| **Pieza bandera** (carrusel / Reel) | Herramienta + tráfico | Calculadora RESICO con `source` + UTMs, en el **primer comentario** (si queda presupuesto de links, §2.1) |
 | **Pieza de apoyo** (estático) | Capturar email | `/calculadora-resico?dialog=open&source=<source>&utm_*` |
 | **Conversación** (viernes) | Comentarios | Sin link |
 
@@ -64,6 +64,33 @@ Notas de infraestructura verificadas el 2026-10-18:
   los modelos nuevos requieren dar de alta su `source`.
 - `source` existente y reutilizable: `modelo_3_bovedas`, `blog_sat_no_precarga`,
   `blog_pue_vs_ppd`, `blog_exportacion_servicios`, `blog_declaracion_mensual`.
+
+### 2.1 Presupuesto de links de la Página (Meta, 2026)
+
+Verificado el 2026-10-24 en la [ayuda de Meta](https://www.facebook.com/help/1929252614431792):
+
+- La Página puede incluir links en **2 posts o comentarios orgánicos al mes**. El
+  tope **sí cuenta los comentarios**, así que «link en el primer comentario» lo
+  gasta igual. Reinicia el **1 de cada mes** y lo no usado **no se acumula**.
+- Se despliega **por oleadas**: puede no aplicar a esta Página todavía. Revisar el
+  compositor y guardar captura del aviso si aparece.
+- **No cuentan:** links adicionales en los comentarios de un post que ya lleva
+  link, links a Meta (Facebook, Instagram, WhatsApp, Threads), links de afiliados
+  de Meta y **links en anuncios**.
+- Meta Verified estándar (~US$14.99) **no** sube el tope. Meta One Advanced
+  (~US$49.99 → 8/mes) o superior, sí.
+
+**Regla de campaña:**
+
+- El link del mes se gasta en el **carrusel bandera** (la pieza de mayor valor).
+- Las demás piezas (**estático, Reel, conversación**) **no llevan link propio**: el
+  CTA dentro de la pieza sigue siendo «Sigue a Fiscalio» y remiten al **post
+  fijado** de la Página, que es una de las piezas ancla del mes.
+- El destino de una pieza sin link se puede publicar como **comentario adicional**
+  en el hilo de la pieza ancla: no consume tope.
+- **Instagram:** el link va en la **bio** y no consume tope. El espejo conserva la
+  atribución con `utm_source=instagram`.
+- Cada link gastado se anota en la columna Notas de §6 para no pasarse del tope.
 
 ---
 
@@ -106,6 +133,13 @@ Una idea por semana. El modelo se repite, no se acumula.
 | 4 | 9–13 nov | Dos juegos: ISR e IVA | Carrusel | Estático | ✅ | `modelo_dos_juegos` (nuevo) |
 | 5 | 16–20 nov | El IVA es un flujo | Carrusel | Estático | ✅ | `modelo_iva_flujo` (nuevo) |
 | 6 | 23–27 nov | El SAT no copia, interpreta | Carrusel | Estático | ✅ | `blog_sat_no_precarga` (existe) |
+
+**Presupuesto de links (§2.1).** Con el tope de 2 links al mes, solo **2 carruseles
+del mes** llevan link. Noviembre se asigna a las **semanas 3 y 4** («el error más
+caro» y «el que más rompe mitos»); las semanas 5 y 6 publican sin link propio y
+remiten al post fijado. Octubre ya gastó su presupuesto en la semana 1 (carrusel
+19 oct + comentario del Reel 21 oct), así que la semana 2 publica sin link nuevo.
+El espejo de Instagram no consume tope: su link vive en la bio.
 
 **Por qué este orden:** primero el «aha» más visceral (el IVA no es tuyo), luego
 su secuela directa (mismo ejemplo, pero facturando a una empresa: ahí aparecen las
@@ -189,6 +223,12 @@ Una fila por semana. Se llena al cierre de cada semana.
 | 5 | IVA es un flujo | | | | | | | | |
 | 6 | SAT interpreta | | | | | | | | |
 
+**Semana 1 — salvedad sobre los clics.** Los 0 clics y 0 `waitlist_signup` pueden
+ser efecto del tope de links (§2.1): octubre gastó sus 2 links en el carrusel del 19
+oct y el comentario del Reel del 21 oct, así que uno de los dos pudo no publicarse
+o quedar como texto plano. Antes de leer estos ceros como falta de interés,
+confirmar en la Página cuál comentario quedó clicable.
+
 **Lectura:** likes no son KPI. La señal de que un modelo funciona son
 **guardados y compartidos** (indican que el concepto se quedó y se quiso
 enseñar a alguien). Un modelo que destaca se convierte en creativo pagado,
@@ -204,7 +244,7 @@ reutilizando la infraestructura de
 - [ ] ¿Es **una sola** idea?
 - [ ] ¿La frase ancla está sola y se puede repetir de memoria?
 - [ ] ¿La terminología fiscal es precisa? **Retener** (el cliente aparta) ≠ **enterar** (el cliente lo lleva al SAT) ≠ **acreditar** (tú lo abonas en tu declaración). Nunca «ya está pagado al SAT»
-- [ ] ¿El link va en el primer comentario y **no** en el cuerpo?
+- [ ] ¿El link va en el primer comentario y **no** en el cuerpo? ¿Y queda dentro del presupuesto de 2 links del mes (§2.1)?
 - [ ] ¿La URL lleva UTMs **y** `source` correctos?
 - [ ] ¿La cifra fiscal citada salió de `lib/tax-constants.ts`?
 - [ ] ¿Existe el `source` en `CONTEXTUAL_COPY`?
