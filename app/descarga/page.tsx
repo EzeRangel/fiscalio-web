@@ -52,6 +52,7 @@ export default async function DescargaPage({
               transactionId={session.id}
               value={(session.amount_total ?? 0) / 100}
               currency={(session.currency ?? "mxn").toUpperCase()}
+              contentId={session.client_reference_id ?? "unattributed"}
             />
           )}
           <div className="container mx-auto px-6 lg:px-12">

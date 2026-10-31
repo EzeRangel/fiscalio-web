@@ -24,9 +24,9 @@ orgánico no vende: hace entendible lo que la categoría explica con miedo.
 - [x] Task: Publicar el carrusel de 5 placas (lunes) — publicado 19 oct 2026
 - [x] Task: Publicar el Reel de ~34 s (miércoles 21 oct)
 - [x] Task: Primer comentario con link a la calculadora + UTMs + `source` — publicado 19 oct 2026
-- [ ] Task: Publicar el post de conversación (viernes 23 oct) — copy en `semana-01.md` §3
+- [x] Task: Publicar el post de conversación (viernes 23 oct) — copy en `semana-01.md` §3 · publicado 23 oct 2026
 - [x] Task: Reparto desde el perfil personal del fundador y en grupos de Facebook de freelancers/RESICO
-- [ ] Task: Registro de la semana en [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md), §6
+- [x] Task: Registro de la semana en [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md), §6 — semana 1 registrada 24 oct 2026 (c1ae28e)
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol en workflow.md)
 
 ## Phase 2: Semanas 2–3 (26 oct – 6 nov)
@@ -36,8 +36,10 @@ orgánico no vende: hace entendible lo que la categoría explica con miedo.
 - [~] Task: Semana 2 — modelo «Lo que te retienen ya es un pago a cuenta» (carrusel bandera + apoyo + conversación) — copy v2 en [`semana-02.md`](semana-02.md); assets pendientes de render y publicación 26–30 oct. Destino: `/calculadora-resico/retenciones`, `source` `modelo_retenciones`
 - [x] Task: Semana 2 — verificar y decidir la presentación de la retención de IVA (`RETENCION_IVA_PM: 0.106667` vs 2/3 exacto) antes de publicar la cifra
 - [x] Task: Semana 2 — alta de `source` `modelo_retenciones` en `CONTEXTUAL_COPY`
+- [x] Task: Semana 2 — resolver el límite de links de Meta (2 posts **o comentarios** al mes, cuenta los comentarios) — decisión 24 oct 2026: diseñar para el plan gratuito, el link se gasta en el carrusel bandera; regla en §2.1 de [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md)
 - [ ] Task: Semana 2 — espejo en Instagram (`utm_source=instagram`, link en bio) — cuenta a cargo del humano
 - [ ] Task: Semana 2 — registro y lectura de guardados/compartidos
+- [ ] Task: Presupuesto de links de noviembre — asignar los 2 links a las semanas 3 y 4; las semanas 5 y 6 publican sin link propio y remiten al post fijado
 - [ ] Task: Semana 3 — modelo «Facturado ≠ cobrado», `source` `blog_pue_vs_ppd`
 - [ ] Task: Semana 3 — registro y lectura
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)

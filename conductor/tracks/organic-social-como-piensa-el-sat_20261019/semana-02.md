@@ -58,11 +58,21 @@ Sin gradientes ni sombras.
 
 | Día | Pieza | Objetivo | Destino |
 |---|---|---|---|
-| **Lunes 26 oct** | Carrusel de 5 placas | Alcance + guardados | Link en primer comentario → `/calculadora-resico/retenciones` |
-| **Miércoles 28 oct** | Estático | Captura de email | `/calculadora-resico/retenciones?dialog=open&source=modelo_retenciones` |
+| **Lunes 26 oct** | Carrusel de 5 placas | Alcance + guardados | Sin link nuevo: el destino va en el **comentario fijado del carrusel del 19 oct** |
+| **Miércoles 28 oct** | Estático | Captura de email vía post fijado | Sin link propio: remite al post fijado / bio de Instagram |
 | **Viernes 30 oct** | Post de conversación | Comentarios | **Sin link** |
 
-Espejo en Instagram: mismo arte y copy, mismo día, `utm_source=instagram`.
+Espejo en Instagram: mismo arte y copy, mismo día, `utm_source=instagram`. El
+espejo **sí** lleva link: va en la bio.
+
+**Presupuesto de links (§2.1 de `model-bank.md`).** Octubre ya gastó sus 2 links
+(carrusel 19 oct + comentario del Reel 21 oct), así que la semana 2 **no publica un
+link nuevo** si la Página está en el despliegue de Meta. Antes de publicar, revisar
+el compositor. Si el tope aplica, el link a `/calculadora-resico/retenciones` va
+como **comentario adicional en el hilo del carrusel del 19 oct** (Meta no cuenta
+los links extra en un hilo que ya lleva link) y ese carrusel se fija. Si el
+compositor deja publicar el link, se publica como estaba previsto, en el primer
+comentario del carrusel del 26 oct.
 
 ---
 
@@ -116,6 +126,10 @@ El cuerpo **no da la respuesta**: ni los $49,450 ni el desglose de la bóveda
 Calcula tus retenciones con tus propios números → https://www.fiscalio.app/calculadora-resico/retenciones?source=modelo_retenciones&utm_source=facebook&utm_medium=organic_social&utm_campaign=como-piensa-el-sat&utm_content=modelo-02-retenciones-carrusel
 ```
 
+> **Solo si queda presupuesto de links.** Octubre ya gastó sus 2 links. Si el
+> compositor muestra el tope, este URL no se publica aquí: va como **comentario
+> adicional en el hilo del carrusel del 19 oct**. Ver §3.
+
 ### Estático — cuerpo del post
 
 ```
@@ -125,7 +139,7 @@ No te pagaron menos. Tu cliente retuvo $5,958.35 y los entera al SAT a tu nombre
 
 Reparte la factura en las 3 bóvedas y lo tuyo sale igual que si no te hubieran retenido nada: $49,450.
 
-El desglose completo, con tus propios números, está en el primer comentario.
+El desglose completo, con tus propios números, está en el link fijado de la página.
 
 Sigue a Fiscalio: un modelo mental fiscal cada semana.
 ```
@@ -135,11 +149,16 @@ recibo de la factura a la bóveda «Tuya» · pie: wordmark + «Un modelo mental
 semana». **Sin «Sigue a Fiscalio» en el arte:** el CTA ya cierra el cuerpo del post
 y el trabajo del estático es captar email.
 
-### Estático — primer comentario (Facebook)
+### Estático — URL del modelo (no se publica en el estático)
 
 ```
 Calcula tus retenciones y mira el desglose completo → https://www.fiscalio.app/calculadora-resico/retenciones?dialog=open&source=modelo_retenciones&utm_source=facebook&utm_medium=organic_social&utm_campaign=como-piensa-el-sat&utm_content=modelo-02-retenciones-estatico
 ```
+
+El estático **no lleva link propio** (§2.1 de `model-bank.md`). Este URL, con su
+`utm_content` de estático, se publica como **comentario adicional en el hilo del
+carrusel ancla**, que ya lleva link. En Instagram el equivalente es la bio, que
+apunta a `/calculadora-resico/retenciones?dialog=open&source=modelo_retenciones`.
 
 ### Conversación — viernes 30 oct
 
@@ -159,10 +178,10 @@ Lo que te retienen cuenta como pago de tus impuestos.
 
 Mismo arte y mismo cuerpo, con dos cambios:
 
-- La línea «está en el primer comentario» pasa a «está en la bio».
+- La línea «está en el link fijado de la página» pasa a «está en la bio».
 - El primer comentario puede llevar la pregunta, **nunca el link** (no es clicable).
 
-Link de bio:
+Link de bio (no consume tope de links):
 
 ```
 https://www.fiscalio.app/calculadora-resico/retenciones?source=modelo_retenciones&utm_source=instagram&utm_medium=organic_social&utm_campaign=como-piensa-el-sat&utm_content=modelo-02-retenciones-carrusel
@@ -224,7 +243,7 @@ publica la de retención de ISR (1.25%) en la tabla.
 
 ## 7. Rutina de la primera hora
 
-- [ ] Publicar el primer comentario con el link **inmediatamente** y **fijarlo**
+- [ ] Publicar el link del carrusel **inmediatamente** y **fijarlo** — o, si el tope de links aplica, publicarlo como comentario adicional en el hilo del carrusel del 19 oct y fijar ese carrusel
 - [ ] Responder cada número comentado con el desglose («Casi: lo tuyo es $49,450, lo mismo que sin retenciones. $49,375 llegan a tu cuenta y $75 de ISR quedan a tu favor»)
 - [ ] Compartir en 2–3 grupos de freelancers, devs y diseñadores MX **con una pregunta**, no con el link
 - [ ] Compartir desde el perfil personal del fundador
@@ -246,7 +265,7 @@ la calculadora te dice cuánto.»
 - [x] Cifras cruzadas contra `lib/tax-constants.ts`
 - [ ] `/calculadora-resico/retenciones` responde en producción con `source` y sin `dialog=open`
 - [ ] Placas renderizadas en orden `retenciones-1..5.png`
-- [ ] Primer comentario publicado **y fijado** el lunes 26
+- [ ] Primer comentario publicado **y fijado** el lunes 26 (o comentario adicional en el hilo del 19 oct, según el tope de links)
 - [ ] Link de bio de Instagram actualizado antes del espejo
 - [ ] `npm run lint` + `npx tsc --noEmit` (cambio de `CONTEXTUAL_COPY`)
 
@@ -262,7 +281,7 @@ la calculadora te dice cuánto.»
 - [x] Sin frases vetadas («paga menos», «optimiza», «evita multas», «garantizamos», «declaramos por ti», «agenda una demo»)
 - [x] No afirma ni implica la situación financiera del espectador
 - [x] Supuestos explícitos junto a las cifras
-- [x] Link fuera del cuerpo del post (primer comentario en FB, bio en IG)
+- [x] Link fuera del cuerpo del post (comentario fijado en FB, bio en IG) y dentro del presupuesto de 2 links/mes (§2.1 de `model-bank.md`)
 - [x] CTA de la pieza: «Sigue a Fiscalio» (en el arte de la placa 5; en el estático, solo en el cuerpo del post)
 - [x] `dialog=open` solo en el estático del miércoles
 - [x] Sin Reel ni pieza que dependa de que algo quede oculto

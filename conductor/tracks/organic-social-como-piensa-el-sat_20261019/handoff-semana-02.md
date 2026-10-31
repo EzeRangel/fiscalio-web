@@ -58,7 +58,11 @@ toda la campaña, así que esto no se estiliza.
 ### Reglas de plataforma
 
 - **El link NUNCA va en el cuerpo del post.** Destruye el alcance. Va en el
-  **primer comentario**.
+  **primer comentario** — dentro del **presupuesto de 2 links al mes** de la
+  Página (§2.1 de
+  [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md)):
+  cuando el tope aprieta, solo el carrusel bandera lleva link y el resto remite al
+  post fijado.
 - **El CTA dentro de la pieza es «Sigue a Fiscalio»**, no un link. La página
   arrancó con 0 seguidores y el objetivo de la fase es seguidores.
 - **Una sola idea.** Si el copy necesita un «y además», está fuera de alcance.
@@ -116,9 +120,15 @@ estructura de la semana 1:
 
 | Día | Pieza | Objetivo | Destino |
 |---|---|---|---|
-| **Lunes 26 oct** | Carrusel de 5 placas (bandera) | Alcance + guardados | Link en primer comentario → `/calculadora-resico/retenciones` |
-| **Miércoles 28 oct** | Estático (apoyo) | Captura de email | `/calculadora-resico/retenciones?dialog=open&source=modelo_retenciones&utm_*` |
+| **Lunes 26 oct** | Carrusel de 5 placas (bandera) | Alcance + guardados | Sin link nuevo: el destino va en el **comentario fijado del carrusel del 19 oct** |
+| **Miércoles 28 oct** | Estático (apoyo) | Captura de email vía post fijado | Sin link propio: remite al post fijado / bio de Instagram |
 | **Viernes 30 oct** | Post de conversación | Comentarios | **Sin link** |
+
+> **Presupuesto de links (2026-10-24).** Meta limita la Página a **2 links
+> orgánicos al mes** y el tope **cuenta los comentarios**. Octubre ya está gastado
+> por la semana 1 (carrusel 19 oct + comentario del Reel 21 oct), así que esta
+> semana publica **sin link nuevo**. Regla y salidas en §2.1 de
+> [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md).
 
 ### El ángulo narrativo (secuela directa del mismo ejemplo)
 
@@ -319,7 +329,7 @@ Sin gradientes ni sombras.
 
 - [ ] Copy del carrusel (placas 1–5) escrito y aprobado por el humano
 - [ ] Copy del estático (miércoles) y del post de conversación (viernes)
-- [ ] Primer comentario con link + `source` + UTMs, **fuera** del cuerpo del post
+- [ ] Link publicado según el **presupuesto de §2.1** (comentario del carrusel **o** comentario adicional en el hilo de la pieza ancla), con `source` + UTMs, **fuera** del cuerpo del post
 - [ ] `modelo_retenciones` dado de alta en `CONTEXTUAL_COPY`
 - [ ] Assets renderizados en `~/Projects/fiscalio-product-demo/`
 - [ ] Filas de la tabla §6 de `model-bank.md` corregidas y semana 1 registrada
@@ -342,7 +352,7 @@ npm run build             # solo si se tocaron rutas, actions o fuentes
 Lo de la semana 1 está asumido, no verificado. Pregunta:
 
 1. ¿El carrusel de la semana 1 se publicó? ¿El Reel del miércoles?
-2. ¿El **primer comentario** con el link quedó publicado **y fijado**?
+2. ¿El **link** quedó publicado **y fijado**? ¿Y el compositor dejaba publicar links en octubre, o ya mostraba el tope de 2 al mes?
 3. ¿Se aplicó el ajuste de copy de la placa 2?
    `Antes de ver la última imagen, escribe en los comentarios cuánto crees que te queda.`
    → `Sin hacer la cuenta, ¿cuánto dirías que te queda? Escríbelo en los comentarios.`
@@ -378,10 +388,15 @@ indican que el concepto se quedó y se quiso enseñar a alguien.
 Un modelo que destaque se convierte en creativo de la campaña pagada
 (`conductor/tracks/paid-acquisition-meta_20261005/`).
 
-> ⚠️ Riesgo vigente de plataforma: Meta está probando limitar los links de páginas
-> orgánicas en Facebook si la página no es Meta Verified (2026). Esto amenaza
-> justamente el mecanismo de «link en el primer comentario». Si el alcance se
-> hunde sin explicación, sospechar de esto antes que del copy.
+> ⚠️ **Límite de links confirmado (2026-10-24).** Meta limita la Página a
+> **2 links orgánicos al mes** y el tope **incluye los comentarios**: el mecanismo
+> de «link en el primer comentario» lo gasta igual. Reinicia el 1 de cada mes y no
+> se acumula. Puede manifestarse de tres formas: el compositor avisa que no queda
+> presupuesto, el link se publica como **texto plano** (sin clic) o el comentario
+> se descarta. Las tres se ven como **0 clics sin explicación**: si el alcance se
+> hunde o los clics quedan en cero, revisar el presupuesto de links antes que el
+> copy. Regla, alternativas y topes por plan en §2.1 de
+> [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md).
 
 ---
 
@@ -406,6 +421,7 @@ Un modelo que destaque se convierte en creativo de la campaña pagada
 
 - ❌ Escribir una cifra fiscal sin cruzarla con `lib/tax-constants.ts`
 - ❌ Poner el link en el cuerpo del post
+- ❌ Gastar más de **2 links al mes** en la Página de Facebook, o asumir que el link del primer comentario quedará clicable sin revisar el consumo (§2.1 de `model-bank.md`)
 - ❌ Diseñar una pieza que dependa de que una placa quede oculta
 - ❌ Usar `dialog=open` en la pieza bandera
 - ❌ Publicar la tasa de retención de IVA sin haber resuelto §6.1
