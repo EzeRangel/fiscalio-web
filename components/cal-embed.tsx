@@ -55,7 +55,7 @@ export default function CalEmbed({
         action: "bookingSuccessfulV2",
         callback: (event) => {
           const uid = event.detail.data.uid;
-          trackBookingOnce("embed", uid);
+          if (uid) trackBookingOnce("embed", uid);
           if (redirectScheduled) return;
           redirectScheduled = true;
           window.setTimeout(() => {

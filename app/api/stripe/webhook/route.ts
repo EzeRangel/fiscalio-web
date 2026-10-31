@@ -45,6 +45,7 @@ export async function POST(req: Request) {
       JSON.stringify({
         event: "purchase_completed",
         session_id: session.id,
+        content_id: session.client_reference_id ?? "unattributed",
         email,
         amount_total: session.amount_total,
         currency: session.currency,

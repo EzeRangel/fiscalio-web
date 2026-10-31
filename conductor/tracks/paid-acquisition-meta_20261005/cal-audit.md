@@ -103,7 +103,7 @@ Por qué así:
 | Namespace / link | `demo-fiscalio` · `ezerangel/demo-fiscalio` |
 | Layout | `month_view` (desktop) · `useSlotsViewOnSmallScreen: true` (móvil) |
 | `forwardQueryParams` | `true` → UTMs/`fbclid` de la landing entran al iframe (requisito para que Cal los guarde) |
-| Eventos GA4/Meta | `calendar_view` (`linkReady`) · `booking` + `Lead` (`bookingSuccessfulV2`) · `cta_click`/`Schedule` en el clic |
+| Eventos GA4/Meta | `calendar_view` (`linkReady`) · `demo_booked` + `Schedule` (`bookingSuccessfulV2`) · `cta_click` en el clic |
 | CTA | dos instancias (`hero`, `final`) comparten el mismo namespace → listeners únicos |
 
 Detalle completo del funnel de medición: `tracking-audit.md` §2.

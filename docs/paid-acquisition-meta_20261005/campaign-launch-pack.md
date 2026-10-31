@@ -63,14 +63,14 @@ conjunto necesita ~50 eventos de optimización/semana y con $1,000 MXN es imposi
 | Nivel | Configuración |
 |---|---|
 | Campaña | **1** — objetivo **Prospectos (Leads)** |
-| Evento de optimización | `Lead` (Pixel, se dispara al confirmar reserva en el embed de Cal) |
+| Evento de optimización | `Schedule` (Pixel, se dispara al confirmar reserva en el embed de Cal) |
 | Conjunto | **1** — Advantage+ placements, Advantage+ audience |
 | Anuncios | **3–4** — un ángulo cada uno (A/B/C/D), variando hook y formato |
 | Puja | **Highest volume (lowest cost)** — sin cost cap ni bid cap |
 | Placements | **Advantage+** (Feed + Reels + Stories); leer desgloses después, no forzar antes |
 
 **Por qué `Leads` y no `Sales`:** la venta real ($419) es demasiado infrecuente para
-el presupuesto; optimizar por compra dejaría el conjunto ciego. `Lead` (reserva) es
+el presupuesto; optimizar por compra dejaría el conjunto ciego. `Schedule` (reserva) es
 **la acción que el experimento quiere medir** («¿agenda o no?»). Aun así se espera
 **Learning Limited**; no se juzga por CPA.
 
@@ -168,7 +168,7 @@ grabado con teléfono (confianza > producción).
 **Descripción:** `Sesión por videollamada. Tú decides si sigues.`
 **Botón (CTA):** `Reservar`
 **Texto en pantalla (hook 0–3 s):** `¿Tu borrador RESICO cuadra con lo que cobraste?`
-**Destino:** `https://www.fiscalio.app/demo-resico?utm_source=meta&utm_medium=paid_social&utm_campaign=resico-borrador-15min&utm_content=angulo-a-incertidumbre`
+**Destino:** `https://www.fiscalio.app/demo-resico?utm_source={{site_source_name}}&utm_medium=paid_social&utm_campaign=ads-demo&utm_content={content_id}`
 
 ### Ángulo B — Trabajo manual
 
@@ -186,7 +186,7 @@ grabado con teléfono (confianza > producción).
 **Descripción:** `Preparamos tu borrador RESICO con tus CFDIs, en vivo.`
 **Botón:** `Reservar`
 **Texto en pantalla (hook):** `80 facturas a mano… y luego esto.`
-**Destino:** `...&utm_content=angulo-b-trabajo-manual`
+**Destino:** `...&utm_content={content_id}`
 
 ### Ángulo C — Miedo a equivocarse
 
@@ -204,7 +204,7 @@ grabado con teléfono (confianza > producción).
 **Descripción:** `Revisamos tu caso y preparamos tu borrador, gratis en 15 min.`
 **Botón:** `Reservar`
 **Texto en pantalla (hook):** `Facturado ≠ cobrado. Y el ISR de RESICO se calcula sobre lo cobrado.`
-**Destino:** `...&utm_content=angulo-c-error-comun`
+**Destino:** `...&utm_content={content_id}`
 
 > **Nota de compliance:** este ángulo es el de mayor riesgo. No usar "¿te van a
 > multar?", "¿estás en problemas?" ni segunda persona sobre la conducta fiscal del
@@ -224,7 +224,7 @@ grabado con teléfono (confianza > producción).
 **Titular:** `Te muestro cómo funciona Fiscalio`
 **Descripción:** `Sesión gratuita de 15 min para preparar tu borrador RESICO.`
 **Botón:** `Reservar`
-**Destino:** `...&utm_content=angulo-d-founder-video`
+**Destino:** `...&utm_content={content_id}`
 
 **Guion (30 s, vertical, cámara frontal, plano medio):**
 
@@ -312,7 +312,7 @@ Detalle completo en [`cal-audit.md`](./cal-audit.md).
 | Nivel | Métrica | GA4 | Meta | Registro |
 |---|---|---|---|---|
 | 1 | CTR / landing | `landing_view`, `cta_click` | `PageView`, `ViewContent` | auto |
-| 2 | Coste por booking | `booking` | `Lead` | auto (dedupe) |
+| 2 | Coste por booking | `demo_booked` | `Schedule` | auto (dedupe) |
 | 3 | Show-up | — | — | **manual** (`attended`) |
 | 5 | Sesión → pago | `purchase` | `Purchase` | auto + tabla |
 | 6 | CAC | derivado | — | tabla manual |
@@ -327,17 +327,17 @@ todos los eventos y al iframe de Cal (`forwardQueryParams`). Detalle y limitacio
 ## 12. Convención UTM
 
 ```
-utm_source   = meta
+utm_source   = {{site_source_name}}   (Meta lo llena por clic: ig | fb | msg | an)
 utm_medium   = paid_social
-utm_campaign = resico-borrador-15min
-utm_content  = angulo-a-incertidumbre
-             | angulo-b-trabajo-manual
-             | angulo-c-error-comun
-             | angulo-d-founder-video
+utm_campaign = ads-demo
+utm_content  = {content_id}           (p. ej. ads-26w45-01; = nombre del anuncio en Ads Manager)
 ```
 
+Cada ángulo (A/B/C/D) es una pieza con su propio `content_id`, registrada en el
+ledger de `fiscalio-gtm`.
+
 - `fbclid` lo añade Meta automáticamente; el helper lo preserva.
-- Cada anuncio lleva su propio `utm_content`; **no** usar `utm_term` (no aplica en Meta).
+- Cada anuncio lleva su propio `utm_content` y se **nombra igual** en Ads Manager; **no** usar `utm_term` (no aplica en Meta).
 - En Ads Manager usar la **URL de destino con UTM** por anuncio, no una sola global.
 - Los UTMs llegan a GA4 (auto + explícitos) y al iframe de Cal.
 
@@ -350,13 +350,13 @@ utm_content  = angulo-a-incertidumbre
 | `landing_view` | Vista de `/demo-resico` (con UTMs de la URL). |
 | `cta_click` | Clic en CTA (`placement=hero\|final`). |
 | `calendar_view` | Iframe de Cal listo (`linkReady`), no el clic. |
-| `booking` | Reserva creada en Cal (`bookingSuccessfulV2` o `/gracias`), **una vez** por reserva (`booking_uid`). |
+| `demo_booked` | Reserva creada en Cal (`bookingSuccessfulV2` o `/gracias?uid=`), **una vez** por reserva (`booking_uid`). |
 | `attended` | La sesión ocurrió. **Manual.** |
 | `qualified` | Asistió + tributa (o cree estarlo) en RESICO + caso preparable. **Manual.** |
 | `trial/product_use` | Usó Fiscalio durante la sesión. **Manual.** |
 | `purchase` | `checkout.session.completed` verificado en `/descarga?session_id=`. Auto + tabla (fuente de verdad). |
 
-**Evento de optimización de la campaña:** `Lead` (Meta). **Fuente de verdad del
+**Evento de optimización de la campaña:** `Schedule` (Meta). **Fuente de verdad del
 funnel:** la tabla de registro de §15.
 
 ---
@@ -405,7 +405,7 @@ No se declaran "ganadores" (sin poder estadístico): se recogen **señales**.
 - [ ] CTR (enlace) y **hook rate** por anuncio.
 - [ ] CPC y **costo por landing view** (GA4).
 - [ ] Clics al CTA (`cta_click`) y `calendar_view`.
-- [ ] **Reservas** (`booking`/`Lead`) y correos en Cal.
+- [ ] **Reservas** (`demo_booked`/`Schedule`) y correos en Cal.
 - [ ] Anomalías o anuncios rechazados (guardar, no borrar).
 
 **Días 3 y 6:** revisar desglose por placement y por ángulo; confirmar que ningún
