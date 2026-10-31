@@ -75,7 +75,13 @@ export function trackEvent(name: string, params?: EventParams) {
   window.gtag?.("event", name, { ...getCampaignParams(), ...params });
 }
 
-export function trackMeta(name: string, params?: EventParams) {
+export function trackMeta(
+  name: string,
+  params?: EventParams,
+  eventId?: string,
+) {
   if (typeof window === "undefined") return;
-  if (typeof window.fbq === "function") window.fbq("track", name, params);
+  if (typeof window.fbq !== "function") return;
+  if (eventId) window.fbq("track", name, params, { eventID: eventId });
+  else window.fbq("track", name, params);
 }

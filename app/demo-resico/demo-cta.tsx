@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { trackEvent, trackMeta, markTrackedOnce } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import CalEmbed from "@/components/cal-embed";
 
 interface DemoCtaProps {
@@ -22,8 +22,6 @@ export function DemoCta({
 }: DemoCtaProps) {
   const handleClick = useCallback(() => {
     trackEvent("cta_click", { placement });
-    if (markTrackedOnce("fiscalio_meta_schedule")) return;
-    trackMeta("Schedule", { content_name: "demo-resico" });
   }, [placement]);
 
   if (!url) {

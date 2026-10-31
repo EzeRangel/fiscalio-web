@@ -8,7 +8,7 @@ Fecha de verificación: 2026-10-05.
 | Nivel | Métrica | Evento GA4 | Meta Pixel | Registro |
 |---|---|---|---|---|
 | 1 | CTR / engagement de landing | `landing_view`, `cta_click` | `PageView`, `ViewContent` | automático |
-| 2 | Coste por booking | `booking` | `Lead` | automático (dedupe) |
+| 2 | Coste por booking | `demo_booked` | `Schedule` | automático (dedupe) |
 | 3 | Show-up rate | — | — | **manual** (`attended`) |
 | 4 | Coste por sesión asistida | — | — | **manual** (`attended`) |
 | 5 | Sesión → pago | `purchase` | `Purchase` | automático + tabla manual |
@@ -21,16 +21,15 @@ Fecha de verificación: 2026-10-05.
 | `landing_view` | `PageView` en `/demo-resico` | `page=demo-resico` + utm_* de la URL | — |
 | `ViewContent` (Meta) | igual que `landing_view` | `content_name=demo-resico` | — |
 | `cta_click` | clic en CTA (`DemoCta`) | `placement=hero\|final` + utm_* | — |
-| `Schedule` (Meta) | clic en CTA | `content_name=demo-resico` | 1 por sesión (`fiscalio_meta_schedule`) |
 | `calendar_view` | callback `linkReady` de Cal (iframe del calendario listo, **no** en el clic); listener registrado una sola vez en el módulo (los dos CTA comparten namespace `demo-fiscalio`) | `placement` = CTA que abrió el modal | 1 por sesión (`fiscalio_calendar_view`) |
-| `booking` | callback `bookingSuccessfulV2` (embed) **o** `/gracias` | `page`, `source=embed\|gracias`, `booking_uid`, utm_* | `fiscalio_booking_tracked` (sessionStorage, cruza landing→gracias) |
-| `Lead` (Meta) | junto a `booking` | `content_name=demo-resico` | ídem |
-| `purchase` | `/descarga` con `session_id` verificada server-side | `transaction_id`, `value`, `currency`, utm_* de la sesión | `fiscalio_purchase_<id>` (localStorage) + dedupe GA4 por `transaction_id` |
-| `Purchase` (Meta) | junto a `purchase` | `value`, `currency`, `content_name` | ídem (solo 1ª vez por navegador) |
+| `demo_booked` | callback `bookingSuccessfulV2` (embed) **o** `/gracias?uid=` (solo con `uid`; visitas directas no cuentan) | `page`, `source=embed\|gracias`, `booking_uid`, utm_* | `fiscalio_booking_tracked` (sessionStorage, cruza landing→gracias) |
+| `Schedule` (Meta) | junto a `demo_booked` | `content_name=demo-resico`, `eventID=booking_uid` | ídem |
+| `purchase` | `/descarga` con `session_id` verificada server-side | `transaction_id`, `value`, `currency`, `content_id` (= `client_reference_id` del Payment Link, o `unattributed`), utm_* de la sesión | `fiscalio_purchase_<id>` (localStorage) + dedupe GA4 por `transaction_id` |
+| `Purchase` (Meta) | junto a `purchase` | `value`, `currency`, `content_name`, `eventID=transaction_id` | ídem (solo 1ª vez por navegador) |
 
 Mecanismos de soporte en `lib/analytics.ts`:
 
-- `rememberCampaignParams()` / `getCampaignParams()` — captura utm_* + `fbclid`/`gclid` al cargar la landing (sessionStorage) y los re-adjunta a **todos** los eventos posteriores, incluido `booking` en `/gracias` (cuya URL ya no trae UTMs).
+- `rememberCampaignParams()` / `getCampaignParams()` — captura utm_* + `fbclid`/`gclid` al cargar la landing (sessionStorage) y los re-adjunta a **todos** los eventos posteriores, incluido `demo_booked` en `/gracias` (cuya URL ya no trae UTMs).
 - `markTrackedOnce(key, persistent?)` — dedupe por pestaña (session) o por navegador (local).
 - `forwardQueryParams` del embed de Cal activado en `cal-embed.tsx`: los UTMs de la landing se propagan al iframe del booker (requisito para que Cal pueda guardarlos).
 - **Redirect post-booking** en `cal-embed.tsx`: 800 ms después de `bookingSuccessfulV2` navega a `/demo-resico/gracias?uid=<booking_uid>`. Sustituye el *Redirect on booking* de Cal.com (feature de planes de pago). Se usa navegación completa (`window.location.assign`, no `router.push`) para descartar el modal inyectado por Cal en `document.body` y para que GA4 registre el `page_view` de `/gracias`; el delay deja que se vea la pantalla de confirmación y que GA4/Meta drenen los hits antes de salir.
@@ -39,27 +38,27 @@ Mecanismos de soporte en `lib/analytics.ts`:
 
 | Definición | Regla |
 |---|---|
-| `booking` | Reserva creada en Cal.com (evento `bookingSuccessfulV2` o visita a `/gracias`). Se cuenta **una sola vez** por reserva. |
+| `demo_booked` | Reserva creada en Cal.com (evento `bookingSuccessfulV2` o visita a `/gracias?uid=`). Se cuenta **una sola vez** por reserva. |
 | `attended` | La sesión de 15 min ocurrió y la persona asistió. **Manual.** |
 | `qualified` | Asistió + tributa en RESICO (o cree estarlo) + su caso es preparable en la sesión. **Manual.** |
 | `trial/product_use` | Usó Fiscalio durante la sesión (el borrador se preparó con el producto). **Manual.** |
 | `purchase` | `checkout.session.completed` verificado en `/descarga?session_id=...`. GA4 automático; **la tabla manual es la fuente de verdad**. |
 
-Evento de optimización de Meta: se recomienda `Lead` (evento de conversión de la
-campaña), con fallback a *Landing Page Views* si el delivery se estanca — decisión
-final y reglas en `campaign-launch-pack.md` (Phase 5).
+Evento de optimización de Meta: `Schedule` (reserva confirmada), con fallback a
+*Landing Page Views* si el delivery se estanca — reglas en `campaign-launch-pack.md`
+(Phase 5). Nombres alineados con el contrato GTM v0.5 (`fiscalio-gtm/gtm-contract.md` §4).
 
 ## 4. Configuración externa pendiente (no hace falta en repo)
 
 **GA4 (admin de la propiedad G-T79R8K5JCB):**
-- [ ] Registrar dimensiones custom (event-scoped): `booking_uid`, `placement`, `source`, `utm_campaign`, `utm_content`
-- [ ] Marcar `purchase` como conversión
+- [ ] Registrar dimensiones custom (event-scoped): `booking_uid`, `placement`, `source`, `utm_campaign`, `utm_content`, `content_id`
+- [ ] Marcar `demo_booked` y `purchase` como key events
 - [ ] Verificar flujo completo con GA DebugView
 
 **Meta Events Manager:**
-- [ ] Verificar recepción de `PageView`, `ViewContent`, `Schedule`, `Lead`, `Purchase`
-- [ ] **Falta `NEXT_PUBLIC_META_PIXEL_ID` en Vercel** → el pixel no carga en producción (ver §5)
-- [ ] Marcar `Lead` como evento de conversión
+- [ ] Verificar recepción de `PageView`, `ViewContent`, `Schedule`, `Purchase`
+- [x] `NEXT_PUBLIC_META_PIXEL_ID` en Vercel — el pixel carga en producción (verificado 2026-10-28)
+- [ ] Marcar `Schedule` como evento de conversión
 - [ ] CAPI no implementado: sin dedupe server-side (limitación documentada, §7)
 
 **Cal.com:**
@@ -72,7 +71,7 @@ final y reglas en `campaign-launch-pack.md` (Phase 5).
 | Var | Local (.env.local) | Producción |
 |---|---|---|
 | `NEXT_PUBLIC_GA_ID` | ✅ | ✅ `G-T79R8K5JCB` |
-| `NEXT_PUBLIC_META_PIXEL_ID` | ✅ | ❌ **no seteada en Vercel** (ni la home carga `fbevents.js`) |
+| `NEXT_PUBLIC_META_PIXEL_ID` | ✅ | ✅ (verificado 2026-10-28) |
 | `CAL_COM_DEMO_URL` | ✅ | ❌ verificar tras deploy (si falta, el CTA sale "Próximamente") |
 | `CAL_COM_BOOKING_URL` | ✅ | pendiente de verificar |
 | `STRIPE_SECRET_KEY` | ✅ | pendiente de verificar |
@@ -84,21 +83,23 @@ Antes de lanzar: push de `staging` → merge a `main` → deploy, y setear
 `NEXT_PUBLIC_META_PIXEL_ID` en el entorno de Vercel **antes** del build
 (el valor se inyecta en build time).
 
-## 6. Convención UTM (preliminar; definitiva en Phase 5)
+## 6. Convención UTM (contrato GTM v0.5 §4)
 
 ```
-utm_source=meta
-utm_medium=paid_social
-utm_campaign=resico-borrador-15min
-utm_content=<creative-id>   ej: angulo-a-incertidumbre | angulo-d-founder-video
+utm_source   = {{site_source_name}}   (Meta lo llena por clic: ig | fb | msg | an)
+utm_medium   = paid_social
+utm_campaign = ads-demo
+utm_content  = {content_id}           (p. ej. ads-26w45-01; = nombre del anuncio en Ads Manager)
 ```
 
 Los parámetros se propagan: URL de la landing → eventos GA4 (auto + explícitos)
-→ iframe de Cal → (pendiente) registro de la reserva.
+→ iframe de Cal → registro de la reserva (visible en el detalle). En la llamada,
+el Payment Link de Stripe lleva `?client_reference_id={content_id}` tomado del
+`utm_content` de la reserva.
 
 ## 7. Limitaciones conocidas
 
 - `attended`, `qualified`, `trial/product_use` no tienen evento automático: se registran manualmente en la tabla de experimentación.
 - Meta `Purchase` puede duplicarse si el mismo comprador abre el enlace de descarga en otro navegador (sin CAPI). Fuente de verdad: tabla manual + GA4 (`transaction_id`).
 - Si Cal no guarda los UTMs, el join anuncio ⇄ lead se hace por `booking_uid` (GA4) + timestamp/email (export de Cal). Volumen esperado: bajo, viable manualmente.
-- `purchase` hereda los UTMs de la sesión del navegador (si el checkout de Stripe redirige en la misma pestaña), lo que mejora la atribución; en pestaña nueva no hereda nada.
+- `purchase` hereda los UTMs de la sesión del navegador solo si el checkout redirige en la misma pestaña; en pestaña nueva no hereda nada. La atribución confiable es `content_id` (`client_reference_id`), que también queda en el log del webhook de Stripe.
