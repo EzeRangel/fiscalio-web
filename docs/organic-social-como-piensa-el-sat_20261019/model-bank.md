@@ -8,25 +8,30 @@ atribución. Cada pieza publicada se llena aquí.
 
 ## 1. Convención UTM (orgánico)
 
-Distinta de la de paid (`utm_medium=paid_social`). **No usar `utm_term`.**
+La fuente de verdad es `fiscalio-gtm/gtm-contract.md` §4. Para orgánico, distinta
+de la de paid (`utm_medium=paid_social`). **No se usa `utm_term`.**
 
 ```
-utm_source   = facebook | instagram
-utm_medium   = organic_social
-utm_campaign = como-piensa-el-sat
-utm_content  = modelo-<NN>-<slug>-<formato>
+utm_source   = facebook | instagram     (= plataforma)
+utm_medium   = organic_social           (= canal)
+utm_campaign = mental-models
+utm_content  = {content_id}             = org-<semana ISO>-<NN>
 ```
 
-`<formato>`: `reel` · `carrusel` · `estatico` · `conversacion`.
+**`utm_content` es el `content_id` del ledger**, no un slug descriptivo. Desde el
+2026-11-02 reemplaza el esquema `modelo-<NN>-<slug>-<formato>` con
+`como-piensa-el-sat`, que ya no se usa: la pieza se registra en
+`fiscalio-gtm/ledger/pieces.md` y su fila es inmutable — si cambia la URL, se
+descarta la pieza y se emite un `content_id` nuevo.
 
 **Instagram como espejo desde la semana 2.** Se publica el mismo arte y el mismo
 copy; lo único que cambia es el canal: `utm_source=instagram`. En Instagram los
 comentarios no son clicables, así que el destino va en la **bio** (y en sticker
-de Stories cuando aplique), no en el primer comentario. El `utm_content` no
-cambia: `utm_source` es lo que separa los dos canales.
+de Stories cuando aplique), no en el primer comentario. **Cada canal es una pieza
+distinta**, con su propio `content_id`: el `utm_content` no se comparte.
 
-Ejemplo:
-`https://www.fiscalio.app/blog/pue-vs-ppd-diferencia-facturar-cobrar?source=blog_pue_vs_ppd&utm_source=facebook&utm_medium=organic_social&utm_campaign=como-piensa-el-sat&utm_content=modelo-04-facturado-cobrado-carrusel`
+Ejemplo (semana 3, carrusel de Facebook):
+`https://www.fiscalio.app/blog/pue-vs-ppd-diferencia-facturar-cobrar?source=blog_pue_vs_ppd&utm_source=facebook&utm_medium=organic_social&utm_campaign=mental-models&utm_content=org-26w45-01`
 
 `rememberCampaignParams` (`lib/analytics.ts`) ya propaga UTMs y `fbclid` en el
 sitio, así que la atribución funciona sin desarrollo.
@@ -142,9 +147,11 @@ Una idea por semana. El modelo se repite, no se acumula.
 **Presupuesto de links (§2.1).** Con el tope de 2 links al mes, solo **2 carruseles
 del mes** llevan link. Noviembre se asigna a las **semanas 3 y 4** («el error más
 caro» y «el que más rompe mitos»); las semanas 5 y 6 publican sin link propio y
-remiten al post fijado. Octubre ya gastó su presupuesto en la semana 1 (carrusel
-19 oct + comentario del Reel 21 oct), así que la semana 2 publica sin link nuevo.
-El espejo de Instagram no consume tope: su link vive en la bio.
+remiten al post fijado. El contador reinicia el **1 de noviembre**: la semana 3
+gasta el primer link y la semana 4 el segundo. Octubre ya gastó su presupuesto en
+la semana 1 (carrusel 19 oct + comentario del Reel 21 oct), así que la semana 2
+publicó sin link nuevo. El espejo de Instagram no consume tope: su link vive en la
+bio.
 
 **Por qué este orden:** primero el «aha» más visceral (el IVA no es tuyo), luego
 su secuela directa (mismo ejemplo, pero facturando a una empresa: ahí aparecen las
@@ -180,7 +187,7 @@ plantilla de las semanas 2–6.
 | Placa | Función |
 |---|---|
 | 1 | **Gancho** — la cifra del depósito + la creencia que rompe, con su base explícita |
-| 2 | **Reto** — pregunta con respuesta numérica; se pide el número en comentarios |
+| 2 | **Pregunta** — una pregunta real sobre cómo trabaja el lector; se responde en comentarios, **no** en la placa 5 |
 | 3 | **El modelo** — el objeto visual con la incógnita visible |
 | 4 | **Desglose** — tabla con los supuestos arriba; la incógnita sigue abierta |
 | 5 | **Respuesta + hábito + CTA** («Sigue a Fiscalio») |
@@ -191,12 +198,13 @@ Dos reglas que hacen que funcione:
   de la semana 1: Facebook mostró las 5 placas y **no** tapó la última con «+1».
   Con 5 imágenes en 4:5 el collage no oculta nada.
   **Regla para las semanas 2–6: no diseñar una pieza que dependa de que una placa
-  quede oculta.** El reto tiene que funcionar con todo a la vista, o hay que subir
+  quede oculta.** La pregunta tiene que funcionar con todo a la vista, o hay que subir
   el número de placas hasta que Facebook use el «+N».
-- **La pregunta pide una intuición, no un «comenta SÍ».** Facebook castiga el cebo;
-  una pregunta real genera comentarios. Pero con todas las placas visibles, la
-  pregunta no puede ser «adivina el resultado»: pide *«antes de hacer la cuenta,
-  ¿cuánto dirías?»*, que sobrevive a que la respuesta esté a la vista.
+- **La pregunta no es un acertijo.** Corregido el 2026-11-01 en la semana 3: pedir
+  «¿cuánto te toca pagar por una factura que aún no te pagan?» confunde y pone al
+  lector a adivinar. La pregunta buena es sobre su práctica —«¿facturas antes de
+  cobrar o cuando ya te pagaron?»— y se contesta en comentarios, no en la placa 5.
+  La pieza enseña primero y cierra con el desglose; no castiga al que no sabía.
 
 ## 5.1 Producción
 

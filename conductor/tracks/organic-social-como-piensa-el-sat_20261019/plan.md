@@ -5,9 +5,9 @@ Estados: `[ ]` pendiente · `[~]` en progreso · `[x]` completado (adjuntar hash
 Regla de la campaña: awareness y enseñanza. Un modelo mental por semana. El
 orgánico no vende: hace entendible lo que la categoría explica con miedo.
 
-> **¿Vas a empezar la semana 2?** Lee primero
-> [`handoff-semana-02.md`](handoff-semana-02.md): es autosuficiente y contiene el
-> estado real, las decisiones que faltan y la definición de terminado.
+> **¿Vas a empezar la semana 3?** Lee primero [`semana-03.md`](semana-03.md): tiene
+> el copy, las cifras, las fechas y las verificaciones pendientes. Para el contexto
+> de la semana 2 (plantilla, decisiones y aprendizajes), [`handoff-semana-02.md`](handoff-semana-02.md).
 
 ## Phase 0: Fundaciones de contenido
 
@@ -40,8 +40,8 @@ orgánico no vende: hace entendible lo que la categoría explica con miedo.
 - [ ] Task: Semana 2 — espejo en Instagram (`utm_source=instagram`, link en bio) — cuenta a cargo del humano
 - [ ] Task: Semana 2 — registro y lectura de guardados/compartidos
 - [x] Task: Atribución por evento — `waitlist_dialog_opened` y `waitlist_signup` envían `utm_*` en el propio evento (`trackEvent` de `lib/analytics.ts`) y los CTA internos de las calculadoras reenvían el `source` entrante (`lib/waitlist-source.ts`) — 31 oct 2026. El reenvío se resolvió en cliente (`components/waitlist-cta.tsx`) para que `/calculadora-resico` y `/calculadora-resico/retenciones` sigan siendo estáticas — 1 nov 2026
-- [ ] Task: Presupuesto de links de noviembre — asignar los 2 links a las semanas 3 y 4; las semanas 5 y 6 publican sin link propio y remiten al post fijado
-- [ ] Task: Semana 3 — modelo «Facturado ≠ cobrado», `source` `blog_pue_vs_ppd`
+- [x] Task: Presupuesto de links de noviembre — asignar los 2 links a las semanas 3 y 4; las semanas 5 y 6 publican sin link propio y remiten al post fijado — asignado 2026-11-01: semana 3 gasta el link #1 (el contador reinicia el 1 de noviembre), semana 4 el #2
+- [~] Task: Semana 3 — modelo «Facturado ≠ cobrado», `source` `blog_pue_vs_ppd` — copy v2 en [`semana-03.md`](semana-03.md); assets pendientes de render y publicación 2–6 nov
 - [ ] Task: Semana 3 — registro y lectura
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol en workflow.md)
 

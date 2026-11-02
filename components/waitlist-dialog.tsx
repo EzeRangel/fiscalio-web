@@ -44,10 +44,10 @@ const CONTEXTUAL_COPY: Record<
     buttonText: "Unirme a la beta privada",
   },
   blog_pue_vs_ppd: {
-    title: "Protege tu dinero hoy mismo",
+    title: "Facturado no es cobrado",
     description:
-      "Deja de pagar impuestos por dinero que no has cobrado. Únete a la beta de Fiscalio para conciliar facturas PUE y PPD automáticamente.",
-    buttonText: "Proteger mi dinero",
+      "Únete a la beta privada de Fiscalio y concilia tus facturas PUE y PPD: qué ingresos ya cuentan para el SAT y cuáles siguen abiertos.",
+    buttonText: "Unirme a la beta privada",
   },
   blog_exportacion_servicios: {
     title: "Descarga la plantilla de exportación",
