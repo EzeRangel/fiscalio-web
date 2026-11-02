@@ -19,7 +19,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { signupWaitlist } from "@/actions/signupWaitlist";
 import { toast } from "sonner";
-import { sendGAEvent } from "@next/third-parties/google";
+import { trackEvent } from "@/lib/analytics";
 
 const CONTEXTUAL_COPY: Record<
   string,
@@ -77,7 +77,7 @@ export function WaitlistDialog() {
   useEffect(() => {
     if (open) {
       if (!hasTrackedOpen.current) {
-        sendGAEvent("event", "waitlist_dialog_opened", {
+        trackEvent("waitlist_dialog_opened", {
           trigger_location: source,
           page_path: pathname,
         });
@@ -111,7 +111,7 @@ export function WaitlistDialog() {
           description: errorMessage,
         });
       } else {
-        sendGAEvent("event", "waitlist_signup", {
+        trackEvent("waitlist_signup", {
           method: "email",
           signup_source: source,
           page_path: pathname,

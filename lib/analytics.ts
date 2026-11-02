@@ -3,6 +3,7 @@ type EventParams = Record<string, string | number | boolean | undefined>;
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    dataLayer?: Record<string, unknown>[];
     fbq?: (...args: unknown[]) => void;
   }
 }
@@ -72,7 +73,15 @@ export function markTrackedOnce(key: string, persistent = false): boolean {
 
 export function trackEvent(name: string, params?: EventParams) {
   if (typeof window === "undefined") return;
-  window.gtag?.("event", name, { ...getCampaignParams(), ...params });
+  const payload = { ...getCampaignParams(), ...params };
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, payload);
+    return;
+  }
+
+  window.dataLayer = window.dataLayer ?? [];
+  window.dataLayer.push({ event: name, ...payload });
 }
 
 export function trackMeta(

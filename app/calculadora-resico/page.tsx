@@ -1,10 +1,9 @@
 import { Navigation } from "@/components/navigation";
 import { TaxCalculator } from "@/components/tax-calculator/tax-calculator";
-import { ArrowRight } from "lucide-react";
 import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { WaitlistDialog } from "@/components/waitlist-dialog";
+import { WaitlistCta } from "@/components/waitlist-cta";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -273,15 +272,7 @@ export default function CalculatorPage() {
               </div>
             </div>
             <div className="lg:col-span-4 space-y-6">
-              <Link href="?dialog=open&source=calculator" scroll={false}>
-                <Button
-                  size="lg"
-                  className="w-full text-xs tracking-[0.15em] h-14 rounded-none uppercase mb-1"
-                >
-                  Unirme a la beta privada
-                  <ArrowRight className="h-3.5 w-3.5 ml-3" />
-                </Button>
-              </Link>
+              <WaitlistCta />
               <p className="text-[10px] text-muted-foreground tracking-wide text-center uppercase">
                 Cupo limitado con precio fundador disponible
               </p>

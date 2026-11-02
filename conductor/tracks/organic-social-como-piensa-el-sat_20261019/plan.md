@@ -39,6 +39,7 @@ orgánico no vende: hace entendible lo que la categoría explica con miedo.
 - [x] Task: Semana 2 — resolver el límite de links de Meta (2 posts **o comentarios** al mes, cuenta los comentarios) — decisión 24 oct 2026: diseñar para el plan gratuito, el link se gasta en el carrusel bandera; regla en §2.1 de [`model-bank.md`](../../../docs/organic-social-como-piensa-el-sat_20261019/model-bank.md)
 - [ ] Task: Semana 2 — espejo en Instagram (`utm_source=instagram`, link en bio) — cuenta a cargo del humano
 - [ ] Task: Semana 2 — registro y lectura de guardados/compartidos
+- [x] Task: Atribución por evento — `waitlist_dialog_opened` y `waitlist_signup` envían `utm_*` en el propio evento (`trackEvent` de `lib/analytics.ts`) y los CTA internos de las calculadoras reenvían el `source` entrante (`lib/waitlist-source.ts`) — 31 oct 2026. El reenvío se resolvió en cliente (`components/waitlist-cta.tsx`) para que `/calculadora-resico` y `/calculadora-resico/retenciones` sigan siendo estáticas — 1 nov 2026
 - [ ] Task: Presupuesto de links de noviembre — asignar los 2 links a las semanas 3 y 4; las semanas 5 y 6 publican sin link propio y remiten al post fijado
 - [ ] Task: Semana 3 — modelo «Facturado ≠ cobrado», `source` `blog_pue_vs_ppd`
 - [ ] Task: Semana 3 — registro y lectura
