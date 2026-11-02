@@ -58,6 +58,11 @@ Notas de infraestructura verificadas el 2026-10-18:
   con `?dialog=open` y toma el copy contextual de `?source=`.
 - La atribución ya existe en GA4: `waitlist_dialog_opened` (`trigger_location`)
   y `waitlist_signup` (`signup_source`). **Sin desarrollo.**
+- Desde el 2026-10-31 ambos eventos pasan por `trackEvent` (`lib/analytics.ts`),
+  así que llevan también `utm_source`, `utm_medium`, `utm_campaign` y
+  `utm_content` en el propio evento: la publicación se lee **por evento**, no solo
+  por sesión. Los CTA internos de las calculadoras reenvían el `source` entrante
+  (`lib/waitlist-source.ts`) en vez de fijar `calculator`.
 - Pasar solo `source` (sin `dialog=open`) da atribución y copy contextual sin
   abrir el modal de golpe. Es el modo por defecto de la serie.
 - El registro de copy contextual (`CONTEXTUAL_COPY`) hoy solo tiene 5 entradas;
@@ -217,7 +222,7 @@ Una fila por semana. Se llena al cierre de cada semana.
 | Semana | Modelo | Alcance | Retención 3 s | Guardados | Compartidos | Clics al link | `waitlist_dialog_opened` | `waitlist_signup` | Notas |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 3 bóvedas | 125 visualizaciones | 16 | 0 | 0 | 0 | 0 | 0 | Semana completa publicada: carrusel y primer comentario 19 oct, Reel 21 oct, conversación 23 oct 2026. Métricas al cierre del 23 oct |
-| 2 | Retenciones | | | | | | | | |
+| 2 | Retenciones | 84 Visualizaciones | 4 | 1 | 1 | 0 | 1 | 1 | Semana publicada 26–30 oct: carrusel 26, estático 28, conversación 30. Sin link nuevo en Facebook (tope de 2 links de octubre, §2.1): el destino vive en el comentario del carrusel del 19 oct, por eso 0 clics en las piezas de la semana y aun así 1 apertura + 1 alta. Espejo de Instagram pendiente de confirmar. «Retención 3 s» no comparable: no hubo Reel. Ver lectura abajo |
 | 3 | Facturado ≠ cobrado | | | | | | | | |
 | 4 | Dos juegos | | | | | | | | |
 | 5 | IVA es un flujo | | | | | | | | |
@@ -228,6 +233,23 @@ ser efecto del tope de links (§2.1): octubre gastó sus 2 links en el carrusel 
 oct y el comentario del Reel del 21 oct, así que uno de los dos pudo no publicarse
 o quedar como texto plano. Antes de leer estos ceros como falta de interés,
 confirmar en la Página cuál comentario quedó clicable.
+
+**Semana 2 — lectura de los dos eventos.** 1 `waitlist_dialog_opened` → 1
+`waitlist_signup` es 100% de conversión del modal, pero n=1: dice que el embudo
+cierra, no cuánto rinde. Y con **0 clics** en las piezas de la semana, ese par de
+eventos no puede venir de un link de esta semana: viene del comentario fijado del
+19 oct (que arrastra `utm_content=modelo-01-tres-bovedas-carrusel`), de la bio de
+Instagram o de tráfico directo. Para saberlo: GA4 → Explorar → Exploración libre,
+filas `Contenido del anuncio manual de la sesión`, columnas `Nombre del evento`,
+filtro de evento `waitlist_(dialog_opened|signup)`, 26–30 oct. Lo que caiga en la
+fila `modelo-01-*` es tráfico de la semana 2 atribuido a la semana 1.
+
+Desde el 2026-10-31 los dos eventos llevan `utm_*` en el propio evento, así que
+desde la semana 3 se filtran por `utm_content` sin depender de la sesión.
+
+**Semana 2 — «retención 3 s».** No hubo Reel (`semana-02.md` §2), así que la
+métrica no es comparable con el 16 de la semana 1: confirmar de qué panel salió el
+4 antes de usarla para decidir el formato de la semana 3.
 
 **Lectura:** likes no son KPI. La señal de que un modelo funciona son
 **guardados y compartidos** (indican que el concepto se quedó y se quiso
