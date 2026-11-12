@@ -33,14 +33,14 @@ export function LogoLockup({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-[0.5em] font-mono font-medium uppercase leading-none tracking-[-0.04em]",
+        "inline-flex items-center gap-[0.65em] font-mono font-medium uppercase leading-none tracking-[-0.04em]",
         className,
       )}
       style={style}
       role="img"
       aria-label="Fiscalio"
     >
-      <LogoMark className="size-[1.8em]" />
+      <LogoMark className="size-[1.45em]" />
       <span aria-hidden="true">FISCALIO</span>
     </span>
   );

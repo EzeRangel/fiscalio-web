@@ -405,8 +405,8 @@ export default function BrandbookPage() {
                   head={["Medida", "Valor"]}
                   mono={[1]}
                   rows={[
-                    ["Alto del isotipo", "1.8x"],
-                    ["Separación isotipo–logotipo", "0.5x"],
+                    ["Alto del isotipo", "1.45x"],
+                    ["Separación isotipo–logotipo", "0.65x"],
                     ["Área de respeto del imagotipo", "1x por lado"],
                     ["Área de respeto del isotipo solo", "¼ de su lado"],
                     ["Radio exterior del isotipo", "25% del lado"],

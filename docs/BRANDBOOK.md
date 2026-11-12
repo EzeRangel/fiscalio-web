@@ -201,8 +201,8 @@ Con `x` = tamaño de fuente del logotipo:
 
 | Medida | Valor |
 |---|---|
-| Alto del isotipo | `1.8x` |
-| Separación isotipo–logotipo | `0.5x` |
+| Alto del isotipo | `1.45x` |
+| Separación isotipo–logotipo | `0.65x` |
 | Área de respeto alrededor | `1x` por lado (isotipo solo: ¼ de su lado) |
 
 ### Tamaños mínimos
