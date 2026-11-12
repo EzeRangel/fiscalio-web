@@ -470,8 +470,8 @@ export const BRAND_CHANGES: [string, string][] = [
     "Aprobado",
   ],
   [
-    "Hero del sitio: la captura usa rounded-lg, shadow-2xl y un degradado.",
-    "Pendiente de alinear",
+    "Hero del sitio: la captura usaba rounded-lg, shadow-2xl y un degradado.",
+    "Hecho: filete de 1 px, esquinas rectas, sin sombra ni degradado",
   ],
   [
     "ContextualPainCTA del blog PUE/PPD conserva «Cuidado con pagar impuestos de más».",

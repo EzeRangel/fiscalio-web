@@ -716,7 +716,7 @@ pagan.»
 | 6 | Firma de marca «Impuestos que se entienden.» | Aprobado |
 | 7 | Secuencia de gráficas con la paleta de marca | Aprobado y aplicado en `globals.css` |
 | 10 | Fundamentos: propósito, principios, personalidad y fronteras | Aprobado |
-| 8 | Hero del sitio: la captura usa `rounded-lg`, `shadow-2xl` y un degradado | **Pendiente** de alinear con las secciones 06 y 08 |
+| 8 | Hero del sitio: la captura usaba `rounded-lg`, `shadow-2xl` y un degradado | Hecho: filete de 1 px, esquinas rectas, sin sombra ni degradado |
 | 9 | `ContextualPainCTA` del blog PUE/PPD conserva «Cuidado con pagar impuestos de más» / «Proteger mi dinero» | **Pendiente** de reescribir según la sección 02 |
 
 ### Versión 1.1 · 2026-11-12 · Redes didácticas
