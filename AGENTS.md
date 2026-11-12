@@ -26,6 +26,10 @@ Only four npm scripts exist. There is **no** test or typecheck script.
 - Node pinned to **v22.13.0** via `.nvmrc` (run `nvm use` before installing).
 - No CI workflows exist in `.github/`. Verification order when finishing a task: `lint` → `tsc --noEmit` → manual `build` if routes/SSR changed.
 
+## Brand
+
+`docs/BRANDBOOK.md` is the source of truth for brand, voice and the visual system across the site and social media (visual version at `/admin/brandbook`, data in `lib/brand.ts`). It overrides `DESIGN.md` and `CONTENT.md` when they disagree.
+
 ## Design System
 
 Check `docs/DESIGN.md` for more information as needed.
@@ -41,6 +45,7 @@ Check `docs/CONTENT.md` for more information as needed.
   - `app/calculadora-resico/` calculator.
   - `app/signup/thank-you`, `app/api/og/route.tsx` (edge runtime, OG image), `app/api/download-pdf/route.ts` (Airtable-gated PDF download)
   - `app/admin/*` Experiments and internal tools for rapid prototyping.
+    - `/admin/brandbook`
     - `/admin/design-preview*`
     - `/admin/email-preview`
     - `/admin/linkedin-carousel`
