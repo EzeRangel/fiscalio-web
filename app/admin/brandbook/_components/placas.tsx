@@ -4,170 +4,323 @@ import { cn } from "@/lib/utils";
 
 const u = (px: number) => `${(px / 10.8).toFixed(3)}cqw`;
 
+const TOTAL = 7;
+
 function Placa({
-  label,
-  ratio = "4 / 5",
+  n,
+  antetitulo,
+  firma = "isotipo",
   children,
 }: {
-  label: string;
-  ratio?: string;
+  n: number;
+  antetitulo?: string;
+  firma?: "imagotipo" | "isotipo";
   children: React.ReactNode;
 }) {
   return (
     <div className="@container" style={PAPER_SCOPE}>
       <div
         className="flex flex-col border bg-background text-foreground"
-        style={{ aspectRatio: ratio, padding: u(84) }}
+        style={{ aspectRatio: "4 / 5", padding: u(84) }}
       >
-        <p
-          className="font-mono uppercase text-accent-rust"
-          style={{ fontSize: u(26), letterSpacing: "0.14em" }}
-        >
-          {label}
-        </p>
-        <div className="flex flex-1 flex-col justify-center">{children}</div>
-        <LogoLockup style={{ fontSize: u(40) }} />
+        <div className="shrink-0" style={{ height: u(156) }}>
+          {antetitulo ? (
+            <p
+              className="font-mono font-medium uppercase text-accent-rust"
+              style={{ fontSize: u(28), letterSpacing: "0.12em" }}
+            >
+              {antetitulo}
+            </p>
+          ) : null}
+        </div>
+        <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+        <div className="flex shrink-0 items-center justify-between">
+          {firma === "imagotipo" ? (
+            <LogoLockup style={{ fontSize: u(40) }} />
+          ) : (
+            <LogoMark style={{ width: u(56), height: u(56) }} />
+          )}
+          <p
+            className="font-mono text-muted-foreground"
+            style={{ fontSize: u(24), letterSpacing: "0.08em" }}
+          >
+            {n}/{TOTAL}
+          </p>
+        </div>
       </div>
     </div>
   );
 }
 
-function Etiqueta({ children }: { children: React.ReactNode }) {
+function Titular({
+  size = 96,
+  children,
+}: {
+  size?: number;
+  children: React.ReactNode;
+}) {
   return (
     <p
-      className="font-mono uppercase text-muted-foreground"
-      style={{ fontSize: u(24), letterSpacing: "0.14em" }}
+      className="font-display font-bold"
+      style={{
+        fontSize: u(size),
+        letterSpacing: size >= 120 ? "-0.04em" : "-0.03em",
+        lineHeight: size >= 120 ? 0.98 : 1.02,
+      }}
     >
       {children}
     </p>
   );
 }
 
-export function PlacaCifra() {
+function Apoyo({ children }: { children: React.ReactNode }) {
   return (
-    <Placa label="[01] Facturado ≠ cobrado">
-      <div className="grid grid-cols-2 border-t-2 border-b border-t-foreground">
-        {[
-          ["Facturado", "$58,000.00"],
-          ["Cobrado", "$0.00"],
-        ].map(([k, v], i) => (
+    <p
+      className="font-medium"
+      style={{
+        fontSize: u(44),
+        letterSpacing: "-0.01em",
+        lineHeight: 1.25,
+        marginTop: u(40),
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+function Etiqueta({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <p
+      className={cn(
+        "font-mono font-medium uppercase text-muted-foreground",
+        className,
+      )}
+      style={{ fontSize: u(28), letterSpacing: "0.08em" }}
+    >
+      {children}
+    </p>
+  );
+}
+
+function Mono({
+  size,
+  className,
+  children,
+}: {
+  size: number;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <p
+      className={cn("font-mono font-medium", className)}
+      style={{
+        fontSize: u(size),
+        letterSpacing: size >= 120 ? "-0.05em" : "-0.04em",
+        lineHeight: 1,
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function PlacaPortada() {
+  return (
+    <Placa n={1} antetitulo="Un modelo mental fiscal" firma="imagotipo">
+      <Titular size={150}>
+        Facturado
+        <br />
+        <span className="text-accent-rust">≠</span> cobrado
+      </Titular>
+    </Placa>
+  );
+}
+
+export function PlacaSituacion() {
+  return (
+    <Placa n={2}>
+      <Etiqueta>Facturado</Etiqueta>
+      <Mono size={190} className="mt-[1cqw]">
+        $58,000
+      </Mono>
+      <Etiqueta className="mt-[6cqw]">Cobrado</Etiqueta>
+      <Mono size={190} className="mt-[1cqw]">
+        $0
+      </Mono>
+      <Apoyo>El cliente paga a 30 días.</Apoyo>
+    </Placa>
+  );
+}
+
+function LineaDeTiempo({ capa }: { capa: 1 | 2 }) {
+  const previo = capa === 2;
+  const dot = u(44);
+  const columnas = { gridTemplateColumns: `${u(170)} 1fr` };
+  return (
+    <div style={{ marginTop: u(120) }}>
+      <div className="grid items-end" style={columnas}>
+        <span />
+        <div className="flex justify-between">
+          <Etiqueta>Día 1 · emites</Etiqueta>
+          <Etiqueta>Día 30 · te pagan</Etiqueta>
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          "grid items-center",
+          previo ? "text-muted-foreground" : "text-foreground",
+        )}
+        style={{ ...columnas, marginTop: u(80) }}
+      >
+        <Mono size={72}>PUE</Mono>
+        <div className="relative" style={{ height: u(120) }}>
           <div
-            key={k}
-            className={cn(i === 1 && "border-l")}
+            className="absolute top-1/2 left-0 right-0 -translate-y-1/2 bg-border"
+            style={{ height: u(6) }}
+          />
+          <div
+            className="absolute top-1/2 left-0 -translate-y-1/2 bg-current"
+            style={{ height: u(8), width: "40%" }}
+          />
+          <div
+            className="absolute top-1/2 left-0 -translate-y-1/2 rounded-full bg-current"
+            style={{ width: dot, height: dot }}
+          />
+          <div
+            className="absolute top-1/2 right-0 -translate-y-1/2 rounded-full border-muted-foreground bg-background"
+            style={{ width: dot, height: dot, borderWidth: u(5) }}
+          />
+          <span
+            className={cn(
+              "absolute top-1/2 bg-background font-mono font-medium uppercase",
+              previo
+                ? "border-muted-foreground text-muted-foreground"
+                : "border-accent-rust text-accent-rust",
+            )}
             style={{
-              padding: `${u(40)} 0 ${u(40)} ${i === 1 ? u(40) : "0"}`,
+              left: "40%",
+              fontSize: u(48),
+              letterSpacing: "0.08em",
+              padding: `${u(6)} ${u(20)}`,
+              borderWidth: u(5),
+              transform: "translate(-50%, -50%) rotate(-6deg)",
             }}
           >
+            Fin
+          </span>
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          "grid items-center",
+          previo ? "text-foreground" : "text-border",
+        )}
+        style={{ ...columnas, marginTop: u(160) }}
+      >
+        <Mono size={72}>PPD</Mono>
+        <div className="relative" style={{ height: u(120) }}>
+          <div
+            className="absolute top-1/2 left-0 right-0 -translate-y-1/2 border-dashed border-t-current"
+            style={{ borderTopWidth: u(8) }}
+          />
+          <div
+            className="absolute top-1/2 left-0 -translate-y-1/2 rounded-full bg-current"
+            style={{ width: dot, height: dot }}
+          />
+          {previo ? (
+            <>
+              <div
+                className="absolute top-1/2 right-0 -translate-y-1/2 rounded-full bg-accent-amber"
+                style={{ width: u(60), height: u(60) }}
+              />
+              <Etiqueta className="absolute right-0 top-full text-foreground">
+                Complemento de pago
+              </Etiqueta>
+            </>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function PlacaModelo({ capa }: { capa: 1 | 2 }) {
+  return (
+    <Placa n={capa === 1 ? 3 : 4}>
+      <Titular size={88}>
+        {capa === 1 ? (
+          <>
+            Con PUE, la historia{" "}
+            <span className="text-accent-rust">termina al emitir.</span>
+          </>
+        ) : (
+          <>
+            Con PPD, sigue abierta{" "}
+            <span className="text-accent-amber">hasta el pago.</span>
+          </>
+        )}
+      </Titular>
+      <LineaDeTiempo capa={capa} />
+    </Placa>
+  );
+}
+
+export function PlacaDesglose() {
+  const filas: [string, string, string][] = [
+    ["PUE · este mes", "$8,550.00", "text-accent-rust"],
+    ["PPD · este mes", "$0.00", "text-foreground"],
+    ["PPD · el mes del cobro", "$8,550.00", "text-accent-amber font-bold"],
+  ];
+  return (
+    <Placa n={5}>
+      <Titular size={88}>Lo que el SAT cuenta.</Titular>
+      <div
+        className="border-t-foreground"
+        style={{ borderTopWidth: u(4), marginTop: u(64) }}
+      >
+        {filas.map(([k, v, tone]) => (
+          <div
+            key={k}
+            className="flex items-baseline justify-between border-b"
+            style={{ padding: `${u(36)} 0` }}
+          >
             <Etiqueta>{k}</Etiqueta>
-            <p
-              className="font-mono font-medium"
-              style={{
-                fontSize: u(62),
-                letterSpacing: "-0.05em",
-                lineHeight: 1.1,
-                marginTop: u(12),
-              }}
-            >
+            <Mono size={72} className={tone}>
               {v}
-            </p>
+            </Mono>
           </div>
         ))}
       </div>
       <p
-        className="font-display font-bold"
-        style={{
-          fontSize: u(50),
-          letterSpacing: "-0.02em",
-          lineHeight: 1.15,
-          marginTop: u(48),
-        }}
-      >
-        Para el SAT, la factura es el inicio de la historia,{" "}
-        <span className="text-accent-rust">no el final.</span>
-      </p>
-      <p
         className="font-mono text-muted-foreground"
-        style={{ fontSize: u(22), letterSpacing: "0.04em", marginTop: u(40) }}
+        style={{ fontSize: u(28), letterSpacing: "0.02em", marginTop: u(40) }}
       >
-        $50,000 + IVA 16% · cliente que paga a 30 días
+        RESICO PF · $50,000 + IVA 16% · único ingreso del mes · cliente a 30
+        días
       </p>
     </Placa>
   );
 }
 
-const BOVEDAS = [
-  { n: 1, name: "IVA", value: "$8,000", text: "Lo cobras para el SAT.", fill: 14 },
-  { n: 2, name: "ISR", value: "$550", text: "Tu costo por facturar.", fill: 1.5 },
-  { n: 3, name: "Tuya", value: "$49,450", text: "Lo que sí puedes gastar.", fill: 85 },
-];
-
-export function PlacaModelo() {
+export function PlacaRegla() {
   return (
-    <Placa label="[03] El modelo mental">
-      <p
-        className="font-display font-bold"
-        style={{ fontSize: u(78), letterSpacing: "-0.03em", lineHeight: 1.02 }}
-      >
-        Reparte cada depósito en{" "}
-        <span className="text-accent-rust">tres bóvedas.</span>
-      </p>
-      <div
-        className="grid grid-cols-3"
-        style={{ gap: u(24), marginTop: u(64) }}
-      >
-        {BOVEDAS.map((b) => {
-          const tuya = b.n === 3;
-          return (
-            <div
-              key={b.n}
-              className={cn(
-                "border-2 bg-card",
-                tuya ? "border-accent-amber" : "border-border",
-              )}
-              style={{ borderRadius: u(28), padding: u(24) }}
-            >
-              <Etiqueta>Bóveda {b.n}</Etiqueta>
-              <p
-                className="font-display font-bold"
-                style={{ fontSize: u(48), letterSpacing: "-0.02em" }}
-              >
-                {b.name}
-              </p>
-              <div
-                className="relative overflow-hidden border bg-secondary"
-                style={{
-                  height: u(260),
-                  borderRadius: u(16),
-                  marginTop: u(12),
-                }}
-              >
-                <div
-                  className={cn(
-                    "absolute inset-x-0 bottom-0",
-                    tuya ? "bg-accent-amber" : "bg-muted-foreground",
-                  )}
-                  style={{ height: `${b.fill}%` }}
-                />
-              </div>
-              <p
-                className="font-mono font-medium"
-                style={{
-                  fontSize: u(36),
-                  letterSpacing: "-0.04em",
-                  marginTop: u(20),
-                }}
-              >
-                {b.value}
-              </p>
-              <p
-                className="text-muted-foreground"
-                style={{ fontSize: u(24), lineHeight: 1.3, marginTop: u(8) }}
-              >
-                {b.text}
-              </p>
-            </div>
-          );
-        })}
+    <Placa n={6}>
+      <Etiqueta>Para el SAT</Etiqueta>
+      <div style={{ marginTop: u(24) }}>
+        <Titular size={104}>
+          La factura es el inicio de la historia,{" "}
+          <span className="text-accent-rust">no el final.</span>
+        </Titular>
       </div>
     </Placa>
   );
@@ -175,43 +328,12 @@ export function PlacaModelo() {
 
 export function PlacaCierre() {
   return (
-    <Placa label="[05] El cierre">
-      <p
-        className="font-display font-bold"
-        style={{ fontSize: u(88), letterSpacing: "-0.03em", lineHeight: 1.02 }}
-      >
+    <Placa n={7} firma="imagotipo">
+      <Titular size={104}>
         Antes de emitir:{" "}
         <span className="text-accent-rust">¿ya me pagaron?</span>
-      </p>
-      <div
-        className="border-t-2 border-t-foreground"
-        style={{ marginTop: u(64) }}
-      >
-        {[
-          ["Si dice PUE", "$8,550 este mes", "text-accent-rust"],
-          ["Si dice PPD", "$0 este mes", "text-foreground"],
-        ].map(([k, v, tone]) => (
-          <div
-            key={k}
-            className="flex items-baseline justify-between border-b"
-            style={{ padding: `${u(28)} 0` }}
-          >
-            <Etiqueta>{k}</Etiqueta>
-            <p
-              className={cn("font-mono font-medium", tone)}
-              style={{ fontSize: u(44), letterSpacing: "-0.04em" }}
-            >
-              {v}
-            </p>
-          </div>
-        ))}
-      </div>
-      <p
-        className="font-medium"
-        style={{ fontSize: u(32), lineHeight: 1.3, marginTop: u(48) }}
-      >
-        Sigue a Fiscalio: un modelo mental fiscal cada semana.
-      </p>
+      </Titular>
+      <Apoyo>Sigue a Fiscalio.</Apoyo>
     </Placa>
   );
 }

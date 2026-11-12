@@ -1,6 +1,6 @@
 # Brandbook de Fiscalio
 
-> **Versión 1.0 · 2026-11-11.** Fuente de verdad de la marca: guía toda publicación,
+> **Versión 1.1 · 2026-11-12.** Fuente de verdad de la marca: guía toda publicación,
 > pieza visual y texto de Fiscalio en redes sociales y en el sitio web.
 > Versión visual con tokens vivos: `/admin/brandbook`.
 >
@@ -49,14 +49,16 @@ dos palabras: es más **precisa** o es más **cálida**. Si no es ninguna, sobra
    usamos multas, auditorías ni fechas límite como amenaza.
 2. **El porqué, no el trámite.** Enseñamos cómo piensa el SAT, no cómo llenar el
    portal. El «cómo declarar» es trabajo del contador.
-3. **Cifra verificable.** Toda cifra publicada lleva sus supuestos al lado y se
-   cruza contra `lib/tax-constants.ts` y la tabla oficial del SAT.
+3. **Cifra verificable.** Toda cifra publicada declara sus supuestos y se cruza
+   contra `lib/tax-constants.ts` y la tabla oficial del SAT. En redes, los
+   supuestos se declaran una vez: en la placa del desglose y en el texto del
+   post.
 4. **Tus datos son tuyos.** Offline-first, sin CIEC ni e.firma. Lo decimos como
    un hecho, no como un ataque a otros.
 5. **Honestidad de fundador.** Sin prueba social inflada, sin cupos inventados,
    sin urgencia artificial. Si algo es beta, se dice.
-6. **Una idea a la vez.** Una pieza, un modelo mental, una frase ancla. El modelo
-   se repite, no se acumula.
+6. **Una idea a la vez.** Una pieza, un modelo mental, una frase ancla. Una
+   placa, un paso. El modelo se repite, no se acumula.
 
 ### Personalidad
 
@@ -104,8 +106,8 @@ ignorancia— frente al SAT. Quiere entender su dinero, no convertirse en contad
    condicional: «con el método de pago equivocado…», no «tú estás pagando de más».
 6. **Enseñar antes de cerrar.** Ninguna pieza es un acertijo ni castiga al que no
    sabía.
-7. **Supuestos a la vista.** El ejemplo se declara: «RESICO persona física,
-   $50,000 + IVA 16% como único ingreso del mes».
+7. **Supuestos a la vista.** El ejemplo se declara una vez por pieza:
+   «RESICO persona física, $50,000 + IVA 16% como único ingreso del mes».
 8. **Frases cortas.** Un punto vale más que una coma. Sin signos de exclamación.
 
 ### Léxico
@@ -137,7 +139,7 @@ expulsiones del régimen, el día 17 como amenaza), culpa, urgencia artificial,
 ### Ortotipografía
 
 - **Dinero:** `$58,000.00` con signo pegado, coma de millares y dos decimales en
-  desgloses; `$8,550` sin decimales en titulares y cuerpo. Siempre en Geist Mono
+  desgloses; `$8,550` sin decimales en titulares, cifras héroe y cuerpo. Siempre en Geist Mono
   en piezas visuales. «MXN» solo si hay otra moneda en la pieza.
 - **Porcentajes:** `16%`, `1.25%`, sin espacio. En mono.
 - **Citas y títulos:** comillas angulares «así». Las inglesas solo dentro de otras.
@@ -231,8 +233,9 @@ zona de imagen con ruido, no usar el PNG de 500 px a más de 250 px.
 ### En redes
 
 - **Foto de perfil:** isotipo en tinta sobre papel, ocupando el 56% del lado.
-- **Firma de pieza:** imagotipo abajo a la izquierda, dentro del margen. Va en
-  todas las placas.
+- **Firma de pieza:** imagotipo abajo a la izquierda, dentro del margen, en la
+  portada, en la última placa y en el estático. En las placas interiores va
+  solo el isotipo (56 px), en el mismo sitio.
 - **Portada:** frase ancla de la serie + imagotipo; sin precios ni fechas.
 
 ---
@@ -271,9 +274,13 @@ superan el 10% está gritando.
 | Terracota | Lo que el SAT cuenta; la frase que importa | «no el final.», «→ el SAT cuenta $8,550 este mes» |
 | Ámbar | Lo que es tuyo o sigue abierto | La bóveda «Tuya», el pago que llega |
 
+- **Un acento por placa.** Terracota o ámbar, no los dos. La excepción es la
+  placa del desglose cuando contrasta lo que cuenta el SAT con lo tuyo, y cada
+  acento marca una sola cifra.
 - **Un solo énfasis en terracota por titular.**
 - **El impuesto nunca va en ámbar.**
 - El significado se mantiene dentro de la pieza y entre semanas.
+- Si hay que explicar qué significa un color, la placa usa demasiados.
 
 ### Contraste (WCAG)
 
@@ -337,16 +344,23 @@ señal de que la gráfica debe dividirse.
 
 | Elemento | Familia | Tamaño | Peso | Espaciado / interlínea |
 |---|---|---|---|---|
-| Antetítulo `[01] TEMA` | Geist Mono, versales | 26–30 px | 400 | `0.14em` |
-| Cifra héroe | Geist Mono | 120–190 px | 500 | `-0.05em` / 1 |
-| Titular | DM Sans | 84–104 px | 700 | `-0.03em` / 1.02 |
-| Frase ancla | DM Sans | 44–56 px | 700 | `-0.02em` / 1.15 |
-| Cuerpo | Geist | 30–34 px | 400–500 | normal / 1.3 |
-| Cifra en tabla | Geist Mono | 56–72 px | 500 | `-0.04em` |
-| Nota de supuestos | Geist Mono | 24–28 px | 400 | `0.06em` |
+| Antetítulo (solo portada) | Geist Mono, versales | 28–32 px | 500 | `0.12em` |
+| Titular de portada | DM Sans | 120–160 px | 700 | `-0.04em` / 0.98 |
+| Titular | DM Sans | 80–104 px | 700 | `-0.03em` / 1.02 |
+| Cifra héroe | Geist Mono | 160–240 px | 500 | `-0.05em` / 1 |
+| Apoyo | Geist | 40–48 px | 500 | `-0.01em` / 1.25 |
+| Etiqueta de diagrama | Geist Mono, versales | 28–32 px | 500 | `0.08em` |
+| Cifra de diagrama | Geist Mono | 56–80 px | 500 | `-0.04em` |
+| Supuestos (solo desglose) | Geist Mono | 24–28 px | 400 | `0.02em` |
+| Folio | Geist Mono | 24 px | 400 | `0.08em` |
 | Logotipo | Geist Mono, versales | 40 px | 500 | `-0.04em` |
 
-**Tamaño mínimo en placa: 24 px.** Por debajo no se lee en un teléfono.
+**Máximo tres niveles de texto por placa**, sin contar firma ni folio. Un
+titular, una línea de apoyo y las etiquetas del diagrama ya son tres.
+
+**Tamaño mínimo en placa: 28 px.** Solo el folio y la línea de supuestos bajan
+a 24 px. Una placa de 1080 px se ve a un tercio de su tamaño en el teléfono:
+28 px se leen como unos 10 pt.
 
 ### Reglas
 
@@ -354,6 +368,8 @@ señal de que la gráfica debe dividirse.
 - Todo número con unidad monetaria o porcentaje va en mono.
 - Titulares de máximo tres líneas. Alineación a la izquierda; centrado solo en el
   hero del sitio.
+- En placa, el mono es para cifras, etiquetas y folio. Una oración nunca va en
+  mono.
 
 ---
 
@@ -384,15 +400,27 @@ cosas que se pueden tomar con la mano. Los componentes heredados de shadcn con
 | Lienzo | Tamaño | Margen | Notas |
 |---|---|---|---|
 | Sitio | contenedor 1280 px, 12 columnas | 24–48 px | `py-12` a `py-24` entre secciones |
-| Placa 4:5 | 1080 × 1350 | 84 px | Antetítulo arriba, firma abajo |
+| Placa 4:5 | 1080 × 1350 | 84 px | Facebook e Instagram. Zona segura 3:4: lo esencial dentro de los 1012 px centrales |
 | Placa 1:1 | 1080 × 1080 | 84 px | Respaldo y LinkedIn |
 | Vertical 9:16 | 1080 × 1920 | 6% lados | Zona segura: 14% arriba, 35% abajo |
 
+La cuadrícula del perfil de Instagram muestra las publicaciones en 3:4 y recorta
+unos 34 px por lado de una placa 4:5. El margen de 84 px ya lo cubre: nada
+esencial se sale del margen.
+
 ### Anatomía de una placa
 
-1. **Antetítulo** en mono terracota, arriba a la izquierda: `[03] EL MODELO`.
-2. **Contenido** alineado a la izquierda, con al menos un tercio del lienzo vacío.
-3. **Firma:** imagotipo abajo a la izquierda. Siempre en el mismo sitio.
+1. **Línea de arranque.** El titular empieza a 240 px del borde superior en
+   todas las placas de un carrusel, para que no salte al deslizar.
+2. **Contenido.** Un titular, un elemento dominante —el objeto del modelo o una
+   cifra— que ocupa al menos el 40% del lienzo y, si hace falta, una línea de
+   apoyo. Alineado a la izquierda y anclado arriba: el vacío se junta en un solo
+   bloque, nunca repartido arriba y abajo de un contenido centrado.
+3. **Pie.** Firma abajo a la izquierda y folio `3/7` en mono piedra abajo a la
+   derecha. Siempre en el mismo sitio.
+4. **Antetítulo.** Solo en la portada, con el nombre de la serie
+   (`UN MODELO MENTAL FISCAL`). Las placas interiores no llevan antetítulo ni
+   numeración: el titular ya es la entrada.
 
 ---
 
@@ -416,6 +444,13 @@ El registro completo vive en
 
 - Formas planas: rectángulos suaves, líneas, puntos. Sin iconos ilustrados, sin
   3D, sin perspectiva.
+- El diagrama ocupa al menos el 40% del lienzo y se dibuja directo sobre papel.
+  No se mete en una tarjeta blanca con filete: eso lo vuelve interfaz.
+- Las etiquetas van pegadas al objeto que nombran, máximo tres por placa. Ningún
+  párrafo aparte explica el dibujo.
+- **Construcción por capas.** En un carrusel, el objeto ocupa la misma posición
+  en todas las placas del modelo y cada placa agrega una capa. Lo nuevo va en el
+  acento; lo ya visto pasa a piedra.
 - El nivel de llenado representa una cantidad real, a escala.
 - Etiquetas en mono con versales; nombres en DM Sans; cifras en mono.
 - Colores con la semántica de la sección 04.
@@ -462,36 +497,113 @@ del portal del SAT como recurso de miedo, iconos decorativos.
 
 ## 09 · Redes sociales
 
+### Cómo se lee una pieza en el feed
+
+Quien hace scroll decide en uno o dos segundos mirando la portada, la ve a un
+tercio de su tamaño y casi nunca lee algo dos veces. El sistema de redes se
+apoya en cuatro principios de la investigación sobre aprendizaje multimedia
+(Richard Mayer):
+
+- **Coherencia.** Todo lo que no explica la idea, sobra.
+- **Señalización.** Una sola cosa destaca por placa.
+- **Segmentación.** El carrusel reparte la explicación en pasos; ninguna placa
+  la contiene entera.
+- **Contigüidad.** La etiqueta va pegada al objeto que nombra.
+
+La densidad no se mide en palabras sino en **niveles**: una placa con pocas
+palabras repartidas en seis estilos de texto se lee como ruido.
+
 ### Formatos
 
 | Pieza | Formato | Función | CTA |
 |---|---|---|---|
-| Carrusel bandera | 5 placas 4:5, 1080 × 1350 | Alcance y guardados | Sigue a Fiscalio |
-| Estático de apoyo | 4:5, 1080 × 1350 | Captura de correo | Sigue a Fiscalio |
+| Carrusel bandera | 6–8 placas 4:5, 1080 × 1350 | Alcance y guardados | Sigue a Fiscalio |
+| Estático de apoyo | Una placa 4:5, 1080 × 1350 | Captura de correo | Sigue a Fiscalio |
 | Conversación | Solo texto | Comentarios | Ninguno |
 | Reel | 9:16, 1080 × 1920, 15–30 s | Alcance | Sigue a Fiscalio |
 | Documento de LinkedIn | PDF de placas 4:5 o 1:1 | Autoridad profesional | Sigue a Fiscalio |
 
-### Estructura del carrusel
+Facebook e Instagram usan el mismo archivo 4:5, con lo esencial dentro de la
+zona segura 3:4 (sección 06).
 
-| Placa | Antetítulo | Contenido |
+### Presupuesto por placa
+
+| Placa | Palabras | Niveles de texto | Elemento dominante |
+|---|---|---|---|
+| Portada | ≤ 8 | 2 | El titular o la cifra héroe |
+| Interior | ≤ 25 | 3 | El objeto del modelo o una cifra |
+| Desglose | ≤ 25, más las cifras | 3 | La cifra final |
+| Regla y cierre | ≤ 15 | 2 | La frase ancla |
+
+Cuentan todas las palabras visibles salvo la firma y el folio. **Si no cabe, se
+agrega una placa; nunca se reduce el tamaño del texto.**
+
+### Arco del carrusel
+
+| Paso | Placas | Qué hace |
 |---|---|---|
-| 1 | `[01] TEMA` | La cifra o la tensión, con la frase ancla |
-| 2 | `[02] LA PREGUNTA` | Pregunta abierta que se responde en comentarios, no un acertijo |
-| 3 | `[03] EL MODELO` | El objeto del modelo mental |
-| 4 | `[04] EL DESGLOSE` | Tabla con supuestos arriba |
-| 5 | `[05] EL CIERRE` | La regla en una línea + hábito + «Sigue a Fiscalio» |
+| Portada | 1 | Nombra la tensión en una línea. Sin supuestos, tablas ni cuerpo |
+| Situación | 1 | El caso concreto con una cifra. Funciona también como segunda portada |
+| Modelo | 1–3 | El objeto del modelo mental, una capa por placa |
+| Desglose | 1 | La cuenta, con los supuestos en una sola línea |
+| Regla | 1 | La frase ancla, en grande |
+| Cierre | 1 | El hábito en una línea y «Sigue a Fiscalio» |
 
-Ninguna placa depende de que otra quede oculta.
+- La longitud varía con el modelo: entre 6 y 8 placas. Regla y cierre pueden ir
+  juntos si caben en 15 palabras.
+- **La pregunta para comentarios va en el texto del post**, no en una placa: en
+  la placa 2 frena el impulso justo después del gancho.
+- Ninguna placa depende de que otra quede oculta. Instagram puede volver a
+  mostrar un carrusel abriendo en la segunda placa, así que la situación tiene
+  que sostenerse sola.
+
+Ejemplo con «Facturado ≠ cobrado»:
+
+| Paso | Placa |
+|---|---|
+| Portada | Facturado ≠ cobrado |
+| Situación | $58,000 facturados. $0 cobrados. |
+| Modelo · capa 1 | Línea de tiempo PUE: la historia termina al emitir |
+| Modelo · capa 2 | Se agrega PPD: la historia sigue abierta hasta el pago |
+| Desglose | $8,550 este mes con PUE · $0 este mes con PPD |
+| Regla | Para el SAT, la factura es el inicio de la historia, no el final. |
+| Cierre | Antes de emitir: ¿ya me pagaron? · Sigue a Fiscalio |
+
+### Estático
+
+Un estático es **una placa, no el carrusel comprimido**. Se elige una: la
+portada con el objeto del modelo, o el modelo completo con su frase ancla.
+Máximo 20 palabras y un solo objeto; los supuestos van en el texto del post.
+
+### Continuidad entre placas
+
+- Folio `3/7` en el pie. Sin flechas ni «desliza».
+- Línea de arranque fija: el titular no cambia de altura entre placas.
+- El objeto del modelo no cambia de lugar entre placas; solo gana capas.
+
+### Pruebas antes de producir
+
+1. **Miniatura.** La portada a 270 px de ancho (25%): el titular se lee sin
+   acercarse.
+2. **Tres segundos.** Alguien que no conoce la pieza ve cada placa tres
+   segundos y dice qué entendió. Si dice dos cosas, la placa tiene dos ideas.
+3. **Conteo.** Palabras y niveles dentro del presupuesto.
+
+### Copy aprobado y presupuesto
+
+Si ajustar una pieza al presupuesto obliga a dividir o recortar copy aprobado,
+primero se divide y después se recorta. La versión ajustada se marca
+`PENDIENTE DE REVISIÓN` en el `copy.md` de la pieza (`fiscalio-gtm`) y no se
+produce hasta que el fundador la apruebe.
 
 ### Estructura del texto del post
 
 1. Situación concreta con cifra (una o dos líneas).
 2. El modelo mental.
 3. Dos o tres líneas con `→`.
-4. Pregunta para comentarios.
+4. Pregunta para comentarios. Vive aquí, no en las placas.
 5. Frase ancla.
-6. Supuestos entre paréntesis.
+6. Supuestos completos entre paréntesis.
 
 **El enlace nunca va en el cuerpo del post.** Va en el primer comentario
 (Facebook, LinkedIn) o en la bio (Instagram). El detalle operativo —presupuesto de
@@ -572,16 +684,22 @@ pagan.»
 
 ## 12 · Antes de publicar
 
-- [ ] Una sola idea y una frase ancla.
+- [ ] Una sola idea por pieza, un paso por placa y una frase ancla.
 - [ ] Ninguna frase vetada ni encuadre de miedo o culpa.
 - [ ] No afirma ni insinúa la situación de quien lee.
-- [ ] Cifras verificadas contra `lib/tax-constants.ts`, con supuestos visibles.
+- [ ] Cifras verificadas contra `lib/tax-constants.ts`; supuestos en la placa
+      del desglose y en el texto del post.
 - [ ] Términos del glosario (`CONTEXT.md`).
-- [ ] Papel de fondo, un solo énfasis en terracota, ámbar solo para «lo tuyo».
-- [ ] Dinero y porcentajes en mono.
-- [ ] Texto mínimo de 24 px en placa; márgenes de 84 px; zona segura en 9:16.
-- [ ] Imagotipo abajo a la izquierda.
-- [ ] Un solo CTA. Enlace fuera del cuerpo del post.
+- [ ] Presupuesto: portada ≤ 8 palabras, interiores ≤ 25, máximo tres niveles
+      de texto por placa.
+- [ ] Pasa la prueba de miniatura y la de tres segundos.
+- [ ] Papel de fondo, un acento por placa, ámbar solo para «lo tuyo».
+- [ ] Dinero y porcentajes en mono; decimales solo en el desglose.
+- [ ] Texto mínimo de 28 px en placa (24 px solo folio y supuestos); márgenes
+      de 84 px; zona segura 3:4 en placas y zona segura en 9:16.
+- [ ] Firma y folio en su sitio; antetítulo solo en la portada.
+- [ ] Un solo CTA. Enlace fuera del cuerpo del post; la pregunta en el texto.
+- [ ] Copy dividido o recortado aprobado por el fundador.
 - [ ] Capturas con modo privacidad; arte con crédito y licencia verificada.
 
 ---
@@ -600,3 +718,25 @@ pagan.»
 | 10 | Fundamentos: propósito, principios, personalidad y fronteras | Aprobado |
 | 8 | Hero del sitio: la captura usa `rounded-lg`, `shadow-2xl` y un degradado | **Pendiente** de alinear con las secciones 06 y 08 |
 | 9 | `ContextualPainCTA` del blog PUE/PPD conserva «Cuidado con pagar impuestos de más» / «Proteger mi dinero» | **Pendiente** de reescribir según la sección 02 |
+
+### Versión 1.1 · 2026-11-12 · Redes didácticas
+
+Motivo: las placas de las semanas 1 a 3 concentraban demasiados niveles de
+información por placa y los estáticos resumían el carrusel entero. El copy se
+mantiene; cambia la ejecución.
+
+| # | Decisión | Estado |
+|---|---|---|
+| 11 | Presupuesto por placa: portada ≤ 8 palabras, interiores ≤ 25, máximo tres niveles de texto | Aprobado |
+| 12 | Arco de 6–8 placas (portada → situación → modelo por capas → desglose → regla → cierre) en lugar del esqueleto fijo de 5 | Aprobado |
+| 13 | Sin numeración `[01]` ni antetítulos de sección en placas interiores; folio `3/7` en el pie | Aprobado |
+| 14 | La pregunta para comentarios sale de las placas y vive en el texto del post | Aprobado |
+| 15 | Supuestos una vez: placa del desglose y texto del post | Aprobado |
+| 16 | El estático es una sola placa, no el carrusel comprimido | Aprobado |
+| 17 | Escala de placa con titulares de 80–160 px, apoyo de 40–48 px y mínimo de 28 px | Aprobado |
+| 18 | Diagramas directos sobre papel, ≥ 40% del lienzo, construidos por capas | Aprobado |
+| 19 | Un acento por placa | Aprobado |
+| 20 | Imagotipo en portada, cierre y estático; isotipo solo en placas interiores | Aprobado |
+| 21 | Copy dividido o recortado para cumplir el presupuesto se marca `PENDIENTE DE REVISIÓN` | Aprobado |
+| 22 | Ejemplos de copy dividido en la sección 09 y en `/admin/brandbook` | Aprobado |
+| 23 | Aplicar v1.1 a los componentes de `fiscalio-product-demo/src/social/` (`CardShell`, `Eyebrow`, `Footnote`) | **Pendiente** |

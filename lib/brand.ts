@@ -1,5 +1,5 @@
-export const BRAND_VERSION = "1.0";
-export const BRAND_DATE = "2026-11-11";
+export const BRAND_VERSION = "1.1";
+export const BRAND_DATE = "2026-11-12";
 
 export const BRAND_SECTIONS = [
   { id: "fundamentos", title: "Fundamentos" },
@@ -148,7 +148,7 @@ export const BRAND_PRINCIPLES = [
   },
   {
     title: "Cifra verificable",
-    body: "Toda cifra publicada lleva sus supuestos al lado y se cruza contra la tabla oficial del SAT.",
+    body: "Toda cifra publicada declara sus supuestos y se cruza contra la tabla oficial del SAT. En redes, una vez: en la placa del desglose y en el texto del post.",
   },
   {
     title: "Tus datos son tuyos",
@@ -160,7 +160,7 @@ export const BRAND_PRINCIPLES = [
   },
   {
     title: "Una idea a la vez",
-    body: "Una pieza, un modelo mental, una frase ancla. El modelo se repite, no se acumula.",
+    body: "Una pieza, un modelo mental, una frase ancla. Una placa, un paso. El modelo se repite, no se acumula.",
   },
 ];
 
@@ -207,7 +207,7 @@ export const VOICE_RULES = [
   },
   {
     title: "Supuestos a la vista",
-    body: "El ejemplo se declara: «RESICO persona física, $50,000 + IVA 16% como único ingreso del mes».",
+    body: "El ejemplo se declara una vez por pieza: «RESICO persona física, $50,000 + IVA 16% como único ingreso del mes».",
   },
   {
     title: "Frases cortas",
@@ -335,13 +335,15 @@ export const TYPE_SCALE_WEB: string[][] = [
 ];
 
 export const TYPE_SCALE_PLACA: string[][] = [
-  ["Antetítulo", "Geist Mono, versales", "26–30 px", "400", "0.14em"],
-  ["Cifra héroe", "Geist Mono", "120–190 px", "500", "-0.05em / 1"],
-  ["Titular", "DM Sans", "84–104 px", "700", "-0.03em / 1.02"],
-  ["Frase ancla", "DM Sans", "44–56 px", "700", "-0.02em / 1.15"],
-  ["Cuerpo", "Geist", "30–34 px", "400–500", "normal / 1.3"],
-  ["Cifra en tabla", "Geist Mono", "56–72 px", "500", "-0.04em"],
-  ["Nota de supuestos", "Geist Mono", "24–28 px", "400", "0.06em"],
+  ["Antetítulo (solo portada)", "Geist Mono, versales", "28–32 px", "500", "0.12em"],
+  ["Titular de portada", "DM Sans", "120–160 px", "700", "-0.04em / 0.98"],
+  ["Titular", "DM Sans", "80–104 px", "700", "-0.03em / 1.02"],
+  ["Cifra héroe", "Geist Mono", "160–240 px", "500", "-0.05em / 1"],
+  ["Apoyo", "Geist", "40–48 px", "500", "-0.01em / 1.25"],
+  ["Etiqueta de diagrama", "Geist Mono, versales", "28–32 px", "500", "0.08em"],
+  ["Cifra de diagrama", "Geist Mono", "56–80 px", "500", "-0.04em"],
+  ["Supuestos (solo desglose)", "Geist Mono", "24–28 px", "400", "0.02em"],
+  ["Folio", "Geist Mono", "24 px", "400", "0.08em"],
   ["Logotipo", "Geist Mono, versales", "40 px", "500", "-0.04em"],
 ];
 
@@ -370,32 +372,77 @@ export const MENTAL_MODELS: [string, string, string][] = [
 ];
 
 export const SOCIAL_FORMATS: string[][] = [
-  ["Carrusel bandera", "5 placas 4:5 · 1080 × 1350", "Alcance y guardados"],
-  ["Estático de apoyo", "4:5 · 1080 × 1350", "Captura de correo"],
+  ["Carrusel bandera", "6–8 placas 4:5 · 1080 × 1350", "Alcance y guardados"],
+  ["Estático de apoyo", "Una placa 4:5 · 1080 × 1350", "Captura de correo"],
   ["Conversación", "Solo texto", "Comentarios"],
   ["Reel", "9:16 · 1080 × 1920 · 15–30 s", "Alcance"],
   ["Documento de LinkedIn", "PDF de placas 4:5 o 1:1", "Autoridad profesional"],
 ];
 
+export const SOCIAL_PRINCIPLES = [
+  {
+    title: "Coherencia",
+    body: "Todo lo que no explica la idea, sobra.",
+  },
+  {
+    title: "Señalización",
+    body: "Una sola cosa destaca por placa.",
+  },
+  {
+    title: "Segmentación",
+    body: "El carrusel reparte la explicación en pasos; ninguna placa la contiene entera.",
+  },
+  {
+    title: "Contigüidad",
+    body: "La etiqueta va pegada al objeto que nombra.",
+  },
+];
+
+export const PLACA_BUDGET: string[][] = [
+  ["Portada", "≤ 8", "2", "El titular o la cifra héroe"],
+  ["Interior", "≤ 25", "3", "El objeto del modelo o una cifra"],
+  ["Desglose", "≤ 25 + cifras", "3", "La cifra final"],
+  ["Regla y cierre", "≤ 15", "2", "La frase ancla"],
+];
+
 export const CAROUSEL_STRUCTURE: string[][] = [
-  ["[01] TEMA", "La cifra o la tensión, con la frase ancla"],
-  ["[02] LA PREGUNTA", "Pregunta abierta para comentarios; no un acertijo"],
-  ["[03] EL MODELO", "El objeto del modelo mental"],
-  ["[04] EL DESGLOSE", "Tabla con supuestos arriba"],
-  ["[05] EL CIERRE", "La regla en una línea, el hábito y «Sigue a Fiscalio»"],
+  ["Portada", "1", "Nombra la tensión en una línea. Sin supuestos, tablas ni cuerpo"],
+  ["Situación", "1", "El caso concreto con una cifra. Funciona también como segunda portada"],
+  ["Modelo", "1–3", "El objeto del modelo mental, una capa por placa"],
+  ["Desglose", "1", "La cuenta, con los supuestos en una sola línea"],
+  ["Regla", "1", "La frase ancla, en grande"],
+  ["Cierre", "1", "El hábito en una línea y «Sigue a Fiscalio»"],
+];
+
+export const SOCIAL_TESTS = [
+  {
+    title: "Miniatura",
+    body: "La portada a 270 px de ancho (25%): el titular se lee sin acercarse.",
+  },
+  {
+    title: "Tres segundos",
+    body: "Alguien que no conoce la pieza ve cada placa tres segundos y dice qué entendió. Si dice dos cosas, la placa tiene dos ideas.",
+  },
+  {
+    title: "Conteo",
+    body: "Palabras y niveles de texto dentro del presupuesto. Si no cabe, se agrega una placa; nunca se reduce el texto.",
+  },
 ];
 
 export const PUBLISH_CHECKLIST = [
-  "Una sola idea y una frase ancla.",
+  "Una sola idea por pieza, un paso por placa y una frase ancla.",
   "Ninguna frase vetada ni encuadre de miedo o culpa.",
   "No afirma ni insinúa la situación de quien lee.",
-  "Cifras verificadas contra lib/tax-constants.ts, con supuestos visibles.",
+  "Cifras verificadas contra lib/tax-constants.ts; supuestos en la placa del desglose y en el texto del post.",
   "Términos del glosario (CONTEXT.md).",
-  "Papel de fondo, un solo énfasis en terracota, ámbar solo para «lo tuyo».",
-  "Dinero y porcentajes en mono.",
-  "Texto mínimo de 24 px en placa; márgenes de 84 px; zona segura en 9:16.",
-  "Imagotipo abajo a la izquierda.",
-  "Un solo CTA. Enlace fuera del cuerpo del post.",
+  "Presupuesto: portada ≤ 8 palabras, interiores ≤ 25, máximo tres niveles de texto por placa.",
+  "Pasa la prueba de miniatura y la de tres segundos.",
+  "Papel de fondo, un acento por placa, ámbar solo para «lo tuyo».",
+  "Dinero y porcentajes en mono; decimales solo en el desglose.",
+  "Texto mínimo de 28 px en placa (24 px solo folio y supuestos); márgenes de 84 px; zona segura 3:4 y 9:16.",
+  "Firma y folio en su sitio; antetítulo solo en la portada.",
+  "Un solo CTA. Enlace fuera del cuerpo del post; la pregunta en el texto.",
+  "Copy dividido o recortado aprobado por el fundador.",
   "Capturas con modo privacidad; arte con crédito y licencia verificada.",
 ];
 
@@ -429,5 +476,33 @@ export const BRAND_CHANGES: [string, string][] = [
   [
     "ContextualPainCTA del blog PUE/PPD conserva «Cuidado con pagar impuestos de más».",
     "Pendiente de reescribir",
+  ],
+  [
+    "v1.1 · Presupuesto por placa: portada ≤ 8 palabras, interiores ≤ 25, máximo tres niveles de texto.",
+    "Aprobado",
+  ],
+  [
+    "v1.1 · Arco de 6–8 placas en lugar del esqueleto fijo de 5; sin numeración [01] ni antetítulos interiores; folio en el pie.",
+    "Aprobado",
+  ],
+  [
+    "v1.1 · La pregunta sale de las placas; los supuestos se declaran una vez, en el desglose y en el texto del post.",
+    "Aprobado",
+  ],
+  [
+    "v1.1 · Estático de una sola placa; escala con titulares de 80–160 px y mínimo de 28 px; diagramas por capas; un acento por placa.",
+    "Aprobado",
+  ],
+  [
+    "v1.1 · Imagotipo en portada, cierre y estático; isotipo solo en placas interiores.",
+    "Aprobado",
+  ],
+  [
+    "v1.1 · Ejemplos de copy dividido en la sección de redes.",
+    "Aprobado",
+  ],
+  [
+    "v1.1 · Aplicar a los componentes de fiscalio-product-demo/src/social/.",
+    "Pendiente",
   ],
 ];

@@ -14,8 +14,11 @@ import {
   CAROUSEL_STRUCTURE,
   MENTAL_MODELS,
   PAPER_SCOPE,
+  PLACA_BUDGET,
   PUBLISH_CHECKLIST,
   SOCIAL_FORMATS,
+  SOCIAL_PRINCIPLES,
+  SOCIAL_TESTS,
   TYPE_SCALE_PLACA,
   TYPE_SCALE_WEB,
   VOICE_BANNED,
@@ -33,8 +36,11 @@ import Snapshot from "@/public/snapshot.png";
 import {
   Avatar,
   PlacaCierre,
-  PlacaCifra,
+  PlacaDesglose,
   PlacaModelo,
+  PlacaPortada,
+  PlacaRegla,
+  PlacaSituacion,
   ZonaSegura,
 } from "./_components/placas";
 import {
@@ -451,7 +457,7 @@ export default function BrandbookPage() {
 
               <Block
                 title="En redes"
-                note="Foto de perfil: isotipo al 56% del lado. Firma de pieza: imagotipo abajo a la izquierda, en todas las placas."
+                note="Foto de perfil: isotipo al 56% del lado. Firma de pieza: imagotipo abajo a la izquierda en portada, cierre y estático; isotipo solo en placas interiores."
               >
                 <div className="grid max-w-md grid-cols-3 gap-6">
                   <div>
@@ -484,7 +490,7 @@ export default function BrandbookPage() {
 
               <Block
                 title="Acentos"
-                note="Un solo énfasis en terracota por titular. El impuesto nunca va en ámbar."
+                note="Un acento por placa. Un solo énfasis en terracota por titular. El impuesto nunca va en ámbar. Si hay que explicar qué significa un color, sobran colores."
               >
                 <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                   {BRAND_ACCENTS.map((c) => (
@@ -679,7 +685,7 @@ export default function BrandbookPage() {
 
               <Block
                 title="Escala de placa"
-                note="Sobre un lienzo de 1080 px de ancho. Tamaño mínimo: 24 px."
+                note="Sobre un lienzo de 1080 px de ancho. Máximo tres niveles de texto por placa, sin contar firma ni folio. Mínimo 28 px; 24 px solo en folio y supuestos."
               >
                 <Tabla
                   head={["Elemento", "Familia", "Tamaño", "Peso", "Espaciado / interlínea"]}
@@ -696,6 +702,7 @@ export default function BrandbookPage() {
                     "Todo número con signo de pesos o porcentaje va en mono.",
                     "Titulares de máximo tres líneas, alineados a la izquierda. Centrado solo en el hero del sitio.",
                     "Nunca cursiva. Nunca versales en DM Sans.",
+                    "En placa, el mono es para cifras, etiquetas y folio. Una oración nunca va en mono.",
                   ]}
                 />
               </Block>
@@ -767,7 +774,7 @@ export default function BrandbookPage() {
                   mono={[1, 2]}
                   rows={[
                     ["Sitio", "1280 px · 12 columnas", "24–48 px", "py-12 a py-24 entre secciones"],
-                    ["Placa 4:5", "1080 × 1350", "84 px", "Antetítulo arriba, firma abajo"],
+                    ["Placa 4:5", "1080 × 1350", "84 px", "Facebook e Instagram. Zona segura 3:4: lo esencial en los 1012 px centrales"],
                     ["Placa 1:1", "1080 × 1080", "84 px", "Respaldo y LinkedIn"],
                     ["Vertical 9:16", "1080 × 1920", "6% lados", "Zona segura: 14% arriba, 35% abajo"],
                   ]}
@@ -779,14 +786,16 @@ export default function BrandbookPage() {
                   Anatomía de una placa
                 </h3>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                  Antetítulo en mono terracota arriba a la izquierda, contenido
-                  con un tercio del lienzo vacío, imagotipo abajo a la
-                  izquierda.
+                  El titular arranca a 240 px del borde en todas las placas. Un
+                  elemento dominante ocupa al menos el 40% del lienzo; el
+                  contenido se ancla arriba y el vacío se junta abajo, en un
+                  solo bloque. Firma abajo a la izquierda, folio abajo a la
+                  derecha. Antetítulo solo en la portada.
                 </p>
                 <div className="mt-8 grid gap-6 md:grid-cols-3">
-                  <PlacaCifra />
-                  <PlacaModelo />
-                  <PlacaCierre />
+                  <PlacaPortada />
+                  <PlacaModelo capa={2} />
+                  <PlacaDesglose />
                 </div>
               </div>
             </Section>
@@ -810,6 +819,9 @@ export default function BrandbookPage() {
                   tone="si"
                   items={[
                     "Formas planas: rectángulos suaves, líneas y puntos. Sin iconos ilustrados, sin 3D, sin perspectiva.",
+                    "El diagrama ocupa al menos el 40% del lienzo y se dibuja directo sobre papel, no dentro de una tarjeta con filete.",
+                    "Etiquetas pegadas al objeto que nombran, máximo tres por placa. Ningún párrafo aparte explica el dibujo.",
+                    "Construcción por capas: el objeto no cambia de lugar entre placas y cada una agrega una capa. Lo nuevo en el acento; lo ya visto en piedra.",
                     "El nivel de llenado representa una cantidad real, a escala.",
                     "Etiquetas en mono con versales, nombres en DM Sans, cifras en mono.",
                     "Un sello (FIN, BORRADOR) puede girar hasta 6°. Es lo único que rompe la retícula.",
@@ -893,7 +905,26 @@ export default function BrandbookPage() {
               {...section("redes")}
               lead="Una idea por semana, en el mismo sistema visual, con un solo llamado a la acción: «Sigue a Fiscalio»."
             >
-              <Block title="Formatos">
+              <Block
+                title="Cómo se lee en el feed"
+                note="Uno o dos segundos frente a la portada, a un tercio de su tamaño. Cuatro principios del aprendizaje multimedia (Mayer)."
+              >
+                <div className="grid gap-px border bg-border sm:grid-cols-2">
+                  {SOCIAL_PRINCIPLES.map((p) => (
+                    <Regla key={p.title} title={p.title} body={p.body} />
+                  ))}
+                </div>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  La densidad no se mide en palabras sino en niveles: pocas
+                  palabras repartidas en seis estilos de texto se leen como
+                  ruido.
+                </p>
+              </Block>
+
+              <Block
+                title="Formatos"
+                note="Facebook e Instagram usan el mismo archivo 4:5, con lo esencial dentro de la zona segura 3:4."
+              >
                 <Tabla
                   head={["Pieza", "Formato", "Función"]}
                   mono={[1]}
@@ -902,14 +933,104 @@ export default function BrandbookPage() {
               </Block>
 
               <Block
-                title="Estructura del carrusel"
-                note="Ninguna placa depende de que otra quede oculta."
+                title="Presupuesto por placa"
+                note="Cuentan todas las palabras visibles salvo firma y folio. Si no cabe, se agrega una placa; nunca se reduce el texto."
               >
                 <Tabla
-                  head={["Antetítulo", "Contenido"]}
-                  mono={[0]}
+                  head={["Placa", "Palabras", "Niveles", "Elemento dominante"]}
+                  mono={[1, 2]}
+                  rows={PLACA_BUDGET}
+                />
+              </Block>
+
+              <Block
+                title="Arco del carrusel"
+                note="Entre 6 y 8 placas. La pregunta para comentarios va en el texto del post. Ninguna placa depende de que otra quede oculta: la segunda puede aparecer como portada."
+              >
+                <Tabla
+                  head={["Paso", "Placas", "Qué hace"]}
+                  mono={[1]}
                   rows={CAROUSEL_STRUCTURE}
                 />
+              </Block>
+
+              <div>
+                <h3 className="font-display text-xl font-medium tracking-tight">
+                  Ejemplo: Facturado ≠ cobrado
+                </h3>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  El copy aprobado de la semana 3, dividido en siete placas. El
+                  modelo se construye en dos capas sobre la misma línea de
+                  tiempo.
+                </p>
+                <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  <PlacaPortada />
+                  <PlacaSituacion />
+                  <PlacaModelo capa={1} />
+                  <PlacaModelo capa={2} />
+                  <PlacaDesglose />
+                  <PlacaRegla />
+                  <PlacaCierre />
+                </div>
+              </div>
+
+              <Block
+                title="Estático"
+                note="Una placa, no el carrusel comprimido."
+              >
+                <Lista
+                  tone="si"
+                  items={[
+                    "Se elige una: la portada con el objeto del modelo, o el modelo completo con su frase ancla.",
+                    "Máximo 20 palabras y un solo objeto.",
+                    "Los supuestos van en el texto del post.",
+                  ]}
+                />
+              </Block>
+
+              <Block
+                title="Continuidad"
+                note="Lo que hace que deslizar se sienta como pasar páginas del mismo documento."
+              >
+                <Lista
+                  tone="si"
+                  items={[
+                    "Folio 3/7 en el pie. Sin flechas ni «desliza».",
+                    "Línea de arranque fija: el titular no cambia de altura entre placas.",
+                    "El objeto del modelo no cambia de lugar; solo gana capas.",
+                  ]}
+                />
+              </Block>
+
+              <Block
+                title="Pruebas antes de producir"
+                note="La portada de la izquierda está a 270 px de ancho: así se ve en la prueba de miniatura."
+              >
+                <div className="grid items-start gap-8 sm:grid-cols-[270px_1fr]">
+                  <div className="w-[270px]">
+                    <PlacaPortada />
+                  </div>
+                  <div className="grid gap-px border bg-border">
+                    {SOCIAL_TESTS.map((t) => (
+                      <Regla key={t.title} title={t.title} body={t.body} />
+                    ))}
+                  </div>
+                </div>
+              </Block>
+
+              <Block
+                title="Copy aprobado"
+                note="Primero se divide; después se recorta."
+              >
+                <p className="max-w-2xl text-sm leading-relaxed">
+                  Si ajustar una pieza al presupuesto obliga a dividir o recortar
+                  copy aprobado, la versión ajustada se marca{" "}
+                  <span className="font-mono text-[12px] text-accent-rust">
+                    PENDIENTE DE REVISIÓN
+                  </span>{" "}
+                  en el copy.md de la pieza y no se produce hasta que el
+                  fundador la apruebe.
+                </p>
               </Block>
 
               <Block
@@ -944,7 +1065,8 @@ export default function BrandbookPage() {
                 </div>
                 <p className="mt-3 font-mono text-[11px] text-muted-foreground">
                   Situación con cifra → modelo → dos o tres líneas con flecha →
-                  pregunta → frase ancla → supuestos
+                  pregunta, que vive aquí y no en las placas → frase ancla →
+                  supuestos completos
                 </p>
               </Block>
 
@@ -1098,7 +1220,7 @@ export default function BrandbookPage() {
 
             <Section
               {...section("publicar")}
-              lead="Once comprobaciones antes de que una pieza salga."
+              lead="Catorce comprobaciones antes de que una pieza salga."
             >
               <ol className="border-t-2 border-foreground">
                 {PUBLISH_CHECKLIST.map((item, i) => (
