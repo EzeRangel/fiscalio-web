@@ -13,10 +13,10 @@
   - **Mono (Geist Mono):** Apply strictly to all currency formats (e.g., `$10,000.00 MXN`), tax percentages (e.g., `1.25%`), and technical metadata.
 - **Color Usage:**
   - Base background must be the warm neutral `#fcfaf6` (`bg-background`). Avoid solid pure white backgrounds for page layouts.
-  - Text must default to charcoal `#262626` (`text-foreground`).
+  - Text must default to ink `#0e0b07` (`text-foreground`).
   - Accents are limited to Accent Amber (warnings/highlights) and Accent Rust (secondary CTAs). Saturated, generic blues/greens are prohibited.
 - **Borders & Corners:**
-  - All interactive controls, cards, and input fields must use a `0.5rem` (8px) corner radius.
+  - Structure is straight, objects are soft: interactive controls, cards and input fields use `0px` (`rounded-none`); rounded corners are reserved for mental-model objects in diagrams and the logo mark (see `docs/BRANDBOOK.md` §06).
   - Borders should be thin and subtle, defining structure without adding visual clutter.
 - **Elevation:** Flat design hierarchy. Use tonal differences or thin borders for elevation rather than deep drop shadows.
 

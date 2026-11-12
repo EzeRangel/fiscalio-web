@@ -3,27 +3,27 @@ version: alpha
 name: Fiscalio Design System
 colors:
   background: "#fcfaf6"
-  foreground: "#262626"
-  primary: "#3a3a3a"
-  secondary: "#f0f0f0"
-  muted: "#f5f5f5"
-  accent: "#f0f0f0"
-  destructive: "#ce2c31"
-  accent-amber: "#fbbf24"
-  accent-rust: "#b45309"
+  foreground: "#0e0b07"
+  primary: "#272017"
+  secondary: "#f1eee9"
+  muted: "#f4f1ed"
+  accent: "#f1eee9"
+  destructive: "#d40924"
+  accent-amber: "#cc7800"
+  accent-rust: "#ac543f"
 typography:
   h1:
     fontFamily: DM Sans
-    fontSize: 4.5rem
-    fontWeight: 700
+    fontSize: 3.75rem
+    fontWeight: 500
   h2:
     fontFamily: DM Sans
-    fontSize: 2.5rem
-    fontWeight: 600
+    fontSize: 1.875rem
+    fontWeight: 500
   h3:
     fontFamily: DM Sans
     fontSize: 1.5rem
-    fontWeight: 600
+    fontWeight: 500
   body:
     fontFamily: Geist
     fontSize: 1rem
@@ -45,7 +45,7 @@ spacing:
 
 # Fiscalio Design System
 
-This document outlines the visual identity and UI patterns for Fiscalio. It serves as a single source of truth for design decisions and as a guide for building consistent interfaces.
+This document details the UI implementation of the Fiscalio design system. Brand, voice and the visual system are governed by [`BRANDBOOK.md`](./BRANDBOOK.md) (visual version at `/admin/brandbook`); if the two disagree, the brandbook wins.
 
 ## Overview
 
@@ -59,16 +59,16 @@ This document outlines the visual identity and UI patterns for Fiscalio. It serv
 The palette is rooted in high-contrast neutrals and editorial accents that evoke a sense of professional precision and warmth.
 
 - **Background (#fcfaf6):** A warm, paper-like neutral base.
-- **Foreground (#262626):** Primary charcoal text and icons.
-- **Primary (#3a3a3a):** High-contrast brand identity and CTAs.
-- **Secondary (#f0f0f0):** Subtle containers and background shifts.
-- **Muted (#f5f5f5):** De-emphasized text and backgrounds.
-- **Destructive (#ce2c31):** Used for errors and critical deletions.
+- **Foreground (#0e0b07):** Primary charcoal text and icons.
+- **Primary (#272017):** High-contrast brand identity and CTAs.
+- **Secondary (#f1eee9):** Subtle containers and background shifts.
+- **Muted (#f4f1ed):** De-emphasized text and backgrounds.
+- **Destructive (#d40924):** Used for errors and critical deletions.
 
 ### Editorial Accents
 
-- **Accent Amber (oklch(0.65 0.15 65)):** Used for warnings or highlights.
-- **Accent Rust (oklch(0.55 0.12 35)):** Used for deep highlights or secondary calls to action.
+- **Accent Amber (oklch(0.65 0.15 65), #cc7800):** Used for warnings or highlights.
+- **Accent Rust (oklch(0.55 0.12 35), #ac543f):** Used for deep highlights or secondary calls to action.
 
 ## Typography
 
@@ -82,9 +82,9 @@ The typography strategy leverages the character of DM Sans for display and the f
 
 | Level         | Font    | Size               | Weight | Case                |
 | :------------ | :------ | :----------------- | :----- | :------------------ |
-| **H1**        | Display | 3.5rem - 4.5rem    | 700    | Default             |
-| **H2**        | Display | 2rem - 2.5rem      | 600    | Default             |
-| **H3**        | Display | 1.5rem             | 600    | Default             |
+| **H1**        | Display | 2.25rem - 3.75rem  | 500    | Default             |
+| **H2**        | Display | 1.5rem - 1.875rem  | 500    | Default             |
+| **H3**        | Display | 1.25rem - 1.5rem   | 500    | Default             |
 | **Body**      | Sans    | 1rem (16px)        | 400    | Default             |
 | **Label**     | Sans    | 0.875rem           | 500    | Default             |
 | **Data/Mono** | Mono    | 0.75rem - 0.875rem | 400    | Default / Uppercase |
@@ -110,7 +110,7 @@ Visual hierarchy is conveyed through tonal layers and subtle border shifts rathe
 
 The design system maintains consistent structural integrity through standardized corner treatments.
 
-- **Corner Radius:** All interactive elements, containers, and cards utilize a consistent `0px` (`rounded-none`) radius to maintain a sharp, architectural, and premium editorial aesthetic.
+- **Corner Radius:** Structure is straight, objects are soft. All interactive elements, containers, cards and screenshots use `0px` (`rounded-none`). Rounded corners are reserved for mental-model objects in diagrams (vaults, cards, boards), the logo mark and timeline nodes. See BRANDBOOK.md §06.
 - **Borders:** Thin, subtle borders (`oklch(0.9 0.008 85)`) are used to define boundaries without adding visual weight.
 
 ## Components

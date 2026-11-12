@@ -19,7 +19,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { signupWaitlist } from "@/actions/signupWaitlist";
 import { toast } from "sonner";
-import { sendGAEvent } from "@next/third-parties/google";
+import { trackEvent } from "@/lib/analytics";
 
 const CONTEXTUAL_COPY: Record<
   string,
@@ -44,10 +44,10 @@ const CONTEXTUAL_COPY: Record<
     buttonText: "Unirme a la beta privada",
   },
   blog_pue_vs_ppd: {
-    title: "Protege tu dinero hoy mismo",
+    title: "Facturado no es cobrado",
     description:
-      "Deja de pagar impuestos por dinero que no has cobrado. Únete a la beta de Fiscalio para conciliar facturas PUE y PPD automáticamente.",
-    buttonText: "Proteger mi dinero",
+      "Únete a la beta privada de Fiscalio y concilia tus facturas PUE y PPD: qué ingresos ya cuentan para el SAT y cuáles siguen abiertos.",
+    buttonText: "Unirme a la beta privada",
   },
   blog_exportacion_servicios: {
     title: "Descarga la plantilla de exportación",
@@ -77,7 +77,7 @@ export function WaitlistDialog() {
   useEffect(() => {
     if (open) {
       if (!hasTrackedOpen.current) {
-        sendGAEvent("event", "waitlist_dialog_opened", {
+        trackEvent("waitlist_dialog_opened", {
           trigger_location: source,
           page_path: pathname,
         });
@@ -111,7 +111,7 @@ export function WaitlistDialog() {
           description: errorMessage,
         });
       } else {
-        sendGAEvent("event", "waitlist_signup", {
+        trackEvent("waitlist_signup", {
           method: "email",
           signup_source: source,
           page_path: pathname,

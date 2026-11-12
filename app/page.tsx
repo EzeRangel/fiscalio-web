@@ -130,8 +130,8 @@ export default function LandingPage() {
               className="mx-auto"
               alt="On the Bure, near Aylsham, Norfolk - Attributed to James Bulwer"
             />
-            <div className="absolute top-1/2 left-1/2 max-w-2xl w-full md:max-w-5xl transform -translate-x-1/2 -translate-y-1/2 shadow-2xl">
-              <div className="relative rounded-lg overflow-hidden border-2 border-border">
+            <div className="absolute top-1/2 left-1/2 max-w-2xl w-full md:max-w-5xl transform -translate-x-1/2 -translate-y-1/2">
+              <div className="overflow-hidden border border-border">
                 <Image
                   src={Snapshot}
                   width={1470}
@@ -139,8 +139,6 @@ export default function LandingPage() {
                   alt="Factura Inteligente - Vista de la aplicación mostrando listado de facturas organizadas por mes"
                   className="w-full h-auto"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/5 via-transparent to-background/5 pointer-events-none"></div>
               </div>
             </div>
           </div>
