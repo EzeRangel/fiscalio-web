@@ -1,6 +1,6 @@
 # AGENTS.md — Fiscalio Web
 
-High-signal guidance for working in this repo. Read `DESIGN.md` and `GEMINI.md` in addition — they own the design system and content voice respectively and are not duplicated here.
+High-signal guidance for working in this repo. Read `~/Projects/home/docs/fiscalio/DESIGN.md` and `GEMINI.md` in addition — they own the design system and content voice respectively and are not duplicated here.
 
 ## Stack
 
@@ -28,15 +28,15 @@ Only four npm scripts exist. There is **no** test or typecheck script.
 
 ## Brand
 
-`docs/BRANDBOOK.md` is the source of truth for brand, voice and the visual system across the site and social media (visual version at `/admin/brandbook`, data in `lib/brand.ts`). It overrides `DESIGN.md` and `CONTENT.md` when they disagree.
+`~/Projects/home/docs/fiscalio/BRANDBOOK.md` (in the Home Repo) is the source of truth for brand, voice and the visual system across the site and social media (visual version at `/admin/brandbook`, data in `lib/brand.ts`). It overrides `DESIGN.md` and `CONTENT.md` when they disagree.
 
 ## Design System
 
-Check `docs/DESIGN.md` for more information as needed.
+Check `~/Projects/home/docs/fiscalio/DESIGN.md` for more information as needed.
 
 ## Content
 
-Check `docs/CONTENT.md` for more information as needed.
+Check `~/Projects/home/docs/fiscalio/CONTENT.md` for more information as needed.
 
 ## Layout
 
@@ -93,7 +93,7 @@ Required env vars (read via `lib/constants.ts` and inline `process.env`):
 2. `npx tsc --noEmit` (no script, run manually)
 3. If you touched routes, server actions, or fonts: `npm run build`
 4. If you touched `lib/tax-constants.ts` or `lib/tax-calculator.ts`: cross-check a hand-computed case against the public SAT tabla ISR RESICO mensual.
-5. If you touched `docs/DESIGN.md` colors used by OG: update `app/api/og/route.tsx` to match.
+5. If you touched `~/Projects/home/docs/fiscalio/DESIGN.md` colors used by OG: update `app/api/og/route.tsx` to match.
 
 ## State and Progress
 
